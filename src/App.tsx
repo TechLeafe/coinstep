@@ -1,6 +1,12 @@
-import { Routes, Route } from 'react-router-dom'
+import {
+  Route,
+  Routes,
+  useLocation,
+} from 'react-router-dom'
+
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
+
 import { Home } from './pages/Home'
 import { Platform } from './pages/Platform'
 import { Features } from './pages/Features'
@@ -8,24 +14,62 @@ import { Build } from './pages/Build'
 import { Support } from './pages/Support'
 import { About } from './pages/About'
 
-// Navbar and Footer are rendered once, outside <Routes>, so the
-// theme toggle and navigation are consistent on every page — only
-// the middle of the page swaps per route.
+
 export default function App() {
+
+  const location = useLocation()
+
+  const isAboutPage =
+    location.pathname === '/about'
+
+
   return (
     <>
       <Navbar />
+
       <main>
+
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/platform" element={<Platform />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/build" element={<Build />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/about" element={<About />} />
+
+          <Route
+            path="/"
+            element={<Home />}
+          />
+
+          <Route
+            path="/platform"
+            element={<Platform />}
+          />
+
+          <Route
+            path="/features"
+            element={<Features />}
+          />
+
+          <Route
+            path="/build"
+            element={<Build />}
+          />
+
+          <Route
+            path="/support"
+            element={<Support />}
+          />
+
+          <Route
+            path="/about"
+            element={<About />}
+          />
+
         </Routes>
+
       </main>
-      <Footer />
+
+
+      {/* Footer shows on other pages,
+          but NOT on About page */}
+
+      {!isAboutPage && <Footer />}
     </>
   )
 }
