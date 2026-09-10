@@ -1,0 +1,274 @@
+/* ============================================================
+   FAQ.CSS
+   Layout specific to the FAQ page only. Every value still reads
+   from the shared tokens in tokens.css (colors, spacing, radius,
+   shadow, type) — nothing here is a hardcoded design value, so
+   the page re-themes with the rest of the site automatically.
+   Responsiveness comes from the same fluid/flex/grid approach
+   used everywhere else on the site: no @media breakpoints.
+   ============================================================ */
+
+.faq-page {
+  padding-bottom: var(--space-2xl);
+}
+
+/* ---- Hero band ---- */
+.faq-hero {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+  padding-block: var(--space-xl);
+}
+
+.faq-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.faq-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1 1 32rem;
+  min-width: 0;
+}
+
+.faq-hero-eyebrow {
+  color: color-mix(in srgb, var(--color-accent-ink) 75%, transparent);
+}
+
+.faq-hero-title {
+  color: var(--color-accent-ink);
+  margin-bottom: 0;
+}
+
+.faq-hero-copy {
+  color: color-mix(in srgb, var(--color-accent-ink) 85%, transparent);
+  font-size: var(--text-md);
+  max-width: 46ch;
+}
+
+/* ---- "?" mark, sitting to the right of the hero copy ----
+   No badge/circle behind it — just the glyph itself, floating
+   on the gradient, large like a hero illustration. */
+.faq-hero-mark {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(9rem, 6rem + 12vw, 16rem);
+  height: clamp(9rem, 6rem + 12vw, 16rem);
+  color: #2F6BFF;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: clamp(6rem, 4rem + 9vw, 11rem);
+  line-height: 1;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.25));
+  perspective: 600px;
+}
+
+/* Continuous 360° spin on the vertical axis, like a coin/flag,
+   applied to an inner span so the badge itself keeps its layout box. */
+.faq-hero-mark-glyph {
+  display: inline-block;
+  transform-style: preserve-3d;
+  animation: faq-mark-spin 2.6s linear infinite;
+  will-change: transform;
+}
+
+@keyframes faq-mark-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-hero-mark-glyph {
+    animation: none;
+  }
+}
+
+/* ---- Category cards, in normal flow below the hero (no overlap) ---- */
+.faq-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.faq-category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-md) var(--space-sm);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  font: inherit;
+  color: var(--color-ink);
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.faq-category-card:hover {
+  border-color: var(--color-accent);
+}
+
+.faq-category-card-active {
+  transform: translateY(calc(var(--space-xs) * -1));
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.faq-category-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.faq-category-card-active .faq-category-icon {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.faq-category-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+/* ---- Accordion ---- */
+.faq-accordion-section {
+  padding-top: var(--space-lg);
+}
+
+.faq-accordion-list {
+  gap: var(--space-sm);
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.faq-pill {
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  transition: border-radius var(--transition-fast), box-shadow var(--transition-fast);
+  overflow: hidden;
+}
+
+.faq-pill-open {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong);
+}
+
+.faq-pill-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  font: inherit;
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  transition: transform var(--transition-fast);
+}
+
+.faq-pill-open .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-pill-answer {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.faq-pill-answer p {
+  margin: 0;
+}
+
+/* ---- Contact section ---- */
+.faq-contact-section {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.faq-contact-heading {
+  margin-bottom: var(--space-lg);
+}
+
+.faq-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faq-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.faq-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+
+.faq-field-label {
+  /* Visually hidden: placeholders in the fields carry the label
+     visually to match the reference, but the text label keeps
+     the form accessible to assistive tech and empty-field users. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.faq-contact-message {
+  resize: vertical;
+  min-height: 8rem;
+  font-family: inherit;
+}
+
+.faq-contact-submit {
+  align-self: stretch;
+  margin-top: var(--space-2xs);
+}
+
+.faq-contact-success {
+  padding: var(--space-md);
+  text-align: center;
+}

@@ -7,6 +7,7 @@ import { Features } from './pages/Features'
 import { Build } from './pages/Build'
 import { Support } from './pages/Support'
 import { About } from './pages/About'
+import { Faq } from './pages/Faq'
 
 // Navbar and Footer are rendered once, outside <Routes>, so the
 // theme toggle and navigation are consistent on every page — only
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/build" element={<Build />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </main>

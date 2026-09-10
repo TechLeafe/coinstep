@@ -8,6 +8,7 @@ const LINKS = [
   { to: '/features', label: 'Features' },
   { to: '/build', label: 'Build' },
   { to: '/support', label: 'Support' },
+  { to: '/faq', label: 'FAQ' },
   { to: '/about', label: 'About' },
 ]
 
