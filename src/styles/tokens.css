@@ -1,0 +1,265 @@
+/* ============================================================
+   TOKENS.CSS
+   This is the ONLY file that defines raw design values.
+   Every page/component reads from these variables — change a
+   value here once and it updates everywhere it's used:
+   e.g. edit --color-accent and every button, link and badge
+   in the whole site follows.
+
+   Fluid/responsive values use clamp()/min()/max() instead of
+   @media breakpoints, so layout adapts continuously across
+   any viewport width with zero media queries anywhere.
+   ============================================================ */
+
+:root {
+  /* ---- Color: Light theme (default) ---- */
+  --color-bg: #F3F4F6;
+  --color-bg-raised: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-sunken: #E9EAEE;
+  --color-ink: #0B0E14;
+  --color-ink-soft: #4B5160;
+  --color-ink-faint: #8A90A0;
+  --color-border: rgba(11, 14, 20, 0.12);
+  --color-border-strong: rgba(11, 14, 20, 0.24);
+
+  --color-accent: #cbc324;
+  --color-accent-hover: #cbc324;
+  --color-accent-ink: #FFFFFF;
+  --color-accent-soft: #E9E8FD;
+
+  --color-signal: #0E7C61;
+  --color-signal-soft: #DDF3EA;
+  --color-warn: #B45309;
+  --color-warn-soft: #FCEBD5;
+
+  --color-overlay: rgba(11, 14, 20, 0.5);
+
+  /* ---- Typography ---- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, Segoe UI, sans-serif;
+  --font-mono: 'IBM Plex Mono', Menlo, monospace;
+
+  /* Fluid type scale: min 320px viewport -> max ~1440px, no breakpoints */
+  --text-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.8rem);
+  --text-sm: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem);
+  --text-base: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  --text-md: clamp(1.05rem, 1rem + 0.35vw, 1.2rem);
+  --text-lg: clamp(1.2rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --text-2xl: clamp(1.9rem, 1.5rem + 1.8vw, 2.75rem);
+  --text-3xl: clamp(2.4rem, 1.8rem + 2.8vw, 3.75rem);
+  --text-4xl: clamp(3rem, 2.1rem + 4.2vw, 5rem);
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Spacing (fluid) ---- */
+  --space-3xs: clamp(0.25rem, 0.23rem + 0.1vw, 0.35rem);
+  --space-2xs: clamp(0.5rem, 0.45rem + 0.2vw, 0.65rem);
+  --space-xs: clamp(0.75rem, 0.68rem + 0.3vw, 1rem);
+  --space-sm: clamp(1rem, 0.9rem + 0.4vw, 1.35rem);
+  --space-md: clamp(1.5rem, 1.3rem + 0.8vw, 2.25rem);
+  --space-lg: clamp(2.25rem, 1.9rem + 1.6vw, 3.75rem);
+  --space-xl: clamp(3.5rem, 2.8rem + 2.8vw, 6rem);
+  --space-2xl: clamp(5rem, 3.8rem + 4.8vw, 9rem);
+
+  /* ---- Shape & elevation ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(11, 14, 20, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 14, 20, 0.08);
+  --shadow-lg: 0 20px 48px rgba(11, 14, 20, 0.14);
+
+  --border-width: 1px;
+  --transition-fast: 140ms ease;
+  --transition-base: 220ms ease;
+
+  /* ---- Layout ---- */
+  --content-max: 74rem;
+  --content-pad: clamp(1.25rem, 1rem + 3vw, 4.5rem);
+}
+
+/* ---- Color: Dark theme ----
+   Toggling data-theme on <html> swaps every variable below.
+   Because every component styles itself from these variables
+   (never hardcoded hex values), the whole site re-themes at once. */
+[data-theme='dark'] {
+  --color-bg: #0A0B10;
+  --color-bg-raised: #14151D;
+  --color-surface: #14151D;
+  --color-surface-sunken: #0A0B10;
+  --color-ink: #F3F4F6;
+  --color-ink-soft: #A7ACBB;
+  --color-ink-faint: #666C7C;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.24);
+
+  --color-accent: #8B85FF;
+  --color-accent-hover: #A29CFF;
+  --color-accent-ink: #0A0B10;
+  --color-accent-soft: #211F3D;
+
+  --color-signal: #4ADE9C;
+  --color-signal-soft: #103326;
+  --color-warn: #F3B15C;
+  --color-warn-soft: #382508;
+
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+/* ============================================================
+   BASE ELEMENTS
+   Every button/link/input/badge in every page uses these
+   classes. Change one rule here and every instance updates —
+   e.g. edit .btn-primary's background and every primary button
+   across all pages follows.
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--color-ink);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-lg); }
+
+p {
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover { color: var(--color-accent-hover); }
+
+code, pre, kbd {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---- Buttons: one definition, every button on the site ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  border: var(--border-width) solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+.btn-primary:hover { background: var(--color-accent-hover); color: var(--color-accent-ink); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-border-strong);
+}
+.btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink-soft);
+  padding-inline: var(--space-xs);
+}
+.btn-ghost:hover { color: var(--color-ink); }
+
+.btn-sm { font-size: var(--text-xs); padding: var(--space-3xs) var(--space-sm); }
+.btn-lg { font-size: var(--text-md); padding: var(--space-sm) var(--space-lg); }
+
+/* ---- Badge ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+.badge-new { background: var(--color-signal-soft); color: var(--color-signal); }
+
+/* ---- Card / surface ---- */
+.surface {
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Inputs ---- */
+.input {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  transition: border-color var(--transition-fast);
+}
+.input:focus { border-color: var(--color-accent); outline: none; }

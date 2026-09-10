@@ -1,0 +1,86 @@
+/* ============================================================
+   GLOBAL.CSS
+   Shared layout utilities. Responsiveness comes from
+   fluid units (clamp/min/max), flex-wrap and CSS Grid
+   auto-fit/auto-fill — never from @media breakpoints.
+   ============================================================ */
+
+.container {
+  width: min(100% - (var(--content-pad) * 2), var(--content-max));
+  margin-inline: auto;
+}
+
+.page {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.section {
+  padding-block: var(--space-xl);
+}
+
+/* Flex row that wraps naturally — no breakpoint needed */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.row-between {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Grid that self-adjusts column count to available width */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-md);
+}
+
+.grid-auto-lg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-lg);
+}
+
+/* Two-up layout that folds to one column on narrow widths automatically */
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.split > * {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.hairline {
+  border: none;
+  border-top: var(--border-width) solid var(--color-border);
+  margin: var(--space-lg) 0;
+}
+
+.center { text-align: center; }
+
+.muted { color: var(--color-ink-faint); }
+
+img, svg { max-width: 100%; display: block; }
