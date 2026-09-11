@@ -1,94 +1,1038 @@
-import { LinkButton } from '../components/Button'
-import { useTheme } from '../context/ThemeContext'
-import walletPhones from '../assets/images/mobiledark&light.png'
-import securityShield from '../assets/images/sheild.png'
-import dappsImage from '../assets/images/dapps.jpg'
-import stakingImage from '../assets/images/staking.jpg'
-import swapImage from '../assets/images/swap.jpg'
-import transactionImage from '../assets/images/transaction.png'
-import cryptoWalletImage from '../assets/images/cryptowallet.jpg'
-import portfolioImage from '../assets/images/portfolio.jpg'
+import type { ReactNode } from "react";
 
-const PLATFORM_STYLES = `
-.platform-page{overflow:hidden}.platform-hero{min-height:min(48rem,82vh);display:flex;align-items:center;gap:var(--space-xl);padding-block:var(--space-xl)}.platform-hero-copy{flex:1 1 25rem;min-width:0;z-index:1}.platform-hero h1{max-width:11ch;margin-top:var(--space-xs);font-size:clamp(3rem,7vw,5.75rem)}.platform-hero h1 em{color:var(--color-accent);font-style:normal}.platform-hero-copy>p{max-width:34rem;font-size:var(--text-md)}.platform-actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center}.platform-stats{display:flex;flex-wrap:wrap;gap:var(--space-md);margin-top:var(--space-xl);padding-top:var(--space-sm);border-top:var(--border-width) solid var(--color-border)}.platform-stats span{display:grid;gap:var(--space-3xs);min-width:5.5rem;color:var(--color-ink-faint);font-size:var(--text-xs)}.platform-stats strong{color:var(--color-ink);font-size:var(--text-md)}
-.device-scene{position:relative;flex:1 1 34rem;min-width:min(100%,20rem);min-height:clamp(19rem,38vw,31rem);isolation:isolate}.scene-glow{position:absolute;inset:15% 5%;background:var(--color-accent-soft);opacity:.65;filter:blur(3rem);border-radius:50%;transform:rotate(-12deg)}.laptop{position:absolute;right:0;top:12%;width:min(90%,31rem);aspect-ratio:1.42;padding:1.1rem;border:.7rem solid var(--color-ink);border-bottom-width:1.2rem;border-radius:var(--radius-md);background:var(--color-surface);box-shadow:var(--shadow-lg);transform:perspective(50rem) rotateY(-8deg) rotateX(3deg)}.laptop:after{content:'';position:absolute;left:-8%;right:-8%;bottom:-1.55rem;height:.6rem;border-radius:50%;background:var(--color-ink)}.laptop-bar{display:flex;gap:.25rem;margin-bottom:.9rem}.laptop-bar span{width:.35rem;height:.35rem;border-radius:50%;background:var(--color-accent)}.laptop-bar span:nth-child(2){background:var(--color-signal)}.laptop-bar span:nth-child(3){background:var(--color-warn)}.chart{display:flex;align-items:end;gap:3%;height:42%;padding:1rem;background:var(--color-accent-soft);border-radius:var(--radius-sm)}.chart i{flex:1;height:35%;border-radius:.2rem .2rem 0 0;background:var(--color-accent);animation:bar-pulse 2.6s ease-in-out infinite alternate}.chart i:nth-child(2){height:62%;animation-delay:.2s}.chart i:nth-child(3){height:48%;animation-delay:.4s}.chart i:nth-child(4){height:78%;animation-delay:.6s}.chart i:nth-child(5){height:64%;animation-delay:.8s}.chart i:nth-child(6){height:91%;animation-delay:1s}.chart-line{position:absolute;left:14%;right:8%;top:37%;height:18%;border-top:.15rem solid var(--color-signal);border-radius:50%;transform:rotate(-8deg)}.dashboard-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.45rem;margin-top:.8rem;font-size:.6rem;color:var(--color-ink-soft)}.dashboard-list b{grid-column:1/-1;color:var(--color-ink)}.dashboard-list span{height:.9rem;background:var(--color-surface-sunken);border-radius:.2rem}.phone{position:absolute;z-index:2;left:2%;bottom:2%;width:clamp(10.5rem,35%,14rem);aspect-ratio:.5;padding:1.6rem .7rem .8rem;border:.5rem solid var(--color-ink);border-radius:1.4rem;background:var(--color-surface);box-shadow:var(--shadow-lg);transform:rotate(-6deg);overflow:hidden}.phone-notch{position:absolute;top:.35rem;left:35%;width:30%;height:.7rem;border-radius:0 0 .5rem .5rem;background:var(--color-ink)}.phone-balance{display:grid;gap:.25rem}.phone-balance small,.phone-list{font-size:.5rem;color:var(--color-ink-faint)}.phone-balance strong{font-size:.95rem}.phone-balance em{color:var(--color-signal);font-size:.55rem;font-style:normal}.phone-chart{display:flex;align-items:end;gap:.25rem;height:4rem;margin-block:1rem;padding:.5rem;border-bottom:1px solid var(--color-border)}.phone-chart i{flex:1;height:30%;background:var(--color-signal);border-radius:.3rem .3rem 0 0;animation:bar-pulse 2s ease-in-out infinite alternate}.phone-chart i:nth-child(2){height:55%;animation-delay:.2s}.phone-chart i:nth-child(3){height:42%;animation-delay:.4s}.phone-chart i:nth-child(4){height:76%;animation-delay:.6s}.phone-chart i:nth-child(5){height:65%;animation-delay:.8s}.phone-list{display:grid;gap:.7rem}.phone-list span{display:flex;justify-content:space-between}.phone-list b{color:var(--color-ink);font-size:.48rem}.device-float-icon{position:absolute;z-index:5;display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:var(--radius-sm);background:color-mix(in srgb,var(--color-surface) 88%,transparent);box-shadow:var(--shadow-md);color:var(--color-accent);font-size:1.2rem}.icon-key-badge{right:4%;top:4%}.icon-lock-badge{left:-2%;top:40%;animation-delay:1s;color:var(--color-signal)}.laptop-dashboard{font-size:.62rem;height:calc(100% - 1.2rem);display:flex;flex-direction:column;overflow:hidden}.laptop-dash-head{display:flex;justify-content:space-between;align-items:center;font-weight:var(--weight-semibold);color:var(--color-ink);margin-bottom:.6rem}.laptop-dash-wallet{font-weight:var(--weight-regular);color:var(--color-ink-soft);font-size:.58rem}.laptop-dash-balance{margin-bottom:.6rem}.laptop-dash-balance small{display:block;color:var(--color-ink-faint);font-size:.52rem}.laptop-dash-balance strong{display:block;font-size:1.15rem;color:var(--color-ink)}.laptop-dash-balance em{color:var(--color-signal);font-size:.55rem;font-style:normal}.laptop-dash-actions{display:flex;gap:.6rem;margin-bottom:.7rem}.laptop-dash-actions span{flex:1;display:flex;flex-direction:column;align-items:center;gap:.25rem;font-size:.5rem;color:var(--color-ink-soft)}.laptop-dash-actions i{display:grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--color-accent-soft);color:var(--color-accent);font-style:normal}.laptop-dash-list{display:flex;flex-direction:column;gap:.5rem;overflow:hidden}.laptop-dash-row{display:flex;align-items:center;gap:.5rem}.laptop-dash-name{flex:1;color:var(--color-ink);font-weight:var(--weight-medium)}.laptop-dash-name small{display:block;color:var(--color-ink-faint);font-weight:var(--weight-regular);font-size:.52rem}.laptop-dash-amount{text-align:right;color:var(--color-ink);font-weight:var(--weight-medium)}.laptop-dash-amount small{display:block;color:var(--color-ink-faint);font-weight:var(--weight-regular);font-size:.52rem}.coin-dot{display:grid;place-items:center;width:1.5rem;height:1.5rem;flex-shrink:0;border-radius:50%;background:var(--color-accent-soft);color:var(--color-accent);font-weight:var(--weight-bold);font-size:.6rem}.up{color:var(--color-signal)}.down{color:var(--color-warn)}.phone-app-head{display:flex;justify-content:space-between;align-items:center;font-size:.68rem;font-weight:var(--weight-semibold);color:var(--color-ink);margin-bottom:.5rem}.phone-app-head i{font-style:normal;color:var(--color-ink-faint);font-size:.6rem}.phone-search{background:var(--color-surface-sunken);color:var(--color-ink-faint);border-radius:var(--radius-pill);padding:.3rem .55rem;font-size:.5rem;margin-bottom:.5rem}.phone-wallet-row{font-size:.5rem;color:var(--color-ink-soft);margin-bottom:.45rem}.phone-balance-lg{margin-bottom:.55rem}.phone-balance-lg strong{display:block;font-size:1.05rem;color:var(--color-ink)}.phone-balance-lg em{color:var(--color-signal);font-size:.5rem;font-style:normal}.phone-actions{display:flex;gap:.35rem;margin-bottom:.6rem}.phone-actions span{flex:1;display:flex;flex-direction:column;align-items:center;gap:.2rem;font-size:.42rem;color:var(--color-ink-soft)}.phone-actions i{display:grid;place-items:center;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--color-accent-soft);color:var(--color-accent);font-style:normal}.phone-tabs{display:flex;gap:.7rem;font-size:.52rem;color:var(--color-ink-faint);border-bottom:1px solid var(--color-border);padding-bottom:.35rem;margin-bottom:.5rem}.phone-tabs b{color:var(--color-ink);font-weight:var(--weight-semibold)}.phone-asset-list{display:flex;flex-direction:column;gap:.45rem}.phone-asset-row{display:flex;align-items:center;gap:.4rem}.phone-asset-row .coin-dot{width:1.3rem;height:1.3rem;font-size:.52rem}.phone-asset-name{flex:1;color:var(--color-ink);font-size:.5rem;font-weight:var(--weight-medium)}.phone-asset-name small{display:block;color:var(--color-ink-faint);font-weight:var(--weight-regular);font-size:.42rem}.phone-asset-amount{text-align:right;color:var(--color-ink);font-size:.5rem;font-weight:var(--weight-medium)}.phone-asset-amount small{display:block;color:var(--color-ink-faint);font-weight:var(--weight-regular);font-size:.42rem}.photo-scene{display:flex;align-items:center;justify-content:center;min-height:clamp(19rem,38vw,29rem)}.photo-scene-img{width:100%;max-width:34rem;height:auto;filter:drop-shadow(0 1.5rem 2.5rem rgba(0,0,0,.22))}.stack-phone{position:absolute;border:.45rem solid var(--color-ink);border-radius:1.6rem;background:var(--color-surface);box-shadow:var(--shadow-lg);overflow:hidden;padding:1.5rem .65rem .7rem;font-size:.6rem;display:flex;flex-direction:column;gap:.45rem}.stack-phone-left{left:0;top:9%;width:clamp(9rem,28%,11rem);aspect-ratio:.5;z-index:1;transform:rotate(-4deg)}.stack-phone-center{left:23%;top:0;width:clamp(10rem,31%,12.5rem);aspect-ratio:.48;z-index:3}.stack-phone-right{right:0;top:15%;width:clamp(9rem,28%,11rem);aspect-ratio:.5;z-index:2;transform:rotate(4deg)}.stack-notch{position:absolute;top:.3rem;left:35%;width:30%;height:.55rem;border-radius:0 0 .5rem .5rem;background:var(--color-ink)}.stack-head{display:flex;align-items:center;gap:.3rem;font-weight:var(--weight-semibold);color:var(--color-ink);margin-top:.35rem}.stack-head i{font-style:normal;color:var(--color-ink-faint);font-size:.55rem}.stack-head span{flex:1;font-size:.5rem}.stack-balance{font-size:1rem;color:var(--color-ink)}.stack-wallet-pill{align-self:flex-start;background:var(--color-accent-soft);color:var(--color-accent);border-radius:var(--radius-pill);padding:.15rem .5rem;font-size:.4rem}.stack-icon-row{display:flex;gap:.35rem;margin-top:.15rem}.stack-icon-row span{flex:1;display:flex;flex-direction:column;align-items:center;gap:.15rem;font-size:.38rem;color:var(--color-ink-soft)}.stack-icon-row i{display:grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;background:var(--color-accent-soft);color:var(--color-accent);font-style:normal}.stack-section-label{color:var(--color-ink-faint);font-size:.46rem}.stack-token-row{display:flex;align-items:center;gap:.3rem}.stack-token-info{flex:1;min-width:0}.stack-token-info b{display:block;color:var(--color-ink);font-size:.46rem}.stack-token-info small{color:var(--color-signal);font-size:.38rem}.stack-token-value{color:var(--color-ink);font-size:.42rem;flex-shrink:0}.stack-wave-chart{width:100%;height:3.4rem}.stack-wave-chart polyline{fill:none;stroke:var(--color-accent);stroke-width:1.6}.stack-tx-row{display:flex;align-items:center;gap:.3rem;font-size:.44rem}.stack-tx-row b{flex:1;color:var(--color-ink);font-weight:var(--weight-medium)}.stack-tx-row em{color:var(--color-warn);font-style:normal}.stack-nav{display:flex;justify-content:space-around;margin-top:auto;padding-top:.35rem;border-top:1px solid var(--color-border);color:var(--color-ink-faint);font-size:.5rem}.stack-tabs{display:flex;gap:.55rem;font-size:.46rem;color:var(--color-ink-faint);border-bottom:1px solid var(--color-border);padding-bottom:.3rem}.stack-tabs b{color:var(--color-accent-ink);background:var(--color-accent);padding:.08rem .4rem;border-radius:var(--radius-pill)}.stack-rate-row{display:flex;justify-content:space-between;font-size:.4rem;color:var(--color-ink-soft);background:var(--color-surface-sunken);padding:.28rem .35rem;border-radius:var(--radius-sm)}.stack-rate-row em{color:var(--color-ink);font-style:normal}.stack-convert-btn{margin-top:auto;display:block;text-align:center;background:var(--color-accent);color:var(--color-accent-ink);border-radius:var(--radius-pill);padding:.32rem;font-size:.44rem;font-weight:var(--weight-semibold)}
-.platform-band,.platform-steps{padding-block:var(--space-xl)}.section-heading{margin-bottom:var(--space-lg)}.section-heading h2{margin-top:var(--space-2xs);margin-bottom:var(--space-2xs)}.section-heading p{margin:0}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr));gap:var(--space-sm)}.platform-feature{padding:var(--space-sm);transition:transform var(--transition-base),border-color var(--transition-base)}.platform-feature:hover{transform:translateY(-.35rem);border-color:var(--color-accent)}.platform-feature h3{margin:var(--space-sm) 0 var(--space-3xs);font-family:var(--font-body);font-size:var(--text-sm)}.platform-feature p{font-size:var(--text-xs);line-height:var(--leading-snug);margin:0}.feature-icon{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:var(--radius-pill);background:var(--color-accent-soft);color:var(--color-accent);font-weight:var(--weight-bold)}.steps-track{display:flex;align-items:start;justify-content:space-between;gap:var(--space-xs)}.step{position:relative;display:grid;justify-items:center;gap:var(--space-2xs);flex:1;text-align:center}.step-number{color:var(--color-accent);font-family:var(--font-mono);font-size:var(--text-xs)}.step-symbol{display:grid;place-items:center;width:3.5rem;aspect-ratio:1;border:1px solid var(--color-accent);border-radius:50%;color:var(--color-accent);background:var(--color-accent-soft)}.step strong{font-size:var(--text-xs);line-height:var(--leading-snug)}.step-arrow{position:absolute;top:3.15rem;right:-1rem;color:var(--color-accent)}
-.security-section{background:var(--color-surface-sunken);border-block:1px solid var(--color-border)}.security-inner{display:flex;align-items:center;gap:var(--space-xl);padding-block:var(--space-xl)}.security-visual{position:relative;flex:1 1 22rem;min-height:19rem;display:grid;place-items:center}.security-orbit{position:absolute;width:75%;aspect-ratio:1;border:1px solid var(--color-accent);border-radius:50%;opacity:.4}.orbit-two{width:58%;border-color:var(--color-signal);transform:rotate(60deg)}.security-shield{display:grid;place-items:center;width:9rem;aspect-ratio:.85;clip-path:polygon(50% 0,92% 17%,84% 70%,50% 100%,16% 70%,8% 17%);background:var(--color-accent);filter:drop-shadow(0 0 1.6rem var(--color-accent));animation:shield-pulse 3s ease-in-out infinite}.security-shield:before{content:'';position:absolute;width:7rem;aspect-ratio:.85;clip-path:inherit;background:var(--color-surface-sunken)}.security-shield span{position:relative;z-index:1;color:var(--color-accent);font-size:2rem}.security-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:var(--space-sm)}.security-helmet{position:relative;width:8rem;height:8.5rem;border-radius:4rem 4rem 1.3rem 1.3rem;background:linear-gradient(160deg,var(--color-ink),color-mix(in srgb,var(--color-ink) 68%,var(--color-accent)));box-shadow:0 0 2.5rem color-mix(in srgb,var(--color-accent) 55%,transparent)}.security-helmet:after{content:'';position:absolute;left:-.4rem;right:-.4rem;bottom:1.2rem;height:1.6rem;border-radius:50%;background:inherit;z-index:-1}.security-visor{position:absolute;left:14%;right:14%;top:36%;height:.6rem;background:var(--color-accent);border-radius:var(--radius-pill);box-shadow:0 0 .8rem var(--color-accent)}.security-visor:after{content:'';position:absolute;left:50%;top:0;width:.45rem;height:2.6rem;background:var(--color-accent);border-radius:var(--radius-pill);transform:translateX(-50%);box-shadow:0 0 .6rem var(--color-accent)}.security-helmet-plume{position:absolute;left:50%;top:-.7rem;width:.6rem;height:1.7rem;background:var(--color-signal);border-radius:var(--radius-pill) var(--radius-pill) 0 0;transform:translateX(-50%);box-shadow:0 0 .7rem var(--color-signal)}.security-key{display:flex;gap:.32rem;flex-wrap:wrap;justify-content:center;max-width:13.5rem}.security-key span{display:grid;place-items:center;width:1.55rem;height:1.85rem;border-radius:var(--radius-sm);background:var(--color-surface);border:1px solid var(--color-border-strong);color:var(--color-accent);font-family:var(--font-mono);font-size:.68rem;font-weight:var(--weight-bold)}.security-particle{position:absolute;width:.45rem;height:.45rem;border-radius:50%;background:var(--color-signal)}.particle-one{top:20%;left:25%}.particle-two{right:14%;top:44%;animation-delay:1s}.particle-three{bottom:18%;left:31%;animation-delay:2s}.security-copy{flex:1 1 25rem}.security-copy h2{margin-top:var(--space-2xs)}.security-copy ul{display:grid;gap:var(--space-xs);list-style:none;padding:0;margin:var(--space-md) 0 0}.security-copy li{display:flex;align-items:center;gap:var(--space-xs);font-size:var(--text-sm)}.security-copy li span{display:grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:var(--radius-sm);background:var(--color-accent-soft);color:var(--color-accent);font-size:.7rem}.network-section{padding-bottom:var(--space-xl)}.network-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,8rem),1fr));gap:var(--space-sm)}.network-item{display:grid;justify-items:center;gap:var(--space-3xs);padding:var(--space-sm)}.network-item>span{display:grid;place-items:center;width:2.3rem;aspect-ratio:1;border-radius:50%;background:var(--color-accent-soft);color:var(--color-accent);font-size:1.2rem}.network-item strong{font-size:var(--text-xs)}.network-item small{color:var(--color-ink-faint);font-size:.65rem}.developer-band{display:flex;gap:var(--space-xl);align-items:center;padding-block:var(--space-xl);border-top:1px solid var(--color-border)}.developer-copy,.developer-tools{flex:1 1 20rem}.developer-copy h2{margin-top:var(--space-2xs);font-size:var(--text-2xl)}.developer-copy p{font-size:var(--text-sm)}.developer-tools{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-xs)}.developer-tool{display:grid;gap:var(--space-xs);text-align:center;color:var(--color-ink-faint);font-size:var(--text-xs)}.developer-tool>span{display:grid;place-items:center;min-height:3.5rem;border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--color-accent);font-family:var(--font-mono)}.developer-tool small{font-size:.6rem;line-height:var(--leading-snug)}.platform-cta{padding-block:var(--space-xl);text-align:center;background:var(--color-accent-soft)}.platform-cta h2{margin-bottom:var(--space-md)}
-@keyframes laptop-float{50%{transform:perspective(50rem) rotateY(-5deg) rotateX(5deg) translateY(-.6rem)}}@keyframes phone-float{50%{transform:rotate(-4deg) translateY(-.8rem)}}@keyframes bar-pulse{to{opacity:.65;transform:scaleY(.78);transform-origin:bottom}}@keyframes orbit-spin{to{transform:rotate(360deg)}}@keyframes shield-pulse{50%{filter:drop-shadow(0 0 2.5rem var(--color-accent));transform:scale(1.04)}}@keyframes particle-drift{50%{transform:translate(1rem,-.8rem);opacity:.4}}
-@media (max-width:52rem){.platform-hero,.security-inner,.developer-band{flex-wrap:wrap}.platform-hero{padding-top:var(--space-lg)}.device-scene{flex-basis:100%}.steps-track{flex-wrap:wrap}.step{flex-basis:5rem}.step-arrow{display:none}.developer-tools{flex-basis:100%}}@media (max-width:34rem){.platform-stats{gap:var(--space-sm)}.platform-stats span{min-width:4.3rem}.laptop{top:13%;width:90%}.phone{left:0}.security-inner{gap:var(--space-md)}.developer-tools{grid-template-columns:repeat(3,1fr)}.developer-tool:nth-child(n+4){display:none}}
-.mobile-scene{position:relative;flex:1 1 34rem;min-width:min(100%,20rem);min-height:clamp(25rem,42vw,34rem);overflow:hidden;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--color-ink),color-mix(in srgb,var(--color-ink) 72%,var(--color-signal)));isolation:isolate}.mobile-scene:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 45% 25%,color-mix(in srgb,var(--color-signal) 30%,transparent),transparent 35%),radial-gradient(circle at 85% 85%,color-mix(in srgb,var(--color-accent) 22%,transparent),transparent 30%);pointer-events:none}.mobile-glow{position:absolute;z-index:-1;left:23%;top:12%;width:55%;height:75%;border:2px solid var(--color-signal);border-left-color:transparent;border-radius:50%;box-shadow:0 0 1.8rem color-mix(in srgb,var(--color-signal) 65%,transparent);transform:rotate(-23deg);animation:mobile-orbit 5s ease-in-out infinite}.mobile-phone{position:absolute;z-index:3;left:40%;top:4%;width:min(45%,15rem);height:96%;padding:1.5rem .7rem .8rem;border:.45rem solid var(--color-ink);border-radius:2.1rem;background:var(--color-surface);box-shadow:1.5rem 1.8rem 2.5rem rgba(0,0,0,.35);transform:rotate(5deg);animation:mobile-float 6s ease-in-out infinite}.mobile-phone:before{content:'';position:absolute;inset:.35rem;border:1px solid var(--color-border);border-radius:1.7rem;pointer-events:none}.mobile-speaker{position:absolute;z-index:2;top:.35rem;left:36%;width:28%;height:.8rem;border-radius:0 0 .7rem .7rem;background:var(--color-ink)}.mobile-status{display:flex;justify-content:space-between;padding:.2rem .35rem 1rem;color:var(--color-ink-faint);font-size:.45rem}.mobile-topline{height:.2rem;width:1.4rem;margin:.4rem .35rem 1.1rem;border-radius:var(--radius-pill);background:var(--color-accent)}.mobile-balance{padding:.7rem;border-radius:var(--radius-sm);background:var(--color-accent-soft)}.mobile-balance small{display:block;color:var(--color-ink-soft);font-size:.5rem}.mobile-balance strong{display:block;margin-top:.3rem;font-size:1.05rem}.mobile-balance em{display:block;margin-top:.25rem;color:var(--color-signal);font-size:.5rem;font-style:normal}.mobile-transactions{display:grid;gap:.8rem;margin-top:1rem}.mobile-transactions b{font-size:.58rem}.mobile-transaction{display:flex;align-items:center;gap:.45rem;font-size:.48rem;color:var(--color-ink-soft)}.mobile-transaction i{display:grid;place-items:center;width:1.15rem;height:1.15rem;border-radius:50%;background:var(--color-accent);color:var(--color-accent-ink);font-style:normal}.mobile-transaction:nth-child(3) i{background:var(--color-signal)}.mobile-transaction:nth-child(4) i{background:var(--color-warn)}.mobile-transaction strong{margin-left:auto;color:var(--color-ink);font-size:.46rem}.wallet-card{position:absolute;z-index:4;width:clamp(10rem,42%,15rem);aspect-ratio:1.62;padding:1rem;border-radius:1rem;box-shadow:var(--shadow-lg);font-size:.65rem;transform:rotate(-8deg);animation:card-float 5s ease-in-out infinite}.wallet-card strong{display:block;margin-top:1.1rem;font-size:1.1rem;letter-spacing:.02em}.wallet-card small{display:flex;justify-content:space-between;margin-top:.35rem;font-size:.45rem}.wallet-card-back{left:9%;top:29%;background:color-mix(in srgb,var(--color-warn) 85%,var(--color-accent));color:var(--color-ink);transform:rotate(9deg);animation-delay:.5s}.wallet-card-front{left:23%;top:36%;background:linear-gradient(135deg,var(--color-signal),var(--color-accent));color:var(--color-accent-ink)}.wallet-card-chip{width:1.45rem;height:.95rem;border-radius:.25rem;background:color-mix(in srgb,var(--color-accent-ink) 70%,transparent)}.mobile-float-icon{position:absolute;z-index:5;display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:var(--radius-sm);background:color-mix(in srgb,var(--color-surface) 88%,transparent);box-shadow:var(--shadow-md);color:var(--color-ink);font-size:1.2rem;animation:icon-float 4s ease-in-out infinite}.icon-car{left:23%;top:18%}.icon-key{right:10%;top:21%;color:var(--color-accent)}.icon-lock{left:18%;bottom:20%}.icon-currency{right:14%;bottom:20%;font-size:1.7rem}.icon-dot{right:17%;top:52%;width:1.6rem;height:1.6rem;background:var(--color-signal)}.icon-dot:before{content:'';width:.45rem;height:.45rem;border-radius:50%;background:var(--color-surface)}
-@keyframes mobile-float{50%{transform:rotate(3deg) translateY(-.6rem)}}@keyframes card-float{50%{transform:rotate(-5deg) translateY(-.5rem)}}@keyframes mobile-orbit{50%{transform:rotate(-8deg) scale(1.04)}}@keyframes icon-float{50%{transform:translateY(-.65rem) rotate(5deg)}}
-@media (max-width:34rem){.mobile-scene{min-height:23rem}.mobile-phone{left:39%;width:45%}.wallet-card{width:46%}.wallet-card-back{left:4%}.wallet-card-front{left:16%}.mobile-float-icon{transform:scale(.8)}}
-.theme-device-scene{position:relative;flex:1 1 34rem;min-width:min(100%,20rem);min-height:clamp(22rem,42vw,34rem);display:flex;align-items:center;justify-content:center;overflow:hidden}.theme-device-crop{width:100%;aspect-ratio:1;overflow:hidden}.theme-device-img{display:block;width:200%;height:100%;max-width:none;object-fit:fill}[data-theme='dark'] .theme-device-img{transform:translateX(-50%)}
-`
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
+import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
+import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
+import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
+import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
+import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 
-const FEATURES = [
-  { icon: '▣', tone: 'wallet', title: 'Wallet', body: 'Store and manage crypto assets securely.', image: cryptoWalletImage },
-  { icon: '↗', tone: 'buy', title: 'Buy Crypto', body: 'Purchase supported digital assets.', image: transactionImage },
-  { icon: '⇄', tone: 'swap', title: 'Swap', body: 'Exchange tokens built for one another.', image: swapImage },
-  { icon: '↕', tone: 'stake', title: 'Staking', body: 'Earn rewards from supported assets.', image: stakingImage },
-  { icon: '◈', tone: 'web3', title: 'Web3 / DApp', body: 'Connect to decentralized applications.', image: dappsImage },
-  { icon: '▥', tone: 'portfolio', title: 'Portfolio', body: 'View your transaction activity.', image: portfolioImage },
-]
+import walletPhones from "../assets/images/mobiledark&light.png";
+import securityShield from "../assets/images/sheild.png";
 
-const STEPS = [
-  { number: '01', title: 'Create / Import', body: 'Wallet' },
-  { number: '02', title: 'Secure Your', body: 'Wallet' },
-  { number: '03', title: 'Add Digital', body: 'Assets' },
-  { number: '04', title: 'Buy / Send /', body: 'Receive / Swap' },
-  { number: '05', title: 'Connect to', body: 'Web3' },
-]
-function SecurityScene() {
-  const { theme } = useTheme()
-  const KEY_CHARS = ['4', 'F', 'k', '9', '#', 'A', 'q', '2', 'Z', '7', '$', 'm']
-  return <div className="security-visual" aria-hidden="true"><div className="security-orbit orbit-one" /><div className="security-orbit orbit-two" /><div className="security-content"><div style={{ width: '15rem', height: '15rem', overflow: 'hidden', position: 'relative' }}><img src={securityShield} alt="" style={{ display: 'block', width: '200%', height: '100%', maxWidth: 'none', objectFit: 'fill', transform: theme === 'dark' ? 'translateX(-50%)' : 'none' }} /></div><div className="security-key">{KEY_CHARS.map((char, index) => <span key={index}>{char}</span>)}</div></div><span className="security-particle particle-one" /><span className="security-particle particle-two" /><span className="security-particle particle-three" /></div>
+import "./Platform.css";
+
+
+/* =========================================================
+   TYPES
+========================================================= */
+
+type PlatformVisualType =
+  | "wallet"
+  | "buy"
+  | "swap"
+  | "staking"
+  | "dapp"
+  | "portfolio";
+
+
+type PlatformFeature = {
+  icon: ReactNode;
+  visual: PlatformVisualType;
+  title: string;
+  description: string;
+};
+
+
+/* =========================================================
+   PLATFORM FEATURES
+========================================================= */
+
+const PLATFORM_FEATURES: PlatformFeature[] = [
+  {
+    icon: <AccountBalanceWalletOutlinedIcon />,
+    visual: "wallet",
+    title: "Wallet",
+    description:
+      "Manage supported digital assets through one clear and organized wallet experience.",
+  },
+
+  {
+    icon: <PaymentsOutlinedIcon />,
+    visual: "buy",
+    title: "Buy Crypto",
+    description:
+      "Access a simple flow designed to make acquiring supported digital assets easier to understand.",
+  },
+
+  {
+    icon: <SwapHorizOutlinedIcon />,
+    visual: "swap",
+    title: "Swap",
+    description:
+      "Exchange supported assets through a focused experience with clear transaction details.",
+  },
+
+  {
+    icon: <SavingsOutlinedIcon />,
+    visual: "staking",
+    title: "Staking",
+    description:
+      "Explore supported staking opportunities and keep reward activity visible in one place.",
+  },
+
+  {
+    icon: <LanguageOutlinedIcon />,
+    visual: "dapp",
+    title: "Web3 & dApps",
+    description:
+      "Connect your wallet to decentralized applications and explore Web3 experiences.",
+  },
+
+  {
+    icon: <AssessmentOutlinedIcon />,
+    visual: "portfolio",
+    title: "Portfolio",
+    description:
+      "View your assets and transaction activity together through a simple portfolio overview.",
+  },
+];
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+const PLATFORM_JOURNEY = [
+  {
+    number: "01",
+    title: "Create or Import",
+    text:
+      "Start with a new wallet or bring an existing wallet into CoinStep.",
+  },
+
+  {
+    number: "02",
+    title: "Secure Your Wallet",
+    text:
+      "Set up the security and recovery options that help protect access.",
+  },
+
+  {
+    number: "03",
+    title: "Manage Your Assets",
+    text:
+      "Keep supported digital assets organized and accessible from one place.",
+  },
+
+  {
+    number: "04",
+    title: "Move with Clarity",
+    text:
+      "Send, receive, buy, or swap while reviewing important transaction details.",
+  },
+
+  {
+    number: "05",
+    title: "Explore Web3",
+    text:
+      "Connect your wallet to decentralized applications and Web3 services.",
+  },
+];
+
+
+/* =========================================================
+   SECURITY ITEMS
+========================================================= */
+
+const SECURITY_ITEMS = [
+  "Private-key protection",
+  "Clear transaction confirmations",
+  "Wallet recovery guidance",
+  "App-level security controls",
+  "Transparent wallet interactions",
+];
+
+
+/* =========================================================
+   CAPABILITY VISUALS
+========================================================= */
+
+const PLATFORM_VISUALS: Record<
+  PlatformVisualType,
+  ReactNode
+> = {
+
+  /* WALLET */
+
+  wallet: (
+    <div className="platform-wallet-illustration">
+
+      <div className="platform-wallet-back" />
+
+      <div className="platform-wallet-front">
+
+        <div className="platform-wallet-brand">
+
+          <span>
+            C
+          </span>
+
+          <b>
+            COINSTEP
+          </b>
+
+        </div>
+
+        <strong>
+          $12,458.32
+        </strong>
+
+        <small>
+          Main Wallet
+        </small>
+
+      </div>
+
+      <span className="platform-wallet-dot platform-wallet-dot-one" />
+
+      <span className="platform-wallet-dot platform-wallet-dot-two" />
+
+    </div>
+  ),
+
+
+  /* BUY */
+
+  buy: (
+    <div className="platform-buy-illustration">
+
+      <div className="platform-payment-card">
+
+        <div className="platform-payment-chip" />
+
+        <small>
+          Add crypto
+        </small>
+
+        <strong>
+          $250.00
+        </strong>
+
+      </div>
+
+      <div className="platform-buy-arrow">
+
+        <ArrowForwardRoundedIcon />
+
+      </div>
+
+      <div className="platform-buy-token">
+        ◆
+      </div>
+
+    </div>
+  ),
+
+
+  /* SWAP */
+
+  swap: (
+    <div className="platform-swap-illustration">
+
+      <div className="platform-swap-token platform-swap-token-one">
+
+        <span>
+          Ξ
+        </span>
+
+        <small>
+          ETH
+        </small>
+
+      </div>
+
+
+      <div className="platform-swap-center">
+
+        <SwapHorizOutlinedIcon />
+
+      </div>
+
+
+      <div className="platform-swap-token platform-swap-token-two">
+
+        <span>
+          S
+        </span>
+
+        <small>
+          SOL
+        </small>
+
+      </div>
+
+
+      <div className="platform-swap-line platform-swap-line-one" />
+
+      <div className="platform-swap-line platform-swap-line-two" />
+
+    </div>
+  ),
+
+
+  /* STAKING */
+
+  staking: (
+    <div className="platform-staking-illustration">
+
+      <div className="platform-staking-orbit" />
+
+      <div className="platform-staking-core">
+
+        <SavingsOutlinedIcon />
+
+        <strong>
+          Rewards
+        </strong>
+
+        <small>
+          Staking
+        </small>
+
+      </div>
+
+
+      <span className="platform-staking-coin platform-staking-coin-one">
+        ◆
+      </span>
+
+      <span className="platform-staking-coin platform-staking-coin-two">
+        ◎
+      </span>
+
+      <span className="platform-staking-coin platform-staking-coin-three">
+        Ξ
+      </span>
+
+    </div>
+  ),
+
+
+  /* DAPP */
+
+  dapp: (
+    <div className="platform-dapp-illustration">
+
+      <div className="platform-dapp-window">
+
+        <div className="platform-dapp-window-top">
+          <i />
+          <i />
+          <i />
+        </div>
+
+        <div className="platform-dapp-address">
+          app.web3
+        </div>
+
+        <div className="platform-dapp-connect">
+
+          <LanguageOutlinedIcon />
+
+          <span>
+            dApp
+          </span>
+
+          <small>
+            Connected
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div className="platform-dapp-node platform-dapp-node-one">
+        ◆
+      </div>
+
+      <div className="platform-dapp-node platform-dapp-node-two">
+        ◎
+      </div>
+
+    </div>
+  ),
+
+
+  /* PORTFOLIO */
+
+  portfolio: (
+    <div className="platform-portfolio-illustration">
+
+      <div className="platform-portfolio-card">
+
+        <div className="platform-portfolio-top">
+
+          <div>
+
+            <small>
+              Portfolio
+            </small>
+
+            <strong>
+              $12.4K
+            </strong>
+
+          </div>
+
+          <span>
+            +8.4%
+          </span>
+
+        </div>
+
+
+        <div className="platform-portfolio-bars">
+
+          {[30, 52, 44, 70, 58, 88, 72].map(
+            (height, index) => (
+              <i
+                key={index}
+                style={{
+                  height: `${height}%`,
+                }}
+              />
+            )
+          )}
+
+        </div>
+
+      </div>
+
+    </div>
+  ),
+};
+
+
+/* =========================================================
+   FEATURE VISUAL
+========================================================= */
+
+function PlatformFeatureVisual({
+  type,
+}: {
+  type: PlatformVisualType;
+}) {
+  return (
+    <div
+      className={`platform-feature-visual platform-feature-visual-${type}`}
+      aria-hidden="true"
+    >
+
+      <div className="platform-feature-ring platform-feature-ring-one" />
+
+      <div className="platform-feature-ring platform-feature-ring-two" />
+
+      {PLATFORM_VISUALS[type]}
+
+    </div>
+  );
 }
-function DeviceScene() {
-  const { theme } = useTheme()
-  return <div className="theme-device-scene" aria-label={`Coinstep ${theme} theme mobile wallet preview`}><div className="theme-device-crop"><img className="theme-device-img" src={walletPhones} alt={`${theme === 'dark' ? 'Dark' : 'Light'} Coinstep wallet mobile screens`} /></div></div>
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+function PlatformHeroVisual() {
+  return (
+    <div className="platform-hero-visual">
+
+      {/* GLOW */}
+
+      <div className="platform-hero-glow platform-hero-glow-one" />
+
+      <div className="platform-hero-glow platform-hero-glow-two" />
+
+
+      {/* ORBITS */}
+
+      <div className="platform-hero-orbit platform-hero-orbit-one" />
+
+      <div className="platform-hero-orbit platform-hero-orbit-two" />
+
+      <div className="platform-hero-orbit platform-hero-orbit-three" />
+
+
+      {/* FLOATING CARDS */}
+
+      <div className="platform-connected-card">
+
+        <span />
+
+        <div>
+
+          <strong>
+            Wallet Connected
+          </strong>
+
+          <small>
+            Secure session
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div className="platform-network-card">
+
+        <HubOutlinedIcon />
+
+        <div>
+
+          <strong>
+            Web3 Ready
+          </strong>
+
+          <small>
+            Multi-chain access
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div className="platform-approved-card">
+
+        <VerifiedUserOutlinedIcon />
+
+        <div>
+
+          <strong>
+            Transaction
+          </strong>
+
+          <small>
+            Ready to review
+          </small>
+
+        </div>
+
+      </div>
+
+
+      {/* DEVICE */}
+
+      <div className="platform-device">
+
+        <div className="platform-device-shadow" />
+
+        <div className="platform-theme-crop">
+
+          <img
+            src={walletPhones}
+            alt="CoinStep wallet interface"
+            className="platform-theme-img"
+          />
+
+        </div>
+
+      </div>
+
+
+      {/* SMALL LABELS */}
+
+      <span className="platform-visual-label platform-label-wallet">
+        WALLET
+      </span>
+
+      <span className="platform-visual-label platform-label-assets">
+        ASSETS
+      </span>
+
+      <span className="platform-visual-label platform-label-web3">
+        WEB3
+      </span>
+
+    </div>
+  );
 }
 
+
+/* =========================================================
+   SECURITY VISUAL
+========================================================= */
+
+function PlatformSecurityVisual() {
+  return (
+    <div
+      className="platform-security-visual"
+      aria-hidden="true"
+    >
+
+      <div className="platform-security-glow" />
+
+      <div className="platform-security-orbit platform-security-orbit-one" />
+
+      <div className="platform-security-orbit platform-security-orbit-two" />
+
+
+      <div className="platform-security-image-wrapper">
+
+        <img
+          src={securityShield}
+          alt=""
+          className="platform-security-image"
+        />
+
+      </div>
+
+
+      <div className="platform-security-card">
+
+        <div className="platform-security-card-icon">
+
+          <KeyOutlinedIcon />
+
+        </div>
+
+        <div>
+
+          <strong>
+            Your wallet
+          </strong>
+
+          <small>
+            Your control
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div className="platform-security-lock">
+
+        <LockOutlinedIcon />
+
+      </div>
+
+    </div>
+  );
+}
+
+
+/* =========================================================
+   CONNECTED WEB3 VISUAL
+========================================================= */
+
+function ConnectedWeb3Visual() {
+  return (
+    <div
+      className="platform-network-visual"
+      aria-hidden="true"
+    >
+
+      <div className="platform-network-ring platform-network-ring-one" />
+
+      <div className="platform-network-ring platform-network-ring-two" />
+
+
+      <div className="platform-network-core">
+
+        <span>
+          C
+        </span>
+
+        <strong>
+          CoinStep
+        </strong>
+
+      </div>
+
+
+      <div className="platform-network-node platform-node-wallet">
+
+        <AccountBalanceWalletOutlinedIcon />
+
+        <small>
+          Wallet
+        </small>
+
+      </div>
+
+
+      <div className="platform-network-node platform-node-assets">
+
+        <AssessmentOutlinedIcon />
+
+        <small>
+          Assets
+        </small>
+
+      </div>
+
+
+      <div className="platform-network-node platform-node-dapps">
+
+        <LanguageOutlinedIcon />
+
+        <small>
+          dApps
+        </small>
+
+      </div>
+
+
+      <div className="platform-network-node platform-node-chains">
+
+        <HubOutlinedIcon />
+
+        <small>
+          Chains
+        </small>
+
+      </div>
+
+
+      <div className="platform-network-line platform-network-line-one" />
+
+      <div className="platform-network-line platform-network-line-two" />
+
+      <div className="platform-network-line platform-network-line-three" />
+
+      <div className="platform-network-line platform-network-line-four" />
+
+    </div>
+  );
+}
+
+
+/* =========================================================
+   PLATFORM PAGE
+========================================================= */
 
 export function Platform() {
   return (
-    <>
-      <style>{PLATFORM_STYLES}</style>
-      <style>{`.steps-window{overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}.steps-window .steps-track{width:max-content;justify-content:flex-start;flex-wrap:nowrap;animation:steps-run 22s linear infinite}.steps-window .steps-track:hover{animation-play-state:paused}.steps-window .step{flex:0 0 clamp(10rem,16vw,14rem)}.steps-window .step-arrow{right:-.35rem}@keyframes steps-run{from{transform:translateX(0)}to{transform:translateX(calc(-50% - var(--space-xs) / 2))}}@media (prefers-reduced-motion:reduce){.steps-window .steps-track{animation:none}}`}</style>
-      <style>{`.developer-rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-sm);padding-top:var(--space-md)}.developer-rail:before{content:'';position:absolute;top:3.25rem;left:8%;right:8%;height:1px;background:linear-gradient(90deg,var(--color-accent),var(--color-signal),var(--color-accent));opacity:.65}.developer-node{position:relative;z-index:1;display:grid;justify-items:center;gap:var(--space-xs);text-align:center}.developer-node:nth-child(even){transform:translateY(1.2rem)}.developer-node-icon{display:grid;place-items:center;width:4.3rem;height:4.3rem;border:1px solid var(--color-border-strong);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-accent);font-family:var(--font-mono);font-size:var(--text-md);box-shadow:0 0 0 .45rem var(--color-bg);transition:transform var(--transition-base),border-color var(--transition-base),color var(--transition-base)}.developer-node:hover .developer-node-icon{border-color:var(--color-accent);color:var(--color-signal);transform:translateY(-.35rem) rotate(-4deg)}.developer-node-index{position:absolute;top:-.45rem;right:calc(50% - 2.65rem);display:grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;background:var(--color-accent);color:var(--color-accent-ink);font-family:var(--font-mono);font-size:.55rem}.developer-node small{max-width:8rem;color:var(--color-ink-faint);font-size:.65rem;line-height:var(--leading-snug)}@media (max-width:52rem){.developer-rail{grid-template-columns:repeat(3,1fr);row-gap:var(--space-lg)}.developer-rail:before{display:none}.developer-node:nth-child(even){transform:none}}@media (max-width:34rem){.developer-rail{grid-template-columns:repeat(2,1fr)}}`}</style>
-      <div className="platform-page">
+    <div className="platform-page">
+
+      {/* =====================================================
+          HERO
+      ====================================================== */}
+
       <section className="platform-hero container">
-        <div className="platform-hero-copy">
-          <span className="eyebrow">Platform</span>
-          <h1>One Platform.<br /><em>Your Web3 Journey.</em></h1>
-          <p>Manage, explore, and interact with digital assets from one secure platform.</p>
-          <div className="platform-actions" style={{ flexWrap: 'nowrap' }}>
-            <LinkButton href="#get-started" size="lg">Get Started <span aria-hidden="true">→</span></LinkButton>
-            <LinkButton href="#features" variant="secondary" size="lg">Explore Platform</LinkButton>
+
+        <div className="platform-hero-content">
+
+          <span className="platform-eyebrow">
+            COINSTEP PLATFORM
+          </span>
+
+          <h1>
+            Your Web3 Experience.{" "}
+            <span>
+              One Secure Platform.
+            </span>
+          </h1>
+
+          <p className="platform-description">
+            Manage your wallet, digital assets,
+            transactions, and Web3 connections through
+            one simple and connected experience.
+          </p>
+
+        </div>
+
+        <PlatformHeroVisual />
+
+      </section>
+
+
+      {/* =====================================================
+          PLATFORM CAPABILITIES
+      ====================================================== */}
+
+      <section
+        className="platform-capabilities container"
+        id="platform-capabilities"
+      >
+
+        <div className="platform-section-heading">
+
+          <span className="platform-eyebrow">
+            ONE CONNECTED EXPERIENCE
+          </span>
+
+          <h2>
+            Everything You Need{" "}
+            <span>
+              in One Place
+            </span>
+          </h2>
+
+          <p>
+            Essential wallet and Web3 tools designed
+            to keep your digital experience clear,
+            connected, and easy to manage.
+          </p>
+
+        </div>
+
+
+        <div className="platform-feature-grid">
+
+          {PLATFORM_FEATURES.map(
+            ({
+              icon,
+              visual,
+              title,
+              description,
+            }) => (
+              <article
+                className="platform-feature-card"
+                key={title}
+              >
+
+                <PlatformFeatureVisual
+                  type={visual}
+                />
+
+
+                <div className="platform-feature-content">
+
+                  <div className="platform-feature-heading">
+
+                    <span className="platform-feature-icon">
+                      {icon}
+                    </span>
+
+                    <h3>
+                      {title}
+                    </h3>
+
+                  </div>
+
+                  <p>
+                    {description}
+                  </p>
+
+                </div>
+
+              </article>
+            )
+          )}
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          JOURNEY
+      ====================================================== */}
+
+      <section
+        className="platform-journey-section"
+        id="how-it-works"
+      >
+
+        <div className="container">
+
+          <div className="platform-section-heading">
+
+            <span className="platform-eyebrow">
+              HOW COINSTEP WORKS
+            </span>
+
+            <h2>
+              From Wallet Setup to{" "}
+              <span>
+                Web3
+              </span>
+            </h2>
+
+            <p>
+              A straightforward journey that keeps
+              every important step visible and easy
+              to understand.
+            </p>
+
           </div>
+
+
+          <div className="platform-journey-grid">
+
+            {PLATFORM_JOURNEY.map(
+              ({
+                number,
+                title,
+                text,
+              }) => (
+                <article
+                  className="platform-journey-card"
+                  key={number}
+                >
+
+                  <span className="platform-step-number">
+                    {number}
+                  </span>
+
+                  <div className="platform-step-line">
+                    <i />
+                  </div>
+
+                  <h3>
+                    {title}
+                  </h3>
+
+                  <p>
+                    {text}
+                  </p>
+
+                </article>
+              )
+            )}
+
+          </div>
+
         </div>
-        <DeviceScene />
+
       </section>
 
-      <section className="platform-band container" id="features" style={{ maxWidth: 'none', paddingInline: 'var(--content-pad)' }}>
-        <div className="section-heading" style={{ maxWidth: 'var(--content-max)', marginInline: 'auto', marginBottom: 'var(--space-lg)' }}><span className="eyebrow">Platform features</span><h2>Everything You Need in One Place</h2><p>Manage, grow, and explore your digital assets with powerful tools.</p></div>
-        <div className="feature-grid" style={{ maxWidth: 'var(--content-max)', marginInline: 'auto', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 19rem), 1fr))', gap: 'var(--space-md)' }}>{FEATURES.map((feature) => <article className="platform-feature surface" key={feature.title} style={{ minHeight: 'clamp(18rem, 28vw, 24rem)', padding: 'var(--space-lg)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>{feature.image ? <img src={feature.image} alt="" style={{ width: '100%', height: '9rem', objectFit: 'cover', borderRadius: 'var(--radius-md)' }} /> : <span className={`feature-icon feature-icon-${feature.tone}`} style={{ width: '4.5rem', height: '4.5rem', fontSize: 'var(--text-xl)', background: feature.tone === 'buy' || feature.tone === 'portfolio' ? 'var(--color-signal-soft)' : feature.tone === 'stake' ? 'var(--color-warn-soft)' : 'var(--color-accent-soft)', color: feature.tone === 'buy' || feature.tone === 'portfolio' ? 'var(--color-signal)' : feature.tone === 'stake' ? 'var(--color-warn)' : 'var(--color-accent)' }} aria-hidden="true">{feature.icon}</span>}<div><h3 style={{ fontSize: 'var(--text-lg)', marginTop: 'var(--space-lg)' }}>{feature.title}</h3><p style={{ fontSize: 'var(--text-md)', marginBottom: 0 }}>{feature.body}</p></div></article>)}</div>
-      </section>
 
-      <section className="platform-steps container">
-        <div className="section-heading"><span className="eyebrow">How it works</span><h2>Get Started in Minutes</h2><p>A simple process to get you from setup to Web3.</p></div>
-        <div className="steps-window" aria-label="Getting started steps">
-          <div className="steps-track">{[...STEPS, ...STEPS].map((step, index) => <div className="step" key={`${step.number}-${index}`} aria-hidden={index >= STEPS.length}><span className="step-number">{step.number}</span><span className="step-symbol" aria-hidden="true">{['▣', '✓', '▤', '→', '◎'][index % STEPS.length]}</span><strong>{step.title}<br />{step.body}</strong>{index % STEPS.length < STEPS.length - 1 && <span className="step-arrow" aria-hidden="true">→</span>}</div>)}</div>
+      {/* =====================================================
+          SECURITY
+      ====================================================== */}
+
+      <section className="platform-security-section">
+
+        <div className="platform-security-inner container">
+
+          <PlatformSecurityVisual />
+
+
+          <div className="platform-security-copy">
+
+            <span className="platform-eyebrow">
+              SECURITY AT EVERY STEP
+            </span>
+
+            <h2>
+              Stay in Control of{" "}
+              <span>
+                Every Interaction
+              </span>
+            </h2>
+
+            <p className="platform-security-description">
+              CoinStep is designed to make important
+              wallet actions easier to understand.
+              Clear confirmations and security-focused
+              flows help you stay aware of what you
+              are approving.
+            </p>
+
+
+            <div className="platform-security-list">
+
+              {SECURITY_ITEMS.map(
+                (item) => (
+                  <div
+                    className="platform-security-item"
+                    key={item}
+                  >
+
+                    <span>
+                      <CheckCircleOutlineRoundedIcon />
+                    </span>
+
+                    <strong>
+                      {item}
+                    </strong>
+
+                  </div>
+                )
+              )}
+
+            </div>
+
+          </div>
+
         </div>
+
       </section>
 
-      <section className="security-section"><div className="security-inner container">
-        <SecurityScene />
-        <div className="security-copy"><span className="eyebrow">Your safety first</span><h2>Built for Security</h2><p>We implement industry-leading safety practices to keep your digital assets safe.</p><ul>{['Private-key protection', 'Secure wallet architecture', 'Transaction confirmation', 'Backup / recovery guidance', 'Biometric / app security'].map((item, index) => <li key={item}><span aria-hidden="true">{['▣', '▤', '✓', '↗', '●'][index]}</span>{item}</li>)}</ul></div></div></section>
 
-      <section className="developer-band container"><div className="developer-copy"><span className="eyebrow">For developers</span><h2>Build the Next Generation of Web3</h2><p>Connect your application, integrate powerful APIs, and build amazing experiences with our developer tools.</p><LinkButton href="#docs" variant="secondary" size="sm">View Documentation <span aria-hidden="true">→</span></LinkButton></div><div className="developer-rail">{['</>', '▣', '◈', '◇', '▤'].map((tool, index) => <div className="developer-node" key={tool}><span className="developer-node-index">0{index + 1}</span><span className="developer-node-icon">{tool}</span><small>{['Connect your application', 'Wallet connection', 'Blockchain APIs', 'Web3 integrations', 'Developer documentation'][index]}</small></div>)}</div></section>
+      {/* =====================================================
+          CONNECTED WEB3
+      ====================================================== */}
 
-      <section className="platform-cta" id="get-started"><div className="container"><h2>Start exploring Web3 today.</h2><div className="platform-actions"><LinkButton href="#wallet" size="lg">Create Wallet</LinkButton><LinkButton href="#explore" variant="secondary" size="lg">Explore Web3</LinkButton></div></div></section>
-      </div>
-    </>
-  )
+      <section className="platform-connected-section container">
+
+        <div className="platform-connected-copy">
+
+          <span className="platform-eyebrow">
+            CONNECTED WEB3
+          </span>
+
+          <h2>
+            One Wallet.{" "}
+            <span>
+              More Ways to Connect.
+            </span>
+          </h2>
+
+          <p>
+            Bring your wallet, digital assets,
+            transactions, supported blockchain
+            networks, and decentralized applications
+            together through one connected experience.
+          </p>
+
+
+          <div className="platform-connected-points">
+
+            <div>
+
+              <DevicesOutlinedIcon />
+
+              <span>
+                Consistent wallet experience
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <HubOutlinedIcon />
+
+              <span>
+                Connected blockchain access
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <VerifiedUserOutlinedIcon />
+
+              <span>
+                Clear transaction flows
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <ConnectedWeb3Visual />
+
+      </section>
+
+    </div>
+  );
 }
