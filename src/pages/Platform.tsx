@@ -38,6 +38,16 @@ const STEPS = [
   { number: '04', title: 'Buy / Send /', body: 'Receive / Swap' },
   { number: '05', title: 'Connect to', body: 'Web3' },
 ]
+function SecurityScene() {
+  const { theme } = useTheme()
+  const KEY_CHARS = ['4', 'F', 'k', '9', '#', 'A', 'q', '2', 'Z', '7', '$', 'm']
+  return <div className="security-visual" aria-hidden="true"><div className="security-orbit orbit-one" /><div className="security-orbit orbit-two" /><div className="security-content"><div style={{ width: '15rem', height: '15rem', overflow: 'hidden', position: 'relative' }}><img src={securityShield} alt="" style={{ display: 'block', width: '200%', height: '100%', maxWidth: 'none', objectFit: 'fill', transform: theme === 'dark' ? 'translateX(-50%)' : 'none' }} /></div><div className="security-key">{KEY_CHARS.map((char, index) => <span key={index}>{char}</span>)}</div></div><span className="security-particle particle-one" /><span className="security-particle particle-two" /><span className="security-particle particle-three" /></div>
+}
+function DeviceScene() {
+  const { theme } = useTheme()
+  return <div className="theme-device-scene" aria-label={`Coinstep ${theme} theme mobile wallet preview`}><div className="theme-device-crop"><img className="theme-device-img" src={walletPhones} alt={`${theme === 'dark' ? 'Dark' : 'Light'} Coinstep wallet mobile screens`} /></div></div>
+}
+
 
 export function Platform() {
   return (
@@ -71,7 +81,9 @@ export function Platform() {
         </div>
       </section>
 
-      <section className="security-section"><div className="security-inner container"><SecurityScene /><div className="security-copy"><span className="eyebrow">Your safety first</span><h2>Built for Security</h2><p>We implement industry-leading safety practices to keep your digital assets safe.</p><ul>{['Private-key protection', 'Secure wallet architecture', 'Transaction confirmation', 'Backup / recovery guidance', 'Biometric / app security'].map((item, index) => <li key={item}><span aria-hidden="true">{['▣', '▤', '✓', '↗', '●'][index]}</span>{item}</li>)}</ul></div></div></section>
+      <section className="security-section"><div className="security-inner container">
+        <SecurityScene />
+        <div className="security-copy"><span className="eyebrow">Your safety first</span><h2>Built for Security</h2><p>We implement industry-leading safety practices to keep your digital assets safe.</p><ul>{['Private-key protection', 'Secure wallet architecture', 'Transaction confirmation', 'Backup / recovery guidance', 'Biometric / app security'].map((item, index) => <li key={item}><span aria-hidden="true">{['▣', '▤', '✓', '↗', '●'][index]}</span>{item}</li>)}</ul></div></div></section>
 
       <section className="developer-band container"><div className="developer-copy"><span className="eyebrow">For developers</span><h2>Build the Next Generation of Web3</h2><p>Connect your application, integrate powerful APIs, and build amazing experiences with our developer tools.</p><LinkButton href="#docs" variant="secondary" size="sm">View Documentation <span aria-hidden="true">→</span></LinkButton></div><div className="developer-rail">{['</>', '▣', '◈', '◇', '▤'].map((tool, index) => <div className="developer-node" key={tool}><span className="developer-node-index">0{index + 1}</span><span className="developer-node-icon">{tool}</span><small>{['Connect your application', 'Wallet connection', 'Blockchain APIs', 'Web3 integrations', 'Developer documentation'][index]}</small></div>)}</div></section>
 

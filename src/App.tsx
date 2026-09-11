@@ -10,12 +10,13 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
 import { Home } from "./pages/Home";
-import { Platform } from "./pages/Platform";
+
 import { Features } from "./pages/Features";
 import { Build } from "./pages/Build";
 import { Support } from "./pages/Support";
 import { About } from "./pages/About";
 import { Faq } from "./pages/Faq";
+import { Platform } from "./pages/Platform";
 
 export default function App() {
   const location = useLocation();
