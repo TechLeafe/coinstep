@@ -58,14 +58,17 @@ export default function App() {
           />
 
           <Route
-            path="/faq"
-            element={<Faq />}
-          />
-
-          <Route
             path="/about"
             element={<About />}
           />
+          
+          <Route path="/" element={<Home />} />
+          <Route path="/platform" element={<Platform />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/build" element={<Build />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/about" element={<About />} />
         </Routes>
 
       </main>
