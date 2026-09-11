@@ -1,48 +1,142 @@
-import './Footer.css'
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const COLUMNS = [
-  { title: 'Product', links: ['Platform', 'Features', 'Pricing', 'Changelog'] },
-  { title: 'Build', links: ['Docs', 'API reference', 'Status', 'SDKs'] },
-  { title: 'Company', links: ['About', 'Careers', 'Press', 'Contact'] },
-]
+  {
+    title: "Product",
+    links: [
+      {
+        label: "Platform",
+        path: "/platform",
+      },
+      {
+        label: "Features",
+        path: "/features",
+      },
+      {
+        label: "Build",
+        path: "/build",
+      },
+    ],
+  },
+
+  {
+    title: "Resources",
+    links: [
+      {
+        label: "Support",
+        path: "/support",
+      },
+      {
+        label: "FAQ",
+        path: "/faq",
+      },
+    ],
+  },
+
+  {
+    title: "Company",
+    links: [
+      {
+        label: "About",
+        path: "/about",
+      },
+    ],
+  },
+];
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="container">
+
+        {/* =========================
+            TOP FOOTER
+        ========================== */}
+
         <div className="footer-grid">
-          <div className="stack">
-            <span className="nav-brand" style={{ fontSize: 'var(--text-md)' }}>
+
+          {/* BRAND SECTION */}
+          <div className="stack footer-brand-section">
+
+            <Link
+              to="/"
+              className="nav-brand footer-brand"
+            >
               Coinstep
-            </span>
-            <p className="muted" style={{ maxWidth: '32ch' }}>
-              Operational clarity for teams who ship without slowing down to look for it.
+            </Link>
+
+            <p
+              className="muted footer-description"
+            >
+              A secure and simple Web3 wallet for managing
+              digital assets, exploring blockchain applications,
+              and staying in control of your crypto.
             </p>
+
           </div>
 
-          {COLUMNS.map((col) => (
-            <div className="stack" key={col.title}>
-              <span className="eyebrow">{col.title}</span>
-              {col.links.map((link) => (
-                <a key={link} href="#" className="footer-link">
-                  {link}
-                </a>
+          {/* FOOTER COLUMNS */}
+          {COLUMNS.map((column) => (
+            <div
+              className="stack"
+              key={column.title}
+            >
+              <span className="eyebrow">
+                {column.title}
+              </span>
+
+              {column.links.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.path}
+                  className="footer-link"
+                >
+                  {link.label}
+                </Link>
               ))}
             </div>
           ))}
+
         </div>
 
+        {/* DIVIDER */}
         <hr className="hairline" />
 
-        <div className="row-between">
-          <span className="muted" style={{ fontSize: 'var(--text-xs)' }}>
-            © {new Date().getFullYear()} Coinstep Labs, Inc.
-          </span>
-          <span className="muted" style={{ fontSize: 'var(--text-xs)' }}>
-            Built with a single design-token system.
-          </span>
-        </div>
-      </div>
-    </footer>
-  )
+      {/* =========================
+    BOTTOM FOOTER
+========================== */}
+
+<div className="row-between footer-bottom">
+
+  {/* COPYRIGHT */}
+  <span className="muted footer-copyright">
+    © {new Date().getFullYear()} Coinstep.
+    All rights reserved.
+  </span>
+
+  {/*
+  <div className="footer-legal">
+
+    <a
+      href="#"
+      className="footer-link footer-legal-link"
+    >
+      Privacy Policy
+    </a>
+
+    <a
+      href="#"
+      className="footer-link footer-legal-link"
+    >
+      Terms of Service
+    </a>
+
+  </div>
+  */}
+
+</div>
+</div>
+</footer>
+);
 }

@@ -1,18 +1,82 @@
 .footer {
   border-top: var(--border-width) solid var(--color-border);
-  padding-block: var(--space-xl) var(--space-lg);
-  background: var(--color-surface);
+
+  padding-block:
+    var(--space-xl)
+    var(--space-lg);
 }
+
+/* Footer layout */
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 12rem), 1fr)
+    );
+
   gap: var(--space-lg);
+
   margin-bottom: var(--space-md);
 }
 
-.footer-link {
-  font-size: var(--text-sm);
-  color: var(--color-ink-soft);
+/* Brand */
+
+.footer-brand {
+  text-decoration: none;
+  font-size: var(--text-md);
+  font-weight: 600;
 }
-.footer-link:hover { color: var(--color-accent); }
+
+/* Description */
+
+.footer-description {
+  max-width: 32ch;
+  line-height: 1.6;
+}
+
+/* Links */
+
+.footer-link {
+  width: fit-content;
+
+  font-size: var(--text-sm);
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+  transform: translateX(3px);
+}
+
+/* Bottom section */
+
+.footer-bottom {
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: var(--text-xs);
+}
+
+/* Legal links */
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: var(--space-md);
+}
+
+.footer-legal-link {
+  font-size: var(--text-xs);
+}
