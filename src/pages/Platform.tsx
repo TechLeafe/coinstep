@@ -80,14 +80,3 @@ export function Platform() {
     </>
   )
 }
-
-function DeviceScene() {
-  const { theme } = useTheme()
-  return <div className="theme-device-scene" aria-label={`Coinstep ${theme} theme mobile wallet preview`}><div className="theme-device-crop"><img className="theme-device-img" src={walletPhones} alt={`${theme === 'dark' ? 'Dark' : 'Light'} Coinstep wallet mobile screens`} /></div></div>
-}
-
-function SecurityScene() {
-  const { theme } = useTheme()
-  const KEY_CHARS = ['4', 'F', 'k', '9', '#', 'A', 'q', '2', 'Z', '7', '$', 'm']
-  return <div className="security-visual" aria-hidden="true"><div className="security-orbit orbit-one" /><div className="security-orbit orbit-two" /><div className="security-content"><div style={{ width: '15rem', height: '15rem', overflow: 'hidden', position: 'relative' }}><img src={securityShield} alt="" style={{ display: 'block', width: '200%', height: '100%', maxWidth: 'none', objectFit: 'fill', transform: theme === 'dark' ? 'translateX(-50%)' : 'none' }} /></div><div className="security-key">{KEY_CHARS.map((char, index) => <span key={index}>{char}</span>)}</div></div><span className="security-particle particle-one" /><span className="security-particle particle-two" /><span className="security-particle particle-three" /></div>
-}
