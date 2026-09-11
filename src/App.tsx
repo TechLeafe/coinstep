@@ -31,39 +31,6 @@ export default function App() {
       <main>
 
         <Routes>
-<<<<<<< HEAD
-
-          <Route
-            path="/"
-            element={<Home />}
-          />
-
-          <Route
-            path="/platform"
-            element={<Platform />}
-          />
-
-          <Route
-            path="/features"
-            element={<Features />}
-          />
-
-          <Route
-            path="/build"
-            element={<Build />}
-          />
-
-          <Route
-            path="/support"
-            element={<Support />}
-          />
-
-          <Route
-            path="/about"
-            element={<About />}
-          />
-
-=======
           <Route path="/" element={<Home />} />
           <Route path="/platform" element={<Platform />} />
           <Route path="/features" element={<Features />} />
@@ -71,7 +38,6 @@ export default function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/about" element={<About />} />
->>>>>>> d54f0148bbe65344f459c92509175cefbc413143
         </Routes>
 
       </main>
@@ -82,10 +48,5 @@ export default function App() {
 
       {!isAboutPage && <Footer />}
     </>
-<<<<<<< HEAD
-  )
-}
-=======
   );
 }
->>>>>>> d54f0148bbe65344f459c92509175cefbc413143
