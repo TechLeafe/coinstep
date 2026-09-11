@@ -1,3 +1,4 @@
+
 {
   "name": "coinstep-site",
   "private": true,
@@ -25,3 +26,4 @@
     "vite": "^5.4.1"
   }
 }
+

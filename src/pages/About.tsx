@@ -4,6 +4,8 @@ import {
 } from "react";
 
 import { Link } from "react-router-dom";
+import { Footer } from "../components/Footer";
+
 import "./About.css";
 
 
@@ -24,14 +26,17 @@ const VALUES = [
     title: "Open & Collaborative",
     body: "We share context, work together, and create clearer Web3 experiences as one team.",
   },
+
   // {
   //   title: "Humble and growth mindset",
   //   body: "We're curious, adaptable, and always ready to learn, improve, and rethink our approach.",
   // },
+
   // {
   //   title: "Integrity",
   //   body: "We build with good intent, transparent decisions, and high standards for every experience.",
   // },
+
   // {
   //   title: "Execution-oriented",
   //   body: "We turn ideas into useful products, learn quickly from feedback, and keep improving.",
@@ -51,7 +56,9 @@ function KeyArt() {
       role="img"
       aria-label="Lock and keys illustration"
     >
+
       {/* Lock top */}
+
       <path
         d="M166 92V70c0-37 27-64 64-64s64 27 64 64v24"
         fill="none"
@@ -60,13 +67,17 @@ function KeyArt() {
         strokeLinecap="round"
       />
 
+
       {/* Lock body */}
+
       <path
         d="M165 81h131c19 0 35 16 35 35v79c0 19-16 35-35 35H165c-19 0-35-16-35-35v-79c0-19 16-35 35-35Z"
         fill="var(--color-bg-raised)"
       />
 
+
       {/* Key hole */}
+
       <circle
         cx="230"
         cy="143"
@@ -83,7 +94,9 @@ function KeyArt() {
         fill="var(--color-accent)"
       />
 
+
       {/* Left key */}
+
       <path
         d="M130 173 65 234l20 21 31-29 17 16 25-24-17-16 14-13Z"
         fill="var(--color-ink)"
@@ -98,7 +111,9 @@ function KeyArt() {
         strokeWidth="7"
       />
 
+
       {/* Right key */}
+
       <path
         d="m278 167 119 104-35 41-119-104Z"
         fill="var(--color-signal)"
@@ -113,6 +128,7 @@ function KeyArt() {
         d="m385 258 38 33-29 34-38-33Z"
         fill="var(--color-warn)"
       />
+
     </svg>
   );
 }
@@ -138,6 +154,7 @@ function TelescopeArt({
       role="img"
       aria-label="Telescope illustration"
     >
+
       <path
         d="m48 116 179-73 42 78-182 74Z"
         fill="var(--color-signal)"
@@ -196,6 +213,7 @@ function TelescopeArt({
         strokeWidth="5"
         strokeLinecap="round"
       />
+
     </svg>
   );
 }
@@ -213,6 +231,7 @@ function CrystalArt() {
       role="img"
       aria-label="Crystal illustration"
     >
+
       <path
         d="m177 24 88 83-39 163-49 36-55-39-37-156Z"
         fill="var(--color-bg-raised)"
@@ -268,6 +287,7 @@ function CrystalArt() {
         r="6"
         fill="var(--color-ink)"
       />
+
     </svg>
   );
 }
@@ -285,6 +305,7 @@ function ShieldArt() {
       role="img"
       aria-label="Security shield illustration"
     >
+
       <path
         d="M160 15 259 50v70c0 65-38 108-99 130-61-22-99-65-99-130V50Z"
         fill="var(--color-signal)"
@@ -306,6 +327,7 @@ function ShieldArt() {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
     </svg>
   );
 }
@@ -323,6 +345,7 @@ function GlobeArt() {
       role="img"
       aria-label="Connected globe illustration"
     >
+
       <circle
         cx="174"
         cy="130"
@@ -374,6 +397,7 @@ function GlobeArt() {
         r="11"
         fill="var(--color-signal)"
       />
+
     </svg>
   );
 }
@@ -391,6 +415,7 @@ function TeamArt() {
       role="img"
       aria-label="Web3 builders illustration"
     >
+
       <rect
         x="169"
         y="48"
@@ -472,6 +497,7 @@ function TeamArt() {
         rx="16"
         fill="var(--color-signal-soft)"
       />
+
     </svg>
   );
 }
@@ -490,11 +516,13 @@ export function About() {
   const handleArtPointerMove = (
     event: ReactPointerEvent<HTMLDivElement>,
   ) => {
+
     if (event.pointerType !== "mouse") {
       return;
     }
 
-    const container = event.currentTarget;
+    const container =
+      event.currentTarget;
 
     const rect =
       container.getBoundingClientRect();
@@ -531,6 +559,7 @@ export function About() {
     const rotateX =
       normalizedY * -3;
 
+
     container.style.setProperty(
       "--art-x",
       `${moveX}px`,
@@ -560,6 +589,7 @@ export function About() {
   const handleArtPointerLeave = (
     event: ReactPointerEvent<HTMLDivElement>,
   ) => {
+
     const container =
       event.currentTarget;
 
@@ -590,10 +620,12 @@ export function About() {
   ========================================================= */
 
   useEffect(() => {
+
     const elements =
       document.querySelectorAll<HTMLElement>(
         ".about-reveal",
       );
+
 
     if (
       !(
@@ -601,6 +633,7 @@ export function About() {
         in window
       )
     ) {
+
       elements.forEach(
         (element) => {
           element.classList.add(
@@ -612,14 +645,18 @@ export function About() {
       return;
     }
 
+
     const observer =
       new IntersectionObserver(
         (entries) => {
+
           entries.forEach(
             (entry) => {
+
               if (
                 entry.isIntersecting
               ) {
+
                 entry.target.classList.add(
                   "is-visible",
                 );
@@ -636,6 +673,7 @@ export function About() {
         },
       );
 
+
     elements.forEach(
       (element) => {
         observer.observe(
@@ -644,511 +682,546 @@ export function About() {
       },
     );
 
+
     return () => {
       observer.disconnect();
     };
+
   }, []);
 
 
+  /* =========================================================
+     PAGE
+  ========================================================= */
+
   return (
-    <main className="about-page">
+    <>
 
-      <div className="about-shell">
+      <main className="about-page">
+
+        <div className="about-shell">
 
 
-        {/* =====================================================
-            HERO
-        ====================================================== */}
+          {/* =====================================================
+              HERO
+          ====================================================== */}
 
-        <section className="about-intro">
+          <section className="about-intro">
 
-          <h1 className="about-intro__wordmark"  data-text="COINSTEP">
-            COINSTEP
-          </h1>
-
-          <div className="about-intro__content">
-
-            <h2>
-              We make Web3 simpler,
-              safer, and easier to access
-            </h2>
-
-            <p>
-              Coinstep is building a modern
-              platform that makes interacting
-              with Web3 and digital assets
-              simpler, clearer, and more
-              accessible.
-            </p>
-
-            <a
-              href="/#download"
-              className="
-                btn
-                btn-primary
-                btn-lg
-                about-intro__cta
-              "
+            <h1
+              className="about-intro__wordmark"
+              data-text="COINSTEP"
             >
-              <span>
-                Get Coinstep
-              </span>
+              COINSTEP
+            </h1>
 
-              <span
-                className="about-intro__arrow"
-                aria-hidden="true"
+
+            <div className="about-intro__content">
+
+              <h2>
+                We make Web3 simpler,
+                safer, and easier to access
+              </h2>
+
+
+              <p>
+                Coinstep is building a modern
+                platform that makes interacting
+                with Web3 and digital assets
+                simpler, clearer, and more
+                accessible.
+              </p>
+
+
+              <a
+                href="/#download"
+                className="
+                  btn
+                  btn-primary
+                  btn-lg
+                  about-intro__cta
+                "
               >
-                →
-              </span>
-            </a>
 
-          </div>
+                <span>
+                  Get Coinstep
+                </span>
 
-        </section>
-
-
-        {/* =====================================================
-            PURPOSE
-        ====================================================== */}
-
-        <section
-          className="
-            about-panel
-            about-panel--purpose
-            about-reveal
-          "
-        >
-
-          <p className="about-label">
-            Our purpose
-          </p>
-
-
-          <div className="about-panel__content">
-
-            <div className="about-panel__copy">
-
-              <h1>
-                Freedom Foundations
-              </h1>
-
-              <p>
-                We want to give everyone
-                the freedom to truly own
-                and confidently use digital
-                assets by building clear
-                foundations for the future
-                of Web3.
-              </p>
-
-            </div>
-
-
-            <div
-              className="
-                about-panel__art
-                cursor-animation
-              "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
-            >
-
-              <div className="cursor-animation__object">
-                <KeyArt />
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            VISION
-        ====================================================== */}
-
-        <section
-          className="
-            about-panel
-            about-panel--vision
-            about-reveal
-          "
-        >
-
-          <p className="about-label">
-            Our vision
-          </p>
-
-
-          <div className="about-panel__content">
-
-            <div
-              className="
-                about-panel__art
-                cursor-animation
-              "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
-            >
-
-              <div className="cursor-animation__object">
-                <TelescopeArt />
-              </div>
-
-            </div>
-
-
-            <div className="about-panel__copy">
-
-              <h2>
-                To give people the
-                freedom to own their assets
-              </h2>
-
-              <p>
-                Help people confidently
-                participate in the future
-                economy and access
-                opportunities that are
-                simple to understand and
-                secure to use.
-              </p>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            MISSION
-        ====================================================== */}
-
-        <section
-          className="
-            about-panel
-            about-panel--mission
-            about-reveal
-          "
-        >
-
-          <p className="about-label">
-            Our mission
-          </p>
-
-
-          <div className="about-panel__content">
-
-            <div
-              className="
-                about-panel__art
-                cursor-animation
-              "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
-            >
-
-              <div className="cursor-animation__object">
-                <CrystalArt />
-              </div>
-
-            </div>
-
-
-            <div className="about-panel__copy">
-
-              <h2>
-                To become a personal
-                Web3 companion
-              </h2>
-
-              <p>
-                Supporting users as they
-                navigate wallets,
-                transactions, dApps,
-                multi-chain experiences,
-                and the growing on-chain
-                economy.
-              </p>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            JOURNEY
-        ====================================================== */}
-
-        <section
-          className="
-            journey-card
-            about-reveal
-          "
-        >
-
-          <h2>
-            Join us as we empower
-            people through Web3
-          </h2>
-
-
-          {/* SHIELD */}
-
-          <div className="journey-row">
-
-            <div className="journey-copy">
-
-              <h3>
-                Built with a clear goal
-              </h3>
-
-              <p>
-                CoinStep started with one
-                purpose: make crypto
-                interactions easier to
-                understand, easier to use,
-                and safer for everyday
-                users.
-              </p>
-
-            </div>
-
-
-            <div
-              className="
-                journey-art-wrap
-                cursor-animation
-              "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
-            >
-
-              <div className="cursor-animation__object">
-                <ShieldArt />
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* GLOBE */}
-
-          <div className="journey-row">
-
-            <div
-              className="
-                journey-art-wrap
-                cursor-animation
-              "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
-            >
-
-              <div className="cursor-animation__object">
-                <GlobeArt />
-              </div>
-
-            </div>
-
-
-            <div className="journey-copy">
-
-              <h3>
-                Trust through clarity
-              </h3>
-
-              <p>
-                We build confidence with
-                clear information,
-                deliberate confirmation
-                flows, and security-first
-                product decisions.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          {/* TELESCOPE */}
-
-          <div className="journey-row">
-
-            <div className="journey-copy">
-
-              <h3>
-                We're not stopping there
-              </h3>
-
-              <p>
-                We're building a flexible
-                wallet experience across
-                networks, assets, dApps,
-                mobile, and web so more
-                people can move on-chain
-                with confidence.
-              </p>
-
-            </div>
-
-
-            <div
-              className="
-                journey-art-wrap
-                cursor-animation
-              "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
-            >
-
-              <div className="cursor-animation__object">
-                <TelescopeArt small />
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =====================================================
-            VALUES
-        ====================================================== */}
-
-        <section
-          className="
-            values-section
-            about-reveal
-          "
-        >
-
-          <h2>
-            Our values
-          </h2>
-
-
-          <div className="values-grid">
-
-            {VALUES.map(
-              (value) => (
-                <article
-                  className="value-card"
-                  key={value.title}
+                <span
+                  className="about-intro__arrow"
+                  aria-hidden="true"
                 >
+                  →
+                </span>
 
-                  <h3>
-                    {value.title}
-                  </h3>
+              </a>
 
-                  <p>
-                    {value.body}
-                  </p>
+            </div>
 
-                </article>
-              ),
-            )}
-
-          </div>
-
-        </section>
+          </section>
 
 
-        {/* =====================================================
-            TEAM
-        ====================================================== */}
+          {/* =====================================================
+              PURPOSE
+          ====================================================== */}
 
-        <section
-          className="
-            team-section
-            about-reveal
-          "
-        >
-
-          <div className="team-copy">
-
-            <h2>
-              We're a passionate team
-              of Web3 builders &amp;
-              creators
-            </h2>
-
-            <p>
-              We combine product thinking,
-              frontend craft, security
-              awareness, and blockchain
-              engineering to make complex
-              Web3 actions feel simple.
-            </p>
-
-            <Link
-              to="/build"
-              className="
-                btn
-                btn-primary
-                btn-lg
-                team-cta
-              "
-            >
-              Explore CoinStep
-            </Link>
-
-          </div>
-
-
-          <div
+          <section
             className="
-              team-art-wrap
-              cursor-animation
+              about-panel
+              about-panel--purpose
+              about-reveal
             "
-            onPointerMove={
-              handleArtPointerMove
-            }
-            onPointerLeave={
-              handleArtPointerLeave
-            }
           >
 
-            <div className="cursor-animation__object">
-              <TeamArt />
+            <p className="about-label">
+              Our purpose
+            </p>
+
+
+            <div className="about-panel__content">
+
+              <div className="about-panel__copy">
+
+                <h1>
+                  Freedom Foundations
+                </h1>
+
+                <p>
+                  We want to give everyone
+                  the freedom to truly own
+                  and confidently use digital
+                  assets by building clear
+                  foundations for the future
+                  of Web3.
+                </p>
+
+              </div>
+
+
+              <div
+                className="
+                  about-panel__art
+                  cursor-animation
+                "
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
+              >
+
+                <div className="cursor-animation__object">
+                  <KeyArt />
+                </div>
+
+              </div>
+
             </div>
 
-          </div>
+          </section>
 
-        </section>
 
-      </div>
+          {/* =====================================================
+              VISION
+          ====================================================== */}
 
-    </main>
+          <section
+            className="
+              about-panel
+              about-panel--vision
+              about-reveal
+            "
+          >
+
+            <p className="about-label">
+              Our vision
+            </p>
+
+
+            <div className="about-panel__content">
+
+              <div
+                className="
+                  about-panel__art
+                  cursor-animation
+                "
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
+              >
+
+                <div className="cursor-animation__object">
+                  <TelescopeArt />
+                </div>
+
+              </div>
+
+
+              <div className="about-panel__copy">
+
+                <h2>
+                  To give people the
+                  freedom to own their assets
+                </h2>
+
+                <p>
+                  Help people confidently
+                  participate in the future
+                  economy and access
+                  opportunities that are
+                  simple to understand and
+                  secure to use.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          {/* =====================================================
+              MISSION
+          ====================================================== */}
+
+          <section
+            className="
+              about-panel
+              about-panel--mission
+              about-reveal
+            "
+          >
+
+            <p className="about-label">
+              Our mission
+            </p>
+
+
+            <div className="about-panel__content">
+
+              <div
+                className="
+                  about-panel__art
+                  cursor-animation
+                "
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
+              >
+
+                <div className="cursor-animation__object">
+                  <CrystalArt />
+                </div>
+
+              </div>
+
+
+              <div className="about-panel__copy">
+
+                <h2>
+                  To become a personal
+                  Web3 companion
+                </h2>
+
+                <p>
+                  Supporting users as they
+                  navigate wallets,
+                  transactions, dApps,
+                  multi-chain experiences,
+                  and the growing on-chain
+                  economy.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          {/* =====================================================
+              JOURNEY
+          ====================================================== */}
+
+          <section
+            className="
+              journey-card
+              about-reveal
+            "
+          >
+
+            <h2>
+              Join us as we empower
+              people through Web3
+            </h2>
+
+
+            {/* =================================================
+                SHIELD
+            ================================================== */}
+
+            <div className="journey-row">
+
+              <div className="journey-copy">
+
+                <h3>
+                  Built with a clear goal
+                </h3>
+
+                <p>
+                  CoinStep started with one
+                  purpose: make crypto
+                  interactions easier to
+                  understand, easier to use,
+                  and safer for everyday
+                  users.
+                </p>
+
+              </div>
+
+
+              <div
+                className="
+                  journey-art-wrap
+                  cursor-animation
+                "
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
+              >
+
+                <div className="cursor-animation__object">
+                  <ShieldArt />
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                GLOBE
+            ================================================== */}
+
+            <div className="journey-row">
+
+              <div
+                className="
+                  journey-art-wrap
+                  cursor-animation
+                "
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
+              >
+
+                <div className="cursor-animation__object">
+                  <GlobeArt />
+                </div>
+
+              </div>
+
+
+              <div className="journey-copy">
+
+                <h3>
+                  Trust through clarity
+                </h3>
+
+                <p>
+                  We build confidence with
+                  clear information,
+                  deliberate confirmation
+                  flows, and security-first
+                  product decisions.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                TELESCOPE
+            ================================================== */}
+
+            <div className="journey-row">
+
+              <div className="journey-copy">
+
+                <h3>
+                  We're not stopping there
+                </h3>
+
+                <p>
+                  We're building a flexible
+                  wallet experience across
+                  networks, assets, dApps,
+                  mobile, and web so more
+                  people can move on-chain
+                  with confidence.
+                </p>
+
+              </div>
+
+
+              <div
+                className="
+                  journey-art-wrap
+                  cursor-animation
+                "
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
+              >
+
+                <div className="cursor-animation__object">
+                  <TelescopeArt small />
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          {/* =====================================================
+              VALUES
+          ====================================================== */}
+
+          <section
+            className="
+              values-section
+              about-reveal
+            "
+          >
+
+            <h2>
+              Our values
+            </h2>
+
+
+            <div className="values-grid">
+
+              {VALUES.map(
+                (value) => (
+
+                  <article
+                    className="value-card"
+                    key={value.title}
+                  >
+
+                    <h3>
+                      {value.title}
+                    </h3>
+
+                    <p>
+                      {value.body}
+                    </p>
+
+                  </article>
+
+                ),
+              )}
+
+            </div>
+
+          </section>
+
+
+          {/* =====================================================
+              TEAM
+          ====================================================== */}
+
+          <section
+            className="
+              team-section
+              about-reveal
+            "
+          >
+
+            <div className="team-copy">
+
+              <h2>
+                We're a passionate team
+                of Web3 builders &amp;
+                creators
+              </h2>
+
+
+              <p>
+                We combine product thinking,
+                frontend craft, security
+                awareness, and blockchain
+                engineering to make complex
+                Web3 actions feel simple.
+              </p>
+
+
+              <Link
+                to="/build"
+                className="
+                  btn
+                  btn-primary
+                  btn-lg
+                  team-cta
+                "
+              >
+                Explore CoinStep
+              </Link>
+
+            </div>
+
+
+            <div
+              className="
+                team-art-wrap
+                cursor-animation
+              "
+              onPointerMove={
+                handleArtPointerMove
+              }
+              onPointerLeave={
+                handleArtPointerLeave
+              }
+            >
+
+              <div className="cursor-animation__object">
+                <TeamArt />
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </main>
+
+
+      {/* =====================================================
+          FOOTER
+      ====================================================== */}
+
+      <Footer />
+
+    </>
   );
 }

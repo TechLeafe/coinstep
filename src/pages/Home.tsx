@@ -75,7 +75,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section container">
+      {/* <section className="section container">
         <div
           className="surface row-between"
           style={{ padding: 'var(--space-lg)', background: 'var(--color-accent-soft)', border: 'none' }}
@@ -88,7 +88,7 @@ export function Home() {
             Get Coinstep
           </Button>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
