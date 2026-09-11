@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { FormEvent, ReactNode } from 'react'
-import { Button } from '../components/Button'
+import type { ReactNode } from 'react'
 import './Faq.css'
 
 // ------------------------------------------------------------------
@@ -76,7 +75,6 @@ const FAQS: FaqItem[] = [
 export function Faq() {
   const [activeCategory, setActiveCategory] = useState<string>('security')
   const [openQuestion, setOpenQuestion] = useState<string | null>(FAQS[4].q)
-  const [submitted, setSubmitted] = useState(false)
 
   const visibleFaqs = useMemo(
     () => FAQS.filter((item) => item.category === activeCategory),
@@ -87,11 +85,6 @@ export function Faq() {
     setActiveCategory(id)
     const firstInCategory = FAQS.find((item) => item.category === id)
     setOpenQuestion(firstInCategory ? firstInCategory.q : null)
-  }
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitted(true)
   }
 
   return (

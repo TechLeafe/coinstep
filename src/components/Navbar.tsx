@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 import { useTheme } from '../context/ThemeContext'
 
@@ -173,7 +172,16 @@ export function Navbar() {
             <span>{link.label}</span>
 
             {/* CHEVRON RIGHT */}
-            <ChevronRightIcon className="mobile-nav-arrow" />
+            <svg
+              className="mobile-nav-arrow"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+            </svg>
           </NavLink>
         ))}
 
