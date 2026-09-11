@@ -86,8 +86,6 @@ export function Platform() {
         <div className="security-copy"><span className="eyebrow">Your safety first</span><h2>Built for Security</h2><p>We implement industry-leading safety practices to keep your digital assets safe.</p><ul>{['Private-key protection', 'Secure wallet architecture', 'Transaction confirmation', 'Backup / recovery guidance', 'Biometric / app security'].map((item, index) => <li key={item}><span aria-hidden="true">{['▣', '▤', '✓', '↗', '●'][index]}</span>{item}</li>)}</ul></div></div></section>
 
       <section className="developer-band container"><div className="developer-copy"><span className="eyebrow">For developers</span><h2>Build the Next Generation of Web3</h2><p>Connect your application, integrate powerful APIs, and build amazing experiences with our developer tools.</p><LinkButton href="#docs" variant="secondary" size="sm">View Documentation <span aria-hidden="true">→</span></LinkButton></div><div className="developer-rail">{['</>', '▣', '◈', '◇', '▤'].map((tool, index) => <div className="developer-node" key={tool}><span className="developer-node-index">0{index + 1}</span><span className="developer-node-icon">{tool}</span><small>{['Connect your application', 'Wallet connection', 'Blockchain APIs', 'Web3 integrations', 'Developer documentation'][index]}</small></div>)}</div></section>
-
-      <section className="platform-cta" id="get-started"><div className="container"><h2>Start exploring Web3 today.</h2><div className="platform-actions"><LinkButton href="#wallet" size="lg">Create Wallet</LinkButton><LinkButton href="#explore" variant="secondary" size="lg">Explore Web3</LinkButton></div></div></section>
       </div>
     </>
   )
