@@ -185,9 +185,7 @@ const PLATFORM_VISUALS: Record<
           $12,458.32
         </strong>
 
-        <small>
-          Main Wallet
-        </small>
+     
 
       </div>
 
