@@ -84,3 +84,13 @@
 .muted { color: var(--color-ink-faint); }
 
 img, svg { max-width: 100%; display: block; }
+
+
+/* Hide scrollbar  */
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
