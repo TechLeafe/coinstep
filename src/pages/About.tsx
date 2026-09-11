@@ -662,7 +662,7 @@ export function About() {
 
         <section className="about-intro">
 
-          <h1 className="about-intro__wordmark">
+          <h1 className="about-intro__wordmark"  data-text="COINSTEP">
             COINSTEP
           </h1>
 
