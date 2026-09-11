@@ -48,7 +48,8 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
+
+      <div className="container footer-container">
 
         {/* =========================
             TOP FOOTER
@@ -56,87 +57,79 @@ export function Footer() {
 
         <div className="footer-grid">
 
-          {/* BRAND SECTION */}
-          <div className="stack footer-brand-section">
+          {/* BRAND */}
+
+          <div className="footer-brand-section">
 
             <Link
               to="/"
-              className="nav-brand footer-brand"
+              className="footer-brand"
             >
               Coinstep
             </Link>
 
-            <p
-              className="muted footer-description"
-            >
-              A secure and simple Web3 wallet for managing
-              digital assets, exploring blockchain applications,
-              and staying in control of your crypto.
+            <p className="footer-description">
+              A secure and simple Web3 wallet for
+              managing digital assets, exploring
+              blockchain applications, and staying
+              in control of your crypto.
             </p>
 
           </div>
 
-          {/* FOOTER COLUMNS */}
+
+          {/* COLUMNS */}
+
           {COLUMNS.map((column) => (
             <div
-              className="stack"
+              className="footer-column"
               key={column.title}
             >
-              <span className="eyebrow">
+
+              <span className="footer-column-title">
                 {column.title}
               </span>
 
-              {column.links.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.path}
-                  className="footer-link"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <div className="footer-links">
+
+                {column.links.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.path}
+                    className="footer-link"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+
+              </div>
+
             </div>
           ))}
 
         </div>
 
+
         {/* DIVIDER */}
-        <hr className="hairline" />
 
-      {/* =========================
-    BOTTOM FOOTER
-========================== */}
+        <div className="footer-divider" />
 
-<div className="row-between footer-bottom">
 
-  {/* COPYRIGHT */}
-  <span className="muted footer-copyright">
-    © {new Date().getFullYear()} Coinstep.
-    All rights reserved.
-  </span>
+        {/* =========================
+            BOTTOM FOOTER
+        ========================== */}
 
-  {/*
-  <div className="footer-legal">
+        <div className="footer-bottom">
 
-    <a
-      href="#"
-      className="footer-link footer-legal-link"
-    >
-      Privacy Policy
-    </a>
+          <span className="footer-copyright">
+            © {new Date().getFullYear()} Coinstep.
+            All rights reserved.
+          </span>
 
-    <a
-      href="#"
-      className="footer-link footer-legal-link"
-    >
-      Terms of Service
-    </a>
+        </div>
 
-  </div>
-  */}
+      </div>
 
-</div>
-</div>
-</footer>
-);
+    </footer>
+  );
 }

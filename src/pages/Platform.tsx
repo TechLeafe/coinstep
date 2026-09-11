@@ -441,123 +441,57 @@ function PlatformFeatureVisual({
 /* =========================================================
    HERO VISUAL
 ========================================================= */
-
 function PlatformHeroVisual() {
   return (
     <div className="platform-hero-visual">
 
-      {/* GLOW */}
-
-      <div className="platform-hero-glow platform-hero-glow-one" />
-
-      <div className="platform-hero-glow platform-hero-glow-two" />
-
-
       {/* ORBITS */}
-
       <div className="platform-hero-orbit platform-hero-orbit-one" />
-
       <div className="platform-hero-orbit platform-hero-orbit-two" />
-
       <div className="platform-hero-orbit platform-hero-orbit-three" />
 
-
-      {/* FLOATING CARDS */}
-
+      {/* FLOATING STATUS CARDS */}
       <div className="platform-connected-card">
-
         <span />
 
         <div>
-
-          <strong>
-            Wallet Connected
-          </strong>
-
-          <small>
-            Secure session
-          </small>
-
+          <strong>Wallet Connected</strong>
+          <small>Secure session</small>
         </div>
-
       </div>
 
-
       <div className="platform-network-card">
-
         <HubOutlinedIcon />
 
         <div>
-
-          <strong>
-            Web3 Ready
-          </strong>
-
-          <small>
-            Multi-chain access
-          </small>
-
+          <strong>Web3 Ready</strong>
+          <small>Multi-chain access</small>
         </div>
-
       </div>
 
-
       <div className="platform-approved-card">
-
         <VerifiedUserOutlinedIcon />
 
         <div>
-
-          <strong>
-            Transaction
-          </strong>
-
-          <small>
-            Ready to review
-          </small>
-
+          <strong>Transaction</strong>
+          <small>Ready to review</small>
         </div>
-
       </div>
 
-
-      {/* DEVICE */}
-
+      {/* PHONE IMAGE ONLY */}
       <div className="platform-device">
-
-        <div className="platform-device-shadow" />
-
         <div className="platform-theme-crop">
-
           <img
             src={walletPhones}
             alt="CoinStep wallet interface"
             className="platform-theme-img"
           />
-
         </div>
-
       </div>
-
-
-      {/* SMALL LABELS */}
-
-      <span className="platform-visual-label platform-label-wallet">
-        WALLET
-      </span>
-
-      <span className="platform-visual-label platform-label-assets">
-        ASSETS
-      </span>
-
-      <span className="platform-visual-label platform-label-web3">
-        WEB3
-      </span>
 
     </div>
   );
 }
-
 
 /* =========================================================
    SECURITY VISUAL
