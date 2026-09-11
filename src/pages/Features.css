@@ -1,0 +1,737 @@
+/* ============================================================
+   FEATURES.CSS
+   Styles for the page's intro section plus the "All your
+   assets" and "Send crypto" feature blocks. Layout-only —
+   every raw value (color, spacing, type, radius, shadow) is
+   still pulled from tokens.css.
+   ============================================================ */
+
+/* ---- Scroll-in "converge" reveal ----
+   Two pieces of a section (copy + visual) start apart and slide
+   toward each other with a slight scale-up as the section enters
+   view, so the layout reads as assembling into place rather than
+   just fading up. Applied as an extra class alongside each side's
+   existing wrapper — .intro-hero.in-view and .feature-block.in-view
+   are the two section-level triggers already used across this page. */
+.enter-from-left,
+.enter-from-right {
+  opacity: 0;
+}
+
+.intro-hero.in-view .enter-from-left,
+.feature-block.in-view .enter-from-left {
+  animation: enter-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro-hero.in-view .enter-from-right,
+.feature-block.in-view .enter-from-right {
+  animation: enter-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 100ms;
+}
+
+@keyframes enter-left {
+  from { opacity: 0; transform: translateX(-36px) scale(0.97); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes enter-right {
+  from { opacity: 0; transform: translateX(36px) scale(0.97); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-from-left,
+  .enter-from-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Intro hero: "One wallet. Your entire Web3 world." ---- */
+.intro-hero {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.intro-hero.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.intro-parallax-copy {
+  flex: 1 1 26rem;
+  min-width: 0;
+}
+
+.intro-parallax-image {
+  flex: 1.15 1 22rem;
+  min-width: 0;
+}
+
+.intro-copy {
+  max-width: 42rem;
+}
+
+/* ---- Pill badge (used above headings across sections) ---- */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  padding: var(--space-3xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  background: var(--color-signal-soft);
+  color: var(--color-signal);
+  margin-bottom: var(--space-sm);
+}
+
+.intro-heading {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+}
+
+/* gradient-filled highlighted word inside a heading */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-ink-faint), var(--color-signal) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro-sub {
+  font-size: var(--text-base);
+  max-width: 34rem;
+}
+
+/* ---- Secure & Private / Multiple Blockchains / dApps & DeFi / Mobile & Web ---- */
+.highlight-row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-sm) 0 0 0;
+  padding: 0;
+}
+
+.highlight-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink-soft);
+}
+
+.highlight-item-icon {
+  display: inline-flex;
+  color: var(--color-accent);
+}
+
+/* illustration beside the heading */
+.intro-trio {
+  position: relative;
+}
+
+/* soft colored shape sitting behind the illustration for depth */
+.intro-trio::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(85%, 32rem);
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 40% 35%, var(--color-accent-soft), transparent 72%);
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.intro-trio-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(var(--shadow-lg));
+  animation: trio-bob 6s ease-in-out infinite;
+}
+
+@keyframes trio-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ---- Coin badges floating gently around the illustration ---- */
+.intro-float-coins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.intro-float-coin {
+  position: absolute;
+  animation: coin-float 6s ease-in-out infinite;
+}
+
+.intro-float-coin .coin-chip-icon {
+  width: 56%;
+  height: 56%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-float-coin {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-hero {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .intro-hero .intro-trio {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .intro-trio-image {
+    animation: none;
+  }
+}
+
+.feature-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  align-items: center;
+  padding-block: var(--space-md);
+}
+
+.feature-block > * {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+.feature-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-copy {
+  max-width: 30rem;
+}
+
+.feature-copy p {
+  font-size: var(--text-md);
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-sm);
+}
+
+.feature-tags .badge {
+  gap: var(--space-3xs);
+}
+
+/* Scroll-reveal: children opt in by getting the .in-view
+   class added to the block once it enters the viewport. */
+.feature-block,
+.feature-block * {
+  transition: opacity var(--transition-base);
+}
+
+/* ---- Coin chip: shared token badge used everywhere ---- */
+.coin-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.coin-chip-sm {
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.65rem;
+}
+
+/* ---- Supported-networks marquee (continuous, ambient) ---- */
+.coin-marquee {
+  overflow: hidden;
+  margin-top: var(--space-sm);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.coin-track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---- Scroll parallax layers for the assets section ----
+   Same pattern as the intro hero: JS writes the section's scroll
+   progress (0 → 1) into --scroll, and the copy/card drift at slightly
+   different rates so the section reads as something you move *into*
+   as you scroll, not something that just appears. */
+.assets-parallax-copy,
+.assets-parallax-card {
+  will-change: transform;
+  transform: translateY(calc((var(--scroll, 0.5) - 0.5) * -28px));
+  transition: transform 0.05s linear;
+}
+
+.assets-parallax-card {
+  transform: translateY(calc((var(--scroll, 0.5) - 0.5) * 22px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assets-parallax-copy,
+  .assets-parallax-card {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Soft wobbling glow behind the wallet card ----
+   A blurred color shape sitting behind the card to give it some
+   depth, drifting gently on its own loop. */
+.assets-parallax-card {
+  position: relative;
+}
+
+.card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--color-accent-soft), transparent 72%);
+  filter: blur(34px);
+  z-index: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: card-glow-wobble 11s ease-in-out infinite;
+}
+
+@keyframes card-glow-wobble {
+  0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  30% { transform: translate(calc(-50% + 14px), calc(-50% - 10px)) scale(1.08) rotate(6deg); }
+  65% { transform: translate(calc(-50% - 10px), calc(-50% + 12px)) scale(0.94) rotate(-5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-glow {
+    animation: none;
+  }
+}
+
+/* ---- Wallet mockup card ---- */
+.wallet-card {
+  padding: var(--space-sm);
+  border-radius: var(--radius-lg);
+  max-width: 21rem;
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Coin marks (used in the wallet list and the marquee) ---- */
+.coin-chip-icon {
+  display: block;
+  width: 58%;
+  height: 58%;
+}
+
+.coin-chip-sm .coin-chip-icon {
+  width: 64%;
+  height: 64%;
+}
+
+.wallet-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.wallet-total {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.wallet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.wallet-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.wallet-row:hover {
+  background: var(--color-surface-sunken);
+}
+
+.feature-block.in-view .wallet-row {
+  animation: row-in 0.5s ease forwards;
+  animation-delay: calc(var(--i) * 90ms);
+}
+
+.wallet-row-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.wallet-row-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.wallet-row-network {
+  font-size: var(--text-xs);
+}
+
+.wallet-row-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+}
+
+.wallet-row-amount {
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+}
+
+.wallet-row-value {
+  font-size: var(--text-xs);
+}
+
+@keyframes row-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Send crypto: real phone mockup with floating coin badges ---- */
+.send-phone-wrap {
+  position: relative;
+  max-width: 20rem;
+  margin-inline: auto;
+}
+
+.send-phone-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 28px 36px rgba(11, 14, 20, 0.28));
+  transform-origin: 60% 92%;
+  animation: phone-wobble 7s ease-in-out infinite;
+}
+
+@keyframes phone-wobble {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-1.6deg) translateY(-6px); }
+  75% { transform: rotate(1.6deg) translateY(-2px); }
+}
+
+.send-phone-coins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.send-phone-coin {
+  position: absolute;
+  animation: coin-float 6s ease-in-out infinite;
+}
+
+.send-phone-coin .coin-chip-icon {
+  width: 56%;
+  height: 56%;
+}
+
+@keyframes coin-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coin-track {
+    animation: none;
+  }
+  .feature-block.in-view .wallet-row {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .send-phone-image,
+  .send-phone-coin {
+    animation: none;
+  }
+}
+
+/* ---- Feature 4: Transaction history ---- */
+
+.history-steps {
+  list-style: none;
+  margin: var(--space-xs) 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-step {
+  position: relative;
+  display: flex;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-sm);
+}
+
+.history-step:last-child {
+  padding-bottom: 0;
+}
+
+.history-step::before {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 2.15rem;
+  bottom: 0;
+  width: var(--border-width);
+  background: var(--color-border);
+}
+
+.history-step:last-child::before {
+  display: none;
+}
+
+.history-step-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-soft);
+  z-index: 1;
+}
+
+.history-step-title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-3xs) 0;
+}
+
+.history-step-desc {
+  font-size: var(--text-xs);
+  margin: 0;
+}
+
+.history-card {
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  max-width: 24rem;
+  margin-inline: auto;
+}
+
+.history-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.history-card-title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.history-live {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-signal);
+}
+
+.history-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--color-signal);
+  animation: history-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes history-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.72); }
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition-fast);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.history-row:hover {
+  background: var(--color-surface-sunken);
+}
+
+.feature-block.in-view .history-row {
+  animation: row-in 0.5s ease forwards;
+  animation-delay: calc(var(--i) * 90ms);
+}
+
+.history-row-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+}
+
+.history-row-icon.is-received {
+  background: var(--color-signal-soft);
+}
+
+.history-row-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.history-row-name {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.history-row-address {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+}
+
+.history-row-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3xs);
+}
+
+.history-row-amount {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-ink);
+}
+
+.history-row-amount.is-positive {
+  color: var(--color-signal);
+}
+
+.history-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-pill);
+  background: var(--color-signal-soft);
+  color: var(--color-signal);
+}
+
+.history-status.is-pending {
+  background: var(--color-warn-soft);
+  color: var(--color-warn);
+}
+
+.history-status-icon {
+  width: 0.7rem;
+  height: 0.7rem;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .history-live-dot {
+    animation: none;
+  }
+  .feature-block.in-view .history-row {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
