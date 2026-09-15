@@ -1,4 +1,5 @@
 import {
+  Navigate,
   Route,
   Routes,
   useLocation,
@@ -9,7 +10,8 @@ import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
-import { Home } from "./pages/Home";
+// Home page disabled
+// import { Home } from "./pages/Home";
 
 import { Features } from "./pages/Features";
 import { Build } from "./pages/Build";
@@ -39,40 +41,54 @@ export default function App() {
 
       <main>
         <Routes>
+
+          {/* Open Platform when website starts at "/" */}
           <Route
             path="/"
-            element={<Home />}
+            element={
+              <Navigate
+                to="/platform"
+                replace
+              />
+            }
           />
 
+          {/* PLATFORM */}
           <Route
             path="/platform"
             element={<Platform />}
           />
 
+          {/* FEATURES */}
           <Route
             path="/features"
             element={<Features />}
           />
 
+          {/* BUILD */}
           <Route
             path="/build"
             element={<Build />}
           />
 
+          {/* SUPPORT */}
           <Route
             path="/support"
             element={<Support />}
           />
 
+          {/* FAQ */}
           <Route
             path="/faq"
             element={<Faq />}
           />
 
+          {/* ABOUT */}
           <Route
             path="/about"
             element={<About />}
           />
+
         </Routes>
       </main>
 

@@ -1,256 +1,745 @@
-import React from 'react';
+import type { ReactNode } from "react";
+import "./Support.css";
 
-const SvgIcon = ({ path, className, children }: { path?: string; className?: string; children?: React.ReactNode }) => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00d1ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    {path ? <path d={path} /> : children}
-  </svg>
-);
+type IconProps = {
+  children: ReactNode;
+  className?: string;
+};
 
-const TOPICS = [
-  { title: 'Getting Started with Coinstep', desc: 'Learn the basics of setup', cls: 'topic-float', fill1: '#1D4ED8', fill2: '#60A5FA' },
-  { title: 'Buying and Cashing Out Crypto', desc: 'Manage fiat and token exchange', fill1: '#1E293B', isCrypto: true },
-  { title: 'Generating Rewards', desc: 'Earn passive yield on assets', cls: 'topic-pulse', fill1: '#C084FC', text: '%' },
-  { title: 'Connecting to DeFi and dApps', desc: 'Explore decentralized Web3 applications', fill1: '#2563EB', isDeFi: true },
-  { title: 'Security', desc: 'Protect and safeguard your account', cls: 'topic-breathe', fill1: '#34D399' },
-  { title: 'How-to Guides', desc: 'Step by step user tutorials', isGuide: true },
+const Icon = ({ children, className = "" }: IconProps) => {
+  return (
+    <svg
+      className={className}
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+};
+
+/* ============================================================
+   SUPPORT TOPICS
+============================================================ */
+
+const topics = [
+  {
+    title: "Getting Started with Coinstep",
+    description:
+      "Learn how to set up your Web3 wallet, understand your wallet address, and get started with Coinstep.",
+    icon: (
+      <Icon className="support-topic-icon-svg">
+        <path d="M12 3l7 3v5c0 4.8-2.9 8.2-7 10-4.1-1.8-7-5.2-7-10V6l7-3z" />
+        <path d="M9 12l2 2 4-4" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Managing Crypto Transactions",
+    description:
+      "Learn how to send and receive digital assets, understand network fees, and check transaction status.",
+    icon: (
+      <Icon className="support-topic-icon-svg">
+        <rect
+          x="6"
+          y="2.5"
+          width="12"
+          height="19"
+          rx="2.5"
+        />
+        <path d="M10 5.5h4" />
+        <path d="M10 18.5h4" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Buying and Cashing Out Crypto",
+    description:
+      "Learn about available options for acquiring or converting supported digital assets and understand related requirements.",
+    icon: (
+      <Icon className="support-topic-icon-svg">
+        <circle cx="12" cy="12" r="8" />
+        <path d="M9 15l6-6" />
+        <circle cx="9" cy="9" r="1" />
+        <circle cx="15" cy="15" r="1" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Connecting to DeFi and dApps",
+    description:
+      "Connect your Web3 wallet with supported decentralized applications and explore the growing Web3 ecosystem.",
+    icon: (
+      <Icon className="support-topic-icon-svg">
+        <circle cx="12" cy="12" r="2.5" />
+        <ellipse cx="12" cy="12" rx="9" ry="4" />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="9"
+          ry="4"
+          transform="rotate(60 12 12)"
+        />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="9"
+          ry="4"
+          transform="rotate(120 12 12)"
+        />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Crypto Wallet Security",
+    description:
+      "Learn essential security practices to protect your wallet, recovery phrase, private information, and digital assets.",
+    icon: (
+      <Icon className="support-topic-icon-svg">
+        <path d="M12 3l7 3v5c0 4.8-2.9 8.2-7 10-4.1-1.8-7-5.2-7-10V6l7-3z" />
+        <rect x="9" y="10.5" width="6" height="5" rx="1" />
+        <path d="M10.5 10.5V9a1.5 1.5 0 013 0v1.5" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "How-To Guides",
+    description:
+      "Follow simple step-by-step guides for common Coinstep wallet, transaction, Web3, and security tasks.",
+    icon: (
+      <Icon className="support-topic-icon-svg">
+        <rect
+          x="6"
+          y="3"
+          width="12"
+          height="18"
+          rx="1"
+        />
+        <path d="M9 8h6" />
+        <path d="M9 12h6" />
+        <path d="M9 16h4" />
+      </Icon>
+    ),
+  },
 ];
 
-const SEC_ITEMS = [
-  { title: 'Protect your recovery phrase', sub: 'Keep it private and never share it.', icon: <SvgIcon><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 8 9 9"/></SvgIcon> },
-  { title: 'Avoid scams and phishing', sub: 'Learn to spot and avoid common threats.', icon: <SvgIcon><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></SvgIcon> },
-  { title: 'Secure your wallet', sub: 'Use strong security practices.', icon: <SvgIcon><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></SvgIcon> },
-  { title: 'Report suspicious activity', sub: 'Help us keep the community safe.', icon: <SvgIcon><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></SvgIcon> },
+/* ============================================================
+   SECURITY ITEMS
+============================================================ */
+
+const securityItems = [
+  {
+    title: "Protect Your Recovery Phrase",
+    description:
+      "Your recovery phrase can provide access to your wallet. Store it securely and never share it with anyone.",
+    icon: (
+      <Icon>
+        <path d="M7 3h7l4 4v14H7z" />
+        <path d="M14 3v5h5" />
+        <path d="M10 13h5" />
+        <path d="M10 17h5" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Avoid Scams and Phishing",
+    description:
+      "Be cautious of suspicious websites, messages, links, and requests for wallet or recovery information.",
+    icon: (
+      <Icon>
+        <path d="M12 3l7 3v5c0 4.8-2.9 8.2-7 10-4.1-1.8-7-5.2-7-10V6l7-3z" />
+        <circle cx="12" cy="11" r="2.5" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Secure Your Wallet",
+    description:
+      "Use a secure device, keep your wallet software updated, and follow recommended crypto security practices.",
+    icon: (
+      <Icon>
+        <rect
+          x="5"
+          y="10"
+          width="14"
+          height="10"
+          rx="2"
+        />
+        <path d="M8 10V7a4 4 0 018 0v3" />
+      </Icon>
+    ),
+  },
+
+  {
+    title: "Verify Every Transaction",
+    description:
+      "Check the wallet address, network, amount, fees, and transaction details before approving a blockchain transaction.",
+    icon: (
+      <Icon>
+        <path d="M6 21V4" />
+        <path d="M6 5c3-2 6 2 12 0v9c-6 2-9-2-12 0" />
+      </Icon>
+    ),
+  },
 ];
 
-const CATS = [
-  { title: 'Wallet', desc: 'Set up, manage and back up your wallet.', cls: 'c-wallet', path: 'M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4 M4 6v12a2 2 0 0 0 2 2h14v-4 M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z' },
-  { title: 'Transactions', desc: 'Send, receive and track transactions.', cls: 'c-tx', icon: <SvgIcon className="c-tx"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></SvgIcon> },
-  { title: 'Buy Crypto', desc: 'Buy crypto with local payment methods.', cls: 'c-card', icon: <SvgIcon className="c-card"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></SvgIcon> },
-  { title: 'Swap', desc: 'Swap tokens across networks.', cls: 'c-swap', path: 'M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16' },
-  { title: 'Staking', desc: 'Stake tokens and earn rewards.', cls: 'c-staking', icon: <SvgIcon className="c-staking"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6 M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></SvgIcon> },
-  { title: 'Web3 / dApps', desc: 'Connect to dApps and explore Web3.', cls: 'c-cube', icon: <SvgIcon className="c-cube"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></SvgIcon> },
-  { title: 'Security', desc: 'Keep your wallet and assets safe.', cls: 'c-shield', path: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
-  { title: 'Troubleshooting', desc: 'Fix common issues and errors.', cls: 'c-wrench', path: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
-];
+/* ============================================================
+   PAGE
+============================================================ */
 
 export function Support() {
   return (
-    <div 
-      className="page container stack" 
-      style={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        gap: '2.5rem', 
-        paddingTop: '1.5rem', 
-        paddingBottom: '3rem',
-        width: '100%',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        boxSizing: 'border-box' 
-      }}
-    >
-      <style>{`
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
-        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
-        @keyframes spin { 100%{transform:rotate(360deg)} }
-        @keyframes glow { 50%{filter:drop-shadow(0 0 6px #38bdf8)} }
-        @keyframes slide { 50%{transform:translateX(-4px)} }
-        @keyframes breathe { 50%{transform:scale(1.06);filter:drop-shadow(0 0 8px #34d399)} }
-        @keyframes wrench { 25%{transform:rotate(-12deg)} 75%{transform:rotate(12deg)} }
+    <main className="support-page">
 
-        .topic-float { animation: float 3s ease-in-out infinite; transform-origin: center; }
-        .topic-pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin: center; }
-        .topic-breathe { animation: breathe 3.2s ease-in-out infinite; transform-origin: center; }
-        .sh-grp { animation: float 3.5s ease-in-out infinite; transform-origin: center; }
-        .sh-glow { animation: pulse 2.5s ease-in-out infinite; }
+      <div className="support-container">
 
-        .c-wallet { animation: float 3s ease-in-out infinite; transform-origin: center; }
-        .c-tx { animation: slide 2.5s ease-in-out infinite; }
-        .c-card { animation: glow 3s ease-in-out infinite; }
-        .c-swap { animation: float 2.5s ease-in-out infinite; }
-        .c-staking { animation: float 2.8s ease-in-out infinite; }
-        .c-cube { animation: spin 12s linear infinite; transform-origin: center; }
-        .c-shield { animation: pulse 3s ease-in-out infinite; transform-origin: center; }
-        .c-wrench { animation: wrench 3.2s ease-in-out infinite; transform-origin: center; }
+        {/* ====================================================
+            HERO
+        ==================================================== */}
 
-        .section-heading { color: #0f172a; }
-        .section-subtitle { color: #64748b; }
+        <section className="support-hero">
 
-        @media (prefers-color-scheme: dark) {
-          .section-heading { color: #ffffff !important; }
-          .section-subtitle { color: #94a3b8 !important; }
-        }
-        
-        [data-theme='dark'] .section-heading,
-        .dark .section-heading { color: #ffffff !important; }
+          {/* LEFT */}
 
-        [data-theme='dark'] .section-subtitle,
-        .dark .section-subtitle { color: #94a3b8 !important; }
+          <div className="support-hero-content">
 
-        /* Card Base Transition & Subtle Default Shadow */
-        .interactive-card {
-          transition: all 0.25s ease-in-out;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        }
+            <span className="support-eyebrow">
+              COINSTEP SUPPORT
+            </span>
 
-        /* Reduced Soft Hover Glow */
-        .interactive-card:hover {
-          transform: translateY(-3px);
-          border-color: rgba(0, 209, 255, 0.3) !important;
-          box-shadow: 0 4px 12px rgba(0, 209, 255, 0.12);
-        }
+            <h1>
+              Web3 Wallet Support, When You Need It
+            </h1>
 
-        /* Reduced Icon Box Hover Shadow */
-        .interactive-card:hover > div:first-child {
-          border-color: rgba(0, 209, 255, 0.35) !important;
-          box-shadow: 0 0 6px rgba(0, 209, 255, 0.15);
-        }
+            <p>
+              Get help with your Coinstep Web3 wallet, digital assets,
+              crypto transactions, decentralized applications, and
+              wallet security.
+            </p>
+{/* 
+            <p>
+              Whether you are new to Web3 or need help with a wallet
+              or transaction, explore our support guides and security
+              resources to find the information you need.
+            </p> */}
 
-        /* Responsive Grids (Exactly 3 cards per row) */
-        .topics-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.25rem;
-        }
+          </div>
 
-        .categories-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.25rem;
-        }
 
-        @media (max-width: 992px) {
-          .topics-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          .categories-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
+          {/* RIGHT */}
 
-        @media (max-width: 600px) {
-          .topics-grid, .categories-grid {
-            grid-template-columns: 1fr;
-          }
-        }
+          <div className="support-hero-visual">
 
-        .security-banner {
-          background: linear-gradient(135deg, rgba(5,15,35,0.95) 0%, rgba(10,30,65,0.98) 100%);
-          border: 1px solid rgba(0,209,255,0.2);
-          border-radius: 1.25rem;
-          padding: 2.5rem;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          align-items: center;
-          gap: 2rem;
-        }
-      `}</style>
+            <div className="support-visual-glow" />
 
-      {/* Hero Header */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <h1 className="section-heading" style={{ fontSize: '2.5rem', fontWeight: 700, margin: 0 }}>How can we help you</h1>
-        <p className="section-subtitle" style={{ margin: 0, fontSize: '1.05rem' }}>Get help with your wallet, transactions, Web3, and security.</p>
-      </section>
+            <div
+              className="
+                support-headset-orbit
+                support-headset-orbit-one
+              "
+            />
 
-      {/* Support Topics */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <h2 className="section-heading" style={{ fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>Support topics</h2>
-        <div className="topics-grid">
-          {TOPICS.map((t) => (
-            <div 
-              key={t.title} 
-              className="interactive-card"
-              style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                textAlign: 'center', 
-                padding: '1.75rem 1.25rem', 
-                borderRadius: '1rem', 
-                cursor: 'pointer', 
-                minHeight: '170px', 
-                background: '#0b0f19', 
-                border: '1px solid rgba(255, 255, 255, 0.08)' 
-              }}
+            <div
+              className="
+                support-headset-orbit
+                support-headset-orbit-two
+              "
+            />
+
+            <svg
+              className="support-headset"
+              viewBox="0 0 180 180"
+              fill="none"
+              aria-hidden="true"
             >
-              <div style={{ marginBottom: '0.75rem', transition: 'all 0.3s ease' }}>
-                <svg width="64" height="64" viewBox="0 0 100 100" fill="none" className={t.cls || ''}>
-                  {t.text && <><circle cx="50" cy="50" r="35" fill={t.fill1} /><text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFF" fontSize="28" fontWeight="bold">%</text></>}
-                  {t.fill2 && <><path d="M50 10L15 25V55C15 75 30 90 50 95C70 90 85 75 85 55V25L50 10Z" fill={t.fill1} /><path d="M50 20L25 32V53C25 68 36 80 50 84C64 80 75 68 75 53V32L50 20Z" fill={t.fill2} /></>}
-                  {t.isCrypto && <><rect x="35" y="15" width="40" height="70" rx="8" fill="#1E293B" /><rect x="40" y="25" width="30" height="50" rx="4" fill="#38BDF8" style={{ animation: 'glow 2.5s infinite' }} /><path d="M15 40L35 30V65L15 55Z" fill="#818CF8" style={{ animation: 'slide 2s infinite' }} /></>}
-                  {t.isDeFi && <><circle cx="50" cy="50" r="32" fill="#2563EB" /><ellipse cx="50" cy="50" rx="36" ry="14" stroke="#60A5FA" strokeWidth="3" fill="none" style={{ animation: 'spin 12s linear infinite', transformOrigin: 'center' }} /></>}
-                  {t.isGuide && <><rect x="22" y="18" width="56" height="64" rx="8" fill="#EC4899" /><rect x="22" y="18" width="10" height="64" rx="4" fill="#BE185D" /><rect x="36" y="28" width="34" height="6" rx="3" fill="#FCE7F3" opacity="0.9" /><rect x="36" y="40" width="26" height="6" rx="3" fill="#FCE7F3" opacity="0.7" /><rect x="36" y="52" width="30" height="6" rx="3" fill="#FCE7F3" opacity="0.7" /><path d="M60 18V38L66 33L72 38V18H60Z" fill="#F472B6" className="topic-pulse" /></>}
-                  {t.cls === 'topic-breathe' && <path d="M50 15L80 30V50C80 68 67 83 50 90C33 83 20 68 20 50V30L50 15Z" fill={t.fill1} />}
-                </svg>
-              </div>
-              <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>{t.title}</h3>
-              <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.8rem', color: '#94a3b8' }}>{t.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+              <circle
+                cx="90"
+                cy="90"
+                r="69"
+                fill="currentColor"
+                fillOpacity="0.08"
+              />
 
-      {/* Security Banner */}
-      <section className="security-banner">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-          <span style={{ color: '#60a5fa', fontSize: '0.75rem', letterSpacing: '2px', fontWeight: 700 }}>STAY SAFE</span>
-          <h2 style={{ fontSize: '1.85rem', fontWeight: 700, margin: 0, color: '#fff' }}>Security Center</h2>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>Your security is our priority. Learn how to keep your wallet safe in Web3.</p>
-          <button style={{ background: 'linear-gradient(90deg, #00d1ff 0%, #00bcff 100%)', color: '#030712', fontWeight: 700, border: 'none', borderRadius: '9999px', padding: '0.65rem 1.25rem', cursor: 'pointer', width: 'fit-content', marginTop: '0.25rem' }}>Security Center →</button>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <svg width="140" height="140" viewBox="0 0 100 100" fill="none">
-            <ellipse cx="50" cy="83" rx="35" ry="9" fill="#00d1ff" opacity="0.3" />
-            <g className="sh-grp">
-              <path d="M50 15L75 28V50C75 66 64 79 50 85C36 79 25 66 25 50V28L50 15Z" fill="#1d4ed8" stroke="#00d1ff" strokeWidth="2" />
-              <g className="sh-glow"><rect x="42" y="48" width="16" height="12" rx="2" fill="#fff" /><path d="M45 48V43C45 40.2 47.2 38 50 38C52.8 38 55 40.2 55 43V48" stroke="#fff" strokeWidth="2.5" fill="none" /></g>
-            </g>
-          </svg>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {SEC_ITEMS.map((i) => (
-            <div key={i.title} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <div style={{ background: 'rgba(0,209,255,0.1)', border: '1px solid rgba(0,209,255,0.2)', borderRadius: '0.5rem', padding: '0.5rem', display: 'flex' }}>{i.icon}</div>
-              <div><h4 style={{ margin: 0, fontSize: '0.9rem', color: '#fff' }}>{i.title}</h4><p style={{ margin: 0, fontSize: '0.78rem', color: '#94a3b8' }}>{i.sub}</p></div>
-            </div>
-          ))}
-        </div>
-      </section>
+              <path
+                d="M48 95V78C48 51 67 30 90 30C113 30 132 51 132 78V95"
+                stroke="currentColor"
+                strokeWidth="9"
+                strokeLinecap="round"
+              />
 
-      {/* Support Categories */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-        <div>
-          <h2 className="section-heading" style={{ fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>Support Categories</h2>
-          <p className="section-subtitle" style={{ margin: '0.25rem 0 0 0', fontSize: '0.9rem' }}>Find answers by topic. Choose a category to browse help articles.</p>
-        </div>
-        <div className="categories-grid">
-          {CATS.map((c) => (
-            <div 
-              key={c.title} 
-              className="interactive-card"
-              style={{ 
-                background: '#0b0f19', 
-                border: '1px solid rgba(255,255,255,0.08)', 
-                borderRadius: '0.875rem', 
-                padding: '1.25rem 1rem', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.85rem', 
-                cursor: 'pointer' 
-              }}
+              <rect
+                x="37"
+                y="84"
+                width="23"
+                height="45"
+                rx="11.5"
+                fill="currentColor"
+              />
+
+              <rect
+                x="120"
+                y="84"
+                width="23"
+                height="45"
+                rx="11.5"
+                fill="currentColor"
+              />
+
+              <path
+                d="M131 127C123 141 109 147 93 147"
+                stroke="currentColor"
+                strokeWidth="8"
+                strokeLinecap="round"
+              />
+
+              <circle
+                cx="89"
+                cy="147"
+                r="7"
+                fill="currentColor"
+              />
+            </svg>
+
+          </div>
+
+        </section>
+
+
+        {/* ====================================================
+            SUPPORT TOPICS
+        ==================================================== */}
+
+        <section className="support-section">
+
+          <div className="support-section-heading">
+
+            <span>
+              HELP CENTER
+            </span>
+
+            <h2>
+              How Can We Help?
+            </h2>
+
+            <p>
+              Find guides and answers for your Coinstep Web3 wallet,
+              digital assets, crypto transactions, dApps, DeFi,
+              and wallet security.
+            </p>
+
+          </div>
+
+
+          <div className="support-topics-grid">
+
+            {topics.map((topic) => (
+              <article
+                key={topic.title}
+                className="support-topic-card"
+              >
+
+                <div className="support-topic-icon">
+                  {topic.icon}
+                </div>
+
+
+                <div className="support-topic-content">
+
+                  <h3>
+                    {topic.title}
+                  </h3>
+
+                  <p>
+                    {topic.description}
+                  </p>
+
+                </div>
+
+
+                {/* <div className="support-card-arrow">
+                  →
+                </div> */}
+
+              </article>
+            ))}
+
+          </div>
+
+        </section>
+
+
+        {/* ====================================================
+            SECURITY CENTER
+        ==================================================== */}
+
+        <section className="support-security">
+
+          <div
+            className="
+              support-security-glow
+              support-security-glow-one
+            "
+          />
+
+          <div
+            className="
+              support-security-glow
+              support-security-glow-two
+            "
+          />
+
+
+          <div className="support-security-content">
+
+            <span className="support-security-label">
+              STAY SAFE
+            </span>
+
+            <h2>
+              Security Center
+            </h2>
+
+            <p>
+              Protecting your wallet and digital assets starts with
+              good security practices. Learn how to protect your
+              recovery phrase, recognize phishing attempts, secure
+              your wallet, and verify transactions before approving them.
+            </p>
+
+            {/* <button
+              className="support-security-button"
+              type="button"
             >
-              <div style={{ width: '44px', height: '44px', borderRadius: '0.6rem', background: 'rgba(0,209,255,0.08)', border: '1px solid rgba(0,209,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.3s ease' }}>
-                {c.icon || <SvgIcon path={c.path} className={c.cls} />}
-              </div>
-              <div>
-                <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 600, color: '#ffffff' }}>{c.title}</h4>
-                <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.75rem', color: '#94a3b8' }}>{c.desc}</p>
-              </div>
+              Security Center
+
+              <span>
+                →
+              </span>
+            </button> */}
+
+          </div>
+
+
+          {/* SHIELD */}
+
+          <div className="support-shield-area">
+
+            <div
+              className="
+                support-orbit
+                support-orbit-one
+              "
+            />
+
+            <div
+              className="
+                support-orbit
+                support-orbit-two
+              "
+            />
+
+
+            <div className="support-shield">
+
+              <svg
+                viewBox="0 0 120 140"
+                fill="none"
+                aria-hidden="true"
+              >
+
+                <path
+                  d="
+                    M60 10
+                    L105 29
+                    V65
+                    C105 95 87 119 60 131
+                    C33 119 15 95 15 65
+                    V29
+                    L60 10Z
+                  "
+                  fill="currentColor"
+                />
+
+                <path
+                  d="
+                    M60 23
+                    L93 37
+                    V65
+                    C93 87 80 105 60 115
+                    C40 105 27 87 27 65
+                    V37
+                    L60 23Z
+                  "
+                  fill="white"
+                  fillOpacity="0.13"
+                />
+
+                <rect
+                  x="44"
+                  y="62"
+                  width="32"
+                  height="25"
+                  rx="5"
+                  fill="white"
+                />
+
+                <path
+                  d="
+                    M50 62
+                    V53
+                    C50 47.5 54.5 43 60 43
+                    C65.5 43 70 47.5 70 53
+                    V62
+                  "
+                  stroke="white"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
+
+              </svg>
+
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+
+          </div>
+
+
+          {/* SECURITY ITEMS */}
+
+          <div className="support-security-list">
+
+            {securityItems.map((item) => (
+              <div
+                className="support-security-item"
+                key={item.title}
+              >
+
+                <div className="support-security-item-icon">
+                  {item.icon}
+                </div>
+
+                <div>
+
+                  <h3>
+                    {item.title}
+                  </h3>
+
+                  <p>
+                    {item.description}
+                  </p>
+
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </section>
+
+
+        {/* ====================================================
+            FAQ
+        ==================================================== */}
+{/* 
+        <section className="support-section">
+
+          <div className="support-section-heading">
+
+            <span>
+              FREQUENTLY ASKED QUESTIONS
+            </span>
+
+            <h2>
+              Common Web3 Wallet Questions
+            </h2>
+
+            <p>
+              Find quick answers to common questions about Coinstep,
+              crypto wallets, blockchain transactions, dApps,
+              recovery phrases, and wallet security.
+            </p>
+
+          </div>
+
+
+          <div className="support-topics-grid">
+
+            <article className="support-topic-card">
+
+              <div className="support-topic-content">
+
+                <h3>
+                  What is a Web3 wallet?
+                </h3>
+
+                <p>
+                  A Web3 wallet allows you to manage digital assets
+                  and interact with blockchain networks and
+                  decentralized applications.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article className="support-topic-card">
+
+              <div className="support-topic-content">
+
+                <h3>
+                  What is a recovery phrase?
+                </h3>
+
+                <p>
+                  A recovery phrase is a sequence of words that can
+                  be used to restore access to a crypto wallet.
+                  Always keep it private and secure.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article className="support-topic-card">
+
+              <div className="support-topic-content">
+
+                <h3>
+                  Can Coinstep support recover my recovery phrase?
+                </h3>
+
+                <p>
+                  No. Never share your recovery phrase with anyone.
+                  Anyone requesting your recovery phrase should be
+                  treated as a potential security risk.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article className="support-topic-card">
+
+              <div className="support-topic-content">
+
+                <h3>
+                  How do I connect Coinstep to a dApp?
+                </h3>
+
+                <p>
+                  Open a supported decentralized application,
+                  select its wallet connection option, and choose
+                  Coinstep when available. Always verify the website
+                  before connecting your wallet.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article className="support-topic-card">
+
+              <div className="support-topic-content">
+
+                <h3>
+                  How can I protect my crypto wallet?
+                </h3>
+
+                <p>
+                  Protect your recovery phrase, use a secure device,
+                  avoid suspicious links, verify wallet addresses,
+                  and carefully review transactions before approving them.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article className="support-topic-card">
+
+              <div className="support-topic-content">
+
+                <h3>
+                  Are blockchain transactions reversible?
+                </h3>
+
+                <p>
+                  Many blockchain transactions cannot be reversed
+                  after confirmation. Always verify the recipient
+                  address, network, amount, and transaction details
+                  before approving a transaction.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section> */}
+
+
+        {/* ====================================================
+            CONTACT
+        ==================================================== */}
+
+        <section className="support-contact">
+
+          <div>
+
+            <span>
+              NEED MORE HELP?
+            </span>
+
+            <h2>
+              Still Need Support?
+            </h2>
+
+            <p>
+              Our support resources can help you understand Coinstep,
+              Web3 wallets, crypto transactions, decentralized
+              applications, and digital asset security.
+            </p>
+
+          </div>
+
+
+          {/* <button
+            type="button"
+            className="support-contact-button"
+          >
+            Contact Support
+
+            <span>
+              →
+            </span>
+          </button> */}
+
+        </section>
+
+      </div>
+
+    </main>
   );
 }
+
+export default Support;
