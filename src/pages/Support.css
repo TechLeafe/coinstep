@@ -109,7 +109,6 @@
       1.2rem
     );
 
-  /* REDUCED */
   padding-bottom:
     clamp(
       0.35rem,
@@ -121,9 +120,6 @@
 
 /* ============================================================
    HERO -> SUPPORT TOPICS GAP
-
-   Only moves Help Center upward.
-   Headset animation is NOT changed.
 ============================================================ */
 
 .support-hero + .support-section {
@@ -302,8 +298,6 @@
 
 /* ============================================================
    HEADSET
-
-   UNCHANGED
 ============================================================ */
 
 .support-headset {
@@ -359,8 +353,6 @@
 
 /* ============================================================
    HEADSET ORBITS
-
-   UNCHANGED
 ============================================================ */
 
 .support-headset-orbit {
@@ -533,6 +525,7 @@
 
 /* ============================================================
    TOPICS GRID
+   3 CARDS + 3 CARDS
 ============================================================ */
 
 .support-topics-grid {
@@ -544,7 +537,7 @@
       minmax(
         min(
           100%,
-          310px
+          22rem
         ),
         1fr
       )
@@ -553,14 +546,14 @@
   gap:
     clamp(
       1rem,
-      1.6vw,
-      1.25rem
+      1.8vw,
+      1.5rem
     );
 }
 
 
 /* ============================================================
-   CARD
+   SUPPORT TOPIC CARD
 ============================================================ */
 
 .support-topic-card {
@@ -568,16 +561,16 @@
 
   min-height:
     clamp(
-      190px,
+      15rem,
       18vw,
-      210px
+      18rem
     );
 
   padding:
     clamp(
-      1.4rem,
-      2.2vw,
-      1.8rem
+      1.8rem,
+      2.4vw,
+      2.2rem
     );
 
   overflow: hidden;
@@ -586,15 +579,17 @@
 
   flex-direction: column;
 
-  align-items: flex-start;
-
   border:
     1px
     solid
     var(--color-border);
 
   border-radius:
-    var(--radius-lg);
+    clamp(
+      1.25rem,
+      2vw,
+      1.75rem
+    );
 
   background:
     var(--color-surface);
@@ -603,7 +598,7 @@
     var(--shadow-sm);
 
   cursor:
-    pointer;
+    default;
 
   transition:
     transform 300ms ease,
@@ -612,37 +607,127 @@
 }
 
 
+/* ============================================================
+   LEFT ACCENT LINE
+============================================================ */
+
+.support-topic-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width:
+    3px;
+
+  height:
+    100%;
+
+  background:
+    var(
+      --topic-accent,
+      var(--color-accent)
+    );
+
+  border-radius:
+    0
+    4px
+    4px
+    0;
+}
+
+
+/* ============================================================
+   BOTTOM RIGHT CIRCLE
+============================================================ */
+
 .support-topic-card::before {
   content: "";
 
   position: absolute;
 
   width:
-    150px;
+    clamp(
+      7rem,
+      9vw,
+      9rem
+    );
 
   height:
-    150px;
+    clamp(
+      7rem,
+      9vw,
+      9rem
+    );
 
   right:
-    -70px;
+    clamp(
+      -4rem,
+      -3vw,
+      -2.7rem
+    );
 
   bottom:
-    -70px;
+    clamp(
+      -4.2rem,
+      -3vw,
+      -3rem
+    );
 
   border-radius:
     50%;
 
   background:
-    var(--color-accent);
+    color-mix(
+      in srgb,
+      var(
+        --topic-accent,
+        var(--color-accent)
+      ) 8%,
+      transparent
+    );
 
-  opacity:
-    0.035;
+  pointer-events:
+    none;
 
   transition:
     transform 350ms ease,
     opacity 350ms ease;
 }
 
+
+/* ============================================================
+   CARD COLORS
+============================================================ */
+
+.support-topic-card-1 {
+  --topic-accent:
+    var(--color-accent);
+}
+
+
+.support-topic-card-2 {
+  --topic-accent:
+    var(--color-signal);
+}
+
+
+.support-topic-card-3 {
+  --topic-accent:
+    color-mix(
+      in srgb,
+      var(--color-accent) 76%,
+      var(--color-ink)
+    );
+}
+
+
+/* ============================================================
+   TOPIC CARD HOVER
+============================================================ */
 
 .support-topic-card:hover {
   transform:
@@ -651,7 +736,10 @@
   border-color:
     color-mix(
       in srgb,
-      var(--color-accent) 35%,
+      var(
+        --topic-accent,
+        var(--color-accent)
+      ) 30%,
       var(--color-border)
     );
 
@@ -662,139 +750,15 @@
 
 .support-topic-card:hover::before {
   transform:
-    scale(1.35);
+    scale(1.15);
 
   opacity:
-    0.08;
+    1;
 }
 
 
 /* ============================================================
-   ICON BOX
-============================================================ */
-
-.support-topic-icon {
-  width:
-    54px;
-
-  height:
-    54px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  flex-shrink:
-    0;
-
-  margin-bottom:
-    1.2rem;
-
-  border:
-    1px
-    solid
-    color-mix(
-      in srgb,
-      var(--color-accent) 24%,
-      var(--color-border)
-    );
-
-  border-radius:
-    14px;
-
-  color:
-    var(--color-accent);
-
-  background:
-    color-mix(
-      in srgb,
-      var(--color-accent) 9%,
-      var(--color-surface)
-    );
-
-  transition:
-    background 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease;
-}
-
-
-.support-topic-card:hover
-.support-topic-icon {
-  border-color:
-    color-mix(
-      in srgb,
-      var(--color-accent) 42%,
-      var(--color-border)
-    );
-
-  background:
-    color-mix(
-      in srgb,
-      var(--color-accent) 13%,
-      var(--color-surface)
-    );
-}
-
-
-/* ============================================================
-   TOPIC ICON ROTATION
-============================================================ */
-
-.support-topic-icon-svg {
-  width:
-    27px;
-
-  height:
-    27px;
-
-  display:
-    block;
-
-  transform:
-    rotate(0deg);
-
-  transform-origin:
-    center center;
-
-  transform-box:
-    fill-box;
-
-  animation:
-    none;
-
-  will-change:
-    transform;
-}
-
-
-.support-topic-card:hover
-.support-topic-icon-svg {
-  animation:
-    supportIconClockwise
-    4.5s
-    linear
-    infinite;
-}
-
-
-@keyframes supportIconClockwise {
-  from {
-    transform:
-      rotate(0deg);
-  }
-
-  to {
-    transform:
-      rotate(360deg);
-  }
-}
-
-
-/* ============================================================
-   CARD CONTENT
+   TOPIC CARD CONTENT
 ============================================================ */
 
 .support-topic-content {
@@ -803,101 +767,80 @@
 
   z-index:
     2;
+
+  width:
+    100%;
+
+  min-height:
+    100%;
+
+  flex:
+    1;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
 }
 
 
 .support-topic-content h3 {
+  max-width:
+    20rem;
+
   margin:
-    0
-    0
-    0.45rem;
+    0;
 
   color:
     var(--color-ink);
 
   font-size:
     clamp(
-      1rem,
-      1.3vw,
-      1.12rem
+      1.15rem,
+      1.5vw,
+      1.4rem
     );
+
+  line-height:
+    1.15;
 
   font-weight:
     var(--weight-semibold);
+
+  letter-spacing:
+    -0.025em;
 }
 
 
 .support-topic-content p {
+  max-width:
+    23rem;
+
   margin:
+    auto
+    0
     0;
 
+  padding-top:
+    clamp(
+      2.5rem,
+      4.5vw,
+      4rem
+    );
+
   color:
-    var(--color-ink-faint);
+    var(--color-ink-soft);
 
   font-size:
-    var(--text-sm);
+    clamp(
+      0.9rem,
+      1.1vw,
+      1rem
+    );
 
   line-height:
-    1.5;
-}
-
-
-/* ============================================================
-   ARROW
-============================================================ */
-
-.support-card-arrow {
-  position:
-    absolute;
-
-  right:
-    1.4rem;
-
-  bottom:
-    1.4rem;
-
-  width:
-    34px;
-
-  height:
-    34px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  border-radius:
-    50%;
-
-  color:
-    var(--color-accent);
-
-  background:
-    color-mix(
-      in srgb,
-      var(--color-accent) 8%,
-      transparent
-    );
-
-  transition:
-    transform 300ms ease,
-    background 300ms ease;
-}
-
-
-.support-topic-card:hover
-.support-card-arrow {
-  transform:
-    translateX(4px);
-
-  background:
-    color-mix(
-      in srgb,
-      var(--color-accent) 15%,
-      transparent
-    );
+    1.55;
 }
 
 
@@ -1509,7 +1452,7 @@
 
 
 /* ============================================================
-   SECURITY ANIMATIONS
+   ANIMATIONS
 ============================================================ */
 
 @keyframes supportShieldFloat {

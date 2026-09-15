@@ -162,7 +162,7 @@ function ClockMiniIcon() {
 
 const INTRO_HIGHLIGHTS = [
   { label: 'Security & User Control', icon: <ShieldMiniIcon /> },
-  { label: 'Multiple-Chain Support', icon: <ZapMiniIcon /> },
+  { label: 'Multi-Chain Support', icon: <ZapMiniIcon /> },
   { label: 'dApps & DeFi', icon: <ChainMiniIcon /> },
   { label: 'Mobile & Web', icon: <PhoneMiniIcon /> },
 ]
@@ -327,7 +327,7 @@ function AssetsBlock() {
             </div>
           </div>
 
-          <ul className="highlight-row">
+          {/* <ul className="highlight-row">
             {INTRO_HIGHLIGHTS.map((item) => (
               <li key={item.label} className="highlight-item">
                 <span className="highlight-item-icon" aria-hidden="true">
@@ -336,7 +336,7 @@ function AssetsBlock() {
                 {item.label}
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
 
@@ -503,17 +503,17 @@ const TRANSACTIONS: Transaction[] = [
 
 const HISTORY_STEPS = [
   {
-    title: 'You send or receive',
-    desc: 'Every transfer in or out of your wallet is captured the moment it hits the network.',
+    title: 'Transaction Initiated',
+    desc: 'Every transfer can be reflected in your transaction history once it reaches the network.',
     icon: <SwapIcon />,
   },
   {
-    title: 'It lands in your history',
-    desc: 'Direction, asset, amount and counterparty address are recorded as a clear, readable entry.',
+    title: 'Added to Transaction History',
+    desc: 'Direction, asset, amount, and counterparty address are recorded in a clear, readable entry.',
     icon: <DocIcon />,
   },
   {
-    title: 'Confirmed on-chain',
+    title: 'Confirmed On-Chain',
     desc: 'Pending entries update to Confirmed once the network verifies the block — no guesswork.',
     icon: <ShieldCheckIcon />,
   },
@@ -588,7 +588,7 @@ function TransactionHistoryBlock() {
 
 export function Features() {
   return (
-    <div className="page container">
+    <div className="page container features-page">
       <IntroHero />
 
       <AssetsBlock />

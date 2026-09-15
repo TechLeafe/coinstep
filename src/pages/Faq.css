@@ -1332,3 +1332,21 @@
   overflow-wrap:
     anywhere;
 }
+/* ============================================================
+   FAQ PAGE — REDUCE EMPTY SPACE BEFORE FOOTER
+   ============================================================ */
+
+.faq-page {
+  min-height: auto;
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.faq-container,
+.faq-content {
+  min-height: auto;
+}
+
+.faq-list {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

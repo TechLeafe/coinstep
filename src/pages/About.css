@@ -1045,3 +1045,97 @@
   word-break: normal;
   hyphens: none;
 }
+/* ============================================================
+   ABOUT HERO — CRYPTO ANIMATION
+   LEFT animation + RIGHT content
+   NO MEDIA QUERY
+============================================================ */
+
+/* Remove old orbit rings */
+
+.about-intro::before,
+.about-intro::after {
+  display: none;
+}
+
+
+/* ============================================================
+   HERO GRID
+============================================================ */
+
+.about-intro__hero-grid {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+
+  margin-top:
+    clamp(
+      1.5rem,
+      3.2vw,
+      3rem
+    );
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(100%, 22rem),
+        1fr
+      )
+    );
+
+  align-items: center;
+
+  gap:
+    clamp(
+      1rem,
+      3vw,
+      3.5rem
+    );
+}
+
+
+/* ============================================================
+   LEFT ANIMATION
+============================================================ */
+
+.about-intro__animation {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  min-height:
+    clamp(
+      19rem,
+      31vw,
+      28rem
+    );
+
+  display: grid;
+
+  place-items: center;
+}
+
+
+/* ============================================================
+   RIGHT CONTENT
+============================================================ */
+
+.about-intro__content {
+  width:
+    min(
+      100%,
+      43rem
+    );
+
+  min-width: 0;
+
+  margin: 0;
+
+  justify-self: end;
+  align-self: center;
+}

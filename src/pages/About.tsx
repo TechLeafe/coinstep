@@ -5,6 +5,7 @@ import {
 
 import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { CryptoStairs } from "../components/CryptoStairs";
 
 import "./About.css";
 
@@ -680,83 +681,48 @@ export function About() {
               HERO
           ====================================================== */}
 
-          <section className="about-intro">
+         <section className="about-intro">
 
-            <div className="about-intro__brand">
-              <h1
-                className="about-intro__wordmark"
-                data-text="COINSTEP"
-              >
-                COINSTEP
-              </h1>
+  <div className="about-intro__brand">
+    <h1
+      className="about-intro__wordmark"
+      data-text="COINSTEP"
+    >
+      COINSTEP
+    </h1>
+  </div>
 
-            </div>
+  <div className="about-intro__hero-grid">
 
-            <div className="about-intro__content">
+    {/* LEFT SIDE ANIMATION */}
 
-              <h2>
-                A simpler, safer way to experience Web3
-              </h2>
+    <div
+      className="about-intro__animation"
+      aria-hidden="true"
+    >
+      <CryptoStairs />
+    </div>
 
-              <p>
-                CoinStep is a modern Web3 wallet designed to make managing digital assets,
-                exploring decentralized applications (dApps), and navigating multi-chain
-                experiences simpler, clearer, and more accessible.
-              </p>
+    {/* RIGHT SIDE CONTENT */}
 
-             
+    <div className="about-intro__content">
 
-            </div>
-          </section>
+      <h2>
+        A simpler, safer way to experience Web3
+      </h2>
 
+      <p>
+        CoinStep is a modern Web3 wallet designed to make
+        managing digital assets, exploring decentralized
+        applications (dApps), and navigating multi-chain
+        experiences simpler, clearer, and more accessible.
+      </p>
 
-          {/* =====================================================
-              PURPOSE
-          ====================================================== */}
+    </div>
 
-          <section
-            className="
-              about-panel
-              about-panel--purpose
-              about-reveal
-            "
-          >
-            <p className="about-label">
-              Our Purpose
-            </p>
+  </div>
 
-            <div className="about-panel__content">
-
-              <div className="about-panel__copy">
-
-                <h1>
-                  Building the foundations for digital ownership
-                </h1>
-
-                <p>
-                  We believe everyone should have the freedom to truly own and manage their
-                  digital assets with confidence. CoinStep is building a secure and intuitive
-                  Web3 wallet that helps people take control of their assets while making
-                  blockchain technology easier to understand and use.
-                </p>
-
-              </div>
-
-              <div
-                className="
-                  about-panel__art
-                  cursor-animation
-                "
-                onPointerMove={handleArtPointerMove}
-                onPointerLeave={handleArtPointerLeave}
-              >
-                <div className="cursor-animation__object">
-                  <KeyArt />
-                </div>
-              </div>
-
-            </div>
-          </section>
+</section>
 
 
           {/* =====================================================
