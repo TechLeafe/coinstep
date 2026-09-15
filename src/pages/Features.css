@@ -735,3 +735,200 @@
     transform: none;
   }
 }
+
+/* ============================================================
+   PLATFORM TYPOGRAPHY + COLOR ALIGNMENT
+   Keeps all existing Features layout and animation behavior.
+   Main typography follows Platform.css; technical labels keep
+   the shared mono font where appropriate.
+   ============================================================ */
+
+.features-page {
+  color: var(--color-ink);
+  font-family: inherit;
+}
+
+/* Hero heading — same visual language as Platform hero */
+.features-page .intro-heading {
+  max-width: 680px;
+  margin: 0 0 1.25rem;
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: clamp(2.75rem, 5vw, 4.6rem);
+  font-weight: var(--weight-bold);
+  line-height: 0.99;
+  letter-spacing: -0.05em;
+}
+
+/* Platform uses a solid accent rather than the old Features gradient */
+.features-page .text-gradient {
+  color: var(--color-accent);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Hero description — same sizing/color as Platform description */
+.features-page .intro-sub {
+  max-width: 600px;
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-family: inherit;
+  font-size: clamp(1rem, 1.3vw, 1.22rem);
+  line-height: 1.55;
+}
+
+/* Section headings — same as Platform section headings */
+.features-page .feature-copy h2 {
+  margin: 0 0 0.85rem;
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: var(--weight-bold);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.features-page .feature-copy h2 .text-gradient {
+  color: var(--color-accent);
+}
+
+/* Body copy */
+.features-page .feature-copy > p,
+.features-page .feature-copy.stack > p,
+.features-page .history-step-desc {
+  color: var(--color-ink-soft);
+  font-family: inherit;
+  line-height: 1.65;
+}
+
+.features-page .feature-copy > p,
+.features-page .feature-copy.stack > p {
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+}
+
+/* Feature highlights */
+.features-page .highlight-item {
+  color: var(--color-ink-soft);
+  font-family: inherit;
+}
+
+.features-page .highlight-item-icon,
+.features-page .highlight-item-icon svg {
+  color: var(--color-accent);
+}
+
+/* Pills / tags */
+.features-page .section-badge {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  font-family: var(--font-mono);
+}
+
+.features-page .feature-tags .badge {
+  color: var(--color-ink);
+  font-family: inherit;
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+
+.features-page .feature-tags .badge svg {
+  color: var(--color-accent);
+}
+
+/* Shared cards */
+.features-page .surface,
+.features-page .wallet-card,
+.features-page .history-card,
+.features-page .history-row {
+  color: var(--color-ink);
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+
+/* Wallet card typography */
+.features-page .wallet-card .eyebrow {
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+}
+
+.features-page .wallet-total {
+  color: var(--color-ink);
+  font-family: inherit;
+  letter-spacing: -0.02em;
+}
+
+.features-page .wallet-row-name,
+.features-page .wallet-row-amount {
+  color: var(--color-ink);
+  font-family: inherit;
+}
+
+.features-page .wallet-row-network,
+.features-page .wallet-row-value,
+.features-page .muted {
+  color: var(--color-ink-faint);
+}
+
+.features-page .wallet-row-amounts {
+  font-family: inherit;
+}
+
+/* Transaction explanation */
+.features-page .history-step-icon {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.features-page .history-step-title {
+  color: var(--color-ink);
+  font-family: inherit;
+}
+
+.features-page .history-step-desc {
+  color: var(--color-ink-soft);
+}
+
+/* Transaction card */
+.features-page .history-card-title {
+  color: var(--color-ink);
+  font-family: inherit;
+}
+
+.features-page .history-live {
+  color: var(--color-signal);
+  font-family: var(--font-mono);
+}
+
+.features-page .history-live-dot {
+  background: var(--color-signal);
+}
+
+.features-page .history-row-name,
+.features-page .history-row-amount {
+  color: var(--color-ink);
+}
+
+.features-page .history-row-address {
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+}
+
+.features-page .history-row-amount {
+  font-family: inherit;
+}
+
+.features-page .history-row-amount.is-positive {
+  color: var(--color-signal);
+}
+
+.features-page .history-status {
+  color: var(--color-signal);
+  background: var(--color-signal-soft);
+}
+
+.features-page .history-status.is-pending {
+  color: var(--color-warn);
+  background: var(--color-warn-soft);
+}
