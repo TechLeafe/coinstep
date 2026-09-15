@@ -62,9 +62,9 @@ const topics = [
   },
 
   {
-    title: "Buying and Cashing Out Crypto",
+    title: "Buying and Managing Crypto",
     description:
-      "Learn about available options for acquiring or converting supported digital assets and understand related requirements.",
+      "Learn about available options for acquiring and managing supported digital assets and understand related requirements.",
     icon: (
       <Icon className="support-topic-icon-svg">
         <circle cx="12" cy="12" r="8" />
@@ -104,7 +104,7 @@ const topics = [
   {
     title: "Crypto Wallet Security",
     description:
-      "Learn essential security practices to protect your wallet, recovery phrase, private information, and digital assets.",
+      "Learn essential security practices to protect your wallet access, recovery information, and digital assets.",
     icon: (
       <Icon className="support-topic-icon-svg">
         <path d="M12 3l7 3v5c0 4.8-2.9 8.2-7 10-4.1-1.8-7-5.2-7-10V6l7-3z" />
@@ -143,7 +143,7 @@ const securityItems = [
   {
     title: "Protect Your Recovery Phrase",
     description:
-      "Your recovery phrase can provide access to your wallet. Store it securely and never share it with anyone.",
+      "Your recovery phrase can be used to restore access to your wallet. Store it securely and never share it with anyone.",
     icon: (
       <Icon>
         <path d="M7 3h7l4 4v14H7z" />
@@ -715,9 +715,7 @@ export function Support() {
             </h2>
 
             <p>
-              Our support resources can help you understand Coinstep,
-              Web3 wallets, crypto transactions, decentralized
-              applications, and digital asset security.
+              Our support resources can help you understand Coinstep, Web3 wallets, crypto transactions, dApps, security, and common wallet questions.
             </p>
 
           </div>
