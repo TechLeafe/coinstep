@@ -743,7 +743,7 @@ export function Platform() {
             </h2>
 
             <p>
-              A straightforward journey that keeps every important step clear and easy to follow.
+              A straight forward journey that keeps every important step clear and easy to follow.
             </p>
 
           </div>

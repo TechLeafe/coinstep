@@ -51,7 +51,7 @@ const BUILD_FEATURES: Feature[] = [
     visual: "developer",
     title: "Developer APIs",
     description:
-      "Build blockchain-powered applications faster with simple, reliable APIs designed for modern Web3 products.",
+      "Explore developer interfaces designed to simplify blockchain-powered application development.",
   },
 
   {
@@ -67,9 +67,8 @@ const BUILD_FEATURES: Feature[] = [
     visual: "security",
     title: "Secure Transactions",
     description:
-      "Give users clear transaction details, confirmations, and secure signing flows for every action.",
+      "Give users clear transaction details and confirmation flows before they approve blockchain actions.",
   },
-
   {
     icon: <DevicesOutlinedIcon />,
     visual: "mobile",
@@ -83,7 +82,7 @@ const BUILD_FEATURES: Feature[] = [
     visual: "dapp",
     title: "dApp Integration",
     description:
-      "Connect CoinStep with decentralized applications and Web3 services through flexible integration tools.",
+      "Connect Coinstep with decentralized applications and Web3 services through flexible integration tools.",
   },
 ];
 
@@ -95,20 +94,20 @@ const BUILD_FEATURES: Feature[] = [
 const TRUST_ITEMS = [
   {
     icon: <GroupsOutlinedIcon />,
-    title: "Designed for",
+    title: "Built for",
     text: "Web3 developers",
   },
 
   {
     icon: <CloudQueueOutlinedIcon />,
-    title: "Reliable & scalable",
-    text: "infrastructure",
+    title: "Flexible",
+    text: "integration tools",
   },
 
   {
     icon: <BoltOutlinedIcon />,
-    title: "Secure by design",
-    text: "for every transaction",
+    title: "Clear",
+    text: "transaction experiences",
   },
 ];
 
@@ -833,9 +832,7 @@ export function Build() {
 
 
           <p className="build-description">
-            Build secure, scalable Web3 experiences with
-            Coinstep&apos;s wallet infrastructure, developer
-            APIs, and multi-chain tools.
+            Build connected Web3 experiences with Coinstep’s wallet integration, developer tools, and multi-chain capabilities.
           </p>
 
 
@@ -900,9 +897,7 @@ export function Build() {
 
 
           <p>
-            Powerful tools, flexible integrations, and secure
-            infrastructure designed to help you build reliable
-            Web3 experiences.
+            Flexible tools and integration options designed to help developers build clear, reliable Web3 experiences
           </p>
 
         </div>

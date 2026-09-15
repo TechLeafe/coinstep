@@ -704,7 +704,6 @@ export function About() {
     </div>
 
     {/* RIGHT SIDE CONTENT */}
-
     <div className="about-intro__content">
 
       <h2>
@@ -763,7 +762,7 @@ export function About() {
 
                 <p>
                   We want to help people confidently participate in the digital economy by
-                  providing a simple and secure way to manage digital assets, connect with
+                  providing a simple and security focused way to manage digital assets, connect with
                   Web3 applications, and explore new opportunities across blockchain networks.
                 </p>
 
@@ -815,7 +814,7 @@ export function About() {
 
                 <p>
                   From managing digital assets and sending transactions to connecting with
-                  dApps and exploring multi-chain ecosystems, CoinStep is designed to help
+                  dApps and exploring multi-chain ecosystems, Coinstep is designed to help
                   users navigate Web3 with confidence.
                 </p>
 
@@ -853,8 +852,8 @@ export function About() {
                 </h3>
 
                 <p>
-                  CoinStep was created with one goal: to make crypto and Web3 interactions
-                  easier to understand, easier to use, and safer for everyday users.
+                  Coinstep was created with one goal: to make crypto and Web3 interactions
+                  easier to understand, easier to use, with clearer and more security-conscious interactions for everyday users.
                 </p>
 
                 <p>
@@ -907,7 +906,7 @@ export function About() {
                 </h3>
 
                 <p>
-                  Security and transparency are at the heart of the CoinStep experience.
+                  Security and transparency are at the heart of the Coinstep experience.
                 </p>
 
                 <p>
@@ -939,9 +938,9 @@ export function About() {
                 </p>
 
                 <p>
-                  CoinStep is building a flexible wallet experience across blockchain
+                  Coinstep is building a flexible wallet experience across blockchain
                   networks, digital assets, decentralized applications, mobile, and web.
-                  We are focused on creating a reliable foundation that can grow with the
+                  We are focused on creating a flexible foundation that can grow with the
                   Web3 ecosystem and its users.
                 </p>
 
@@ -1026,7 +1025,7 @@ export function About() {
               </p>
 
               <p>
-                Together, we are building CoinStep to help more people confidently discover,
+                Together, we are building Coinstep to help more people confidently discover,
                 understand, and participate in the decentralized web.
               </p>
 
@@ -1052,7 +1051,7 @@ export function About() {
               FINAL CTA
           ====================================================== */}
 
-          <section
+          {/* <section
             className="
               about-panel
               about-panel--final
@@ -1068,8 +1067,8 @@ export function About() {
                 </h2>
 
                 <p>
-                  CoinStep is focused on making digital asset ownership more accessible
-                  through a secure, intuitive, and user-friendly Web3 wallet.
+                  Coinstep is focused on making digital asset ownership more accessible
+                  through an intuitive, security-focused, and user-friendly Web3 wallet.
                 </p>
 
                 <Link
@@ -1082,7 +1081,7 @@ export function About() {
                   "
                 >
                   <span>
-                    Explore CoinStep
+                    Explore Coinstep
                   </span>
 
                   <span
@@ -1095,7 +1094,7 @@ export function About() {
 
               </div>
             </div>
-          </section>
+          </section> */}
 
         </div>
       </main>

@@ -312,7 +312,7 @@ function AssetsBlock() {
             Keep track of your tokens and balances across supported blockchain networks from a
             single wallet.
           </p>
-          <div className="coin-marquee">
+          {/* <div className="coin-marquee">
             <div className="coin-track">
               {marqueeCoins.map((coin, i) => (
                 <span
@@ -325,7 +325,7 @@ function AssetsBlock() {
                 </span>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* <ul className="highlight-row">
             {INTRO_HIGHLIGHTS.map((item) => (
@@ -546,10 +546,6 @@ function TransactionHistoryBlock() {
       <div className="surface history-card enter-from-right">
         <div className="history-card-head">
           <span className="history-card-title">Transaction history</span>
-          <span className="history-live">
-            <span className="history-live-dot" aria-hidden="true" />
-            Live
-          </span>
         </div>
 
         <ul className="history-list">
