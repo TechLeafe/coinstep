@@ -10,7 +10,6 @@ import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
 import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
 import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 
@@ -185,7 +184,6 @@ const PLATFORM_VISUALS: Record<
           $12,458.32
         </strong>
 
-     
 
       </div>
 
@@ -448,34 +446,6 @@ function PlatformHeroVisual() {
       <div className="platform-hero-orbit platform-hero-orbit-two" />
       <div className="platform-hero-orbit platform-hero-orbit-three" />
 
-      {/* FLOATING STATUS CARDS */}
-      <div className="platform-connected-card">
-        <span />
-
-        <div>
-          <strong>Wallet Connected</strong>
-          <small>Secure session</small>
-        </div>
-      </div>
-
-      <div className="platform-network-card">
-        <HubOutlinedIcon />
-
-        <div>
-          <strong>Web3 Ready</strong>
-          <small>Multi-chain access</small>
-        </div>
-      </div>
-
-      <div className="platform-approved-card">
-        <VerifiedUserOutlinedIcon />
-
-        <div>
-          <strong>Transaction</strong>
-          <small>Ready to review</small>
-        </div>
-      </div>
-
       {/* PHONE IMAGE ONLY */}
       <div className="platform-device">
         <div className="platform-theme-crop">
@@ -502,7 +472,6 @@ function PlatformSecurityVisual() {
       aria-hidden="true"
     >
 
-      <div className="platform-security-glow" />
 
       <div className="platform-security-orbit platform-security-orbit-one" />
 
@@ -542,12 +511,6 @@ function PlatformSecurityVisual() {
 
       </div>
 
-
-      <div className="platform-security-lock">
-
-        <LockOutlinedIcon />
-
-      </div>
 
     </div>
   );
