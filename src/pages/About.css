@@ -1,1634 +1,1047 @@
 /* ============================================================
-   ABOUT PAGE
+   ABOUT PAGE — PLATFORM THEME
    File: src/pages/About.css
 
-   NO MEDIA QUERY
-
-   - Responsive with clamp(), min(), flex-wrap
-   - COINSTEP uses theme accent
-   - COINSTEP moving fade animation
-   - Only hovered illustration follows cursor
-   - Maximum 3 value cards per row
+   - Same visual language as Platform.css
+   - No media queries
+   - Responsive with clamp(), min(), auto-fit
+   - Soft accent haze, thin borders, glass/surface cards
+   - Compact buttons
+   - Cursor-follow illustrations preserved
+   - Values cards aligned evenly
 ============================================================ */
 
-
 /* ============================================================
-   PAGE
+   PAGE + LOCAL THEME TOKENS
 ============================================================ */
 
 .about-page {
+  position: relative;
   width: 100%;
   min-height: 100vh;
-
-  padding:
-    clamp(1rem, 2vw, 2rem)
-    clamp(0.8rem, 2vw, 1.5rem)
-    clamp(4rem, 7vw, 7rem);
-
+  overflow-x: clip;
   background: var(--color-bg);
 
-  overflow: hidden;
+  --about-accent-8: color-mix(
+    in srgb,
+    var(--color-accent) 8%,
+    transparent
+  );
+
+  --about-accent-12: color-mix(
+    in srgb,
+    var(--color-accent) 12%,
+    transparent
+  );
+
+  --about-accent-18: color-mix(
+    in srgb,
+    var(--color-accent) 18%,
+    transparent
+  );
+
+  --about-accent-25: color-mix(
+    in srgb,
+    var(--color-accent) 25%,
+    transparent
+  );
+
+  --about-accent-32: color-mix(
+    in srgb,
+    var(--color-accent) 32%,
+    transparent
+  );
+
+  --about-signal-10: color-mix(
+    in srgb,
+    var(--color-signal) 10%,
+    transparent
+  );
+
+  --about-surface-glass: color-mix(
+    in srgb,
+    var(--color-surface) 90%,
+    transparent
+  );
 }
-
-
-/* ============================================================
-   SHELL
-============================================================ */
 
 .about-shell {
-  width: min(
-    100%,
-    var(--content-max)
-  );
-
+  width: min(100%, var(--content-max));
   margin-inline: auto;
+  padding:
+    clamp(1rem, 2vw, 2rem)
+    clamp(0.85rem, 2.3vw, 1.6rem)
+    clamp(4rem, 7vw, 7rem);
 
   display: grid;
-
-  gap: clamp(
-    1rem,
-    2vw,
-    1.8rem
-  );
+  gap: clamp(1rem, 2.2vw, 1.8rem);
 }
 
-
 /* ============================================================
-   INTRO
+   HERO
 ============================================================ */
 
 .about-intro {
+  position: relative;
+  isolation: isolate;
   width: 100%;
+  min-height: clamp(34rem, 68vh, 46rem);
+  overflow: hidden;
 
   padding:
-    clamp(0.2rem, 0.8vw, 0.7rem)
+    clamp(1.25rem, 2.5vw, 2.25rem)
     0
-    clamp(2.5rem, 5vw, 5rem);
+    clamp(2.75rem, 6vw, 5.5rem);
 }
 
+/* Soft animated Web3 orbit in the empty left area. */
+.about-intro::before,
+.about-intro::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: clamp(0.5rem, 7vw, 7rem);
+  top: clamp(15rem, 29vw, 21rem);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.about-intro::before {
+  width: clamp(10rem, 24vw, 19rem);
+  aspect-ratio: 1.8 / 1;
+  border: 1px solid var(--about-accent-25);
+  transform: rotate(-18deg);
+  animation: aboutHeroOrbitOne 24s linear infinite;
+}
+
+.about-intro::after {
+  width: clamp(8rem, 19vw, 15rem);
+  aspect-ratio: 1.8 / 1;
+  border: 1px dashed var(--about-accent-32);
+  transform: rotate(32deg);
+  opacity: 0.65;
+  animation: aboutHeroOrbitTwo 30s linear infinite reverse;
+}
+
+@keyframes aboutHeroOrbitOne {
+  to {
+    transform: rotate(342deg);
+  }
+}
+
+@keyframes aboutHeroOrbitTwo {
+  to {
+    transform: rotate(392deg);
+  }
+}
 
 /* ============================================================
-   COINSTEP TITLE
+   HERO BRAND
 ============================================================ */
+
+.about-intro__brand {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
 
 .about-intro__wordmark {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
   margin: 0;
   padding: 0;
 
-  /*
-    Same theme color as
-    your Get Coinstep button.
-  */
   color: var(--color-accent);
-
   font-family: var(--font-body);
-
-  font-size: clamp(
-    2.7rem,
-    13.5vw,
-    13.5rem
-  );
-
+  font-size: clamp(3rem, 12.5vw, 12.5rem);
   font-weight: var(--weight-bold);
-
-  line-height: 0.83;
-
+  line-height: 0.84;
   letter-spacing: -0.065em;
-
   text-align: center;
-
   text-transform: uppercase;
-
   white-space: nowrap;
-
-  isolation: isolate;
-
-  transition:
-    color
-    var(--transition-base);
 }
 
-
-/* ============================================================
-   COINSTEP SOFT MOVING BAND
-============================================================ */
-
+.about-intro__wordmark::before,
 .about-intro__wordmark::after {
   content: attr(data-text);
-
   position: absolute;
-
   inset: 0;
-
-  z-index: 2;
-
   width: 100%;
 
   color: transparent;
-
   font: inherit;
-
   line-height: inherit;
-
   letter-spacing: inherit;
-
   text-align: inherit;
-
   text-transform: inherit;
-
   white-space: inherit;
 
-  /*
-    Dark / faded center.
-    This gives the effect from
-    your reference recording.
-  */
-
-  background:
-    linear-gradient(
-      90deg,
-
-      transparent 0%,
-      transparent 14%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 90%,
-        var(--color-bg) 10%
-      ) 25%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 64%,
-        var(--color-bg) 36%
-      ) 36%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 25%,
-        var(--color-bg) 75%
-      ) 46%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 10%,
-        var(--color-bg) 90%
-      ) 50%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 25%,
-        var(--color-bg) 75%
-      ) 54%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 64%,
-        var(--color-bg) 36%
-      ) 64%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 90%,
-        var(--color-bg) 10%
-      ) 75%,
-
-      transparent 86%,
-      transparent 100%
-    );
-
-  background-size:
-    210% 100%;
-
-  background-position:
-    145% 50%;
-
-  background-repeat:
-    no-repeat;
-
-  -webkit-background-clip:
-    text;
-
-  background-clip:
-    text;
-
-  -webkit-text-fill-color:
-    transparent;
-
-  pointer-events:
-    none;
-
-  will-change:
-    background-position;
-
-  animation:
-    coinstep-title-sweep
-    5.2s
-    cubic-bezier(
-      0.45,
-      0,
-      0.55,
-      1
-    )
-    infinite;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
 }
-
-
-/* ============================================================
-   SECOND SOFT EDGE
-
-   Makes the animation smooth instead
-   of looking like a sharp stripe.
-============================================================ */
 
 .about-intro__wordmark::before {
-  content: attr(data-text);
-
-  position: absolute;
-
-  inset: 0;
-
   z-index: 1;
-
-  width: 100%;
-
-  color: transparent;
-
-  font: inherit;
-
-  line-height: inherit;
-
-  letter-spacing: inherit;
-
-  text-align: inherit;
-
-  text-transform: inherit;
-
-  white-space: inherit;
-
   background:
     linear-gradient(
       90deg,
-
       transparent 0%,
-
-      transparent 7%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 96%,
-        transparent
-      ) 24%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 76%,
-        var(--color-bg) 24%
-      ) 38%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 55%,
-        var(--color-bg) 45%
-      ) 50%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 76%,
-        var(--color-bg) 24%
-      ) 62%,
-
-      color-mix(
-        in srgb,
-        var(--color-accent) 96%,
-        transparent
-      ) 76%,
-
-      transparent 93%,
-
+      transparent 10%,
+      color-mix(in srgb, var(--color-accent) 96%, transparent) 28%,
+      color-mix(in srgb, var(--color-accent) 70%, var(--color-bg) 30%) 42%,
+      color-mix(in srgb, var(--color-accent) 40%, var(--color-bg) 60%) 50%,
+      color-mix(in srgb, var(--color-accent) 70%, var(--color-bg) 30%) 58%,
+      color-mix(in srgb, var(--color-accent) 96%, transparent) 72%,
+      transparent 90%,
       transparent 100%
     );
-
-  background-size:
-    230% 100%;
-
-  background-position:
-    150% 50%;
-
-  background-repeat:
-    no-repeat;
-
-  -webkit-background-clip:
-    text;
-
-  background-clip:
-    text;
-
-  -webkit-text-fill-color:
-    transparent;
-
-  pointer-events:
-    none;
-
-  will-change:
-    background-position;
-
-  animation:
-    coinstep-title-soft-sweep
-    5.2s
-    cubic-bezier(
-      0.45,
-      0,
-      0.55,
-      1
-    )
-    infinite;
+  background-size: 220% 100%;
+  background-position: 150% 50%;
+  animation: aboutTitleSoftSweep 5.6s ease-in-out infinite;
 }
 
+.about-intro__wordmark::after {
+  z-index: 2;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 16%,
+      color-mix(in srgb, var(--color-accent) 88%, var(--color-bg) 12%) 30%,
+      color-mix(in srgb, var(--color-accent) 48%, var(--color-bg) 52%) 46%,
+      color-mix(in srgb, var(--color-accent) 18%, var(--color-bg) 82%) 50%,
+      color-mix(in srgb, var(--color-accent) 48%, var(--color-bg) 52%) 54%,
+      color-mix(in srgb, var(--color-accent) 88%, var(--color-bg) 12%) 70%,
+      transparent 84%,
+      transparent 100%
+    );
+  background-size: 205% 100%;
+  background-position: 145% 50%;
+  animation: aboutTitleSweep 5.6s ease-in-out infinite;
+}
+
+@keyframes aboutTitleSweep {
+  0%, 8% { background-position: 145% 50%; }
+  50% { background-position: 50% 50%; }
+  92%, 100% { background-position: -45% 50%; }
+}
+
+@keyframes aboutTitleSoftSweep {
+  0%, 8% { background-position: 150% 50%; }
+  50% { background-position: 50% 50%; }
+  92%, 100% { background-position: -50% 50%; }
+}
+
+/* The old small orbit badge is intentionally hidden. */
+.about-intro__orbit-badge {
+  display: none;
+}
 
 /* ============================================================
-   COINSTEP ANIMATION
-============================================================ */
-
-@keyframes coinstep-title-sweep {
-
-  0%,
-  8% {
-    background-position:
-      145% 50%;
-  }
-
-  30% {
-    background-position:
-      95% 50%;
-  }
-
-  50% {
-    background-position:
-      50% 50%;
-  }
-
-  70% {
-    background-position:
-      5% 50%;
-  }
-
-  92%,
-  100% {
-    background-position:
-      -45% 50%;
-  }
-}
-
-
-@keyframes coinstep-title-soft-sweep {
-
-  0%,
-  8% {
-    background-position:
-      150% 50%;
-  }
-
-  30% {
-    background-position:
-      98% 50%;
-  }
-
-  50% {
-    background-position:
-      50% 50%;
-  }
-
-  70% {
-    background-position:
-      2% 50%;
-  }
-
-  92%,
-  100% {
-    background-position:
-      -50% 50%;
-  }
-}
-
-
-/* ============================================================
-   INTRO CONTENT
+   HERO CONTENT
 ============================================================ */
 
 .about-intro__content {
-  width: min(
-    100%,
-    43rem
-  );
+  position: relative;
+  z-index: 3;
 
+  width: min(100%, 43rem);
   margin-left: auto;
-
-  margin-top: clamp(
-    1.5rem,
-    3vw,
-    3rem
-  );
+  margin-top: clamp(2rem, 4vw, 3.5rem);
 
   display: grid;
-
   justify-items: start;
-
-  gap: clamp(
-    1rem,
-    1.7vw,
-    1.4rem
-  );
+  gap: clamp(0.9rem, 1.5vw, 1.25rem);
 }
-
 
 .about-intro__content h2 {
-  width: min(
-    100%,
-    19ch
-  );
-
+  width: min(100%, 19ch);
   margin: 0;
 
-  color:
-    var(--color-ink);
-
-  font-size: clamp(
-    1.8rem,
-    3vw,
-    3.2rem
-  );
-
-  font-weight:
-    var(--weight-bold);
-
-  line-height: 1.12;
-
-  letter-spacing:
-    -0.04em;
-
-  text-wrap:
-    balance;
+  color: var(--color-ink);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: var(--weight-bold);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
 }
-
 
 .about-intro__content p {
-  width: min(
-    100%,
-    58ch
-  );
-
+  width: min(100%, 58ch);
   margin: 0;
 
-  color:
-    var(--color-ink-soft);
-
-  font-size: clamp(
-    0.95rem,
-    1.1vw,
-    1.15rem
-  );
-
-  line-height: 1.6;
+  color: var(--color-ink-soft);
+  font-size: clamp(0.95rem, 1.15vw, 1.13rem);
+  line-height: 1.65;
 }
 
-
 /* ============================================================
-   HERO CTA
+   COMPACT ABOUT BUTTONS
 ============================================================ */
 
-.about-intro__cta {
-  width:
-    fit-content;
+.about-compact-cta,
+.about-intro__cta,
+.about-final-cta {
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
 
-  min-width:
-    min(
-      100%,
-      20rem
-    );
+  height: auto;
+  min-height: 2.35rem;
 
-  max-width:
-    100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  margin-top:
-    0.25rem;
+  gap: 0.45rem;
 
-  gap:
+  padding:
+    0.5rem
     1rem;
 
-  text-decoration:
-    none;
+  border-radius: 999px;
+
+  font-size:
+    clamp(0.78rem, 0.85vw, 0.88rem);
+
+  font-weight:
+    var(--weight-semibold);
+
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
+.about-intro__cta {
+  margin-top: 0.15rem;
+}
+
+.about-final-cta {
+  margin-top: 0.2rem;
+}
 
 .about-intro__arrow {
-  display:
-    inline-block;
-
-  transition:
-    transform
-    180ms
-    ease;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1;
+  transition: transform 180ms ease;
 }
 
-
-.about-intro__cta:hover
-.about-intro__arrow {
-  transform:
-    translateX(5px);
+.about-intro__cta:hover .about-intro__arrow,
+.about-final-cta:hover .about-intro__arrow {
+  transform: translateX(4px);
 }
-
 
 /* ============================================================
-   INDIVIDUAL CURSOR ANIMATION
-
-   IMPORTANT:
-   Each image owns its own
-   movement variables.
-
-   Moving one image does NOT
-   move the others.
+   CURSOR FOLLOW
 ============================================================ */
 
 .cursor-animation {
   --art-x: 0px;
   --art-y: 0px;
-
   --art-rotate-x: 0deg;
   --art-rotate-y: 0deg;
 
-  position:
-    relative;
-
-  perspective:
-    900px;
-
-  pointer-events:
-    auto;
+  position: relative;
+  perspective: 900px;
+  pointer-events: auto;
 }
-
 
 .cursor-animation__object {
-  width:
-    100%;
-
-  height:
-    100%;
-
-  display:
-    grid;
-
-  place-items:
-    center;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
 
   transform:
-    translate3d(
-      var(--art-x),
-      var(--art-y),
-      0
-    )
-    rotateX(
-      var(--art-rotate-x)
-    )
-    rotateY(
-      var(--art-rotate-y)
-    );
+    translate3d(var(--art-x), var(--art-y), 0)
+    rotateX(var(--art-rotate-x))
+    rotateY(var(--art-rotate-y));
 
-  transform-style:
-    preserve-3d;
-
-  transition:
-    transform
-    130ms
-    ease-out;
-
-  will-change:
-    transform;
-
-  pointer-events:
-    none;
+  transform-style: preserve-3d;
+  transition: transform 130ms ease-out;
+  will-change: transform;
+  pointer-events: none;
 }
-
 
 .cursor-animation__object svg {
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
-
 /* ============================================================
-   COMMON PANEL
+   PURPOSE / VISION / MISSION PANELS
 ============================================================ */
 
 .about-panel {
-  position:
-    relative;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-height: clamp(20rem, 28vw, 27rem);
 
-  isolation:
-    isolate;
+  padding: clamp(1.25rem, 2.6vw, 2.2rem);
 
-  overflow:
-    hidden;
+  border: 1px solid var(--color-border);
+  border-radius: clamp(1.15rem, 1.8vw, 1.75rem);
 
-  width:
-    100%;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 
-  min-height:
-    clamp(
-      20rem,
-      28vw,
-      27rem
-    );
-
-  padding:
-    clamp(
-      1.2rem,
-      2.2vw,
-      2rem
-    );
-
-  border-radius:
-    clamp(
-      1rem,
-      1.4vw,
-      1.5rem
-    );
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-
-/* ============================================================
-   PANEL LABEL
-============================================================ */
-
-.about-label {
-  position:
-    relative;
-
-  z-index:
-    5;
-
-  margin:
-    0;
-
-  color:
-    inherit;
-
-  font-size:
-    clamp(
-      0.9rem,
-      1vw,
-      1.1rem
-    );
-
-  font-weight:
-    var(--weight-semibold);
+.about-panel:not(.about-panel--final):hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
 }
 
-
-/* ============================================================
-   PANEL CONTENT
-============================================================ */
-
-.about-panel__content {
-  width:
-    100%;
-
-  min-height:
-    clamp(
-      16rem,
-      22vw,
-      21rem
-    );
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(
-        min(
-          100%,
-          21rem
-        ),
-        1fr
-      )
-    );
-
-  align-items:
-    center;
-
-  gap:
-    clamp(
-      1rem,
-      3vw,
-      3.5rem
-    );
-
-  padding:
-    clamp(
-      0.8rem,
-      1.7vw,
-      1.5rem
-    )
-    clamp(
-      1rem,
-      3vw,
-      3.5rem
-    )
-    0;
+.about-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: clamp(13rem, 28vw, 25rem);
+  aspect-ratio: 1;
+  right: clamp(-9rem, -8vw, -4rem);
+  bottom: clamp(-10rem, -8vw, -4rem);
+  border-radius: 50%;
+  background: var(--about-accent-8);
+  filter: blur(18px);
+  pointer-events: none;
 }
-
-
-/* ============================================================
-   PANEL COPY
-============================================================ */
-
-.about-panel__copy {
-  position:
-    relative;
-
-  z-index:
-    4;
-
-  width:
-    100%;
-
-  display:
-    grid;
-
-  align-content:
-    center;
-
-  gap:
-    clamp(
-      0.8rem,
-      1.5vw,
-      1.3rem
-    );
-}
-
-
-.about-panel__copy h1,
-.about-panel__copy h2 {
-  margin:
-    0;
-
-  color:
-    inherit;
-
-  font-family:
-    var(--font-body);
-
-  font-weight:
-    var(--weight-semibold);
-
-  letter-spacing:
-    -0.05em;
-
-  text-wrap:
-    balance;
-}
-
-
-.about-panel__copy h1 {
-  max-width:
-    10ch;
-
-  font-size:
-    clamp(
-      2.7rem,
-      4.6vw,
-      4.6rem
-    );
-
-  line-height:
-    0.96;
-}
-
-
-.about-panel__copy h2 {
-  max-width:
-    14ch;
-
-  font-size:
-    clamp(
-      2rem,
-      3.6vw,
-      3.6rem
-    );
-
-  line-height:
-    1;
-}
-
-
-.about-panel__copy p {
-  width:
-    min(
-      100%,
-      46ch
-    );
-
-  margin:
-    0;
-
-  color:
-    inherit;
-
-  font-size:
-    clamp(
-      0.92rem,
-      1vw,
-      1.05rem
-    );
-
-  line-height:
-    1.55;
-}
-
-
-/* ============================================================
-   PANEL ART
-============================================================ */
-
-.about-panel__art {
-  position:
-    relative;
-
-  z-index:
-    3;
-
-  width:
-    100%;
-
-  min-height:
-    clamp(
-      12rem,
-      19vw,
-      18rem
-    );
-
-  display:
-    grid;
-
-  place-items:
-    center;
-}
-
-
-/* ============================================================
-   LOCK ART
-============================================================ */
-
-.about-hero-art {
-  display:
-    block;
-
-  width:
-    min(
-      78%,
-      23rem
-    );
-
-  height:
-    auto;
-
-  overflow:
-    visible;
-}
-
-
-/* ============================================================
-   TELESCOPE + CRYSTAL
-============================================================ */
-
-.about-telescope-art,
-.about-crystal-art {
-  display:
-    block;
-
-  width:
-    min(
-      75%,
-      21rem
-    );
-
-  height:
-    auto;
-
-  overflow:
-    visible;
-}
-
-
-.about-telescope-art--small {
-  width:
-    min(
-      72%,
-      17rem
-    );
-}
-
-
-/* ============================================================
-   PURPOSE
-============================================================ */
 
 .about-panel--purpose {
   background:
-    var(--color-accent);
-
-  color:
-    var(--color-ink);
+    linear-gradient(
+      135deg,
+      var(--color-surface) 0%,
+      color-mix(in srgb, var(--color-surface) 88%, var(--color-accent) 12%) 100%
+    );
+  color: var(--color-ink);
 }
-
-
-/* ============================================================
-   VISION
-============================================================ */
 
 .about-panel--vision {
   background:
-    var(--color-ink);
-
-  color:
-    var(--color-bg-raised);
+    linear-gradient(
+      135deg,
+      var(--color-surface) 0%,
+      color-mix(in srgb, var(--color-surface) 90%, var(--color-accent) 10%) 100%
+    );
+  color: var(--color-ink);
 }
-
-
-.about-panel--vision
-.about-panel__copy p {
-  opacity:
-    0.78;
-}
-
-
-/* ============================================================
-   MISSION
-============================================================ */
 
 .about-panel--mission {
   background:
-    var(--color-signal);
-
-  color:
-    var(--color-ink);
+    linear-gradient(
+      135deg,
+      var(--color-surface) 0%,
+      color-mix(in srgb, var(--color-surface) 90%, var(--color-signal) 10%) 100%
+    );
+  color: var(--color-ink);
 }
 
+.about-label {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  margin: 0;
 
-/* ============================================================
-   JOURNEY
-============================================================ */
-
-.journey-card {
-  width:
-    100%;
-
-  padding:
-    clamp(
-      1.4rem,
-      4vw,
-      4rem
-    );
-
-  background:
-    var(--color-surface-sunken);
-
-  border:
-    var(--border-width)
-    solid
-    var(--color-border);
-
-  border-radius:
-    clamp(
-      1rem,
-      1.5vw,
-      1.5rem
-    );
-
-  overflow:
-    hidden;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.82vw, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
+.about-panel__content {
+  width: 100%;
+  min-height: clamp(16rem, 22vw, 21rem);
 
-.journey-card > h2 {
-  width:
-    min(
-      100%,
-      19ch
-    );
-
-  margin:
-    0
-    auto
-    clamp(
-      2rem,
-      5vw,
-      4rem
-    );
-
-  color:
-    var(--color-ink);
-
-  text-align:
-    center;
-
-  font-size:
-    clamp(
-      1.9rem,
-      3.3vw,
-      3.2rem
-    );
-
-  line-height:
-    1.05;
-
-  letter-spacing:
-    -0.04em;
-}
-
-
-/* ============================================================
-   JOURNEY ROW
-============================================================ */
-
-.journey-row {
-  width:
-    100%;
-
-  display:
-    grid;
-
+  display: grid;
   grid-template-columns:
     repeat(
       auto-fit,
-      minmax(
-        min(
-          100%,
-          21rem
-        ),
-        1fr
-      )
+      minmax(min(100%, 21rem), 1fr)
     );
 
-  align-items:
-    center;
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 4rem);
 
-  gap:
-    clamp(
-      1.5rem,
-      5vw,
-      5rem
-    );
+  padding:
+    clamp(1rem, 1.8vw, 1.5rem)
+    clamp(0.5rem, 2.5vw, 2.5rem)
+    0;
+}
 
-  padding-block:
-    clamp(
-      1rem,
-      2.5vw,
-      2.5rem
+.about-panel__copy {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+
+  display: grid;
+  align-content: center;
+  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+}
+
+.about-panel__copy h1,
+.about-panel__copy h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.about-panel__copy h1 {
+  max-width: 11ch;
+  font-size: clamp(2.3rem, 4.5vw, 4.45rem);
+  line-height: 0.98;
+}
+
+.about-panel__copy h2 {
+  max-width: 15ch;
+  font-size: clamp(2rem, 3.7vw, 3.55rem);
+  line-height: 1.02;
+}
+
+.about-panel__copy p {
+  width: min(100%, 52ch);
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: clamp(0.9rem, 1vw, 1.04rem);
+  line-height: 1.65;
+}
+
+.about-panel__copy p + p {
+  margin-top: 0.1rem;
+}
+
+.about-panel__art {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: clamp(12rem, 19vw, 18rem);
+  display: grid;
+  place-items: center;
+}
+
+.about-panel__art::before {
+  content: "";
+  position: absolute;
+  width: min(70%, 18rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--about-accent-8);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+/* ============================================================
+   SVG ART
+============================================================ */
+
+.about-hero-art,
+.about-telescope-art,
+.about-crystal-art,
+.journey-illustration,
+.team-art {
+  display: block;
+  height: auto;
+  overflow: visible;
+  filter:
+    drop-shadow(
+      0
+      14px
+      24px
+      color-mix(in srgb, var(--color-accent) 12%, transparent)
     );
 }
 
+.about-hero-art {
+  width: min(78%, 22rem);
+}
+
+.about-telescope-art,
+.about-crystal-art {
+  width: min(74%, 20rem);
+}
+
+.about-telescope-art--small {
+  width: min(70%, 16rem);
+}
 
 /* ============================================================
-   JOURNEY COPY
+   EMPOWERING / JOURNEY
 ============================================================ */
+
+.journey-card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  padding: clamp(1.35rem, 4vw, 4rem);
+
+  border: 1px solid var(--color-border);
+  border-radius: clamp(1.15rem, 1.8vw, 1.75rem);
+
+  background: var(--color-surface-sunken);
+}
+
+.journey-card > h2 {
+  width: min(100%, 19ch);
+  margin:
+    0
+    auto
+    clamp(2rem, 5vw, 4rem);
+
+  color: var(--color-ink);
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.journey-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 20rem), 1fr)
+    );
+
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 5rem);
+
+  margin-block: clamp(0.65rem, 1.6vw, 1.2rem);
+  padding: clamp(1.1rem, 2.5vw, 2rem);
+
+  border: 1px solid var(--color-border);
+  border-radius: clamp(1rem, 1.5vw, 1.4rem);
+
+  background: var(--color-surface);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.journey-row:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
 
 .journey-copy {
-  width:
-    100%;
-
-  display:
-    grid;
-
-  gap:
-    0.8rem;
+  width: 100%;
+  display: grid;
+  gap: clamp(0.75rem, 1.1vw, 1rem);
 }
-
 
 .journey-copy h3 {
-  margin:
-    0;
+  width: min(100%, 18ch);
+  margin: 0;
 
-  color:
-    var(--color-accent);
-
-  font-size:
-    clamp(
-      1.5rem,
-      2.2vw,
-      2.2rem
-    );
-
-  line-height:
-    1.1;
+  color: var(--color-accent);
+  font-size: clamp(1.4rem, 2.3vw, 2.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
 }
-
 
 .journey-copy p {
-  width:
-    min(
-      100%,
-      45ch
-    );
-
-  margin:
-    0;
-
-  color:
-    var(--color-ink-soft);
-
-  line-height:
-    1.55;
+  width: min(100%, 52ch);
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: clamp(0.88rem, 0.95vw, 1rem);
+  line-height: 1.65;
 }
 
-
-/* ============================================================
-   JOURNEY ART
-============================================================ */
+.journey-copy p + p {
+  margin-top: 0.05rem;
+}
 
 .journey-art-wrap {
-  width:
-    100%;
-
-  min-height:
-    clamp(
-      11rem,
-      20vw,
-      17rem
-    );
-
-  display:
-    grid;
-
-  place-items:
-    center;
+  position: relative;
+  width: 100%;
+  min-height: clamp(10.5rem, 20vw, 17rem);
+  display: grid;
+  place-items: center;
 }
 
+.journey-art-wrap::before {
+  content: "";
+  position: absolute;
+  width: min(72%, 15rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--about-accent-8);
+  filter: blur(22px);
+  z-index: -1;
+}
 
 .journey-illustration {
-  display:
-    block;
-
-  width:
-    min(
-      80%,
-      19rem
-    );
-
-  height:
-    auto;
-
-  overflow:
-    visible;
+  width: min(78%, 18rem);
 }
 
-
 /* ============================================================
-   VALUES SECTION
+   VALUES
 ============================================================ */
 
 .values-section {
-  width:
-    100%;
-
-  padding-top:
-    clamp(
-      2rem,
-      4vw,
-      4rem
-    );
+  width: 100%;
+  padding-block: clamp(2.75rem, 6vw, 5.5rem);
 }
-
 
 .values-section > h2 {
   margin:
     0
     0
-    clamp(
-      1.4rem,
-      2.5vw,
-      2.3rem
-    );
+    clamp(1.7rem, 3.2vw, 2.8rem);
 
-  color:
-    var(--color-ink);
-
-  font-size:
-    clamp(
-      2rem,
-      3vw,
-      3rem
-    );
+  color: var(--color-ink);
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
 }
-
-
-/* ============================================================
-   VALUES GRID
-
-   3 cards maximum in row
-   Equal width
-   Equal gap
-============================================================ */
 
 .values-grid {
-  width:
-    min(
-      100%,
-      64rem
-    );
+  width: 100%;
 
-  margin-inline:
-    auto;
-
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
-
-  justify-content:
-    center;
-
-  align-items:
-    stretch;
-
-  gap:
-    clamp(
-      1rem,
-      2vw,
-      1.5rem
-    );
-}
-
-
-/* ============================================================
-   VALUE CARD
-============================================================ */
-
-.value-card {
-  flex:
-    1
-    1
-    clamp(
-      16rem,
-      28vw,
-      20rem
-    );
-
-  width:
-    clamp(
-      16rem,
-      28vw,
-      20rem
-    );
-
-  max-width:
-    20rem;
-
-  min-height:
-    clamp(
-      10rem,
-      14vw,
-      13rem
-    );
-
-  padding:
-    clamp(
-      1.1rem,
-      1.6vw,
-      1.5rem
-    );
-
-  border-radius:
-    clamp(
-      0.9rem,
-      1.2vw,
-      1.25rem
-    );
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  justify-content:
-    space-between;
-
-  gap:
-    1rem;
-
-  transition:
-    transform
-    220ms
-    ease,
-    box-shadow
-    220ms
-    ease;
-}
-
-
-/* ============================================================
-   CARD 1
-   YELLOW
-============================================================ */
-
-.value-card:nth-child(1),
-.value-card:nth-child(4) {
-  background:
-    var(--color-accent);
-
-  color:
-    var(--color-ink);
-}
-
-
-/* ============================================================
-   CARD 2
-   GREEN
-============================================================ */
-
-.value-card:nth-child(2),
-.value-card:nth-child(5) {
-  background:
-    var(--color-signal);
-
-  color:
-    var(--color-ink);
-}
-
-
-/* ============================================================
-   CARD 3
-   BLACK
-============================================================ */
-
-.value-card:nth-child(3),
-.value-card:nth-child(6) {
-  background:
-    var(--color-ink);
-
-  color:
-    var(--color-bg-raised);
-}
-
-
-/* ============================================================
-   VALUE CARD HEADING
-============================================================ */
-
-.value-card h3 {
-  width:
-    min(
-      100%,
-      15ch
-    );
-
-  margin:
-    0;
-
-  color:
-    inherit;
-
-  font-size:
-    clamp(
-      1.15rem,
-      1.45vw,
-      1.5rem
-    );
-
-  line-height:
-    1.1;
-}
-
-
-/* ============================================================
-   VALUE CARD TEXT
-============================================================ */
-
-.value-card p {
-  width:
-    100%;
-
-  margin:
-    0;
-
-  color:
-    inherit;
-
-  font-size:
-    clamp(
-      0.86rem,
-      0.9vw,
-      0.96rem
-    );
-
-  line-height:
-    1.5;
-}
-
-
-/* ============================================================
-   CARD HOVER
-============================================================ */
-
-.value-card:hover {
-  transform:
-    translateY(-5px);
-
-  box-shadow:
-    var(--shadow-md);
-}
-
-
-/* ============================================================
-   TEAM SECTION
-============================================================ */
-
-.team-section {
-  width:
-    100%;
-
-  padding-top:
-    clamp(
-      3rem,
-      6vw,
-      6rem
-    );
-
-  display:
-    grid;
-
+  display: grid;
   grid-template-columns:
     repeat(
       auto-fit,
-      minmax(
-        min(
-          100%,
-          23rem
-        ),
-        1fr
-      )
+      minmax(min(100%, 18rem), 1fr)
     );
 
-  align-items:
-    center;
-
-  gap:
-    clamp(
-      2rem,
-      5vw,
-      5rem
-    );
+  gap: clamp(0.95rem, 2vw, 1.4rem);
+  align-items: stretch;
 }
 
+.value-card {
+  position: relative;
+  min-width: 0;
+  min-height: clamp(11rem, 16vw, 13rem);
+  overflow: hidden;
+
+  padding: clamp(1.15rem, 1.8vw, 1.55rem);
+
+  display: grid;
+  grid-template-rows:
+    minmax(clamp(2.7rem, 3.7vw, 3.3rem), auto)
+    auto;
+  align-content: start;
+  gap: clamp(0.8rem, 1.2vw, 1.05rem);
+
+  border: 1px solid var(--color-border);
+  border-radius: clamp(1rem, 1.5vw, 1.4rem);
+
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.value-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--color-accent);
+}
+
+.value-card:nth-child(2)::before {
+  background: var(--color-signal);
+}
+
+.value-card:nth-child(3)::before {
+  background: color-mix(in srgb, var(--color-accent) 62%, var(--color-ink) 38%);
+}
+
+.value-card::after {
+  content: "";
+  position: absolute;
+  width: 8rem;
+  height: 8rem;
+  right: -4rem;
+  bottom: -4rem;
+  border-radius: 50%;
+  background: var(--about-accent-8);
+  pointer-events: none;
+}
+
+.value-card:nth-child(2)::after {
+  background: var(--about-signal-10);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.value-card h3 {
+  width: min(100%, 18ch);
+  margin: 0;
+
+  color: var(--color-ink);
+  font-size: clamp(1.08rem, 1.35vw, 1.38rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.value-card p {
+  width: min(100%, 40ch);
+  margin: 0;
+
+  color: var(--color-ink-soft);
+  font-size: clamp(0.84rem, 0.9vw, 0.95rem);
+  line-height: 1.58;
+}
+
+.values-section.is-visible .value-card {
+  animation:
+    aboutValueRise
+    650ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.values-section.is-visible .value-card:nth-child(1) {
+  animation-delay: 60ms;
+}
+
+.values-section.is-visible .value-card:nth-child(2) {
+  animation-delay: 170ms;
+}
+
+.values-section.is-visible .value-card:nth-child(3) {
+  animation-delay: 280ms;
+}
+
+@keyframes aboutValueRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ============================================================
-   TEAM COPY
+   TEAM
 ============================================================ */
+
+.team-section {
+  width: 100%;
+
+  padding-block: clamp(3rem, 6vw, 6rem);
+  border-top: 1px solid var(--color-border);
+
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 22rem), 1fr)
+    );
+
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
 
 .team-copy {
-  width:
-    100%;
-
-  display:
-    grid;
-
-  justify-items:
-    start;
-
-  gap:
-    1.2rem;
+  width: 100%;
+  display: grid;
+  justify-items: start;
+  gap: clamp(0.9rem, 1.4vw, 1.2rem);
 }
-
 
 .team-copy h2 {
-  width:
-    min(
-      100%,
-      15ch
-    );
+  width: min(100%, 15ch);
+  margin: 0;
 
-  margin:
-    0;
-
-  color:
-    var(--color-ink);
-
-  font-size:
-    clamp(
-      2.3rem,
-      4vw,
-      4.3rem
-    );
-
-  line-height:
-    1;
-
-  letter-spacing:
-    -0.05em;
-
-  text-wrap:
-    balance;
+  color: var(--color-ink);
+  font-size: clamp(2.2rem, 4.5vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
 }
-
 
 .team-copy p {
-  width:
-    min(
-      100%,
-      45ch
-    );
-
-  margin:
-    0;
-
-  color:
-    var(--color-ink-soft);
-
-  line-height:
-    1.55;
+  width: min(100%, 52ch);
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: clamp(0.9rem, 1vw, 1.02rem);
+  line-height: 1.65;
 }
-
-
-.team-cta {
-  margin-top:
-    0.2rem;
-}
-
-
-/* ============================================================
-   TEAM ART
-============================================================ */
 
 .team-art-wrap {
-  width:
-    100%;
-
-  min-height:
-    clamp(
-      16rem,
-      30vw,
-      28rem
-    );
-
-  display:
-    grid;
-
-  place-items:
-    center;
+  position: relative;
+  width: min(100%, 38rem);
+  min-height: clamp(15rem, 30vw, 28rem);
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
 }
 
+.team-art-wrap::before {
+  content: "";
+  position: absolute;
+  width: min(70%, 24rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--about-accent-8);
+  filter: blur(32px);
+  z-index: -2;
+}
 
 .team-art {
-  display:
-    block;
-
-  width:
-    min(
-      90%,
-      34rem
-    );
-
-  height:
-    auto;
-
-  overflow:
-    visible;
+  width: min(88%, 33rem);
 }
 
+/* ============================================================
+   FINAL CTA
+============================================================ */
+
+.about-panel--final {
+  min-height: auto;
+  padding:
+    clamp(2.5rem, 6vw, 5rem)
+    clamp(1.25rem, 6vw, 6rem);
+
+  border-color: var(--about-accent-25);
+
+  background:
+    radial-gradient(
+      circle at 50% 120%,
+      var(--about-accent-18),
+      transparent 48%
+    ),
+    var(--color-surface);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.about-panel--final::before {
+  width: clamp(15rem, 35vw, 30rem);
+  right: 50%;
+  bottom: -70%;
+  transform: translateX(50%);
+  background: var(--about-accent-12);
+}
+
+.about-panel--final .about-panel__content {
+  min-height: auto;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0;
+}
+
+.about-panel--final .about-panel__copy {
+  width: min(100%, 52rem);
+  margin-inline: auto;
+  justify-items: center;
+  text-align: center;
+  gap: clamp(0.9rem, 1.5vw, 1.2rem);
+}
+
+.about-panel--final .about-panel__copy h2 {
+  max-width: 17ch;
+  color: var(--color-ink);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.02;
+}
+
+.about-panel--final .about-panel__copy p {
+  width: min(100%, 58ch);
+  color: var(--color-ink-soft);
+  font-size: clamp(0.92rem, 1vw, 1.04rem);
+  line-height: 1.65;
+}
+
+.about-final-cta {
+  margin-top: 0.3rem;
+}
 
 /* ============================================================
    SCROLL REVEAL
 ============================================================ */
 
 .about-reveal {
-  opacity:
-    0;
-
-  transform:
-    translateY(24px);
+  opacity: 0;
+  transform: translateY(22px);
 
   transition:
-    opacity
-    600ms
-    ease,
-    transform
-    600ms
-    ease;
+    opacity 600ms ease,
+    transform 600ms ease;
 }
 
-
 .about-reveal.is-visible {
-  opacity:
-    1;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  transform:
-    translateY(0);
+/* ============================================================
+   FINAL FLUID SAFETY OVERRIDES
+   No media queries
+============================================================ */
+
+.about-page,
+.about-shell,
+.about-intro,
+.about-panel,
+.journey-card,
+.values-section,
+.team-section {
+  min-width: 0;
+}
+
+.about-panel__content,
+.journey-row,
+.values-grid,
+.team-section {
+  min-width: 0;
+}
+
+.about-panel__copy,
+.journey-copy,
+.team-copy,
+.value-card {
+  min-width: 0;
+}
+
+.about-intro__content h2,
+.about-panel__copy h1,
+.about-panel__copy h2,
+.journey-card > h2,
+.journey-copy h3,
+.values-section > h2,
+.value-card h3,
+.team-copy h2,
+.about-panel--final .about-panel__copy h2 {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }

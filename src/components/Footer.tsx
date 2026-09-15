@@ -69,10 +69,7 @@ export function Footer() {
             </Link>
 
             <p className="footer-description">
-              A secure and simple Web3 wallet for
-              managing digital assets, exploring
-              blockchain applications, and staying
-              in control of your crypto.
+              A simple Web3 wallet for managing digital assets, exploring blockchain applications, and staying in control of your crypto experience.
             </p>
 
           </div>

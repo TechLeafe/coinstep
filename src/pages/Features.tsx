@@ -161,8 +161,8 @@ function ClockMiniIcon() {
 }
 
 const INTRO_HIGHLIGHTS = [
-  { label: 'Secure & Private', icon: <ShieldMiniIcon /> },
-  { label: 'Multiple Blockchains', icon: <ZapMiniIcon /> },
+  { label: 'Security & User Control', icon: <ShieldMiniIcon /> },
+  { label: 'Multiple-Chain Support', icon: <ZapMiniIcon /> },
   { label: 'dApps & DeFi', icon: <ChainMiniIcon /> },
   { label: 'Mobile & Web', icon: <PhoneMiniIcon /> },
 ]
@@ -184,8 +184,7 @@ function IntroHero() {
           </h1>
 
           <p className="intro-sub">
-            Manage your crypto, connect to dApps, send and receive assets, and stay in control of
-            your keys — all from one secure wallet.
+            Manage your crypto, connect to dApps, send and receive assets, and stay in control of your wallet — all from one connected experience.
           </p>
 
           <ul className="highlight-row">
@@ -378,7 +377,7 @@ function SendBlock() {
     <section ref={ref} className={`feature-block${inView ? ' in-view' : ''}`}>
       <div className="feature-copy stack enter-from-left">
         <h2>
-          Send crypto with <span className="text-gradient">confidence.</span>
+          Send crypto with <span className="text-gradient">Clarity.</span>
         </h2>
         <p>
           Send and receive digital assets using wallet addresses or QR codes, with every
@@ -387,11 +386,11 @@ function SendBlock() {
         <div className="feature-tags">
           <span className="badge">
             <QrMiniIcon />
-            Address &amp; QR support
+            Address &amp; QR Support
           </span>
           <span className="badge badge-new">
             <ClockMiniIcon />
-            Fees shown upfront
+            Fees Shown Upfront
           </span>
         </div>
       </div>
@@ -528,8 +527,7 @@ function TransactionHistoryBlock() {
       <div className="feature-copy stack enter-from-left">
         <h2>Every transaction, accounted for</h2>
         <p>
-          Your history reads like a ledger — sent, received, pending and confirmed — so you
-          always know exactly where your assets stand.
+          Your transaction history shows sent, received, pending, and confirmed activity so you can clearly track where your assets stand.
         </p>
 
         <ul className="history-steps">

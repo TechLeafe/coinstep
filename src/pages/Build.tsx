@@ -825,9 +825,9 @@ export function Build() {
         <div className="build-hero-content">
 
           <h1>
-            Build with{" "}
+            Build Web3 Experiences{" "}
             <span>
-              Coinstep
+              with Coinstep
             </span>
           </h1>
 

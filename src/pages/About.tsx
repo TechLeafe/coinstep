@@ -15,32 +15,17 @@ import "./About.css";
 
 const VALUES = [
   {
-    title: "User Obsessed",
-    body: "We're focused on users' problems and constantly look for simpler, safer solutions.",
+    title: "User-First",
+    body: "We start with the user's needs. We continuously look for ways to make Web3 experiences simpler, clearer, and safer.",
   },
   {
-    title: "Ownership and accountability",
-    body: "We take responsibility for outcomes and move with determination, care, and consistency.",
+    title: "Ownership & Accountability",
+    body: "We take responsibility for our decisions and outcomes. We work with determination, care, and consistency to build products users can trust.",
   },
   {
     title: "Open & Collaborative",
-    body: "We share context, work together, and create clearer Web3 experiences as one team.",
+    body: "We believe better products come from sharing knowledge, communicating openly, and working together. We collaborate across product, design, engineering, and blockchain to create better Web3 experiences.",
   },
-
-  // {
-  //   title: "Humble and growth mindset",
-  //   body: "We're curious, adaptable, and always ready to learn, improve, and rethink our approach.",
-  // },
-
-  // {
-  //   title: "Integrity",
-  //   body: "We build with good intent, transparent decisions, and high standards for every experience.",
-  // },
-
-  // {
-  //   title: "Execution-oriented",
-  //   body: "We turn ideas into useful products, learn quickly from feedback, and keep improving.",
-  // },
 ];
 
 
@@ -503,6 +488,74 @@ function TeamArt() {
 }
 
 
+
+
+/* ============================================================
+   HERO WEB3 ORBIT ICON
+============================================================ */
+
+function Web3OrbitIcon() {
+  return (
+    <div
+      className="about-intro__orbit-badge"
+      aria-hidden="true"
+    >
+      <svg
+        className="about-intro__orbit-icon"
+        viewBox="0 0 88 88"
+      >
+        <circle
+          className="about-intro__orbit-track"
+          cx="44"
+          cy="44"
+          r="30"
+        />
+
+        <g className="about-intro__orbit-spinner">
+          <circle
+            cx="44"
+            cy="14"
+            r="5"
+            fill="var(--color-accent)"
+          />
+          <circle
+            cx="69"
+            cy="58"
+            r="4.5"
+            fill="var(--color-signal)"
+          />
+          <circle
+            cx="19"
+            cy="59"
+            r="4"
+            fill="var(--color-warn)"
+          />
+        </g>
+
+        <g className="about-intro__orbit-core">
+          <circle
+            cx="37"
+            cy="44"
+            r="11"
+            fill="none"
+            stroke="var(--color-ink)"
+            strokeWidth="5"
+          />
+          <circle
+            cx="51"
+            cy="44"
+            r="11"
+            fill="none"
+            stroke="var(--color-accent)"
+            strokeWidth="5"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+
 /* ============================================================
    ABOUT PAGE
 ============================================================ */
@@ -521,64 +574,28 @@ export function About() {
       return;
     }
 
-    const container =
-      event.currentTarget;
+    const container = event.currentTarget;
+    const rect = container.getBoundingClientRect();
 
-    const rect =
-      container.getBoundingClientRect();
+    const relativeX = event.clientX - rect.left;
+    const relativeY = event.clientY - rect.top;
 
-    const relativeX =
-      event.clientX - rect.left;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-    const relativeY =
-      event.clientY - rect.top;
+    const normalizedX = (relativeX - centerX) / centerX;
+    const normalizedY = (relativeY - centerY) / centerY;
 
-    const centerX =
-      rect.width / 2;
+    const moveX = normalizedX * 22;
+    const moveY = normalizedY * 18;
 
-    const centerY =
-      rect.height / 2;
+    const rotateY = normalizedX * 3;
+    const rotateX = normalizedY * -3;
 
-    const normalizedX =
-      (relativeX - centerX) /
-      centerX;
-
-    const normalizedY =
-      (relativeY - centerY) /
-      centerY;
-
-    const moveX =
-      normalizedX * 22;
-
-    const moveY =
-      normalizedY * 18;
-
-    const rotateY =
-      normalizedX * 3;
-
-    const rotateX =
-      normalizedY * -3;
-
-
-    container.style.setProperty(
-      "--art-x",
-      `${moveX}px`,
-    );
-
-    container.style.setProperty(
-      "--art-y",
-      `${moveY}px`,
-    );
-
-    container.style.setProperty(
-      "--art-rotate-x",
-      `${rotateX}deg`,
-    );
-
-    container.style.setProperty(
-      "--art-rotate-y",
-      `${rotateY}deg`,
-    );
+    container.style.setProperty("--art-x", `${moveX}px`);
+    container.style.setProperty("--art-y", `${moveY}px`);
+    container.style.setProperty("--art-rotate-x", `${rotateX}deg`);
+    container.style.setProperty("--art-rotate-y", `${rotateY}deg`);
   };
 
 
@@ -590,28 +607,12 @@ export function About() {
     event: ReactPointerEvent<HTMLDivElement>,
   ) => {
 
-    const container =
-      event.currentTarget;
+    const container = event.currentTarget;
 
-    container.style.setProperty(
-      "--art-x",
-      "0px",
-    );
-
-    container.style.setProperty(
-      "--art-y",
-      "0px",
-    );
-
-    container.style.setProperty(
-      "--art-rotate-x",
-      "0deg",
-    );
-
-    container.style.setProperty(
-      "--art-rotate-y",
-      "0deg",
-    );
+    container.style.setProperty("--art-x", "0px");
+    container.style.setProperty("--art-y", "0px");
+    container.style.setProperty("--art-rotate-x", "0deg");
+    container.style.setProperty("--art-rotate-y", "0deg");
   };
 
 
@@ -626,62 +627,38 @@ export function About() {
         ".about-reveal",
       );
 
+    if (!("IntersectionObserver" in window)) {
 
-    if (
-      !(
-        "IntersectionObserver"
-        in window
-      )
-    ) {
-
-      elements.forEach(
-        (element) => {
-          element.classList.add(
-            "is-visible",
-          );
-        },
-      );
+      elements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
 
       return;
     }
 
+    const observer = new IntersectionObserver(
+      (entries) => {
 
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
+        entries.forEach((entry) => {
 
-          entries.forEach(
-            (entry) => {
+          if (entry.isIntersecting) {
 
-              if (
-                entry.isIntersecting
-              ) {
+            entry.target.classList.add(
+              "is-visible",
+            );
 
-                entry.target.classList.add(
-                  "is-visible",
-                );
-
-                observer.unobserve(
-                  entry.target,
-                );
-              }
-            },
-          );
-        },
-        {
-          threshold: 0.12,
-        },
-      );
-
-
-    elements.forEach(
-      (element) => {
-        observer.observe(
-          element,
-        );
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
       },
     );
 
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
 
     return () => {
       observer.disconnect();
@@ -696,11 +673,8 @@ export function About() {
 
   return (
     <>
-
       <main className="about-page">
-
         <div className="about-shell">
-
 
           {/* =====================================================
               HERO
@@ -708,56 +682,31 @@ export function About() {
 
           <section className="about-intro">
 
-            <h1
-              className="about-intro__wordmark"
-              data-text="COINSTEP"
-            >
-              COINSTEP
-            </h1>
+            <div className="about-intro__brand">
+              <h1
+                className="about-intro__wordmark"
+                data-text="COINSTEP"
+              >
+                COINSTEP
+              </h1>
 
+            </div>
 
             <div className="about-intro__content">
 
               <h2>
-                We make Web3 simpler,
-                safer, and easier to access
+                A simpler, safer way to experience Web3
               </h2>
 
-
               <p>
-                Coinstep is building a modern
-                platform that makes interacting
-                with Web3 and digital assets
-                simpler, clearer, and more
-                accessible.
+                CoinStep is a modern Web3 wallet designed to make managing digital assets,
+                exploring decentralized applications (dApps), and navigating multi-chain
+                experiences simpler, clearer, and more accessible.
               </p>
 
-
-              <a
-                href="/#download"
-                className="
-                  btn
-                  btn-primary
-                  btn-lg
-                  about-intro__cta
-                "
-              >
-
-                <span>
-                  Get Coinstep
-                </span>
-
-                <span
-                  className="about-intro__arrow"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-
-              </a>
+             
 
             </div>
-
           </section>
 
 
@@ -772,53 +721,41 @@ export function About() {
               about-reveal
             "
           >
-
             <p className="about-label">
-              Our purpose
+              Our Purpose
             </p>
-
 
             <div className="about-panel__content">
 
               <div className="about-panel__copy">
 
                 <h1>
-                  Freedom Foundations
+                  Building the foundations for digital ownership
                 </h1>
 
                 <p>
-                  We want to give everyone
-                  the freedom to truly own
-                  and confidently use digital
-                  assets by building clear
-                  foundations for the future
-                  of Web3.
+                  We believe everyone should have the freedom to truly own and manage their
+                  digital assets with confidence. CoinStep is building a secure and intuitive
+                  Web3 wallet that helps people take control of their assets while making
+                  blockchain technology easier to understand and use.
                 </p>
 
               </div>
-
 
               <div
                 className="
                   about-panel__art
                   cursor-animation
                 "
-                onPointerMove={
-                  handleArtPointerMove
-                }
-                onPointerLeave={
-                  handleArtPointerLeave
-                }
+                onPointerMove={handleArtPointerMove}
+                onPointerLeave={handleArtPointerLeave}
               >
-
                 <div className="cursor-animation__object">
                   <KeyArt />
                 </div>
-
               </div>
 
             </div>
-
           </section>
 
 
@@ -833,11 +770,9 @@ export function About() {
               about-reveal
             "
           >
-
             <p className="about-label">
-              Our vision
+              Our Vision
             </p>
-
 
             <div className="about-panel__content">
 
@@ -846,41 +781,28 @@ export function About() {
                   about-panel__art
                   cursor-animation
                 "
-                onPointerMove={
-                  handleArtPointerMove
-                }
-                onPointerLeave={
-                  handleArtPointerLeave
-                }
+                onPointerMove={handleArtPointerMove}
+                onPointerLeave={handleArtPointerLeave}
               >
-
                 <div className="cursor-animation__object">
                   <TelescopeArt />
                 </div>
-
               </div>
-
 
               <div className="about-panel__copy">
 
                 <h2>
-                  To give people the
-                  freedom to own their assets
+                  Give people the freedom to own their digital assets
                 </h2>
 
                 <p>
-                  Help people confidently
-                  participate in the future
-                  economy and access
-                  opportunities that are
-                  simple to understand and
-                  secure to use.
+                  We want to help people confidently participate in the digital economy by
+                  providing a simple and secure way to manage digital assets, connect with
+                  Web3 applications, and explore new opportunities across blockchain networks.
                 </p>
 
               </div>
-
             </div>
-
           </section>
 
 
@@ -895,11 +817,9 @@ export function About() {
               about-reveal
             "
           >
-
             <p className="about-label">
-              Our mission
+              Our Mission
             </p>
-
 
             <div className="about-panel__content">
 
@@ -908,46 +828,38 @@ export function About() {
                   about-panel__art
                   cursor-animation
                 "
-                onPointerMove={
-                  handleArtPointerMove
-                }
-                onPointerLeave={
-                  handleArtPointerLeave
-                }
+                onPointerMove={handleArtPointerMove}
+                onPointerLeave={handleArtPointerLeave}
               >
-
                 <div className="cursor-animation__object">
                   <CrystalArt />
                 </div>
-
               </div>
-
 
               <div className="about-panel__copy">
 
                 <h2>
-                  To become a personal
-                  Web3 companion
+                  Become your personal Web3 companion
                 </h2>
 
                 <p>
-                  Supporting users as they
-                  navigate wallets,
-                  transactions, dApps,
-                  multi-chain experiences,
-                  and the growing on-chain
-                  economy.
+                  Our mission is to make everyday Web3 interactions easier through a wallet
+                  experience built around simplicity, security, and clarity.
+                </p>
+
+                <p>
+                  From managing digital assets and sending transactions to connecting with
+                  dApps and exploring multi-chain ecosystems, CoinStep is designed to help
+                  users navigate Web3 with confidence.
                 </p>
 
               </div>
-
             </div>
-
           </section>
 
 
           {/* =====================================================
-              JOURNEY
+              EMPOWERING PEOPLE THROUGH WEB3
           ====================================================== */}
 
           <section
@@ -958,13 +870,12 @@ export function About() {
           >
 
             <h2>
-              Join us as we empower
-              people through Web3
+              Empowering people through Web3
             </h2>
 
 
             {/* =================================================
-                SHIELD
+                BUILT WITH A CLEAR PURPOSE
             ================================================== */}
 
             <div className="journey-row">
@@ -972,45 +883,40 @@ export function About() {
               <div className="journey-copy">
 
                 <h3>
-                  Built with a clear goal
+                  Built with a clear purpose
                 </h3>
 
                 <p>
-                  CoinStep started with one
-                  purpose: make crypto
-                  interactions easier to
-                  understand, easier to use,
-                  and safer for everyday
-                  users.
+                  CoinStep was created with one goal: to make crypto and Web3 interactions
+                  easier to understand, easier to use, and safer for everyday users.
+                </p>
+
+                <p>
+                  We combine thoughtful product design, intuitive experiences, and
+                  security-focused technology to reduce the complexity of interacting with
+                  blockchain networks and digital assets.
                 </p>
 
               </div>
-
 
               <div
                 className="
                   journey-art-wrap
                   cursor-animation
                 "
-                onPointerMove={
-                  handleArtPointerMove
-                }
-                onPointerLeave={
-                  handleArtPointerLeave
-                }
+                onPointerMove={handleArtPointerMove}
+                onPointerLeave={handleArtPointerLeave}
               >
-
                 <div className="cursor-animation__object">
                   <ShieldArt />
                 </div>
-
               </div>
 
             </div>
 
 
             {/* =================================================
-                GLOBE
+                TRUST THROUGH CLARITY
             ================================================== */}
 
             <div className="journey-row">
@@ -1020,20 +926,13 @@ export function About() {
                   journey-art-wrap
                   cursor-animation
                 "
-                onPointerMove={
-                  handleArtPointerMove
-                }
-                onPointerLeave={
-                  handleArtPointerLeave
-                }
+                onPointerMove={handleArtPointerMove}
+                onPointerLeave={handleArtPointerLeave}
               >
-
                 <div className="cursor-animation__object">
                   <GlobeArt />
                 </div>
-
               </div>
-
 
               <div className="journey-copy">
 
@@ -1042,11 +941,13 @@ export function About() {
                 </h3>
 
                 <p>
-                  We build confidence with
-                  clear information,
-                  deliberate confirmation
-                  flows, and security-first
-                  product decisions.
+                  Security and transparency are at the heart of the CoinStep experience.
+                </p>
+
+                <p>
+                  We help users make informed decisions through clear information, deliberate
+                  transaction confirmation flows, and security-first product design. Our goal
+                  is to make every interaction easier to understand before users take action.
                 </p>
 
               </div>
@@ -1055,7 +956,7 @@ export function About() {
 
 
             {/* =================================================
-                TELESCOPE
+                BUILDING FOR THE FUTURE
             ================================================== */}
 
             <div className="journey-row">
@@ -1063,38 +964,34 @@ export function About() {
               <div className="journey-copy">
 
                 <h3>
-                  We're not stopping there
+                  Building for the future of Web3
                 </h3>
 
                 <p>
-                  We're building a flexible
-                  wallet experience across
-                  networks, assets, dApps,
-                  mobile, and web so more
-                  people can move on-chain
-                  with confidence.
+                  Web3 is constantly evolving, and so are the ways people interact with
+                  digital assets.
+                </p>
+
+                <p>
+                  CoinStep is building a flexible wallet experience across blockchain
+                  networks, digital assets, decentralized applications, mobile, and web.
+                  We are focused on creating a reliable foundation that can grow with the
+                  Web3 ecosystem and its users.
                 </p>
 
               </div>
-
 
               <div
                 className="
                   journey-art-wrap
                   cursor-animation
                 "
-                onPointerMove={
-                  handleArtPointerMove
-                }
-                onPointerLeave={
-                  handleArtPointerLeave
-                }
+                onPointerMove={handleArtPointerMove}
+                onPointerLeave={handleArtPointerLeave}
               >
-
                 <div className="cursor-animation__object">
                   <TelescopeArt small />
                 </div>
-
               </div>
 
             </div>
@@ -1114,32 +1011,25 @@ export function About() {
           >
 
             <h2>
-              Our values
+              Our Values
             </h2>
-
 
             <div className="values-grid">
 
-              {VALUES.map(
-                (value) => (
+              {VALUES.map((value) => (
+                <article
+                  className="value-card"
+                  key={value.title}
+                >
+                  <h3>
+                    {value.title}
+                  </h3>
 
-                  <article
-                    className="value-card"
-                    key={value.title}
-                  >
-
-                    <h3>
-                      {value.title}
-                    </h3>
-
-                    <p>
-                      {value.body}
-                    </p>
-
-                  </article>
-
-                ),
-              )}
+                  <p>
+                    {value.body}
+                  </p>
+                </article>
+              ))}
 
             </div>
 
@@ -1160,59 +1050,88 @@ export function About() {
             <div className="team-copy">
 
               <h2>
-                We're a passionate team
-                of Web3 builders &amp;
-                creators
+                We're a team of Web3 builders and creators
               </h2>
 
-
               <p>
-                We combine product thinking,
-                frontend craft, security
-                awareness, and blockchain
-                engineering to make complex
-                Web3 actions feel simple.
+                We bring together product thinking, frontend development, blockchain
+                engineering, security awareness, and creative problem-solving to make
+                complex Web3 interactions feel simple.
               </p>
 
-
-              <Link
-                to="/build"
-                className="
-                  btn
-                  btn-primary
-                  btn-lg
-                  team-cta
-                "
-              >
-                Explore CoinStep
-              </Link>
+              <p>
+                Together, we are building CoinStep to help more people confidently discover,
+                understand, and participate in the decentralized web.
+              </p>
 
             </div>
-
 
             <div
               className="
                 team-art-wrap
                 cursor-animation
               "
-              onPointerMove={
-                handleArtPointerMove
-              }
-              onPointerLeave={
-                handleArtPointerLeave
-              }
+              onPointerMove={handleArtPointerMove}
+              onPointerLeave={handleArtPointerLeave}
             >
-
               <div className="cursor-animation__object">
                 <TeamArt />
               </div>
-
             </div>
 
           </section>
 
-        </div>
 
+          {/* =====================================================
+              FINAL CTA
+          ====================================================== */}
+
+          <section
+            className="
+              about-panel
+              about-panel--final
+              about-reveal
+            "
+          >
+            <div className="about-panel__content">
+
+              <div className="about-panel__copy">
+
+                <h2>
+                  Building a simpler future for Web3
+                </h2>
+
+                <p>
+                  CoinStep is focused on making digital asset ownership more accessible
+                  through a secure, intuitive, and user-friendly Web3 wallet.
+                </p>
+
+                <Link
+                  to="/build"
+                  className="
+                    btn
+                    btn-primary
+                    about-final-cta
+                    about-compact-cta
+                  "
+                >
+                  <span>
+                    Explore CoinStep
+                  </span>
+
+                  <span
+                    className="about-intro__arrow"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </Link>
+
+              </div>
+            </div>
+          </section>
+
+        </div>
       </main>
 
 

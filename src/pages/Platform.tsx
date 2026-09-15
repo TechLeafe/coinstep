@@ -50,7 +50,7 @@ const PLATFORM_FEATURES: PlatformFeature[] = [
     visual: "wallet",
     title: "Wallet",
     description:
-      "Manage supported digital assets through one clear and organized wallet experience.",
+      "Manage supported digital assets through a clear, organized wallet experience.",
   },
 
   {
@@ -58,7 +58,7 @@ const PLATFORM_FEATURES: PlatformFeature[] = [
     visual: "buy",
     title: "Buy Crypto",
     description:
-      "Access a simple flow designed to make acquiring supported digital assets easier to understand.",
+      "Access a straightforward flow for acquiring supported digital assets.",
   },
 
   {
@@ -74,7 +74,7 @@ const PLATFORM_FEATURES: PlatformFeature[] = [
     visual: "staking",
     title: "Staking",
     description:
-      "Explore supported staking opportunities and keep reward activity visible in one place.",
+      "Explore supported staking opportunities and track reward activity in one place.",
   },
 
   {
@@ -90,7 +90,7 @@ const PLATFORM_FEATURES: PlatformFeature[] = [
     visual: "portfolio",
     title: "Portfolio",
     description:
-      "View your assets and transaction activity together through a simple portfolio overview.",
+      "View your assets, balances, and transaction activity through one portfolio overview.",
   },
 ];
 
@@ -104,7 +104,7 @@ const PLATFORM_JOURNEY = [
     number: "01",
     title: "Create or Import",
     text:
-      "Start with a new wallet or bring an existing wallet into CoinStep.",
+      "Start with a new wallet or bring an existing wallet into Coinstep.",
   },
 
   {
@@ -123,7 +123,7 @@ const PLATFORM_JOURNEY = [
 
   {
     number: "04",
-    title: "Move with Clarity",
+    title: "Manage Transactions",
     text:
       "Send, receive, buy, or swap while reviewing important transaction details.",
   },
@@ -142,11 +142,11 @@ const PLATFORM_JOURNEY = [
 ========================================================= */
 
 const SECURITY_ITEMS = [
-  "Private-key protection",
-  "Clear transaction confirmations",
-  "Wallet recovery guidance",
-  "App-level security controls",
-  "Transparent wallet interactions",
+  "Private-Key Protection",
+  "Clear Transaction Confirmations",
+  "Wallet Recovery Guidance",
+  "App-Level Security Controls",
+  "Transparent Wallet Interactions",
 ];
 
 
@@ -451,7 +451,7 @@ function PlatformHeroVisual() {
         <div className="platform-theme-crop">
           <img
             src={walletPhones}
-            alt="CoinStep wallet interface"
+            alt="Coinstep wallet interface"
             className="platform-theme-img"
           />
         </div>
@@ -540,7 +540,7 @@ function ConnectedWeb3Visual() {
         </span>
 
         <strong>
-          CoinStep
+          Coinstep
         </strong>
 
       </div>
@@ -626,14 +626,12 @@ export function Platform() {
           <h1>
             Your Web3 Experience.{" "}
             <span>
-              One Secure Platform.
+              One Connected Platform.
             </span>
           </h1>
 
           <p className="platform-description">
-            Manage your wallet, digital assets,
-            transactions, and Web3 connections through
-            one simple and connected experience.
+            Manage your wallet, digital assets, transactions, and Web3 connections through one unified experience.
           </p>
 
         </div>
@@ -666,9 +664,7 @@ export function Platform() {
           </h2>
 
           <p>
-            Essential wallet and Web3 tools designed
-            to keep your digital experience clear,
-            connected, and easy to manage.
+            Essential wallet and Web3 tools designed to keep your digital experience organized and easy to manage.
           </p>
 
         </div>
@@ -747,9 +743,7 @@ export function Platform() {
             </h2>
 
             <p>
-              A straightforward journey that keeps
-              every important step visible and easy
-              to understand.
+              A straightforward journey that keeps every important step clear and easy to follow.
             </p>
 
           </div>
@@ -820,7 +814,7 @@ export function Platform() {
             </h2>
 
             <p className="platform-security-description">
-              CoinStep is designed to make important
+              Coinstep is designed to make important
               wallet actions easier to understand.
               Clear confirmations and security-focused
               flows help you stay aware of what you
@@ -892,7 +886,7 @@ export function Platform() {
               <DevicesOutlinedIcon />
 
               <span>
-                Consistent wallet experience
+                Consistent Wallet Experience
               </span>
 
             </div>
@@ -903,7 +897,7 @@ export function Platform() {
               <HubOutlinedIcon />
 
               <span>
-                Connected blockchain access
+                Multi-Chain Connectivity
               </span>
 
             </div>
@@ -914,7 +908,7 @@ export function Platform() {
               <VerifiedUserOutlinedIcon />
 
               <span>
-                Clear transaction flows
+                Transparent Transaction Flows
               </span>
 
             </div>
