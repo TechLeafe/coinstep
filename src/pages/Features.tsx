@@ -305,9 +305,9 @@ function AssetsBlock() {
     <section ref={setSectionRef} className={`feature-block reverse${inView ? ' in-view' : ''}`}>
       <div className="assets-parallax-copy">
         <div className="feature-copy stack enter-from-right">
-          <h2>
+           <h1 className="intro-heading">
             All your assets, <span className="text-gradient">in one place</span>
-          </h2>
+          </h1>
           <p>
             Keep track of your tokens and balances across supported blockchain networks from a
             single wallet.
@@ -376,9 +376,9 @@ function SendBlock() {
   return (
     <section ref={ref} className={`feature-block${inView ? ' in-view' : ''}`}>
       <div className="feature-copy stack enter-from-left">
-        <h2>
+        <h1 className="intro-heading">
           Send crypto with <span className="text-gradient">Clarity.</span>
-        </h2>
+        </h1>
         <p>
           Send and receive digital assets using wallet addresses or QR codes, with every
           transaction clearly presented before you confirm.

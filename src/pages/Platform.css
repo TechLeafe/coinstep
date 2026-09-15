@@ -203,9 +203,6 @@
 }
 
 
-
-
-
 /* ============================================================
    HERO VISUAL
 ============================================================ */
@@ -224,8 +221,6 @@
   background: transparent;
 }
 
-
-/* Soft blue haze — same visual language as Connected Web3 */
 
 .platform-hero-visual::before {
   content: "";
@@ -353,8 +348,6 @@
 }
 
 
-/* Disable any old rectangular / heavy pseudo shading */
-
 .platform-device::before,
 .platform-device::after {
   display: none;
@@ -458,14 +451,12 @@
 
 .platform-connected-card {
   left: 1%;
-
   top: 22%;
 }
 
 
 .platform-network-card {
   right: 1%;
-
   top: 28%;
 
   animation-delay: 0.8s;
@@ -474,7 +465,6 @@
 
 .platform-approved-card {
   left: 6%;
-
   bottom: 17%;
 
   animation-delay: 1.5s;
@@ -483,7 +473,6 @@
 
 .platform-connected-card > span {
   width: 10px;
-
   height: 10px;
 
   border-radius: 50%;
@@ -502,7 +491,6 @@
 .platform-network-card > svg,
 .platform-approved-card > svg {
   width: 22px;
-
   height: 22px;
 
   color:
@@ -725,7 +713,6 @@
   position: absolute;
 
   width: 180px;
-
   height: 180px;
 
   border-radius: 50%;
@@ -744,7 +731,6 @@
   position: absolute;
 
   width: 170px;
-
   height: 170px;
 
   border:
@@ -794,15 +780,11 @@
 
 .platform-feature-ring-one {
   width: 230px;
-
   height: 100px;
 
   --platform-tilt: -20deg;
-
   --platform-spin: 28s;
 }
-
-
 .platform-feature-ring-two {
   width: 170px;
 
@@ -958,7 +940,6 @@
 
   font-size: 0.95rem;
 }
-
 
 
 .platform-wallet-dot {
@@ -1604,8 +1585,6 @@
 
   z-index: 3;
 }
-
-
 .platform-portfolio-card {
   width: 100%;
 
@@ -2052,8 +2031,6 @@
 }
 
 
-/* Soft blue haze — no visible rectangle */
-
 .platform-security-visual::before {
   content: "";
 
@@ -2073,7 +2050,6 @@
   pointer-events: none;
   z-index: -3;
 }
-
 
 
 /* ============================================================
@@ -2250,7 +2226,6 @@
 }
 
 
-
 /* ============================================================
    SECURITY COPY
 ============================================================ */
@@ -2354,8 +2329,6 @@
 
   font-weight: 550;
 }
-
-
 /* ============================================================
    CONNECTED WEB3 SECTION
 ============================================================ */
@@ -2749,40 +2722,6 @@
 
 
 /* ============================================================
-   RESPONSIVE — LARGE LAPTOP / TABLET
-============================================================ */
-
-
-
-
-/* ============================================================
-   RESPONSIVE — TABLET
-============================================================ */
-
-
-
-
-/* ============================================================
-   RESPONSIVE — MOBILE
-============================================================ */
-
-
-
-
-/* ============================================================
-   RESPONSIVE — SMALL MOBILE
-============================================================ */
-
-
-
-
-/* ============================================================
-   REDUCED MOTION
-============================================================ */
-
-
-
-/* ============================================================
    FLUID RESPONSIVE OVERRIDES
    NO MEDIA QUERIES
 ============================================================ */
@@ -2791,231 +2730,465 @@
   overflow-x: clip;
 }
 
-/* Hero automatically becomes 2 columns or 1 column via auto-fit. */
+
+/* Hero automatically becomes 2 columns or 1 column */
+
 .platform-hero {
   min-height: clamp(34rem, 72vh, 46rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 28rem), 1fr)
+    );
+
   gap: clamp(1.5rem, 5vw, 5rem);
-  padding-block: clamp(2.25rem, 6vw, 5rem);
+
+  padding-block:
+    clamp(2.25rem, 6vw, 5rem);
 }
+
 
 .platform-hero h1 {
   width: min(100%, 13ch);
+
   max-width: none;
-  font-size: clamp(2.35rem, 6vw, 4.65rem);
+
+  font-size:
+    clamp(2.35rem, 6vw, 4.65rem);
+
   line-height: 0.99;
+
   text-wrap: balance;
 }
 
+
 .platform-description {
   width: min(100%, 38rem);
+
   max-width: none;
-  font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+
+  font-size:
+    clamp(0.95rem, 1.35vw, 1.2rem);
+
   line-height: 1.6;
 }
 
+
 .platform-hero-visual {
   width: min(100%, 39rem);
-  height: clamp(20rem, 42vw, 33rem);
+
+  height:
+    clamp(20rem, 42vw, 33rem);
+
   margin-inline: auto;
 }
 
+
 .platform-hero-visual::before {
   width: min(76%, 28rem);
+
   height: auto;
+
   aspect-ratio: 1;
-  filter: blur(clamp(1.4rem, 3vw, 2.3rem));
+
+  filter:
+    blur(clamp(1.4rem, 3vw, 2.3rem));
 }
+
 
 .platform-hero-orbit {
   top: 50%;
 }
 
+
 .platform-hero-orbit-one {
   width: min(82%, 29rem);
-  height: clamp(9rem, 20vw, 14.5rem);
+
+  height:
+    clamp(9rem, 20vw, 14.5rem);
+
   top: 50%;
-  transform: translate(-50%, -50%) rotate(-18deg);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-18deg);
 }
+
 
 .platform-hero-orbit-two {
   width: min(68%, 24rem);
-  height: clamp(7.5rem, 16vw, 11.5rem);
+
+  height:
+    clamp(7.5rem, 16vw, 11.5rem);
+
   top: 50%;
-  transform: translate(-50%, -50%) rotate(30deg);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(30deg);
 }
+
 
 .platform-hero-orbit-three {
   width: min(94%, 33rem);
-  height: clamp(10rem, 23vw, 16rem);
+
+  height:
+    clamp(10rem, 23vw, 16rem);
+
   top: 50%;
-  transform: translate(-50%, -50%);
+
+  transform:
+    translate(-50%, -50%);
 }
+
 
 @keyframes platformOrbitOne {
-  to { transform: translate(-50%, -50%) rotate(342deg); }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(342deg);
+  }
 }
+
 
 @keyframes platformOrbitTwo {
-  to { transform: translate(-50%, -50%) rotate(390deg); }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(390deg);
+  }
 }
 
+
 @keyframes platformOrbitThree {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
 }
+
 
 .platform-device {
   width: min(82vw, 27rem, 88%);
 }
 
-/* Floating hero status cards were removed from Platform.tsx. */
+
 .platform-connected-card,
 .platform-network-card,
 .platform-approved-card {
   display: none !important;
 }
 
+
 .platform-capabilities,
 .platform-journey-section,
 .platform-security-section,
 .platform-connected-section {
-  padding-block: clamp(3.25rem, 7vw, 6rem);
+  padding-block:
+    clamp(3.25rem, 7vw, 6rem);
 }
+
 
 .platform-section-heading {
   width: min(100%, 47.5rem);
-  margin-bottom: clamp(1.8rem, 4vw, 2.8rem);
+
+  margin-bottom:
+    clamp(1.8rem, 4vw, 2.8rem);
 }
+
 
 .platform-section-heading h2,
 .platform-security-copy h2,
 .platform-connected-copy h2 {
-  font-size: clamp(1.85rem, 4.5vw, 3.4rem);
+  font-size:
+    clamp(1.85rem, 4.5vw, 3.4rem);
 }
 
-/* 3 / 2 / 1 columns happen naturally according to available width. */
+
+/* ============================================================
+   FEATURE GRID — 3 + 3 CARDS
+============================================================ */
+
 .platform-feature-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: clamp(0.9rem, 2.2vw, 1.4rem);
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 21rem), 1fr)
+    );
+
+  gap:
+    clamp(0.9rem, 2.2vw, 1.4rem);
 }
+
 
 .platform-feature-card {
   min-width: 0;
-  min-height: clamp(23rem, 31vw, 26.5rem);
+
+  min-height:
+    clamp(23rem, 31vw, 26.5rem);
 }
+
 
 .platform-feature-visual {
-  height: clamp(12.5rem, 22vw, 14.75rem);
+  height:
+    clamp(12.5rem, 22vw, 14.75rem);
 }
+
 
 .platform-feature-content {
-  padding: clamp(1rem, 2vw, 1.45rem);
+  padding:
+    clamp(1rem, 2vw, 1.45rem);
 }
 
-/* Journey flows from 5 columns down to 1 without breakpoints. */
+
 .platform-journey-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
-  gap: clamp(0.85rem, 2vw, 1.4rem);
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 10.5rem), 1fr)
+    );
+
+  gap:
+    clamp(0.85rem, 2vw, 1.4rem);
 }
+
 
 .platform-journey-card {
   min-width: 0;
-  min-height: clamp(12rem, 20vw, 15rem);
-  padding: clamp(1rem, 2.4vw, 1.4rem);
+
+  min-height:
+    clamp(12rem, 20vw, 15rem);
+
+  padding:
+    clamp(1rem, 2.4vw, 1.4rem);
 }
 
-/* Security automatically stacks when two 27rem columns no longer fit. */
+
 .platform-security-inner,
 .platform-connected-section {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
-  gap: clamp(2rem, 6vw, 6rem);
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 27rem), 1fr)
+    );
+
+  gap:
+    clamp(2rem, 6vw, 6rem);
 }
+
 
 .platform-security-visual {
   width: min(100%, 35rem);
-  min-height: clamp(20rem, 42vw, 31rem);
+
+  min-height:
+    clamp(20rem, 42vw, 31rem);
+
   margin-inline: auto;
 }
 
+
 .platform-security-visual::before {
   width: min(72%, 24rem);
+
   height: auto;
+
   aspect-ratio: 1;
-  filter: blur(clamp(1.5rem, 3vw, 2.2rem));
+
+  filter:
+    blur(clamp(1.5rem, 3vw, 2.2rem));
 }
+
 
 .platform-security-orbit {
   left: 50%;
   top: 50%;
 }
 
+
 .platform-security-orbit-one {
   width: min(80%, 24.5rem);
-  height: clamp(9rem, 19vw, 12.8rem);
-  transform: translate(-50%, -50%) rotate(-25deg);
+
+  height:
+    clamp(9rem, 19vw, 12.8rem);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-25deg);
 }
+
 
 .platform-security-orbit-two {
   width: min(64%, 19.5rem);
-  height: clamp(7rem, 15vw, 10.3rem);
-  transform: translate(-50%, -50%) rotate(28deg);
+
+  height:
+    clamp(7rem, 15vw, 10.3rem);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(28deg);
 }
+
 
 .platform-security-image-wrapper {
-  width: min(68vw, 18.75rem, 62%);
+  width:
+    min(68vw, 18.75rem, 62%);
 }
+
 
 .platform-security-card {
-  right: clamp(0rem, 2vw, 1.5rem);
-  bottom: clamp(0.5rem, 5vw, 3.2rem);
-  max-width: min(48%, 12rem);
-  padding: clamp(0.65rem, 1.4vw, 0.9rem) clamp(0.75rem, 1.7vw, 1rem);
+  right:
+    clamp(0rem, 2vw, 1.5rem);
+
+  bottom:
+    clamp(0.5rem, 5vw, 3.2rem);
+
+  max-width:
+    min(48%, 12rem);
+
+  padding:
+    clamp(0.65rem, 1.4vw, 0.9rem)
+    clamp(0.75rem, 1.7vw, 1rem);
 }
+
 
 .platform-security-card strong {
-  font-size: clamp(0.58rem, 1.25vw, 0.72rem);
+  font-size:
+    clamp(0.58rem, 1.25vw, 0.72rem);
 }
 
+
 .platform-security-card small {
-  font-size: clamp(0.46rem, 1vw, 0.56rem);
+  font-size:
+    clamp(0.46rem, 1vw, 0.56rem);
 }
+
 
 .platform-security-item strong,
 .platform-connected-points > div {
-  font-size: clamp(0.78rem, 1.25vw, 0.88rem);
+  font-size:
+    clamp(0.78rem, 1.25vw, 0.88rem);
 }
+
 
 .platform-network-visual {
-  width: min(86vw, 31rem, 100%);
+  width:
+    min(86vw, 31rem, 100%);
 }
+
 
 .platform-network-core {
-  width: clamp(5.7rem, 20vw, 7.2rem);
+  width:
+    clamp(5.7rem, 20vw, 7.2rem);
+
   height: auto;
+
   aspect-ratio: 1;
 }
+
 
 .platform-network-node {
-  width: clamp(3.7rem, 14vw, 5rem);
+  width:
+    clamp(3.7rem, 14vw, 5rem);
+
   height: auto;
+
   aspect-ratio: 1;
 }
 
+
 .platform-network-node svg {
-  width: clamp(1.05rem, 4vw, 1.35rem);
+  width:
+    clamp(1.05rem, 4vw, 1.35rem);
+
   height: auto;
 }
+
 
 .platform-network-line {
   width: 30%;
+
   left: 35%;
+
   margin-left: 0;
 }
 
-/* Capability illustrations scale fluidly inside every card. */
-.platform-wallet-illustration { width: min(52%, 10.3rem); height: auto; aspect-ratio: 1.38; }
-.platform-buy-illustration { width: min(64%, 12.5rem); height: auto; aspect-ratio: 1.48; }
-.platform-swap-illustration { width: min(68%, 13.2rem); height: auto; aspect-ratio: 1.55; }
-.platform-staking-illustration { width: min(58%, 11rem); height: auto; aspect-ratio: 1.13; }
-.platform-dapp-illustration { width: min(64%, 12rem); height: auto; aspect-ratio: 1.31; }
-.platform-portfolio-illustration { width: min(62%, 11.6rem); height: auto; aspect-ratio: 1.37; }
+
+/* ============================================================
+   CAPABILITY ILLUSTRATIONS
+============================================================ */
+
+.platform-wallet-illustration {
+  width: min(52%, 10.3rem);
+
+  height: auto;
+
+  aspect-ratio: 1.38;
+}
+
+
+.platform-buy-illustration {
+  width: min(64%, 12.5rem);
+
+  height: auto;
+
+  aspect-ratio: 1.48;
+}
+
+
+.platform-swap-illustration {
+  width: min(68%, 13.2rem);
+
+  height: auto;
+
+  aspect-ratio: 1.55;
+}
+
+
+.platform-staking-illustration {
+  width: min(58%, 11rem);
+
+  height: auto;
+
+  aspect-ratio: 1.13;
+}
+
+
+.platform-dapp-illustration {
+  width: min(64%, 12rem);
+
+  height: auto;
+
+  aspect-ratio: 1.31;
+}
+
+
+.platform-portfolio-illustration {
+  width: min(62%, 11.6rem);
+
+  height: auto;
+
+  aspect-ratio: 1.37;
+}
+
+
+/* ============================================================
+   PLATFORM PAGE
+   REDUCE EMPTY SPACE BETWEEN HERO AND NEXT SECTION
+============================================================ */
+
+.platform-hero {
+  align-items: start;
+
+  padding-top: 1.5rem;
+
+  min-height: auto;
+
+  padding-bottom: 1.5rem;
+}
+
+
+.platform-capabilities {
+  padding-top: 1.5rem;
+}

@@ -2591,3 +2591,13 @@
   }
 
 }
+
+/* ============================================================
+   BUILD PAGE
+   NAVBAR → PAGE CONTENT GAP FIX ONLY
+   ============================================================ */
+
+.build-hero {
+  align-items: start;
+  padding-top: 2.5rem;
+}

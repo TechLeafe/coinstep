@@ -25,7 +25,7 @@ interface FaqItem {
 
 
 /* ============================================================
-   DATA
+   CATEGORY DATA
 ============================================================ */
 
 const CATEGORIES: Category[] = [
@@ -52,61 +52,109 @@ const CATEGORIES: Category[] = [
 ];
 
 
+/* ============================================================
+   FAQ DATA
+============================================================ */
+
 const FAQS: FaqItem[] = [
+
+  /* =========================
+     GENERAL QUESTIONS
+  ========================= */
+
   {
     category: "general",
-    q: "How do I create an account?",
-    a: "Tap Create Account, follow the on-screen setup, and confirm your email or phone number. You can be up and running in under five minutes.",
+
+    q: "What is a Web3 wallet?",
+
+    a: "A Web3 wallet allows you to manage digital assets and interact with blockchain networks and decentralized applications.",
   },
-  {
-    category: "general",
-    q: "Is there a fee to sign up?",
-    a: "No — creating an account is free. You only pay standard network or service fees when you make a transaction.",
-  },
-  {
-    category: "payment",
-    q: "How do I sell crypto?",
-    a: "Open the Sell flow from your balance page, choose an asset and amount, review the quote, and confirm. Funds are typically available within a few minutes to a few hours depending on your payout method.",
-  },
+
+
+  /* =========================
+     PAYMENT & BILLING
+  ========================= */
+
   {
     category: "payment",
-    q: "Why did my sell order fail?",
-    a: "This is usually caused by a price change during confirmation, insufficient balance for network fees, or a temporary network issue. Wait a few minutes and try again; if it keeps failing, contact support with the order reference.",
+
+    q: "Are blockchain transactions reversible?",
+
+    a: "Many blockchain transactions cannot be reversed after confirmation. Always verify the recipient address, network, amount, and transaction details before approving a transaction.",
   },
+
+
+  /* =========================
+     SAFETY & SECURITY
+  ========================= */
+
   {
     category: "security",
-    q: "I lost my recovery phrase — can you restore it?",
-    a: "We never have access to your recovery phrase or private keys, so we can't restore, reset, or recover them on your behalf. If you still have access to your account elsewhere, back up a new phrase immediately.",
+
+    q: "What is a recovery phrase?",
+
+    a: "A recovery phrase is a sequence of words that can be used to restore access to a crypto wallet. Always keep it private and secure.",
   },
+
   {
     category: "security",
-    q: "How do I report a scam?",
-    a: "Use the Report Scam & Fraud topic to submit transaction details as soon as possible. Acting quickly gives the best chance of flagging the destination address before funds move further.",
+
+    q: "Can Coinstep support recover my recovery phrase?",
+
+    a: "No. Never share your recovery phrase with anyone. Anyone requesting your recovery phrase should be treated as a potential security risk.",
   },
+
+  {
+    category: "security",
+
+    q: "How can I protect my crypto wallet?",
+
+    a: "Protect your recovery phrase, use a secure device, avoid suspicious links, verify wallet addresses, and carefully review transactions before approving them.",
+  },
+
+
+  /* =========================
+     ACCOUNT & UPDATES
+  ========================= */
+
   {
     category: "account",
-    q: "I sent funds to the wrong network — what now?",
-    a: "Recovery depends on the networks involved and isn't always possible. Don't send any more funds to that address, and contact support with the transaction hash so we can check what options exist.",
-  },
-  {
-    category: "account",
-    q: "My balance looks wrong — how do I find missing funds?",
-    a: "Check the transaction history for the specific asset and network first; most 'missing' funds are simply on a different network than expected. Reach out with the transaction details if it's still unclear.",
+
+    q: "How do I connect Coinstep to a dApp?",
+
+    a: "Open a supported decentralized application, select its wallet connection option, and choose Coinstep when available. Always verify the website before connecting your wallet.",
   },
 ];
 
 
 /* ============================================================
-   PAGE
+   FAQ PAGE
 ============================================================ */
 
 export function Faq() {
+
+  /*
+    Default category shown when FAQ page loads.
+  */
+
   const [activeCategory, setActiveCategory] =
     useState<string>("security");
 
-  const [openQuestion, setOpenQuestion] =
-    useState<string | null>(FAQS[4].q);
 
+  /*
+    null = no FAQ answer is open.
+
+    This is important because when the page loads
+    all FAQ answers will be closed.
+  */
+
+  const [openQuestion, setOpenQuestion] =
+    useState<string | null>(null);
+
+
+  /* ============================================================
+     FILTER QUESTIONS BY CATEGORY
+  ============================================================ */
 
   const visibleFaqs = useMemo(
     () =>
@@ -118,55 +166,108 @@ export function Faq() {
   );
 
 
+  /* ============================================================
+     CATEGORY CLICK
+  ============================================================ */
+
   function handleCategoryClick(id: string) {
+
+    /*
+      Change selected category.
+    */
+
     setActiveCategory(id);
 
-    const firstInCategory = FAQS.find(
-      (item) => item.category === id,
-    );
 
-    setOpenQuestion(
-      firstInCategory
-        ? firstInCategory.q
-        : null,
-    );
+    /*
+      Close any FAQ answer that is currently open
+      when another category is selected.
+    */
+
+    setOpenQuestion(null);
+  }
+
+
+  /* ============================================================
+     QUESTION CLICK
+  ============================================================ */
+
+  function handleQuestionClick(question: string) {
+
+    setOpenQuestion((currentQuestion) => {
+
+      /*
+        If clicked question is already open,
+        close it.
+      */
+
+      if (currentQuestion === question) {
+        return null;
+      }
+
+
+      /*
+        Otherwise open clicked question.
+
+        Because we only store one question here,
+        only one FAQ can be open at one time.
+      */
+
+      return question;
+
+    });
   }
 
 
   return (
+
     <main className="faq-page">
 
+
       {/* =====================================================
-          HERO
+          HERO SECTION
       ====================================================== */}
 
       <section className="faq-hero">
 
         <div className="container faq-hero-inner">
 
+
+          {/* ==============================
+              HERO TEXT
+          ============================== */}
+
           <div className="faq-hero-text">
 
             <span className="eyebrow faq-hero-eyebrow">
-              Support center
+
+              Support Center
+
             </span>
 
+
             <h1 className="faq-hero-title">
-              Frequently Asked Question
+
+              Frequently Asked Questions
+
             </h1>
 
+
             <p className="faq-hero-copy">
+
               Browse answers by topic below,
               or open a question directly.
               Can&apos;t find what you need?
               Send us a message and we&apos;ll
               get back to you.
+
             </p>
 
           </div>
 
 
           {/* =================================================
-              3D ? + 4 ORBITING ICONS
+              3D QUESTION MARK + ORBITING ICONS
           ================================================== */}
 
           <div
@@ -176,7 +277,15 @@ export function Faq() {
 
             <div className="faq-hero-mark-shell">
 
+
+              {/* ==============================
+                  ORBIT
+              ============================== */}
+
               <div className="faq-hero-orbit">
+
+
+                {/* TOP */}
 
                 <span
                   className="
@@ -184,11 +293,17 @@ export function Faq() {
                     faq-hero-orbit-item--top
                   "
                 >
+
                   <span className="faq-hero-orbit-badge">
+
                     <IconBulb />
+
                   </span>
+
                 </span>
 
+
+                {/* RIGHT */}
 
                 <span
                   className="
@@ -196,11 +311,17 @@ export function Faq() {
                     faq-hero-orbit-item--right
                   "
                 >
+
                   <span className="faq-hero-orbit-badge">
+
                     <IconCard />
+
                   </span>
+
                 </span>
 
+
+                {/* BOTTOM */}
 
                 <span
                   className="
@@ -208,11 +329,17 @@ export function Faq() {
                     faq-hero-orbit-item--bottom
                   "
                 >
+
                   <span className="faq-hero-orbit-badge">
+
                     <IconShieldLock />
+
                   </span>
+
                 </span>
 
+
+                {/* LEFT */}
 
                 <span
                   className="
@@ -220,18 +347,28 @@ export function Faq() {
                     faq-hero-orbit-item--left
                   "
                 >
+
                   <span className="faq-hero-orbit-badge">
+
                     <IconRocket />
+
                   </span>
+
                 </span>
 
               </div>
 
 
+              {/* ==============================
+                  CENTER QUESTION MARK
+              ============================== */}
+
               <span className="faq-hero-mark">
 
                 <span className="faq-hero-mark-glyph">
+
                   ?
+
                 </span>
 
               </span>
@@ -253,7 +390,7 @@ export function Faq() {
 
 
         {/* ===================================================
-            CATEGORY CARDS
+            FAQ CATEGORY CARDS
         ==================================================== */}
 
         <div
@@ -266,6 +403,7 @@ export function Faq() {
 
             const isActive =
               activeCategory === cat.id;
+
 
             return (
 
@@ -283,23 +421,34 @@ export function Faq() {
                   )
                 }
                 onClick={() =>
-                  handleCategoryClick(
-                    cat.id,
-                  )
+                  handleCategoryClick(cat.id)
                 }
               >
+
+
+                {/* =========================
+                    CATEGORY ICON
+                ========================= */}
 
                 <span className="faq-category-icon">
 
                   <span className="faq-category-icon-spin">
+
                     {cat.icon}
+
                   </span>
 
                 </span>
 
 
+                {/* =========================
+                    CATEGORY NAME
+                ========================= */}
+
                 <span className="faq-category-label">
+
                   {cat.label}
+
                 </span>
 
               </button>
@@ -312,21 +461,30 @@ export function Faq() {
 
 
         {/* ===================================================
-            ACCORDION
+            FAQ ACCORDION
         ==================================================== */}
 
         <section className="section faq-accordion-section">
 
           <div className="stack faq-accordion-list">
 
+
             {visibleFaqs.map((item) => {
+
+
+              /*
+                Check whether current question
+                is opened.
+              */
 
               const isOpen =
                 openQuestion === item.q;
 
+
               return (
 
                 <div
+                  key={item.q}
                   className={
                     "faq-pill" +
                     (
@@ -335,43 +493,59 @@ export function Faq() {
                         : ""
                     )
                   }
-                  key={item.q}
                 >
+
+
+                  {/* =======================================
+                      FAQ QUESTION
+                  ======================================= */}
 
                   <button
                     type="button"
                     className="faq-pill-summary"
                     aria-expanded={isOpen}
                     onClick={() =>
-                      setOpenQuestion(
-                        isOpen
-                          ? null
-                          : item.q,
-                      )
+                      handleQuestionClick(item.q)
                     }
                   >
 
                     <span>
+
                       {item.q}
+
                     </span>
 
+
+                    {/* =========================
+                        ARROW BUTTON
+                    ========================= */}
 
                     <span
                       className="faq-toggle"
                       aria-hidden="true"
                     >
+
                       <IconChevron />
+
                     </span>
 
                   </button>
 
+
+                  {/* =======================================
+                      FAQ ANSWER
+
+                      It appears only when isOpen = true.
+                  ======================================= */}
 
                   {isOpen && (
 
                     <div className="faq-pill-answer">
 
                       <p>
+
                         {item.a}
+
                       </p>
 
                     </div>
@@ -391,6 +565,7 @@ export function Faq() {
       </div>
 
     </main>
+
   );
 }
 
@@ -423,7 +598,7 @@ function iconWrap(
 
 
 /* ============================================================
-   CHEVRON
+   CHEVRON / ARROW ICON
 ============================================================ */
 
 function IconChevron() {
@@ -453,7 +628,7 @@ function IconChevron() {
 
 
 /* ============================================================
-   BULB
+   BULB ICON
 ============================================================ */
 
 function IconBulb() {
@@ -470,7 +645,16 @@ function IconBulb() {
       />
 
       <path
-        d="M12 3a6 6 0 0 0-3.5 10.9c.6.4.9 1 .9 1.7V16h5.2v-.4c0-.7.3-1.3.9-1.7A6 6 0 0 0 12 3z"
+        d="
+          M12 3
+          a6 6 0 0 0-3.5 10.9
+          c.6.4.9 1 .9 1.7
+          V16
+          h5.2
+          v-.4
+          c0-.7.3-1.3.9-1.7
+          A6 6 0 0 0 12 3z
+        "
         stroke="currentColor"
         strokeWidth="2"
         strokeLinejoin="round"
@@ -483,7 +667,7 @@ function IconBulb() {
 
 
 /* ============================================================
-   PAYMENT CARD
+   PAYMENT CARD ICON
 ============================================================ */
 
 function IconCard() {
@@ -522,7 +706,7 @@ function IconCard() {
 
 
 /* ============================================================
-   SHIELD
+   SECURITY SHIELD ICON
 ============================================================ */
 
 function IconShieldLock() {
@@ -532,11 +716,20 @@ function IconShieldLock() {
     <>
 
       <path
-        d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"
+        d="
+          M12 3
+          l7 3
+          v5
+          c0 4.5-3 8-7 10
+          c-4-2-7-5.5-7-10
+          V6
+          l7-3z
+        "
         stroke="currentColor"
         strokeWidth="2"
         strokeLinejoin="round"
       />
+
 
       <rect
         x="9.5"
@@ -548,8 +741,14 @@ function IconShieldLock() {
         strokeWidth="1.6"
       />
 
+
       <path
-        d="M10.3 11V9.7a1.7 1.7 0 0 1 3.4 0V11"
+        d="
+          M10.3 11
+          V9.7
+          a1.7 1.7 0 0 1 3.4 0
+          V11
+        "
         stroke="currentColor"
         strokeWidth="1.6"
       />
@@ -561,7 +760,7 @@ function IconShieldLock() {
 
 
 /* ============================================================
-   ROCKET
+   ROCKET ICON
 ============================================================ */
 
 function IconRocket() {
@@ -571,11 +770,20 @@ function IconRocket() {
     <>
 
       <path
-        d="M12 2c3 1 5 4 5 8 0 2-1 4-2 5l-3 3-3-3c-1-1-2-3-2-5 0-4 2-7 5-8z"
+        d="
+          M12 2
+          c3 1 5 4 5 8
+          c0 2-1 4-2 5
+          l-3 3
+          l-3-3
+          c-1-1-2-3-2-5
+          c0-4 2-7 5-8z
+        "
         stroke="currentColor"
         strokeWidth="2"
         strokeLinejoin="round"
       />
+
 
       <circle
         cx="12"
@@ -583,6 +791,7 @@ function IconRocket() {
         r="1.6"
         fill="currentColor"
       />
+
 
       <path
         d="M9 16l-2 4M15 16l2 4"

@@ -735,3 +735,199 @@
     transform: none;
   }
 }
+/* ============================================================
+   FEATURES PAGE
+   NAVBAR → PAGE CONTENT GAP FIX ONLY
+   ============================================================ */
+
+.page:has(.intro-hero) {
+  padding-top: 1.5rem;
+}
+
+.intro-hero {
+  padding-top: 0;
+}
+/* ============================================================
+   FEATURES PAGE
+   BUILD PAGE STYLE MATCH
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   HERO HEADING
+   Same strong/tight style as Build page
+------------------------------------------------------------ */
+
+.intro-heading {
+  max-width: 650px;
+
+  margin: 0 0 1.2rem;
+
+  color: var(--color-ink);
+
+  font-size: clamp(
+    2.75rem,
+    5vw,
+    4.5rem
+  );
+
+  font-weight: var(--weight-bold);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.05em;
+
+  text-wrap: balance;
+}
+
+
+/* Blue/accent word instead of the old grey-green gradient */
+
+.intro-heading .text-gradient {
+  background: none;
+
+  -webkit-background-clip: initial;
+  background-clip: initial;
+
+  color: var(--color-accent);
+}
+
+
+/* ------------------------------------------------------------
+   HERO DESCRIPTION
+------------------------------------------------------------ */
+
+.intro-sub {
+  max-width: 590px;
+
+  margin: 0;
+
+  color: var(--color-ink-soft);
+
+  font-size: clamp(
+    1rem,
+    1.3vw,
+    1.25rem
+  );
+
+  line-height: 1.65;
+}
+
+
+/* ------------------------------------------------------------
+   HIGHLIGHT ITEMS
+   Match Build page trust-item layout
+------------------------------------------------------------ */
+
+.highlight-row {
+  list-style: none;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: flex-start;
+
+  gap: clamp(
+    1.2rem,
+    2vw,
+    1.8rem
+  );
+
+  margin: 2rem 0 0;
+
+  padding: 0;
+}
+
+
+/* Each text + icon group */
+
+.highlight-item {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  min-width: 210px;
+
+  color: var(--color-ink);
+
+  font-size: 0.9rem;
+
+  font-weight: 650;
+
+  line-height: 1.3;
+}
+
+
+/* Rounded icon box — same visual style as Build */
+
+.highlight-item-icon {
+  width: 40px;
+
+  height: 40px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 11px;
+
+  color: var(--color-accent);
+
+  background: var(--color-accent-soft);
+}
+
+
+/* Make SVG slightly larger inside rounded box */
+
+.highlight-item-icon svg {
+  width: 19px;
+
+  height: 19px;
+}
+
+
+/* ------------------------------------------------------------
+   HERO LAYOUT GAP
+------------------------------------------------------------ */
+
+.intro-hero {
+  align-items: center;
+
+  gap: clamp(
+    2rem,
+    5vw,
+    5rem
+  );
+
+  padding-top: 1.5rem;
+
+  padding-bottom: 2rem;
+}
+
+
+/* Remove unnecessary spacing from stack inside hero */
+
+.intro-copy {
+  max-width: 42rem;
+
+  gap: 0;
+}
+
+
+/* ============================================================
+   NAVBAR → FEATURES PAGE GAP
+   Keep your existing reduced top space
+   ============================================================ */
+
+.page:has(.intro-hero) {
+  padding-top: 1.5rem;
+}
