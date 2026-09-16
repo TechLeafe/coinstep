@@ -311,6 +311,7 @@ function AssetsBlock() {
           <p>
             Keep track of your tokens and balances across supported blockchain networks from a
             single wallet.
+            Manage your digital assets effortlessly with a secure and user-friendly experience. Stay in control of your portfolio with real-time balance and transaction visibility.
           </p>
           {/* <div className="coin-marquee">
             <div className="coin-track">

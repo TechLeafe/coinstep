@@ -554,30 +554,29 @@
 
 /* ============================================================
    SUPPORT TOPIC CARD
+   Clean reference style
 ============================================================ */
 
 .support-topic-card {
   position: relative;
 
+  min-width: 0;
+
   min-height:
     clamp(
-      15rem,
-      18vw,
-      18rem
-    );
-
-  padding:
-    clamp(
-      1.8rem,
-      2.4vw,
-      2.2rem
+      11rem,
+      16vw,
+      13rem
     );
 
   overflow: hidden;
 
-  display: flex;
-
-  flex-direction: column;
+  padding:
+    clamp(
+      1.35rem,
+      2vw,
+      1.75rem
+    );
 
   border:
     1px
@@ -586,9 +585,9 @@
 
   border-radius:
     clamp(
-      1.25rem,
-      2vw,
-      1.75rem
+      1rem,
+      1.5vw,
+      1.4rem
     );
 
   background:
@@ -597,13 +596,12 @@
   box-shadow:
     var(--shadow-sm);
 
-  cursor:
-    default;
+  cursor: pointer;
 
   transition:
-    transform 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease;
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 
@@ -611,20 +609,19 @@
    LEFT ACCENT LINE
 ============================================================ */
 
-.support-topic-card::after {
+.support-topic-card::before {
   content: "";
 
   position: absolute;
 
-  left: 0;
-
-  top: 0;
+  inset:
+    0
+    auto
+    0
+    0;
 
   width:
     3px;
-
-  height:
-    100%;
 
   background:
     var(
@@ -632,50 +629,31 @@
       var(--color-accent)
     );
 
-  border-radius:
-    0
-    4px
-    4px
-    0;
+  pointer-events:
+    none;
 }
 
 
 /* ============================================================
-   BOTTOM RIGHT CIRCLE
+   BOTTOM RIGHT SOFT CIRCLE
 ============================================================ */
 
-.support-topic-card::before {
+.support-topic-card::after {
   content: "";
 
   position: absolute;
 
   width:
-    clamp(
-      7rem,
-      9vw,
-      9rem
-    );
+    8rem;
 
   height:
-    clamp(
-      7rem,
-      9vw,
-      9rem
-    );
+    8rem;
 
   right:
-    clamp(
-      -4rem,
-      -3vw,
-      -2.7rem
-    );
+    -4rem;
 
   bottom:
-    clamp(
-      -4.2rem,
-      -3vw,
-      -3rem
-    );
+    -4rem;
 
   border-radius:
     50%;
@@ -694,13 +672,12 @@
     none;
 
   transition:
-    transform 350ms ease,
-    opacity 350ms ease;
+    transform 0.35s ease;
 }
 
 
 /* ============================================================
-   CARD COLORS
+   CARD ACCENT COLORS
 ============================================================ */
 
 .support-topic-card-1 {
@@ -719,8 +696,8 @@
   --topic-accent:
     color-mix(
       in srgb,
-      var(--color-accent) 76%,
-      var(--color-ink)
+      var(--color-accent) 62%,
+      var(--color-ink) 38%
     );
 }
 
@@ -731,7 +708,7 @@
 
 .support-topic-card:hover {
   transform:
-    translateY(-4px);
+    translateY(-5px);
 
   border-color:
     color-mix(
@@ -739,7 +716,7 @@
       var(
         --topic-accent,
         var(--color-accent)
-      ) 30%,
+      ) 35%,
       var(--color-border)
     );
 
@@ -748,12 +725,9 @@
 }
 
 
-.support-topic-card:hover::before {
+.support-topic-card:hover::after {
   transform:
-    scale(1.15);
-
-  opacity:
-    1;
+    scale(1.12);
 }
 
 
@@ -762,85 +736,94 @@
 ============================================================ */
 
 .support-topic-content {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    2;
+  z-index: 2;
 
-  width:
-    100%;
+  width: 100%;
 
-  min-height:
-    100%;
+  display: grid;
 
-  flex:
-    1;
+  grid-template-rows:
+    minmax(
+      clamp(
+        2.7rem,
+        3.7vw,
+        3.3rem
+      ),
+      auto
+    )
+    auto;
 
-  display:
-    flex;
+  align-content: start;
 
-  flex-direction:
-    column;
+  gap:
+    clamp(
+      0.8rem,
+      1.2vw,
+      1.05rem
+    );
 }
 
 
 .support-topic-content h3 {
-  max-width:
-    20rem;
+  width:
+    min(
+      100%,
+      22ch
+    );
 
-  margin:
-    0;
+  margin: 0;
 
   color:
     var(--color-ink);
 
   font-size:
     clamp(
-      1.15rem,
-      1.5vw,
-      1.4rem
+      1.08rem,
+      1.35vw,
+      1.38rem
     );
-
-  line-height:
-    1.15;
 
   font-weight:
     var(--weight-semibold);
 
+  line-height:
+    1.15;
+
   letter-spacing:
-    -0.025em;
+    -0.02em;
 }
 
 
 .support-topic-content p {
-  max-width:
-    23rem;
-
-  margin:
-    auto
-    0
-    0;
-
-  padding-top:
-    clamp(
-      2.5rem,
-      4.5vw,
-      4rem
+  width:
+    min(
+      100%,
+      40ch
     );
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  background:
+    transparent;
 
   color:
     var(--color-ink-soft);
 
   font-size:
     clamp(
-      0.9rem,
-      1.1vw,
-      1rem
+      0.84rem,
+      0.9vw,
+      0.95rem
     );
 
   line-height:
-    1.55;
+    1.58;
 }
 
 

@@ -109,6 +109,12 @@ const TRUST_ITEMS = [
     title: "Clear",
     text: "transaction experiences",
   },
+
+  {
+    icon: <HubOutlinedIcon />,
+    title: "Multi-Chain",
+    text: "network support",
+  },
 ];
 
 

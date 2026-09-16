@@ -31,38 +31,25 @@ const Icon = ({ children, className = "" }: IconProps) => {
 
 const topics = [
   {
-    title: "Getting Started with Coinstep",
+    title: "Getting Started with CoinStep",
     description:
       "Learn how to set up your Web3 wallet, understand your wallet address, and get started with Coinstep.",
   },
-
   {
     title: "Managing Crypto Transactions",
     description:
       "Learn how to send and receive digital assets, understand network fees, and check transaction status.",
   },
-
   {
     title: "Buying and Managing Crypto",
     description:
-      "Learn about available options for acquiring or converting supported digital assets and understand related requirements.",
-      // "Learn about available options for acquiring and managing supported digital assets and understand related requirements.",
-    icon: (
-      <Icon className="support-topic-icon-svg">
-        <circle cx="12" cy="12" r="8" />
-        <path d="M9 15l6-6" />
-        <circle cx="9" cy="9" r="1" />
-        <circle cx="15" cy="15" r="1" />
-      </Icon>
-    ),
+      "Learn about available options for acquiring and managing supported digital assets and understand related requirements.",
   },
-
   {
     title: "Connecting to DeFi and dApps",
     description:
       "Connect your Web3 wallet with supported decentralized applications and explore the growing Web3 ecosystem.",
   },
-
   {
     title: "Crypto Wallet Security",
     description:
@@ -76,7 +63,6 @@ const topics = [
       </Icon>
     ),
   },
-
   {
     title: "How-To Guides",
     description:
@@ -102,7 +88,6 @@ const securityItems = [
       </Icon>
     ),
   },
-
   {
     title: "Avoid Scams and Phishing",
     description:
@@ -114,25 +99,17 @@ const securityItems = [
       </Icon>
     ),
   },
-
   {
     title: "Secure Your Wallet",
     description:
       "Use a secure device, keep your wallet software updated, and follow recommended crypto security practices.",
     icon: (
       <Icon>
-        <rect
-          x="5"
-          y="10"
-          width="14"
-          height="10"
-          rx="2"
-        />
+        <rect x="5" y="10" width="14" height="10" rx="2" />
         <path d="M8 10V7a4 4 0 018 0v3" />
       </Icon>
     ),
   },
-
   {
     title: "Verify Every Transaction",
     description:
@@ -153,55 +130,29 @@ const securityItems = [
 export function Support() {
   return (
     <main className="support-page">
-
       <div className="support-container">
-
         {/* ====================================================
             HERO
         ==================================================== */}
-
         <section className="support-hero">
-
-          {/* LEFT */}
-
           <div className="support-hero-content">
+            <span className="support-eyebrow">COINSTEP SUPPORT</span>
 
-            <span className="support-eyebrow">
-              COINSTEP SUPPORT
-            </span>
-
-            <h1>
-              Web3 Wallet Support, When You Need It
-            </h1>
+            <h1>Web3 Wallet Support, When You Need It</h1>
 
             <p>
-              Get help with your Coinstep Web3 wallet, digital assets,
-              crypto transactions, decentralized applications, and
-              wallet security.
+              Get help with your CoinStep Web3 wallet, digital assets,
+              crypto transactions, decentralized applications, and wallet
+              security.
             </p>
 
           </div>
 
-
-          {/* RIGHT */}
-
           <div className="support-hero-visual">
-
             <div className="support-visual-glow" />
 
-            <div
-              className="
-                support-headset-orbit
-                support-headset-orbit-one
-              "
-            />
-
-            <div
-              className="
-                support-headset-orbit
-                support-headset-orbit-two
-              "
-            />
+            <div className="support-headset-orbit support-headset-orbit-one" />
+            <div className="support-headset-orbit support-headset-orbit-two" />
 
             <svg
               className="support-headset"
@@ -249,165 +200,82 @@ export function Support() {
                 strokeLinecap="round"
               />
 
-              <circle
-                cx="89"
-                cy="147"
-                r="7"
-                fill="currentColor"
-              />
+              <circle cx="89" cy="147" r="7" fill="currentColor" />
             </svg>
-
           </div>
-
         </section>
-
 
         {/* ====================================================
             SUPPORT TOPICS
         ==================================================== */}
-
         <section className="support-section">
-
           <div className="support-section-heading">
+            <span>HELP CENTER</span>
 
-            <span>
-              HELP CENTER
-            </span>
-
-            <h2>
-              How Can We Help?
-            </h2>
+            <h2>How Can We Help?</h2>
 
             <p>
-              Find guides and answers for your Coinstep Web3 wallet,
-              digital assets, crypto transactions, dApps, DeFi,
-              and wallet security.
+              Find guides and answers for your CoinStep Web3 wallet, digital
+              assets, crypto transactions, dApps, DeFi, and wallet security.
             </p>
-
           </div>
-
 
           <div className="support-topics-grid">
 
-            {topics.map((topic, index) => (
+            {/* {topics.map((topic, index) => (
               <article
                 key={topic.title}
                 className={`support-topic-card support-topic-card-${
                   (index % 3) + 1
                 }`}
-              >
+              > */}
 
+            {topics.map((topic) => (
+              <article key={topic.title} className="support-topic-card">
                 <div className="support-topic-content">
-
-                  <h3>
-                    {topic.title}
-                  </h3>
-
-                  <p>
-                    {topic.description}
-                  </p>
-
+                  <h3>{topic.title}</h3>
+                  <p>{topic.description}</p>
                 </div>
-
               </article>
             ))}
-
           </div>
-
         </section>
-
 
         {/* ====================================================
             SECURITY CENTER
         ==================================================== */}
-
         <section className="support-security">
-
-          <div
-            className="
-              support-security-glow
-              support-security-glow-one
-            "
-          />
-
-          <div
-            className="
-              support-security-glow
-              support-security-glow-two
-            "
-          />
-
+          <div className="support-security-glow support-security-glow-one" />
+          <div className="support-security-glow support-security-glow-two" />
 
           <div className="support-security-content">
+            <span className="support-security-label">STAY SAFE</span>
 
-            <span className="support-security-label">
-              STAY SAFE
-            </span>
-
-            <h2>
-              Security Center
-            </h2>
+            <h2>Security Center</h2>
 
             <p>
-              Protecting your wallet and digital assets starts with
-              good security practices. Learn how to protect your
-              recovery phrase, recognize phishing attempts, secure
-              your wallet, and verify transactions before approving them.
+              Protecting your wallet and digital assets starts with good
+              security practices. Learn how to protect your recovery phrase,
+              recognize phishing attempts, secure your wallet, and verify
+              transactions before approving them.
             </p>
 
           </div>
 
-
           {/* SHIELD */}
-
           <div className="support-shield-area">
-
-            <div
-              className="
-                support-orbit
-                support-orbit-one
-              "
-            />
-
-            <div
-              className="
-                support-orbit
-                support-orbit-two
-              "
-            />
-
+            <div className="support-orbit support-orbit-one" />
+            <div className="support-orbit support-orbit-two" />
 
             <div className="support-shield">
-
-              <svg
-                viewBox="0 0 120 140"
-                fill="none"
-                aria-hidden="true"
-              >
-
+              <svg viewBox="0 0 120 140" fill="none" aria-hidden="true">
                 <path
-                  d="
-                    M60 10
-                    L105 29
-                    V65
-                    C105 95 87 119 60 131
-                    C33 119 15 95 15 65
-                    V29
-                    L60 10Z
-                  "
+                  d="M60 10 L105 29 V65 C105 95 87 119 60 131 C33 119 15 95 15 65 V29 L60 10Z"
                   fill="currentColor"
                 />
 
                 <path
-                  d="
-                    M60 23
-                    L93 37
-                    V65
-                    C93 87 80 105 60 115
-                    C40 105 27 87 27 65
-                    V37
-                    L60 23Z
-                  "
+                  d="M60 23 L93 37 V65 C93 87 80 105 60 115 C40 105 27 87 27 65 V37 L60 23Z"
                   fill="white"
                   fillOpacity="0.13"
                 />
@@ -422,85 +290,49 @@ export function Support() {
                 />
 
                 <path
-                  d="
-                    M50 62
-                    V53
-                    C50 47.5 54.5 43 60 43
-                    C65.5 43 70 47.5 70 53
-                    V62
-                  "
+                  d="M50 62 V53 C50 47.5 54.5 43 60 43 C65.5 43 70 47.5 70 53 V62"
                   stroke="white"
                   strokeWidth="6"
                   strokeLinecap="round"
                 />
-
               </svg>
-
             </div>
-
           </div>
-
 
           {/* SECURITY ITEMS */}
-
           <div className="support-security-list">
-
             {securityItems.map((item) => (
-              <div
-                className="support-security-item"
-                key={item.title}
-              >
-
-                <div className="support-security-item-icon">
-                  {item.icon}
-                </div>
+              <div className="support-security-item" key={item.title}>
+                <div className="support-security-item-icon">{item.icon}</div>
 
                 <div>
-
-                  <h3>
-                    {item.title}
-                  </h3>
-
-                  <p>
-                    {item.description}
-                  </p>
-
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
                 </div>
-
               </div>
             ))}
-
           </div>
-
         </section>
 
 
         {/* ====================================================
             CONTACT
         ==================================================== */}
-
         <section className="support-contact">
-
           <div>
+            <span>NEED MORE HELP?</span>
 
-            <span>
-              NEED MORE HELP?
-            </span>
-
-            <h2>
-              Still Need Support?
-            </h2>
+            <h2>Still Need Support?</h2>
 
             <p>
-              Our support resources can help you understand Coinstep, Web3 wallets, crypto transactions, dApps, security, and common wallet questions.
+              Our support resources can help you understand CoinStep, Web3
+              wallets, crypto transactions, decentralized applications, and
+              digital asset security.
             </p>
-
           </div>
 
         </section>
-
       </div>
-
     </main>
   );
 }

@@ -1929,20 +1929,77 @@
 
   left: -35%;
 
+  opacity: 0;
+
   background:
-    var(--color-accent);
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-accent) 35%,
+      var(--color-accent) 65%,
+      transparent 100%
+    );
 
   animation:
-    platformStepFlow
-    4s
+    platformStepFlowSequence
+    10s
     linear
     infinite;
+
+  will-change: left, opacity;
 }
 
 
-@keyframes platformStepFlow {
-  to {
+/* ============================================================
+   JOURNEY LINE SEQUENCE
+   01 → 02 → 03 → 04 → 05 → repeat
+============================================================ */
+
+.platform-journey-card:nth-child(1) .platform-step-line i {
+  animation-delay: 0s;
+}
+
+.platform-journey-card:nth-child(2) .platform-step-line i {
+  animation-delay: 2s;
+}
+
+.platform-journey-card:nth-child(3) .platform-step-line i {
+  animation-delay: 4s;
+}
+
+.platform-journey-card:nth-child(4) .platform-step-line i {
+  animation-delay: 6s;
+}
+
+.platform-journey-card:nth-child(5) .platform-step-line i {
+  animation-delay: 8s;
+}
+
+
+@keyframes platformStepFlowSequence {
+  0% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  1% {
+    left: -35%;
+    opacity: 1;
+  }
+
+  18% {
     left: 100%;
+    opacity: 1;
+  }
+
+  19% {
+    left: 100%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
   }
 }
 

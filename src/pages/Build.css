@@ -2601,3 +2601,36 @@
   align-items: start;
   padding-top: 2.5rem;
 }
+/* ============================================================
+   BUILD PAGE
+   REDUCE HERO → DEVELOPER SECTION EMPTY SPACE ONLY
+   ============================================================ */
+
+.build-hero {
+  align-items: start;
+
+  /* Keep content close to navbar */
+  padding-top: 2.5rem;
+
+  /* Remove the forced 600px–720px hero height */
+  min-height: auto;
+
+  /* Reduce empty area below hero */
+  padding-bottom: 1.5rem;
+}
+
+
+/* Reduce only the space above
+   "DEVELOPER TOOLS FOR A MODERN WEB3" */
+
+.developer-section {
+  padding-top: 1.5rem;
+
+  /* Keep your existing lower spacing */
+  padding-bottom:
+    clamp(
+      6rem,
+      9vw,
+      8rem
+    );
+}
