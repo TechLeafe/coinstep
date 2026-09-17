@@ -3,7 +3,7 @@
    File: src/pages/About.css
 
    - Same visual language as Platform.css
-   - No media queries
+   - NO MEDIA QUERY
    - Responsive with clamp(), min(), auto-fit
    - Soft accent haze, thin borders, glass/surface cards
    - Compact buttons
@@ -11,1063 +11,890 @@
    - Values cards aligned evenly
 ============================================================ */
 
+
 /* ============================================================
    PAGE + LOCAL THEME TOKENS
 ============================================================ */
 
 .about-page {
   position: relative;
+
   width: 100%;
+  min-width: 0;
+
   min-height: 100vh;
+
   overflow-x: clip;
-  background: var(--color-bg);
 
-  --about-accent-8: color-mix(
-    in srgb,
-    var(--color-accent) 8%,
-    transparent
-  );
+  background:
+    var(--color-bg);
 
-  --about-accent-12: color-mix(
-    in srgb,
-    var(--color-accent) 12%,
-    transparent
-  );
+  --about-accent-8:
+    color-mix(
+      in srgb,
+      var(--color-accent) 8%,
+      transparent
+    );
 
-  --about-accent-18: color-mix(
-    in srgb,
-    var(--color-accent) 18%,
-    transparent
-  );
+  --about-accent-12:
+    color-mix(
+      in srgb,
+      var(--color-accent) 12%,
+      transparent
+    );
 
-  --about-accent-25: color-mix(
-    in srgb,
-    var(--color-accent) 25%,
-    transparent
-  );
+  --about-accent-18:
+    color-mix(
+      in srgb,
+      var(--color-accent) 18%,
+      transparent
+    );
 
-  --about-accent-32: color-mix(
-    in srgb,
-    var(--color-accent) 32%,
-    transparent
-  );
+  --about-accent-25:
+    color-mix(
+      in srgb,
+      var(--color-accent) 25%,
+      transparent
+    );
 
-  --about-signal-10: color-mix(
-    in srgb,
-    var(--color-signal) 10%,
-    transparent
-  );
+  --about-accent-32:
+    color-mix(
+      in srgb,
+      var(--color-accent) 32%,
+      transparent
+    );
 
-  --about-surface-glass: color-mix(
-    in srgb,
-    var(--color-surface) 90%,
-    transparent
-  );
+  --about-signal-10:
+    color-mix(
+      in srgb,
+      var(--color-signal) 10%,
+      transparent
+    );
+
+  --about-surface-glass:
+    color-mix(
+      in srgb,
+      var(--color-surface) 90%,
+      transparent
+    );
 }
+
 
 .about-shell {
-  width: min(100%, var(--content-max));
-  margin-inline: auto;
-  padding:
-    clamp(1rem, 2vw, 2rem)
-    clamp(0.85rem, 2.3vw, 1.6rem)
-    clamp(4rem, 7vw, 7rem);
+  width:
+    min(
+      100%,
+      var(--content-max)
+    );
 
-  display: grid;
-  gap: clamp(1rem, 2.2vw, 1.8rem);
+  min-width: 0;
+
+  margin-inline:
+    auto;
+
+  padding:
+    clamp(
+      1rem,
+      2vw,
+      2rem
+    )
+    clamp(
+      0.85rem,
+      2.3vw,
+      1.6rem
+    )
+    clamp(
+      4rem,
+      7vw,
+      7rem
+    );
+
+  display:
+    grid;
+
+  gap:
+    clamp(
+      1rem,
+      2.2vw,
+      1.8rem
+    );
 }
+
 
 /* ============================================================
    HERO
 ============================================================ */
 
 .about-intro {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  min-height: clamp(34rem, 68vh, 46rem);
-  overflow: hidden;
+  position:
+    relative;
+
+  isolation:
+    isolate;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      34rem,
+      68vh,
+      46rem
+    );
+
+  overflow:
+    hidden;
 
   padding:
-    clamp(1.25rem, 2.5vw, 2.25rem)
+    clamp(
+      1.25rem,
+      2.5vw,
+      2.25rem
+    )
     0
-    clamp(2.75rem, 6vw, 5.5rem);
+    clamp(
+      2.75rem,
+      6vw,
+      5.5rem
+    );
 }
 
-/* Soft animated Web3 orbit in the empty left area. */
+
+/* Old hero orbit backgrounds disabled */
+
 .about-intro::before,
 .about-intro::after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  left: clamp(0.5rem, 7vw, 7rem);
-  top: clamp(15rem, 29vw, 21rem);
-  pointer-events: none;
-  border-radius: 50%;
+  display:
+    none;
 }
 
-.about-intro::before {
-  width: clamp(10rem, 24vw, 19rem);
-  aspect-ratio: 1.8 / 1;
-  border: 1px solid var(--about-accent-25);
-  transform: rotate(-18deg);
-  animation: aboutHeroOrbitOne 24s linear infinite;
-}
-
-.about-intro::after {
-  width: clamp(8rem, 19vw, 15rem);
-  aspect-ratio: 1.8 / 1;
-  border: 1px dashed var(--about-accent-32);
-  transform: rotate(32deg);
-  opacity: 0.65;
-  animation: aboutHeroOrbitTwo 30s linear infinite reverse;
-}
-
-@keyframes aboutHeroOrbitOne {
-  to {
-    transform: rotate(342deg);
-  }
-}
-
-@keyframes aboutHeroOrbitTwo {
-  to {
-    transform: rotate(392deg);
-  }
-}
 
 /* ============================================================
    HERO BRAND
 ============================================================ */
 
 .about-intro__brand {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
+  position:
+    relative;
 
-.about-intro__wordmark {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  z-index:
+    2;
 
-  color: var(--color-accent);
-  font-family: var(--font-body);
-  font-size: clamp(3rem, 12.5vw, 12.5rem);
-  font-weight: var(--weight-bold);
-  line-height: 0.84;
-  letter-spacing: -0.065em;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
+  width:
+    100%;
 
-.about-intro__wordmark::before,
-.about-intro__wordmark::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  width: 100%;
+  min-width:
+    0;
 
-  color: transparent;
-  font: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  text-align: inherit;
-  text-transform: inherit;
-  white-space: inherit;
+  display:
+    grid;
 
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  pointer-events: none;
-}
+  justify-items:
+    center;
 
-.about-intro__wordmark::before {
-  z-index: 1;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 10%,
-      color-mix(in srgb, var(--color-accent) 96%, transparent) 28%,
-      color-mix(in srgb, var(--color-accent) 70%, var(--color-bg) 30%) 42%,
-      color-mix(in srgb, var(--color-accent) 40%, var(--color-bg) 60%) 50%,
-      color-mix(in srgb, var(--color-accent) 70%, var(--color-bg) 30%) 58%,
-      color-mix(in srgb, var(--color-accent) 96%, transparent) 72%,
-      transparent 90%,
-      transparent 100%
-    );
-  background-size: 220% 100%;
-  background-position: 150% 50%;
-  animation: aboutTitleSoftSweep 5.6s ease-in-out infinite;
-}
-
-.about-intro__wordmark::after {
-  z-index: 2;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 16%,
-      color-mix(in srgb, var(--color-accent) 88%, var(--color-bg) 12%) 30%,
-      color-mix(in srgb, var(--color-accent) 48%, var(--color-bg) 52%) 46%,
-      color-mix(in srgb, var(--color-accent) 18%, var(--color-bg) 82%) 50%,
-      color-mix(in srgb, var(--color-accent) 48%, var(--color-bg) 52%) 54%,
-      color-mix(in srgb, var(--color-accent) 88%, var(--color-bg) 12%) 70%,
-      transparent 84%,
-      transparent 100%
-    );
-  background-size: 205% 100%;
-  background-position: 145% 50%;
-  animation: aboutTitleSweep 5.6s ease-in-out infinite;
-}
-
-@keyframes aboutTitleSweep {
-  0%, 8% { background-position: 145% 50%; }
-  50% { background-position: 50% 50%; }
-  92%, 100% { background-position: -45% 50%; }
-}
-
-@keyframes aboutTitleSoftSweep {
-  0%, 8% { background-position: 150% 50%; }
-  50% { background-position: 50% 50%; }
-  92%, 100% { background-position: -50% 50%; }
-}
-
-/* The old small orbit badge is intentionally hidden. */
-.about-intro__orbit-badge {
-  display: none;
-}
-
-/* ============================================================
-   HERO CONTENT
-============================================================ */
-
-.about-intro__content {
-  position: relative;
-  z-index: 3;
-
-  width: min(100%, 43rem);
-  margin-left: auto;
-  margin-top: clamp(2rem, 4vw, 3.5rem);
-
-  display: grid;
-  justify-items: start;
-  gap: clamp(0.9rem, 1.5vw, 1.25rem);
-}
-
-.about-intro__content h2 {
-  width: min(100%, 19ch);
-  margin: 0;
-
-  color: var(--color-ink);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: var(--weight-bold);
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  text-wrap: balance;
-}
-
-.about-intro__content p {
-  width: min(100%, 58ch);
-  margin: 0;
-
-  color: var(--color-ink-soft);
-  font-size: clamp(0.95rem, 1.15vw, 1.13rem);
-  line-height: 1.65;
-}
-
-/* ============================================================
-   COMPACT ABOUT BUTTONS
-============================================================ */
-
-.about-compact-cta,
-.about-intro__cta,
-.about-final-cta {
-  width: fit-content;
-  max-width: 100%;
-  min-width: 0;
-
-  height: auto;
-  min-height: 2.35rem;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.45rem;
-
-  padding:
-    0.5rem
-    1rem;
-
-  border-radius: 999px;
-
-  font-size:
-    clamp(0.78rem, 0.85vw, 0.88rem);
-
-  font-weight:
-    var(--weight-semibold);
-
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.about-intro__cta {
-  margin-top: 0.15rem;
-}
-
-.about-final-cta {
-  margin-top: 0.2rem;
-}
-
-.about-intro__arrow {
-  display: inline-block;
-  font-size: 0.9em;
-  line-height: 1;
-  transition: transform 180ms ease;
-}
-
-.about-intro__cta:hover .about-intro__arrow,
-.about-final-cta:hover .about-intro__arrow {
-  transform: translateX(4px);
-}
-
-/* ============================================================
-   CURSOR FOLLOW
-============================================================ */
-
-.cursor-animation {
-  --art-x: 0px;
-  --art-y: 0px;
-  --art-rotate-x: 0deg;
-  --art-rotate-y: 0deg;
-
-  position: relative;
-  perspective: 900px;
-  pointer-events: auto;
-}
-
-.cursor-animation__object {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-
-  transform:
-    translate3d(var(--art-x), var(--art-y), 0)
-    rotateX(var(--art-rotate-x))
-    rotateY(var(--art-rotate-y));
-
-  transform-style: preserve-3d;
-  transition: transform 130ms ease-out;
-  will-change: transform;
-  pointer-events: none;
-}
-
-.cursor-animation__object svg {
-  pointer-events: none;
-}
-
-/* ============================================================
-   PURPOSE / VISION / MISSION PANELS
-============================================================ */
-
-.about-panel {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  width: 100%;
-  min-height: clamp(20rem, 28vw, 27rem);
-
-  padding: clamp(1.25rem, 2.6vw, 2.2rem);
-
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1.15rem, 1.8vw, 1.75rem);
-
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.about-panel:not(.about-panel--final):hover {
-  transform: translateY(-4px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-}
-
-.about-panel::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  width: clamp(13rem, 28vw, 25rem);
-  aspect-ratio: 1;
-  right: clamp(-9rem, -8vw, -4rem);
-  bottom: clamp(-10rem, -8vw, -4rem);
-  border-radius: 50%;
-  background: var(--about-accent-8);
-  filter: blur(18px);
-  pointer-events: none;
-}
-
-.about-panel--purpose {
-  background:
-    linear-gradient(
-      135deg,
-      var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-surface) 88%, var(--color-accent) 12%) 100%
-    );
-  color: var(--color-ink);
-}
-
-.about-panel--vision {
-  background:
-    linear-gradient(
-      135deg,
-      var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-surface) 90%, var(--color-accent) 10%) 100%
-    );
-  color: var(--color-ink);
-}
-
-.about-panel--mission {
-  background:
-    linear-gradient(
-      135deg,
-      var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-surface) 90%, var(--color-signal) 10%) 100%
-    );
-  color: var(--color-ink);
-}
-
-.about-label {
-  position: relative;
-  z-index: 5;
-  display: inline-block;
-  margin: 0;
-
-  color: var(--color-accent);
-  font-family: var(--font-mono);
-  font-size: clamp(0.68rem, 0.82vw, 0.8rem);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.about-panel__content {
-  width: 100%;
-  min-height: clamp(16rem, 22vw, 21rem);
-
-  display: grid;
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(min(100%, 21rem), 1fr)
-    );
-
-  align-items: center;
-  gap: clamp(1.25rem, 4vw, 4rem);
-
-  padding:
-    clamp(1rem, 1.8vw, 1.5rem)
-    clamp(0.5rem, 2.5vw, 2.5rem)
+  gap:
     0;
 }
 
-.about-panel__copy {
-  position: relative;
-  z-index: 4;
-  width: 100%;
-
-  display: grid;
-  align-content: center;
-  gap: clamp(0.85rem, 1.4vw, 1.15rem);
-}
-
-.about-panel__copy h1,
-.about-panel__copy h2 {
-  margin: 0;
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  font-weight: var(--weight-semibold);
-  letter-spacing: -0.045em;
-  text-wrap: balance;
-  overflow-wrap: normal;
-  word-break: normal;
-}
-
-.about-panel__copy h1 {
-  max-width: 11ch;
-  font-size: clamp(2.3rem, 4.5vw, 4.45rem);
-  line-height: 0.98;
-}
-
-.about-panel__copy h2 {
-  max-width: 15ch;
-  font-size: clamp(2rem, 3.7vw, 3.55rem);
-  line-height: 1.02;
-}
-
-.about-panel__copy p {
-  width: min(100%, 52ch);
-  margin: 0;
-  color: var(--color-ink-soft);
-  font-size: clamp(0.9rem, 1vw, 1.04rem);
-  line-height: 1.65;
-}
-
-.about-panel__copy p + p {
-  margin-top: 0.1rem;
-}
-
-.about-panel__art {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  min-height: clamp(12rem, 19vw, 18rem);
-  display: grid;
-  place-items: center;
-}
-
-.about-panel__art::before {
-  content: "";
-  position: absolute;
-  width: min(70%, 18rem);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--about-accent-8);
-  filter: blur(24px);
-  z-index: -1;
-}
 
 /* ============================================================
-   SVG ART
+   COINSTEP WORD
 ============================================================ */
 
-.about-hero-art,
-.about-telescope-art,
-.about-crystal-art,
-.journey-illustration,
-.team-art {
-  display: block;
-  height: auto;
-  overflow: visible;
-  filter:
-    drop-shadow(
-      0
-      14px
-      24px
-      color-mix(in srgb, var(--color-accent) 12%, transparent)
-    );
-}
+.about-intro__wordmark {
+  position:
+    relative;
 
-.about-hero-art {
-  width: min(78%, 22rem);
-}
+  width:
+    100%;
 
-.about-telescope-art,
-.about-crystal-art {
-  width: min(74%, 20rem);
-}
+  min-width:
+    0;
 
-.about-telescope-art--small {
-  width: min(70%, 16rem);
-}
-
-/* ============================================================
-   EMPOWERING / JOURNEY
-============================================================ */
-
-.journey-card {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-
-  padding: clamp(1.35rem, 4vw, 4rem);
-
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1.15rem, 1.8vw, 1.75rem);
-
-  background: var(--color-surface-sunken);
-}
-
-.journey-card > h2 {
-  width: min(100%, 19ch);
   margin:
-    0
-    auto
-    clamp(2rem, 5vw, 4rem);
+    0;
 
-  color: var(--color-ink);
-  text-align: center;
-  font-size: clamp(2rem, 4vw, 3.35rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
-  text-wrap: balance;
-}
-
-.journey-row {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(min(100%, 20rem), 1fr)
-    );
-
-  align-items: center;
-  gap: clamp(1.5rem, 5vw, 5rem);
-
-  margin-block: clamp(0.65rem, 1.6vw, 1.2rem);
-  padding: clamp(1.1rem, 2.5vw, 2rem);
-
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1rem, 1.5vw, 1.4rem);
-
-  background: var(--color-surface);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.journey-row:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-sm);
-}
-
-.journey-copy {
-  width: 100%;
-  display: grid;
-  gap: clamp(0.75rem, 1.1vw, 1rem);
-}
-
-.journey-copy h3 {
-  width: min(100%, 18ch);
-  margin: 0;
-
-  color: var(--color-accent);
-  font-size: clamp(1.4rem, 2.3vw, 2.15rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
-}
-
-.journey-copy p {
-  width: min(100%, 52ch);
-  margin: 0;
-  color: var(--color-ink-soft);
-  font-size: clamp(0.88rem, 0.95vw, 1rem);
-  line-height: 1.65;
-}
-
-.journey-copy p + p {
-  margin-top: 0.05rem;
-}
-
-.journey-art-wrap {
-  position: relative;
-  width: 100%;
-  min-height: clamp(10.5rem, 20vw, 17rem);
-  display: grid;
-  place-items: center;
-}
-
-.journey-art-wrap::before {
-  content: "";
-  position: absolute;
-  width: min(72%, 15rem);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--about-accent-8);
-  filter: blur(22px);
-  z-index: -1;
-}
-
-.journey-illustration {
-  width: min(78%, 18rem);
-}
-
-/* ============================================================
-   VALUES
-============================================================ */
-
-.values-section {
-  width: 100%;
-  padding-block: clamp(2.75rem, 6vw, 5.5rem);
-}
-
-.values-section > h2 {
-  margin:
-    0
-    0
-    clamp(1.7rem, 3.2vw, 2.8rem);
-
-  color: var(--color-ink);
-  font-size: clamp(2.1rem, 4vw, 3.5rem);
-  line-height: 1;
-  letter-spacing: -0.045em;
-}
-
-.values-grid {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(min(100%, 18rem), 1fr)
-    );
-
-  gap: clamp(0.95rem, 2vw, 1.4rem);
-  align-items: stretch;
-}
-
-.value-card {
-  position: relative;
-  min-width: 0;
-  min-height: clamp(11rem, 16vw, 13rem);
-  overflow: hidden;
-
-  padding: clamp(1.15rem, 1.8vw, 1.55rem);
-
-  display: grid;
-  grid-template-rows:
-    minmax(clamp(2.7rem, 3.7vw, 3.3rem), auto)
-    auto;
-  align-content: start;
-  gap: clamp(0.8rem, 1.2vw, 1.05rem);
-
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1rem, 1.5vw, 1.4rem);
-
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.value-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: var(--color-accent);
-}
-
-.value-card:nth-child(2)::before {
-  background: var(--color-signal);
-}
-
-.value-card:nth-child(3)::before {
-  background: color-mix(in srgb, var(--color-accent) 62%, var(--color-ink) 38%);
-}
-
-.value-card::after {
-  content: "";
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  right: -4rem;
-  bottom: -4rem;
-  border-radius: 50%;
-  background: var(--about-accent-8);
-  pointer-events: none;
-}
-
-.value-card:nth-child(2)::after {
-  background: var(--about-signal-10);
-}
-
-.value-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-}
-
-.value-card h3 {
-  width: min(100%, 18ch);
-  margin: 0;
-
-  color: var(--color-ink);
-  font-size: clamp(1.08rem, 1.35vw, 1.38rem);
-  font-weight: var(--weight-semibold);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.value-card p {
-  width: min(100%, 40ch);
-  margin: 0;
-
-  color: var(--color-ink-soft);
-  font-size: clamp(0.84rem, 0.9vw, 0.95rem);
-  line-height: 1.58;
-}
-
-.values-section.is-visible .value-card {
-  animation:
-    aboutValueRise
-    650ms
-    cubic-bezier(0.22, 1, 0.36, 1)
-    both;
-}
-
-.values-section.is-visible .value-card:nth-child(1) {
-  animation-delay: 60ms;
-}
-
-.values-section.is-visible .value-card:nth-child(2) {
-  animation-delay: 170ms;
-}
-
-.values-section.is-visible .value-card:nth-child(3) {
-  animation-delay: 280ms;
-}
-
-@keyframes aboutValueRise {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================================================
-   TEAM
-============================================================ */
-
-.team-section {
-  width: 100%;
-
-  padding-block: clamp(3rem, 6vw, 6rem);
-  border-top: 1px solid var(--color-border);
-
-  display: grid;
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(min(100%, 22rem), 1fr)
-    );
-
-  align-items: center;
-  gap: clamp(2rem, 5vw, 5rem);
-}
-
-.team-copy {
-  width: 100%;
-  display: grid;
-  justify-items: start;
-  gap: clamp(0.9rem, 1.4vw, 1.2rem);
-}
-
-.team-copy h2 {
-  width: min(100%, 15ch);
-  margin: 0;
-
-  color: var(--color-ink);
-  font-size: clamp(2.2rem, 4.5vw, 4.25rem);
-  line-height: 1;
-  letter-spacing: -0.05em;
-  text-wrap: balance;
-}
-
-.team-copy p {
-  width: min(100%, 52ch);
-  margin: 0;
-  color: var(--color-ink-soft);
-  font-size: clamp(0.9rem, 1vw, 1.02rem);
-  line-height: 1.65;
-}
-
-.team-art-wrap {
-  position: relative;
-  width: min(100%, 38rem);
-  min-height: clamp(15rem, 30vw, 28rem);
-  margin-inline: auto;
-  display: grid;
-  place-items: center;
-  isolation: isolate;
-}
-
-.team-art-wrap::before {
-  content: "";
-  position: absolute;
-  width: min(70%, 24rem);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--about-accent-8);
-  filter: blur(32px);
-  z-index: -2;
-}
-
-.team-art {
-  width: min(88%, 33rem);
-}
-
-/* ============================================================
-   FINAL CTA
-============================================================ */
-
-.about-panel--final {
-  min-height: auto;
   padding:
-    clamp(2.5rem, 6vw, 5rem)
-    clamp(1.25rem, 6vw, 6rem);
+    0;
 
-  border-color: var(--about-accent-25);
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    0.055em;
+
+  color:
+    var(--color-accent);
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    clamp(
+      2.7rem,
+      12vw,
+      12.5rem
+    );
+
+  font-weight:
+    var(--weight-bold);
+
+  line-height:
+    0.84;
+
+  letter-spacing:
+    0;
+
+  text-align:
+    center;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  transform-origin:
+    center;
+}
+
+
+/*
+   Previous gradient sweep is removed
+   only from the top wordmark.
+*/
+
+.about-intro__wordmark::before,
+.about-intro__wordmark::after {
+  content:
+    none;
+}
+
+
+/* ============================================================
+   LETTER INTRO
+   Full COINSTEP reveal = 2.4s total.
+   Step grow animation = 2.4s total.
+============================================================ */
+
+.about-intro__brand-letter,
+.about-intro__crypto-slot {
+  flex:
+    0
+    0
+    auto;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(16px);
+
+  transform-origin:
+    center;
+
+  animation:
+    aboutBrandLetterIn
+    720ms
+    linear
+    forwards;
+}
+
+
+/*
+  Equal timing across:
+  C / O / I / N / S / T / E / P
+
+  Delay step = 240ms.
+
+  Final P:
+  1.68s delay + 0.72s reveal = 2.40s.
+*/
+
+.about-intro__brand-letter--1 {
+  animation-delay:
+    0ms;
+}
+
+
+.about-intro__crypto-slot {
+  animation-delay:
+    240ms;
+}
+
+
+.about-intro__brand-letter--3 {
+  animation-delay:
+    480ms;
+}
+
+
+.about-intro__brand-letter--4 {
+  animation-delay:
+    960ms;
+}
+
+
+.about-intro__brand-letter--5 {
+  animation-delay:
+    720ms;
+}
+
+
+.about-intro__brand-letter--6 {
+  animation-delay:
+    1200ms;
+}
+
+
+.about-intro__brand-letter--7 {
+  animation-delay:
+    1440ms;
+}
+
+
+.about-intro__brand-letter--8 {
+  animation-delay:
+    1680ms;
+}
+
+
+@keyframes aboutBrandLetterIn {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(16px);
+  }
+
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* ============================================================
+   CRYPTO COIN — REPLACES O
+============================================================ */
+
+.about-intro__crypto-slot {
+  position:
+    relative;
+
+  width:
+    0.82em;
+
+  height:
+    0.82em;
+
+  min-width:
+    0;
+}
+
+
+/* ============================================================
+   ROTATING COIN
+============================================================ */
+
+.about-intro__crypto-coin {
+  position:
+    relative;
+
+  width:
+    0.72em;
+
+  height:
+    0.72em;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  flex:
+    0
+    0
+    auto;
+
+  border:
+    0.055em
+    solid
+    var(--color-accent);
+
+  border-radius:
+    50%;
 
   background:
     radial-gradient(
-      circle at 50% 120%,
-      var(--about-accent-18),
-      transparent 48%
+      circle at 32% 28%,
+
+      color-mix(
+        in srgb,
+        var(--color-bg-raised) 96%,
+        transparent
+      ),
+
+      color-mix(
+        in srgb,
+        var(--color-bg-raised) 64%,
+        transparent
+      )
+      28%,
+
+      var(--about-accent-8)
+      72%
     ),
-    var(--color-surface);
+    var(--color-bg);
 
-  box-shadow: var(--shadow-sm);
+  box-shadow:
+    inset
+    0
+    0
+    0
+    0.018em
+    var(--about-accent-25),
+
+    0
+    0.05em
+    0.12em
+    var(--about-accent-12);
+
+  transform:
+    perspective(900px)
+    rotateY(0deg);
+
+  transform-style:
+    preserve-3d;
+
+  will-change:
+    transform;
 }
 
-.about-panel--final::before {
-  width: clamp(15rem, 35vw, 30rem);
-  right: 50%;
-  bottom: -70%;
-  transform: translateX(50%);
-  background: var(--about-accent-12);
-}
-
-.about-panel--final .about-panel__content {
-  min-height: auto;
-  grid-template-columns: minmax(0, 1fr);
-  padding: 0;
-}
-
-.about-panel--final .about-panel__copy {
-  width: min(100%, 52rem);
-  margin-inline: auto;
-  justify-items: center;
-  text-align: center;
-  gap: clamp(0.9rem, 1.5vw, 1.2rem);
-}
-
-.about-panel--final .about-panel__copy h2 {
-  max-width: 17ch;
-  color: var(--color-ink);
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 1.02;
-}
-
-.about-panel--final .about-panel__copy p {
-  width: min(100%, 58ch);
-  color: var(--color-ink-soft);
-  font-size: clamp(0.92rem, 1vw, 1.04rem);
-  line-height: 1.65;
-}
-
-.about-final-cta {
-  margin-top: 0.3rem;
-}
 
 /* ============================================================
-   SCROLL REVEAL
+   COIN SYMBOL
 ============================================================ */
 
-.about-reveal {
-  opacity: 0;
-  transform: translateY(22px);
+.about-intro__crypto-symbol {
+  position:
+    relative;
 
-  transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+  z-index:
+    2;
+
+  width:
+    55%;
+
+  height:
+    55%;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  pointer-events:
+    none;
 }
 
-.about-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* ============================================================
-   FINAL FLUID SAFETY OVERRIDES
-   No media queries
+   TWO STEPS AFTER COINSTEP
+   - Existing O animation is untouched.
+   - Steps connect directly to P.
+   - Final blue logo appears only after the steps finish.
+   - Fully fluid/responsive with no media query.
 ============================================================ */
 
-.about-page,
-.about-shell,
-.about-intro,
-.about-panel,
-.journey-card,
-.values-section,
-.team-section {
-  min-width: 0;
+.about-intro__brand-end-steps {
+  position:
+    relative;
+
+  flex:
+    0
+    0
+    auto;
+
+  width:
+    0.82em;
+
+  height:
+    0.38em;
+
+  display:
+    inline-grid;
+
+  place-items:
+    end
+    start;
+
+  align-self:
+    flex-end;
+
+  /*
+    The parent wordmark has a fluid gap between items.
+    This negative em value cancels that gap at every
+    wordmark size so the first stair visually meets P.
+  */
+
+  margin-left:
+    -0.055em;
+
+  margin-bottom:
+    0.005em;
+
+  opacity:
+    0;
+
+  background:
+    transparent;
+
+  pointer-events:
+    none;
+
+  animation:
+    aboutBrandEndStepsShow
+    1ms
+    linear
+    2.60s
+    forwards;
 }
 
-.about-panel__content,
-.journey-row,
-.values-grid,
-.team-section {
-  min-width: 0;
+
+.about-intro__brand-end-steps-svg {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  overflow:
+    visible;
 }
 
-.about-panel__copy,
-.journey-copy,
-.team-copy,
-.value-card {
-  min-width: 0;
+
+.about-intro__brand-end-steps-line {
+  fill:
+    none;
+
+  stroke:
+    var(--color-accent);
+
+  stroke-width:
+    6;
+
+  stroke-linecap:
+    square;
+
+  stroke-linejoin:
+    miter;
+
+  vector-effect:
+    non-scaling-stroke;
+
+  stroke-dasharray:
+    1;
+
+  stroke-dashoffset:
+    1;
+
+  animation:
+    aboutBrandEndStepGrow
+    2.4s
+    linear
+    2.60s
+    forwards;
 }
 
-.about-intro__content h2,
-.about-panel__copy h1,
-.about-panel__copy h2,
-.journey-card > h2,
-.journey-copy h3,
-.values-section > h2,
-.value-card h3,
-.team-copy h2,
-.about-panel--final .about-panel__copy h2 {
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: none;
+
+@keyframes aboutBrandEndStepsShow {
+
+  to {
+    opacity:
+      1;
+  }
 }
+
+
+@keyframes aboutBrandEndStepGrow {
+
+  from {
+    stroke-dashoffset:
+      1;
+  }
+
+
+  to {
+    stroke-dashoffset:
+      0;
+  }
+}
+
+
 /* ============================================================
-   ABOUT HERO — CRYPTO ANIMATION
-   LEFT animation + RIGHT content
-   NO MEDIA QUERY
+   FINAL BLUE LOGO ABOVE THE LAST STEP
+   Brand reveal:
+   2.4s.
+
+   Step animation:
+   2.60s + 2.4s = 5.00s.
+
+   The logo begins after that at 5.15s.
+   Its 360-degree Y rotation takes 12 seconds,
+   exactly matching the existing O coin speed.
 ============================================================ */
 
-/* Remove old orbit rings */
+.about-intro__end-logo-wrap {
+  position:
+    absolute;
 
-.about-intro::before,
-.about-intro::after {
-  display: none;
+  z-index:
+    5;
+
+  width:
+    0.34em;
+
+  height:
+    0.34em;
+
+  right:
+    -0.015em;
+
+  top:
+    -0.31em;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(-0.30em)
+    scale(0.76);
+
+  transform-origin:
+    center;
+
+  pointer-events:
+    none;
+
+  animation:
+    aboutEndLogoDrop
+    1.85s
+    cubic-bezier(
+      0.18,
+      0.78,
+      0.24,
+      1
+    )
+    5.15s
+    forwards,
+
+    aboutEndLogoFloat
+    2.6s
+    ease-in-out
+    7s
+    infinite;
+}
+
+
+.about-intro__end-logo-spin {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  transform:
+    perspective(900px)
+    rotateY(0deg);
+
+  transform-style:
+    preserve-3d;
+
+  transform-origin:
+    center;
+
+  will-change:
+    transform;
+
+  animation:
+    aboutEndLogoSpin
+    12s
+    linear
+    5.15s
+    infinite;
+}
+
+
+.about-intro__end-logo-svg {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  overflow:
+    visible;
+
+  filter:
+    drop-shadow(
+      0
+      0.055em
+      0.05em
+      color-mix(
+        in srgb,
+        var(--color-accent) 24%,
+        transparent
+      )
+    );
+}
+
+
+@keyframes aboutEndLogoDrop {
+
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translateY(-0.30em)
+      scale(0.76);
+  }
+
+
+  18% {
+    opacity:
+      1;
+  }
+
+
+  72% {
+    opacity:
+      1;
+
+    transform:
+      translateY(0.015em)
+      scale(1.03);
+  }
+
+
+  100% {
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes aboutEndLogoSpin {
+
+  from {
+    transform:
+      perspective(900px)
+      rotateY(0deg);
+  }
+
+
+  to {
+    transform:
+      perspective(900px)
+      rotateY(360deg);
+  }
+}
+
+
+@keyframes aboutEndLogoFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+
+  50% {
+    transform:
+      translateY(-0.035em)
+      scale(1);
+  }
+}
+
+
+/* ============================================================
+   OLD ORBIT BADGE
+============================================================ */
+
+.about-intro__orbit-badge {
+  display:
+    none;
 }
 
 
 /* ============================================================
    HERO GRID
+   RESPONSIVE WITHOUT MEDIA QUERY
 ============================================================ */
 
 .about-intro__hero-grid {
-  position: relative;
-  z-index: 3;
+  position:
+    relative;
 
-  width: 100%;
+  z-index:
+    3;
+
+  width:
+    100%;
+
+  min-width:
+    0;
 
   margin-top:
     clamp(
@@ -1076,18 +903,23 @@
       3rem
     );
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     repeat(
       auto-fit,
       minmax(
-        min(100%, 22rem),
+        min(
+          100%,
+          22rem
+        ),
         1fr
       )
     );
 
-  align-items: center;
+  align-items:
+    center;
 
   gap:
     clamp(
@@ -1099,14 +931,18 @@
 
 
 /* ============================================================
-   LEFT ANIMATION
+   LEFT CRYPTO STAIRS
 ============================================================ */
 
 .about-intro__animation {
-  position: relative;
+  position:
+    relative;
 
-  width: 100%;
-  min-width: 0;
+  width:
+    100%;
+
+  min-width:
+    0;
 
   min-height:
     clamp(
@@ -1115,27 +951,2033 @@
       28rem
     );
 
-  display: grid;
+  display:
+    grid;
 
-  place-items: center;
+  place-items:
+    center;
 }
 
 
 /* ============================================================
-   RIGHT CONTENT
+   RIGHT HERO CONTENT
 ============================================================ */
 
 .about-intro__content {
+  position:
+    relative;
+
+  z-index:
+    3;
+
   width:
     min(
       100%,
       43rem
     );
 
-  min-width: 0;
+  min-width:
+    0;
 
-  margin: 0;
+  margin:
+    0;
 
-  justify-self: end;
-  align-self: center;
+  justify-self:
+    end;
+
+  align-self:
+    center;
+
+  display:
+    grid;
+
+  justify-items:
+    start;
+
+  gap:
+    clamp(
+      0.9rem,
+      1.5vw,
+      1.25rem
+    );
+}
+
+
+.about-intro__content h2 {
+  width:
+    min(
+      100%,
+      19ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.5rem
+    );
+
+  font-weight:
+    var(--weight-bold);
+
+  line-height:
+    1.02;
+
+  letter-spacing:
+    -0.045em;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+}
+
+
+.about-intro__content p {
+  width:
+    min(
+      100%,
+      58ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink-soft);
+
+  font-size:
+    clamp(
+      0.95rem,
+      1.15vw,
+      1.13rem
+    );
+
+  line-height:
+    1.65;
+}
+
+
+/* ============================================================
+   COMPACT ABOUT BUTTONS
+============================================================ */
+
+.about-compact-cta,
+.about-intro__cta,
+.about-final-cta {
+  width:
+    fit-content;
+
+  max-width:
+    100%;
+
+  min-width:
+    0;
+
+  height:
+    auto;
+
+  min-height:
+    2.35rem;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    0.45rem;
+
+  padding:
+    0.5rem
+    1rem;
+
+  border-radius:
+    999px;
+
+  font-size:
+    clamp(
+      0.78rem,
+      0.85vw,
+      0.88rem
+    );
+
+  font-weight:
+    var(--weight-semibold);
+
+  line-height:
+    1;
+
+  text-decoration:
+    none;
+
+  white-space:
+    nowrap;
+}
+
+
+.about-intro__cta {
+  margin-top:
+    0.15rem;
+}
+
+
+.about-final-cta {
+  margin-top:
+    0.2rem;
+}
+
+
+.about-intro__arrow {
+  display:
+    inline-block;
+
+  font-size:
+    0.9em;
+
+  line-height:
+    1;
+
+  transition:
+    transform
+    180ms
+    ease;
+}
+
+
+.about-intro__cta:hover
+.about-intro__arrow,
+.about-final-cta:hover
+.about-intro__arrow {
+  transform:
+    translateX(4px);
+}
+
+
+/* ============================================================
+   CURSOR FOLLOW
+============================================================ */
+
+.cursor-animation {
+  --art-x:
+    0px;
+
+  --art-y:
+    0px;
+
+  --art-rotate-x:
+    0deg;
+
+  --art-rotate-y:
+    0deg;
+
+  position:
+    relative;
+
+  perspective:
+    900px;
+
+  pointer-events:
+    auto;
+}
+
+
+.cursor-animation__object {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  transform:
+    translate3d(
+      var(--art-x),
+      var(--art-y),
+      0
+    )
+    rotateX(
+      var(--art-rotate-x)
+    )
+    rotateY(
+      var(--art-rotate-y)
+    );
+
+  transform-style:
+    preserve-3d;
+
+  transition:
+    transform
+    130ms
+    ease-out;
+
+  will-change:
+    transform;
+
+  pointer-events:
+    none;
+}
+
+
+.cursor-animation__object svg {
+  pointer-events:
+    none;
+}
+
+
+/* ============================================================
+   PURPOSE / VISION / MISSION PANELS
+============================================================ */
+
+.about-panel {
+  position:
+    relative;
+
+  isolation:
+    isolate;
+
+  overflow:
+    hidden;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      20rem,
+      28vw,
+      27rem
+    );
+
+  padding:
+    clamp(
+      1.25rem,
+      2.6vw,
+      2.2rem
+    );
+
+  border:
+    1px
+    solid
+    var(--color-border);
+
+  border-radius:
+    clamp(
+      1.15rem,
+      1.8vw,
+      1.75rem
+    );
+
+  background:
+    var(--color-surface);
+
+  box-shadow:
+    var(--shadow-sm);
+
+  transition:
+    transform
+    0.35s
+    ease,
+
+    border-color
+    0.35s
+    ease,
+
+    box-shadow
+    0.35s
+    ease;
+}
+
+
+.about-panel:not(
+  .about-panel--final
+):hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    var(--color-accent);
+
+  box-shadow:
+    var(--shadow-md);
+}
+
+
+.about-panel::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    -2;
+
+  width:
+    clamp(
+      13rem,
+      28vw,
+      25rem
+    );
+
+  aspect-ratio:
+    1;
+
+  right:
+    clamp(
+      -9rem,
+      -8vw,
+      -4rem
+    );
+
+  bottom:
+    clamp(
+      -10rem,
+      -8vw,
+      -4rem
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    var(--about-accent-8);
+
+  filter:
+    blur(18px);
+
+  pointer-events:
+    none;
+}
+
+
+.about-panel--purpose {
+  background:
+    linear-gradient(
+      135deg,
+
+      var(--color-surface)
+      0%,
+
+      color-mix(
+        in srgb,
+        var(--color-surface) 88%,
+        var(--color-accent) 12%
+      )
+      100%
+    );
+
+  color:
+    var(--color-ink);
+}
+
+
+.about-panel--vision {
+  background:
+    linear-gradient(
+      135deg,
+
+      var(--color-surface)
+      0%,
+
+      color-mix(
+        in srgb,
+        var(--color-surface) 90%,
+        var(--color-accent) 10%
+      )
+      100%
+    );
+
+  color:
+    var(--color-ink);
+}
+
+
+.about-panel--mission {
+  background:
+    linear-gradient(
+      135deg,
+
+      var(--color-surface)
+      0%,
+
+      color-mix(
+        in srgb,
+        var(--color-surface) 90%,
+        var(--color-signal) 10%
+      )
+      100%
+    );
+
+  color:
+    var(--color-ink);
+}
+
+
+/* ============================================================
+   LABEL
+============================================================ */
+
+.about-label {
+  position:
+    relative;
+
+  z-index:
+    5;
+
+  display:
+    inline-block;
+
+  margin:
+    0;
+
+  color:
+    var(--color-accent);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    clamp(
+      0.68rem,
+      0.82vw,
+      0.8rem
+    );
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    0.14em;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* ============================================================
+   PANEL CONTENT
+============================================================ */
+
+.about-panel__content {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      16rem,
+      22vw,
+      21rem
+    );
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(
+          100%,
+          21rem
+        ),
+        1fr
+      )
+    );
+
+  align-items:
+    center;
+
+  gap:
+    clamp(
+      1.25rem,
+      4vw,
+      4rem
+    );
+
+  padding:
+    clamp(
+      1rem,
+      1.8vw,
+      1.5rem
+    )
+    clamp(
+      0.5rem,
+      2.5vw,
+      2.5rem
+    )
+    0;
+}
+
+
+.about-panel__copy {
+  position:
+    relative;
+
+  z-index:
+    4;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  display:
+    grid;
+
+  align-content:
+    center;
+
+  gap:
+    clamp(
+      0.85rem,
+      1.4vw,
+      1.15rem
+    );
+}
+
+
+.about-panel__copy h1,
+.about-panel__copy h2 {
+  margin:
+    0;
+
+  color:
+    var(--color-ink);
+
+  font-family:
+    var(--font-body);
+
+  font-weight:
+    var(--weight-semibold);
+
+  letter-spacing:
+    -0.045em;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+.about-panel__copy h1 {
+  max-width:
+    11ch;
+
+  font-size:
+    clamp(
+      2.3rem,
+      4.5vw,
+      4.45rem
+    );
+
+  line-height:
+    0.98;
+}
+
+
+.about-panel__copy h2 {
+  max-width:
+    15ch;
+
+  font-size:
+    clamp(
+      2rem,
+      3.7vw,
+      3.55rem
+    );
+
+  line-height:
+    1.02;
+}
+
+
+.about-panel__copy p {
+  width:
+    min(
+      100%,
+      52ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink-soft);
+
+  font-size:
+    clamp(
+      0.9rem,
+      1vw,
+      1.04rem
+    );
+
+  line-height:
+    1.65;
+}
+
+
+.about-panel__copy p + p {
+  margin-top:
+    0.1rem;
+}
+
+
+/* ============================================================
+   PANEL ART
+============================================================ */
+
+.about-panel__art {
+  position:
+    relative;
+
+  z-index:
+    3;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      12rem,
+      19vw,
+      18rem
+    );
+
+  display:
+    grid;
+
+  place-items:
+    center;
+}
+
+
+.about-panel__art::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    min(
+      70%,
+      18rem
+    );
+
+  aspect-ratio:
+    1;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--about-accent-8);
+
+  filter:
+    blur(24px);
+
+  z-index:
+    -1;
+}
+
+
+/* ============================================================
+   SVG ART
+============================================================ */
+
+.about-hero-art,
+.about-telescope-art,
+.about-crystal-art,
+.journey-illustration,
+.team-art {
+  display:
+    block;
+
+  height:
+    auto;
+
+  max-width:
+    100%;
+
+  overflow:
+    visible;
+
+  filter:
+    drop-shadow(
+      0
+      14px
+      24px
+      color-mix(
+        in srgb,
+        var(--color-accent) 12%,
+        transparent
+      )
+    );
+}
+
+
+.about-hero-art {
+  width:
+    min(
+      78%,
+      22rem
+    );
+}
+
+
+.about-telescope-art,
+.about-crystal-art {
+  width:
+    min(
+      74%,
+      20rem
+    );
+}
+
+
+.about-telescope-art--small {
+  width:
+    min(
+      70%,
+      16rem
+    );
+}
+
+
+/* ============================================================
+   EMPOWERING / JOURNEY
+============================================================ */
+
+.journey-card {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  overflow:
+    hidden;
+
+  padding:
+    clamp(
+      1.35rem,
+      4vw,
+      4rem
+    );
+
+  border:
+    1px
+    solid
+    var(--color-border);
+
+  border-radius:
+    clamp(
+      1.15rem,
+      1.8vw,
+      1.75rem
+    );
+
+  background:
+    var(--color-surface-sunken);
+}
+
+
+.journey-card > h2 {
+  width:
+    min(
+      100%,
+      19ch
+    );
+
+  margin:
+    0
+    auto
+    clamp(
+      2rem,
+      5vw,
+      4rem
+    );
+
+  color:
+    var(--color-ink);
+
+  text-align:
+    center;
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.35rem
+    );
+
+  line-height:
+    1.04;
+
+  letter-spacing:
+    -0.045em;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+}
+
+
+/* ============================================================
+   JOURNEY ROW
+============================================================ */
+
+.journey-row {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(
+          100%,
+          20rem
+        ),
+        1fr
+      )
+    );
+
+  align-items:
+    center;
+
+  gap:
+    clamp(
+      1.5rem,
+      5vw,
+      5rem
+    );
+
+  margin-block:
+    clamp(
+      0.65rem,
+      1.6vw,
+      1.2rem
+    );
+
+  padding:
+    clamp(
+      1.1rem,
+      2.5vw,
+      2rem
+    );
+
+  border:
+    1px
+    solid
+    var(--color-border);
+
+  border-radius:
+    clamp(
+      1rem,
+      1.5vw,
+      1.4rem
+    );
+
+  background:
+    var(--color-surface);
+
+  transition:
+    transform
+    0.35s
+    ease,
+
+    border-color
+    0.35s
+    ease,
+
+    box-shadow
+    0.35s
+    ease;
+}
+
+
+.journey-row:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    var(--color-accent);
+
+  box-shadow:
+    var(--shadow-sm);
+}
+
+
+/* ============================================================
+   JOURNEY COPY
+============================================================ */
+
+.journey-copy {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  display:
+    grid;
+
+  gap:
+    clamp(
+      0.75rem,
+      1.1vw,
+      1rem
+    );
+}
+
+
+.journey-copy h3 {
+  width:
+    min(
+      100%,
+      18ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-accent);
+
+  font-size:
+    clamp(
+      1.4rem,
+      2.3vw,
+      2.15rem
+    );
+
+  line-height:
+    1.08;
+
+  letter-spacing:
+    -0.03em;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+.journey-copy p {
+  width:
+    min(
+      100%,
+      52ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink-soft);
+
+  font-size:
+    clamp(
+      0.88rem,
+      0.95vw,
+      1rem
+    );
+
+  line-height:
+    1.65;
+}
+
+
+.journey-copy p + p {
+  margin-top:
+    0.05rem;
+}
+
+
+/* ============================================================
+   JOURNEY ART
+============================================================ */
+
+.journey-art-wrap {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      10.5rem,
+      20vw,
+      17rem
+    );
+
+  display:
+    grid;
+
+  place-items:
+    center;
+}
+
+
+.journey-art-wrap::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    min(
+      72%,
+      15rem
+    );
+
+  aspect-ratio:
+    1;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--about-accent-8);
+
+  filter:
+    blur(22px);
+
+  z-index:
+    -1;
+}
+
+
+.journey-illustration {
+  width:
+    min(
+      78%,
+      18rem
+    );
+
+  max-width:
+    100%;
+}
+
+
+/* ============================================================
+   VALUES
+============================================================ */
+
+.values-section {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  padding-block:
+    clamp(
+      2.75rem,
+      6vw,
+      5.5rem
+    );
+}
+
+
+.values-section > h2 {
+  margin:
+    0
+    0
+    clamp(
+      1.7rem,
+      3.2vw,
+      2.8rem
+    );
+
+  color:
+    var(--color-ink);
+
+  font-size:
+    clamp(
+      2.1rem,
+      4vw,
+      3.5rem
+    );
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.045em;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+/* ============================================================
+   VALUES GRID
+============================================================ */
+
+.values-grid {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(
+          100%,
+          18rem
+        ),
+        1fr
+      )
+    );
+
+  gap:
+    clamp(
+      0.95rem,
+      2vw,
+      1.4rem
+    );
+
+  align-items:
+    stretch;
+}
+
+
+/* ============================================================
+   VALUE CARD
+============================================================ */
+
+.value-card {
+  position:
+    relative;
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      11rem,
+      16vw,
+      13rem
+    );
+
+  overflow:
+    hidden;
+
+  padding:
+    clamp(
+      1.15rem,
+      1.8vw,
+      1.55rem
+    );
+
+  display:
+    grid;
+
+  grid-template-rows:
+    minmax(
+      clamp(
+        2.7rem,
+        3.7vw,
+        3.3rem
+      ),
+      auto
+    )
+    auto;
+
+  align-content:
+    start;
+
+  gap:
+    clamp(
+      0.8rem,
+      1.2vw,
+      1.05rem
+    );
+
+  border:
+    1px
+    solid
+    var(--color-border);
+
+  border-radius:
+    clamp(
+      1rem,
+      1.5vw,
+      1.4rem
+    );
+
+  background:
+    var(--color-surface);
+
+  box-shadow:
+    var(--shadow-sm);
+
+  transition:
+    transform
+    0.35s
+    ease,
+
+    border-color
+    0.35s
+    ease,
+
+    box-shadow
+    0.35s
+    ease;
+}
+
+
+.value-card::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0
+    auto
+    0
+    0;
+
+  width:
+    3px;
+
+  background:
+    var(--color-accent);
+}
+
+
+.value-card:nth-child(2)::before {
+  background:
+    var(--color-signal);
+}
+
+
+.value-card:nth-child(3)::before {
+  background:
+    color-mix(
+      in srgb,
+      var(--color-accent) 62%,
+      var(--color-ink) 38%
+    );
+}
+
+
+.value-card::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    8rem;
+
+  height:
+    8rem;
+
+  right:
+    -4rem;
+
+  bottom:
+    -4rem;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--about-accent-8);
+
+  pointer-events:
+    none;
+}
+
+
+.value-card:nth-child(2)::after {
+  background:
+    var(--about-signal-10);
+}
+
+
+.value-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    var(--color-accent);
+
+  box-shadow:
+    var(--shadow-md);
+}
+
+
+.value-card h3 {
+  width:
+    min(
+      100%,
+      18ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink);
+
+  font-size:
+    clamp(
+      1.08rem,
+      1.35vw,
+      1.38rem
+    );
+
+  font-weight:
+    var(--weight-semibold);
+
+  line-height:
+    1.15;
+
+  letter-spacing:
+    -0.02em;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+.value-card p {
+  width:
+    min(
+      100%,
+      40ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink-soft);
+
+  font-size:
+    clamp(
+      0.84rem,
+      0.9vw,
+      0.95rem
+    );
+
+  line-height:
+    1.58;
+}
+
+
+/* ============================================================
+   VALUE REVEAL
+============================================================ */
+
+.values-section.is-visible
+.value-card {
+  animation:
+    aboutValueRise
+    650ms
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+}
+
+
+.values-section.is-visible
+.value-card:nth-child(1) {
+  animation-delay:
+    60ms;
+}
+
+
+.values-section.is-visible
+.value-card:nth-child(2) {
+  animation-delay:
+    170ms;
+}
+
+
+.values-section.is-visible
+.value-card:nth-child(3) {
+  animation-delay:
+    280ms;
+}
+
+
+@keyframes aboutValueRise {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(28px);
+  }
+
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* ============================================================
+   TEAM
+============================================================ */
+
+.team-section {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  padding-block:
+    clamp(
+      3rem,
+      6vw,
+      6rem
+    );
+
+  border-top:
+    1px
+    solid
+    var(--color-border);
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(
+          100%,
+          22rem
+        ),
+        1fr
+      )
+    );
+
+  align-items:
+    center;
+
+  gap:
+    clamp(
+      2rem,
+      5vw,
+      5rem
+    );
+}
+
+
+/* ============================================================
+   TEAM COPY
+============================================================ */
+
+.team-copy {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  display:
+    grid;
+
+  justify-items:
+    start;
+
+  gap:
+    clamp(
+      0.9rem,
+      1.4vw,
+      1.2rem
+    );
+}
+
+
+.team-copy h2 {
+  width:
+    min(
+      100%,
+      15ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink);
+
+  font-size:
+    clamp(
+      2.2rem,
+      4.5vw,
+      4.25rem
+    );
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.05em;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+.team-copy p {
+  width:
+    min(
+      100%,
+      52ch
+    );
+
+  margin:
+    0;
+
+  color:
+    var(--color-ink-soft);
+
+  font-size:
+    clamp(
+      0.9rem,
+      1vw,
+      1.02rem
+    );
+
+  line-height:
+    1.65;
+}
+
+
+/* ============================================================
+   TEAM ART
+============================================================ */
+
+.team-art-wrap {
+  position:
+    relative;
+
+  width:
+    min(
+      100%,
+      38rem
+    );
+
+  min-width:
+    0;
+
+  min-height:
+    clamp(
+      15rem,
+      30vw,
+      28rem
+    );
+
+  margin-inline:
+    auto;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  isolation:
+    isolate;
+}
+
+
+.team-art-wrap::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    min(
+      70%,
+      24rem
+    );
+
+  aspect-ratio:
+    1;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--about-accent-8);
+
+  filter:
+    blur(32px);
+
+  z-index:
+    -2;
+}
+
+
+.team-art {
+  width:
+    min(
+      88%,
+      33rem
+    );
+
+  max-width:
+    100%;
+}
+
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+
+.about-panel--final {
+  min-height:
+    auto;
+
+  padding:
+    clamp(
+      2.5rem,
+      6vw,
+      5rem
+    )
+    clamp(
+      1.25rem,
+      6vw,
+      6rem
+    );
+
+  border-color:
+    var(--about-accent-25);
+
+  background:
+    radial-gradient(
+      circle at 50% 120%,
+      var(--about-accent-18),
+      transparent 48%
+    ),
+    var(--color-surface);
+
+  box-shadow:
+    var(--shadow-sm);
+}
+
+
+.about-panel--final::before {
+  width:
+    clamp(
+      15rem,
+      35vw,
+      30rem
+    );
+
+  right:
+    50%;
+
+  bottom:
+    -70%;
+
+  transform:
+    translateX(50%);
+
+  background:
+    var(--about-accent-12);
+}
+
+
+.about-panel--final
+.about-panel__content {
+  min-height:
+    auto;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1fr
+    );
+
+  padding:
+    0;
+}
+
+
+.about-panel--final
+.about-panel__copy {
+  width:
+    min(
+      100%,
+      52rem
+    );
+
+  margin-inline:
+    auto;
+
+  justify-items:
+    center;
+
+  text-align:
+    center;
+
+  gap:
+    clamp(
+      0.9rem,
+      1.5vw,
+      1.2rem
+    );
+}
+
+
+.about-panel--final
+.about-panel__copy h2 {
+  max-width:
+    17ch;
+
+  color:
+    var(--color-ink);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.8rem
+    );
+
+  line-height:
+    1.02;
+
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
+}
+
+
+.about-panel--final
+.about-panel__copy p {
+  width:
+    min(
+      100%,
+      58ch
+    );
+
+  color:
+    var(--color-ink-soft);
+
+  font-size:
+    clamp(
+      0.92rem,
+      1vw,
+      1.04rem
+    );
+
+  line-height:
+    1.65;
+}
+
+
+.about-final-cta {
+  margin-top:
+    0.3rem;
+}
+
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+
+.about-reveal {
+  opacity:
+    0;
+
+  transform:
+    translateY(22px);
+
+  transition:
+    opacity
+    600ms
+    ease,
+
+    transform
+    600ms
+    ease;
+}
+
+
+.about-reveal.is-visible {
+  opacity:
+    1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* ============================================================
+   FLUID RESPONSIVE SAFETY
+   NO MEDIA QUERY
+============================================================ */
+
+.about-page,
+.about-shell,
+.about-intro,
+.about-panel,
+.journey-card,
+.values-section,
+.team-section {
+  min-width:
+    0;
+}
+
+
+.about-panel__content,
+.journey-row,
+.values-grid,
+.team-section {
+  min-width:
+    0;
+}
+
+
+.about-panel__copy,
+.journey-copy,
+.team-copy,
+.value-card {
+  min-width:
+    0;
+}
+
+
+.about-intro__content h2,
+.about-panel__copy h1,
+.about-panel__copy h2,
+.journey-card > h2,
+.journey-copy h3,
+.values-section > h2,
+.value-card h3,
+.team-copy h2,
+.about-panel--final
+.about-panel__copy h2 {
+  overflow-wrap:
+    normal;
+
+  word-break:
+    normal;
+
+  hyphens:
+    none;
 }

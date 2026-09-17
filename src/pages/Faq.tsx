@@ -34,16 +34,19 @@ const CATEGORIES: Category[] = [
     label: "General Questions",
     icon: <IconBulb />,
   },
+
   {
     id: "payment",
     label: "Payment & Billing",
     icon: <IconCard />,
   },
+
   {
     id: "security",
     label: "Safety & Security",
     icon: <IconShieldLock />,
   },
+
   {
     id: "account",
     label: "Account & Updates",
@@ -58,50 +61,93 @@ const CATEGORIES: Category[] = [
 
 const FAQS: FaqItem[] = [
 
-  /* =========================
+  /* ==========================================================
      GENERAL QUESTIONS
-  ========================= */
+  ========================================================== */
 
   {
     category: "general",
 
     q: "What is a Web3 wallet?",
 
-    a: "A Web3 wallet allows you to manage digital assets and interact with blockchain networks and decentralized applications.",
+    a:
+      "A Web3 wallet is a digital wallet that helps you manage supported crypto assets, interact with blockchain networks, and connect to decentralized applications (dApps). Coinstep brings these Web3 wallet tools together in one simple experience.",
+  },
+
+  {
+    category: "general",
+
+    q: "How does the Coinstep Web3 wallet work?",
+
+    a:
+      "Coinstep provides a connected Web3 wallet experience for managing supported digital assets, viewing balances, sending and receiving crypto, reviewing transaction activity, and connecting with supported decentralized applications.",
+  },
+
+  {
+    category: "general",
+
+    q: "Which blockchain networks does Coinstep support?",
+
+    a:
+      "Coinstep is designed to support multi-chain Web3 experiences. Available blockchain networks and digital assets depend on the networks currently supported by the Coinstep wallet.",
   },
 
 
-  /* =========================
+  /* ==========================================================
      PAYMENT & BILLING
-  ========================= */
+  ========================================================== */
 
   {
     category: "payment",
 
     q: "Are blockchain transactions reversible?",
 
-    a: "Many blockchain transactions cannot be reversed after confirmation. Always verify the recipient address, network, amount, and transaction details before approving a transaction.",
+    a:
+      "Most confirmed blockchain transactions cannot be reversed. Before sending crypto, always verify the recipient wallet address, blockchain network, transaction amount, and other transaction details.",
+  },
+
+  {
+    category: "payment",
+
+    q:
+      "What network fees apply when sending crypto with Coinstep?",
+
+    a:
+      "Crypto transactions may require blockchain network fees, sometimes called gas fees. These fees are determined by the blockchain network and can change depending on network activity, transaction type, and current network conditions.",
+  },
+
+  {
+    category: "payment",
+
+    q:
+      "Why is my crypto transaction pending or failed?",
+
+    a:
+      "A crypto transaction may remain pending or fail because of blockchain network congestion, insufficient network fees, an incorrect network selection, or other network conditions. Review the transaction status and details before attempting another transfer.",
   },
 
 
-  /* =========================
+  /* ==========================================================
      SAFETY & SECURITY
-  ========================= */
+  ========================================================== */
 
   {
     category: "security",
 
     q: "What is a recovery phrase?",
 
-    a: "A recovery phrase is a sequence of words that can be used to restore access to a crypto wallet. Always keep it private and secure.",
+    a:
+      "A recovery phrase is a sequence of words that can be used to restore access to a crypto wallet. Your recovery phrase should always be stored securely, kept private, and never shared with anyone.",
   },
 
   {
     category: "security",
 
-    q: "Can Coinstep support recover my recovery phrase?",
+    q:
+      "Can Coinstep support recover my recovery phrase?",
 
-    a: "No. Never share your recovery phrase with anyone. Anyone requesting your recovery phrase should be treated as a potential security risk.",
+    a:
+      "No. Your recovery phrase should remain private and under your control. Never share it with anyone claiming to be Coinstep support or with websites, messages, applications, or services requesting access to it.",
   },
 
   {
@@ -109,20 +155,41 @@ const FAQS: FaqItem[] = [
 
     q: "How can I protect my crypto wallet?",
 
-    a: "Protect your recovery phrase, use a secure device, avoid suspicious links, verify wallet addresses, and carefully review transactions before approving them.",
+    a:
+      "Protect your crypto wallet by securing your recovery phrase, using trusted devices, avoiding suspicious links and phishing websites, verifying wallet addresses, and carefully reviewing every blockchain transaction before approval.",
   },
 
 
-  /* =========================
+  /* ==========================================================
      ACCOUNT & UPDATES
-  ========================= */
+  ========================================================== */
 
   {
     category: "account",
 
     q: "How do I connect Coinstep to a dApp?",
 
-    a: "Open a supported decentralized application, select its wallet connection option, and choose Coinstep when available. Always verify the website before connecting your wallet.",
+    a:
+      "Open a supported decentralized application, choose its wallet connection option, and select Coinstep when available. Always verify that you are using a trusted dApp before approving a wallet connection or blockchain transaction.",
+  },
+
+  {
+    category: "account",
+
+    q: "How do I safely update my Coinstep wallet?",
+
+    a:
+      "Use only official Coinstep sources when installing wallet updates. Never enter or share your recovery phrase because of an update request, unexpected message, website, link, or pop-up.",
+  },
+
+  {
+    category: "account",
+
+    q:
+      "Can I use my Coinstep wallet on multiple devices?",
+
+    a:
+      "Access across multiple devices depends on the wallet features and recovery options supported by Coinstep. Always use trusted devices and protect your recovery information when accessing your Web3 wallet.",
   },
 ];
 
@@ -239,17 +306,8 @@ export function Faq() {
 
           <div className="faq-hero-text">
 
-            <span className="eyebrow faq-hero-eyebrow">
-
-              Support Center
-
-            </span>
-
-
             <h1 className="faq-hero-title">
-
               Frequently Asked Questions
-
             </h1>
 
 
@@ -295,9 +353,7 @@ export function Faq() {
                 >
 
                   <span className="faq-hero-orbit-badge">
-
                     <IconBulb />
-
                   </span>
 
                 </span>
@@ -313,9 +369,7 @@ export function Faq() {
                 >
 
                   <span className="faq-hero-orbit-badge">
-
                     <IconCard />
-
                   </span>
 
                 </span>
@@ -331,9 +385,7 @@ export function Faq() {
                 >
 
                   <span className="faq-hero-orbit-badge">
-
                     <IconShieldLock />
-
                   </span>
 
                 </span>
@@ -349,9 +401,7 @@ export function Faq() {
                 >
 
                   <span className="faq-hero-orbit-badge">
-
                     <IconRocket />
-
                   </span>
 
                 </span>
@@ -366,9 +416,7 @@ export function Faq() {
               <span className="faq-hero-mark">
 
                 <span className="faq-hero-mark-glyph">
-
                   ?
-
                 </span>
 
               </span>
@@ -433,9 +481,7 @@ export function Faq() {
                 <span className="faq-category-icon">
 
                   <span className="faq-category-icon-spin">
-
                     {cat.icon}
-
                   </span>
 
                 </span>
@@ -446,9 +492,7 @@ export function Faq() {
                 ========================= */}
 
                 <span className="faq-category-label">
-
                   {cat.label}
-
                 </span>
 
               </button>
@@ -510,9 +554,7 @@ export function Faq() {
                   >
 
                     <span>
-
                       {item.q}
-
                     </span>
 
 
@@ -543,9 +585,7 @@ export function Faq() {
                     <div className="faq-pill-answer">
 
                       <p>
-
                         {item.a}
-
                       </p>
 
                     </div>

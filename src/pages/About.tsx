@@ -1,9 +1,10 @@
 import {
   useEffect,
+  useRef,
+  useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 
-import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { CryptoStairs } from "../components/CryptoStairs";
 
@@ -30,94 +31,6 @@ const VALUES = [
 ];
 
 
-/* ============================================================
-   LOCK / KEY ART
-============================================================ */
-
-function KeyArt() {
-  return (
-    <svg
-      className="about-hero-art"
-      viewBox="0 0 430 330"
-      role="img"
-      aria-label="Lock and keys illustration"
-    >
-
-      {/* Lock top */}
-
-      <path
-        d="M166 92V70c0-37 27-64 64-64s64 27 64 64v24"
-        fill="none"
-        stroke="var(--color-ink)"
-        strokeWidth="22"
-        strokeLinecap="round"
-      />
-
-
-      {/* Lock body */}
-
-      <path
-        d="M165 81h131c19 0 35 16 35 35v79c0 19-16 35-35 35H165c-19 0-35-16-35-35v-79c0-19 16-35 35-35Z"
-        fill="var(--color-bg-raised)"
-      />
-
-
-      {/* Key hole */}
-
-      <circle
-        cx="230"
-        cy="143"
-        r="17"
-        fill="var(--color-accent)"
-      />
-
-      <rect
-        x="222"
-        y="155"
-        width="16"
-        height="31"
-        rx="8"
-        fill="var(--color-accent)"
-      />
-
-
-      {/* Left key */}
-
-      <path
-        d="M130 173 65 234l20 21 31-29 17 16 25-24-17-16 14-13Z"
-        fill="var(--color-ink)"
-      />
-
-      <circle
-        cx="72"
-        cy="237"
-        r="13"
-        fill="none"
-        stroke="var(--color-bg-raised)"
-        strokeWidth="7"
-      />
-
-
-      {/* Right key */}
-
-      <path
-        d="m278 167 119 104-35 41-119-104Z"
-        fill="var(--color-signal)"
-      />
-
-      <path
-        d="m250 204 28-37 22 19-31 36Z"
-        fill="var(--color-ink)"
-      />
-
-      <path
-        d="m385 258 38 33-29 34-38-33Z"
-        fill="var(--color-warn)"
-      />
-
-    </svg>
-  );
-}
 
 
 /* ============================================================
@@ -488,70 +401,516 @@ function TeamArt() {
   );
 }
 
+/* ============================================================
+   ANIMATED COINSTEP BRAND
+   Only replaces the top COINSTEP wordmark.
+============================================================ */
+
+const BRAND_CRYPTO_SYMBOLS = [
+  "bitcoin",
+  "ethereum",
+  "bnb",
+  "solana",
+  "polygon",
+] as const;
+
+
+type BrandCryptoSymbol =
+  (typeof BRAND_CRYPTO_SYMBOLS)[number];
+
+
+function BrandCryptoIcon({
+  symbol,
+}: {
+  symbol: BrandCryptoSymbol;
+}) {
+
+  if (symbol === "bitcoin") {
+    return (
+      <svg
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="34"
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth="5"
+        />
+
+        <text
+          x="50"
+          y="62"
+          textAnchor="middle"
+          fontSize="46"
+          fontWeight="800"
+          fill="var(--color-accent)"
+          fontFamily="Arial, sans-serif"
+        >
+          ₿
+        </text>
+      </svg>
+    );
+  }
+
+
+  if (symbol === "ethereum") {
+    return (
+      <svg
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <g
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth="5"
+          strokeLinejoin="round"
+        >
+          <path
+            d="M50 16 68 50 50 60 32 50Z"
+            fill="var(--about-accent-12)"
+          />
+
+          <path
+            d="M50 64 68 54 50 84 32 54Z"
+            fill="var(--about-accent-8)"
+          />
+        </g>
+      </svg>
+    );
+  }
+
+
+  if (symbol === "bnb") {
+    return (
+      <svg
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <g
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth="5"
+          strokeLinejoin="round"
+        >
+          <path d="M50 21 63 34 50 47 37 34Z" />
+          <path d="M23 50 35 38 47 50 35 62Z" />
+          <path d="M77 50 65 38 53 50 65 62Z" />
+          <path d="M50 53 63 66 50 79 37 66Z" />
+
+          <path
+            d="M50 42 58 50 50 58 42 50Z"
+            fill="var(--about-accent-18)"
+          />
+        </g>
+      </svg>
+    );
+  }
+
+
+  if (symbol === "solana") {
+    return (
+      <svg
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <g
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth="7"
+          strokeLinecap="round"
+        >
+          <path d="M28 31H72" />
+          <path d="M24 50H68" />
+          <path d="M28 69H72" />
+        </g>
+      </svg>
+    );
+  }
+
+
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      aria-hidden="true"
+    >
+      <g
+        fill="none"
+        stroke="var(--color-accent)"
+        strokeWidth="5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      >
+        <path d="M34 58 24 52V40L34 34 44 40V52Z" />
+        <path d="M66 66 56 60V48L66 42L76 48V60Z" />
+        <path d="M44 46H56" />
+      </g>
+    </svg>
+  );
+}
 
 
 
 /* ============================================================
-   HERO WEB3 ORBIT ICON
+   FINAL COINSTEP LOGO
+   Exact thin logo from the supplied reference screenshot.
+   Color: #025B82
+
+   IMPORTANT:
+   Only this artwork changed.
+   Existing rotation / drop / float timing stays unchanged.
 ============================================================ */
 
-function Web3OrbitIcon() {
+const COINSTEP_END_LOGO =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABOCAYAAABR5FoCAAAFk0lEQVR4nO2cX4hVRRzHP9e8W1vXB3dXW+0fRVtGtRVEVOJDVEJF/4wisH/Wgy9SIphUUChRWfaHIsKXrIwwon9I9lL2ELUGhbWr6G5BkKWl5RJrmd5qe/id5c49e/7MOZ6ZOSfmA8udM2fuzPjdOTO/P2etTVm4Ck+xTHE9gf8jXlQDeFEN4EU1gBfVAF5UA3hRDeBFNYAX1QBeVAN4UQ3gRTWAF9UAXlQDeFEN4EU1gBfVAFUXdTrQCMqN4No5VRZ1DbAfGAPqwed+4DqXk4JqizpDKU9Vyl22JxKmyqKWliqLepRSPlYpd9qeSJip6U1KRR3oBi4AFir1u5Tyo8ApwAjwJTAMHLI1QaiOqA1gJbAs5r66OruAFRFtuoDRgucVSdkf/0uBfcjJHieoLnOPfDp6lHWldgO/FtyntQVUtpVaB+4mWdAzgJrGz7lGZ5pAmVZqHTgcc+9lYAlwMEN/2454Rjkpi6jTEW8ozC3AWwWNYc3UKsPj3020oHPJLmg/sB0YD35UNgBXIb/ATuTgW5qxfy1cr9ROovfPWsZ++oFvNNptCj4/BeYF5bVk21ZScb1Sn4yoyyroOqIFfQGxTWvALOAV5d48pax6ZoXgUtTLkcNHJaugtwN3RdSfD9xLy9j/GVgEdGTsPxcuRf0odN2fo4/XYupHYuqbwJwc42TClajnhK6vBoYy9lHPOfZwzu9p40LUBi0BJ1zHTTFt0/qJ486U725Qys0cYyfiQtSLlPJnQF9QDptAaRxIuPcScELC/YkD8l8MRLBciLo6dP0tLZdynHbRk0hbYT8C9xO9TWxFDsXCT36wL2oDuDCifgg4G7gS+AL9BN6bKfdXAz9k6K8QbIt6dMK97che+AziYa3T6G+RRpveoL9xJh+QRrAtalpS7jbE9uxD7M+lKe0PIranrkc0hLinRleubVF1/jEzkH32WuBZ0g+wJpKjWqM5h6eRlXuxZvvM2Bb1xAxtN9Ja2TqWwXLk8LlCs/8BDAlrW9QsZtOtwDU5xvgY+WV8r9F2AANbgW1Rk2xLlVnAYmA9cBPxMYFeouOko8BpQA9iTagspj1fdbPmnLSxLeqelPtPIKtzD3AZIso7MW2fD9r9mdDfb8gj/p5StxZJJt6jXBeKbVH3JdzrRdzHD5CIfw0RJY5pGca9EXhAuR5BnoIJ8sYRIrEtalwOqg8Jz30N3IBexF8NsHdrtF8fuh5GUuCbKdj/tx35D++p1wN/ICbUbuB08kXhB0n29WHyNnEq8DlwfI7xErG9UptI8BjE338fiasuQUTJm9aYDZyZ0mZmTH3WQE4qLgIqrwefavz0xQL63UmyG7wzou4xkvf5XLgQdZT2fBEUZyv+hWwxdyAmVT/wHNGr8XHgoYLGbcNVNnUZ7bmlbaTviWF+Dz4fAY6hdbofB7ya8L1hxLoYzDieNq7SKaO056hmI2/1ZWE5csisAh6klTV9KqLtVmA+EiOYg0FBAWoO/wulBvI2n8o09L2u0uIym3qAyY/8GOJJVRrXL1PsBhaE6jaTnNQrPa5FBXgXuCRUNwa87WAuhVAGUQG2ILl/lQWIKWT85YeiKYuoAB8ip3eYHYi4K8n+OmShgRJdyiQqSFClB8nbh3kY8d/HgfuQfTcsWh1xR98I2h1GAjRWcWlSpTET+KWgvnYBJxfUVyplW6kqe5FM6XlMDttl5SQs5v7LLCpIVGsQ8eW7kLhrluDLIcSy6MHS31BB+UVVGQW+Q8KEHbSnWeYr5RWIZ9aBxAS2kJxBKBzXr6fnpUl70HlAKe/FsatbpZWaxD+uJ6BSZVHV9/z/Vso/2Z5ImKo+/iCv+XyCiNgEzkJCeztcTgqqLSrAV0o5Kl3ihCo//qXFi2oAL6oBvKgG8KIawItqAC+qAf4DDKHZsn1qUakAAAAASUVORK5CYII=";
+
+
+function CoinstepEndLogo() {
   return (
-    <div
-      className="about-intro__orbit-badge"
+    <img
+      className="about-intro__end-logo-svg"
+      src={COINSTEP_END_LOGO}
+      alt=""
       aria-hidden="true"
-    >
-      <svg
-        className="about-intro__orbit-icon"
-        viewBox="0 0 88 88"
+      draggable={false}
+      style={{
+        transform: "scale(1.75)",
+        transformOrigin: "center",
+      }}
+    />
+  );
+}
+
+
+/* ============================================================
+   COINSTEP BRAND ANIMATION
+============================================================ */
+
+function CoinstepAnimatedBrand() {
+
+  const coinRef =
+    useRef<HTMLSpanElement>(null);
+
+  const [
+    symbolIndex,
+    setSymbolIndex,
+  ] = useState(0);
+
+
+  useEffect(() => {
+
+    const coin =
+      coinRef.current;
+
+    if (!coin) {
+      return;
+    }
+
+
+    /*
+      Full rotation = 360 degrees.
+
+      Full rotation duration = 12 seconds.
+
+      Symbols:
+
+      Bitcoin
+      Ethereum
+      BNB
+      Solana
+      Polygon
+
+      The symbol changes ONLY when the coin
+      reaches its thin edge.
+
+      First edge:
+      -90 degrees
+
+      Second edge:
+      -270 degrees
+
+      This prevents the user from seeing
+      the same symbol on two visible faces.
+    */
+
+    const FULL_ROTATION =
+      12000;
+
+
+    let frameId =
+      0;
+
+
+    const startTime =
+      performance.now();
+
+
+    let lastSymbolIndex =
+      0;
+
+
+    const tick = (
+      now: number,
+    ) => {
+
+      const elapsed =
+        now - startTime;
+
+
+      const cycle =
+        Math.floor(
+          elapsed /
+          FULL_ROTATION,
+        );
+
+
+      const cycleElapsed =
+        elapsed %
+        FULL_ROTATION;
+
+
+      const progress =
+        cycleElapsed /
+        FULL_ROTATION;
+
+
+      const angle =
+        -(progress * 360);
+
+
+      coin.style.transform =
+        `perspective(900px) rotateY(${angle}deg)`;
+
+
+      /*
+        0% - 25%
+        First visible face.
+
+        25%
+        Exact -90° edge.
+        Change symbol once.
+
+        25% - 75%
+        Second visible face.
+
+        75%
+        Exact -270° edge.
+        Change symbol once.
+
+        75% - 100%
+        Next face comes back.
+
+        No other symbol change happens.
+      */
+
+      const changesInsideCycle =
+        progress >= 0.75
+          ? 2
+          : progress >= 0.25
+            ? 1
+            : 0;
+
+
+      const totalChanges =
+        cycle * 2 +
+        changesInsideCycle;
+
+
+      const nextSymbolIndex =
+        totalChanges %
+        BRAND_CRYPTO_SYMBOLS.length;
+
+
+      if (
+        nextSymbolIndex !==
+        lastSymbolIndex
+      ) {
+
+        lastSymbolIndex =
+          nextSymbolIndex;
+
+
+        setSymbolIndex(
+          nextSymbolIndex,
+        );
+      }
+
+
+      frameId =
+        window.requestAnimationFrame(
+          tick,
+        );
+    };
+
+
+    frameId =
+      window.requestAnimationFrame(
+        tick,
+      );
+
+
+    return () => {
+
+      window.cancelAnimationFrame(
+        frameId,
+      );
+    };
+
+  }, []);
+
+
+  return (
+    <div className="about-intro__brand">
+
+      <h1
+        className="about-intro__wordmark"
+        aria-label="Coinstep"
       >
-        <circle
-          className="about-intro__orbit-track"
-          cx="44"
-          cy="44"
-          r="30"
-        />
 
-        <g className="about-intro__orbit-spinner">
-          <circle
-            cx="44"
-            cy="14"
-            r="5"
-            fill="var(--color-accent)"
-          />
-          <circle
-            cx="69"
-            cy="58"
-            r="4.5"
-            fill="var(--color-signal)"
-          />
-          <circle
-            cx="19"
-            cy="59"
-            r="4"
-            fill="var(--color-warn)"
-          />
-        </g>
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--1
+          "
+        >
+          C
+        </span>
 
-        <g className="about-intro__orbit-core">
-          <circle
-            cx="37"
-            cy="44"
-            r="11"
-            fill="none"
-            stroke="var(--color-ink)"
-            strokeWidth="5"
-          />
-          <circle
-            cx="51"
-            cy="44"
-            r="11"
-            fill="none"
-            stroke="var(--color-accent)"
-            strokeWidth="5"
-          />
-        </g>
-      </svg>
+
+        <span
+          className="about-intro__crypto-slot"
+          aria-hidden="true"
+        >
+
+          <span
+            ref={coinRef}
+            className="about-intro__crypto-coin"
+          >
+
+            <span className="about-intro__crypto-symbol">
+
+              <BrandCryptoIcon
+                symbol={
+                  BRAND_CRYPTO_SYMBOLS[
+                    symbolIndex
+                  ]
+                }
+              />
+
+            </span>
+
+          </span>
+
+        </span>
+
+
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--3
+          "
+        >
+          I
+        </span>
+
+
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--4
+          "
+        >
+          N
+        </span>
+
+
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--5
+          "
+        >
+          S
+        </span>
+
+
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--6
+          "
+        >
+          T
+        </span>
+
+
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--7
+          "
+        >
+          E
+        </span>
+
+
+        <span
+          className="
+            about-intro__brand-letter
+            about-intro__brand-letter--8
+          "
+        >
+          P
+        </span>
+
+
+        {/* Two growing steps connect directly to P */}
+
+        <span
+          className="about-intro__brand-end-steps"
+          aria-hidden="true"
+        >
+
+          <svg
+            className="about-intro__brand-end-steps-svg"
+            viewBox="-18 0 168 70"
+            preserveAspectRatio="none"
+          >
+
+            <path
+              className="about-intro__brand-end-steps-line"
+              pathLength="1"
+              d="
+                M-18 64
+                H54
+                V42
+                H104
+                V20
+                H148
+              "
+            />
+
+          </svg>
+
+
+          {/* Appears only after the brand + step animation completes */}
+
+          <span className="about-intro__end-logo-wrap">
+
+            <span className="about-intro__end-logo-spin">
+
+              <CoinstepEndLogo />
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </h1>
+
     </div>
   );
 }
@@ -575,28 +934,91 @@ export function About() {
       return;
     }
 
-    const container = event.currentTarget;
-    const rect = container.getBoundingClientRect();
 
-    const relativeX = event.clientX - rect.left;
-    const relativeY = event.clientY - rect.top;
+    const container =
+      event.currentTarget;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
 
-    const normalizedX = (relativeX - centerX) / centerX;
-    const normalizedY = (relativeY - centerY) / centerY;
+    const rect =
+      container.getBoundingClientRect();
 
-    const moveX = normalizedX * 22;
-    const moveY = normalizedY * 18;
 
-    const rotateY = normalizedX * 3;
-    const rotateX = normalizedY * -3;
+    const relativeX =
+      event.clientX -
+      rect.left;
 
-    container.style.setProperty("--art-x", `${moveX}px`);
-    container.style.setProperty("--art-y", `${moveY}px`);
-    container.style.setProperty("--art-rotate-x", `${rotateX}deg`);
-    container.style.setProperty("--art-rotate-y", `${rotateY}deg`);
+
+    const relativeY =
+      event.clientY -
+      rect.top;
+
+
+    const centerX =
+      rect.width / 2;
+
+
+    const centerY =
+      rect.height / 2;
+
+
+    const normalizedX =
+      (
+        relativeX -
+        centerX
+      ) /
+      centerX;
+
+
+    const normalizedY =
+      (
+        relativeY -
+        centerY
+      ) /
+      centerY;
+
+
+    const moveX =
+      normalizedX *
+      22;
+
+
+    const moveY =
+      normalizedY *
+      18;
+
+
+    const rotateY =
+      normalizedX *
+      3;
+
+
+    const rotateX =
+      normalizedY *
+      -3;
+
+
+    container.style.setProperty(
+      "--art-x",
+      `${moveX}px`,
+    );
+
+
+    container.style.setProperty(
+      "--art-y",
+      `${moveY}px`,
+    );
+
+
+    container.style.setProperty(
+      "--art-rotate-x",
+      `${rotateX}deg`,
+    );
+
+
+    container.style.setProperty(
+      "--art-rotate-y",
+      `${rotateY}deg`,
+    );
   };
 
 
@@ -608,12 +1030,32 @@ export function About() {
     event: ReactPointerEvent<HTMLDivElement>,
   ) => {
 
-    const container = event.currentTarget;
+    const container =
+      event.currentTarget;
 
-    container.style.setProperty("--art-x", "0px");
-    container.style.setProperty("--art-y", "0px");
-    container.style.setProperty("--art-rotate-x", "0deg");
-    container.style.setProperty("--art-rotate-y", "0deg");
+
+    container.style.setProperty(
+      "--art-x",
+      "0px",
+    );
+
+
+    container.style.setProperty(
+      "--art-y",
+      "0px",
+    );
+
+
+    container.style.setProperty(
+      "--art-rotate-x",
+      "0deg",
+    );
+
+
+    container.style.setProperty(
+      "--art-rotate-y",
+      "0deg",
+    );
   };
 
 
@@ -628,40 +1070,70 @@ export function About() {
         ".about-reveal",
       );
 
-    if (!("IntersectionObserver" in window)) {
 
-      elements.forEach((element) => {
-        element.classList.add("is-visible");
-      });
+    if (
+      !(
+        "IntersectionObserver"
+        in
+        window
+      )
+    ) {
+
+      elements.forEach(
+        (element) => {
+
+          element.classList.add(
+            "is-visible",
+          );
+        },
+      );
 
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
 
-        entries.forEach((entry) => {
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
 
-          if (entry.isIntersecting) {
+          entries.forEach(
+            (entry) => {
 
-            entry.target.classList.add(
-              "is-visible",
-            );
+              if (
+                entry.isIntersecting
+              ) {
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
+                entry.target.classList.add(
+                  "is-visible",
+                );
+
+
+                observer.unobserve(
+                  entry.target,
+                );
+              }
+            },
+          );
+        },
+        {
+          threshold:
+            0.12,
+        },
+      );
+
+
+    elements.forEach(
+      (element) => {
+
+        observer.observe(
+          element,
+        );
       },
     );
 
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
 
     return () => {
+
       observer.disconnect();
     };
 
@@ -674,54 +1146,58 @@ export function About() {
 
   return (
     <>
+
       <main className="about-page">
+
         <div className="about-shell">
+
 
           {/* =====================================================
               HERO
           ====================================================== */}
 
-         <section className="about-intro">
+          <section className="about-intro">
 
-  <div className="about-intro__brand">
-    <h1
-      className="about-intro__wordmark"
-      data-text="COINSTEP"
-    >
-      COINSTEP
-    </h1>
-  </div>
+            <CoinstepAnimatedBrand />
 
-  <div className="about-intro__hero-grid">
 
-    {/* LEFT SIDE ANIMATION */}
+            <div className="about-intro__hero-grid">
 
-    <div
-      className="about-intro__animation"
-      aria-hidden="true"
-    >
-      <CryptoStairs />
-    </div>
 
-    {/* RIGHT SIDE CONTENT */}
-    <div className="about-intro__content">
+              {/* LEFT SIDE ANIMATION */}
 
-      <h2>
-        A simpler, safer way to experience Web3
-      </h2>
+              <div
+                className="about-intro__animation"
+                aria-hidden="true"
+              >
 
-      <p>
-        CoinStep is a modern Web3 wallet designed to make
-        managing digital assets, exploring decentralized
-        applications (dApps), and navigating multi-chain
-        experiences simpler, clearer, and more accessible.
-      </p>
+                <CryptoStairs />
 
-    </div>
+              </div>
 
-  </div>
 
-</section>
+              {/* RIGHT SIDE CONTENT */}
+
+              <div className="about-intro__content">
+
+                <h2>
+                  A simpler, safer way to experience Web3
+                </h2>
+
+                <p>
+                  CoinStep is a modern Web3 wallet designed to make
+                  managing digital assets, exploring decentralized
+                  applications (dApps), and navigating multi-chain
+                  experiences simpler, clearer, and more accessible.
+                </p>
+
+              </div>
+
+
+            </div>
+
+
+          </section>
 
 
           {/* =====================================================
@@ -735,24 +1211,36 @@ export function About() {
               about-reveal
             "
           >
+
             <p className="about-label">
               Our Vision
             </p>
 
+
             <div className="about-panel__content">
+
 
               <div
                 className="
                   about-panel__art
                   cursor-animation
                 "
-                onPointerMove={handleArtPointerMove}
-                onPointerLeave={handleArtPointerLeave}
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
               >
+
                 <div className="cursor-animation__object">
+
                   <TelescopeArt />
+
                 </div>
+
               </div>
+
 
               <div className="about-panel__copy">
 
@@ -767,7 +1255,11 @@ export function About() {
                 </p>
 
               </div>
+
+
             </div>
+
+
           </section>
 
 
@@ -782,24 +1274,36 @@ export function About() {
               about-reveal
             "
           >
+
             <p className="about-label">
               Our Mission
             </p>
 
+
             <div className="about-panel__content">
+
 
               <div
                 className="
                   about-panel__art
                   cursor-animation
                 "
-                onPointerMove={handleArtPointerMove}
-                onPointerLeave={handleArtPointerLeave}
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
               >
+
                 <div className="cursor-animation__object">
+
                   <CrystalArt />
+
                 </div>
+
               </div>
+
 
               <div className="about-panel__copy">
 
@@ -819,7 +1323,11 @@ export function About() {
                 </p>
 
               </div>
+
+
             </div>
+
+
           </section>
 
 
@@ -845,6 +1353,7 @@ export function About() {
 
             <div className="journey-row">
 
+
               <div className="journey-copy">
 
                 <h3>
@@ -864,18 +1373,28 @@ export function About() {
 
               </div>
 
+
               <div
                 className="
                   journey-art-wrap
                   cursor-animation
                 "
-                onPointerMove={handleArtPointerMove}
-                onPointerLeave={handleArtPointerLeave}
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
               >
+
                 <div className="cursor-animation__object">
+
                   <ShieldArt />
+
                 </div>
+
               </div>
+
 
             </div>
 
@@ -886,18 +1405,28 @@ export function About() {
 
             <div className="journey-row">
 
+
               <div
                 className="
                   journey-art-wrap
                   cursor-animation
                 "
-                onPointerMove={handleArtPointerMove}
-                onPointerLeave={handleArtPointerLeave}
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
               >
+
                 <div className="cursor-animation__object">
+
                   <GlobeArt />
+
                 </div>
+
               </div>
+
 
               <div className="journey-copy">
 
@@ -917,6 +1446,7 @@ export function About() {
 
               </div>
 
+
             </div>
 
 
@@ -925,6 +1455,7 @@ export function About() {
             ================================================== */}
 
             <div className="journey-row">
+
 
               <div className="journey-copy">
 
@@ -946,20 +1477,31 @@ export function About() {
 
               </div>
 
+
               <div
                 className="
                   journey-art-wrap
                   cursor-animation
                 "
-                onPointerMove={handleArtPointerMove}
-                onPointerLeave={handleArtPointerLeave}
+                onPointerMove={
+                  handleArtPointerMove
+                }
+                onPointerLeave={
+                  handleArtPointerLeave
+                }
               >
+
                 <div className="cursor-animation__object">
+
                   <TelescopeArt small />
+
                 </div>
+
               </div>
 
+
             </div>
+
 
           </section>
 
@@ -979,24 +1521,40 @@ export function About() {
               Our Values
             </h2>
 
+
             <div className="values-grid">
 
-              {VALUES.map((value) => (
-                <article
-                  className="value-card"
-                  key={value.title}
-                >
-                  <h3>
-                    {value.title}
-                  </h3>
+              {
+                VALUES.map(
+                  (value) => (
 
-                  <p>
-                    {value.body}
-                  </p>
-                </article>
-              ))}
+                    <article
+                      className="value-card"
+                      key={
+                        value.title
+                      }
+                    >
+
+                      <h3>
+                        {
+                          value.title
+                        }
+                      </h3>
+
+                      <p>
+                        {
+                          value.body
+                        }
+                      </p>
+
+                    </article>
+
+                  ),
+                )
+              }
 
             </div>
+
 
           </section>
 
@@ -1011,6 +1569,7 @@ export function About() {
               about-reveal
             "
           >
+
 
             <div className="team-copy">
 
@@ -1031,18 +1590,28 @@ export function About() {
 
             </div>
 
+
             <div
               className="
                 team-art-wrap
                 cursor-animation
               "
-              onPointerMove={handleArtPointerMove}
-              onPointerLeave={handleArtPointerLeave}
+              onPointerMove={
+                handleArtPointerMove
+              }
+              onPointerLeave={
+                handleArtPointerLeave
+              }
             >
+
               <div className="cursor-animation__object">
+
                 <TeamArt />
+
               </div>
+
             </div>
+
 
           </section>
 
@@ -1051,13 +1620,15 @@ export function About() {
               FINAL CTA
           ====================================================== */}
 
-          {/* <section
+          {/*
+          <section
             className="
               about-panel
               about-panel--final
               about-reveal
             "
           >
+
             <div className="about-panel__content">
 
               <div className="about-panel__copy">
@@ -1080,6 +1651,7 @@ export function About() {
                     about-compact-cta
                   "
                 >
+
                   <span>
                     Explore Coinstep
                   </span>
@@ -1090,13 +1662,19 @@ export function About() {
                   >
                     →
                   </span>
+
                 </Link>
 
               </div>
+
             </div>
-          </section> */}
+
+          </section>
+          */}
+
 
         </div>
+
       </main>
 
 
@@ -1105,6 +1683,7 @@ export function About() {
       ====================================================== */}
 
       <Footer />
+
 
     </>
   );
