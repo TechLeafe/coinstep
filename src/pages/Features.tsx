@@ -299,7 +299,7 @@ function AssetsBlock() {
     revealRef.current = node
     parallaxRef.current = node
   }
-  const marqueeCoins = [...ASSETS, ...ASSETS]
+  // const marqueeCoins = [...ASSETS, ...ASSETS]
 
   return (
     <section ref={setSectionRef} className={`feature-block reverse${inView ? ' in-view' : ''}`}>

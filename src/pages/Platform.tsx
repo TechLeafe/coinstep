@@ -619,10 +619,6 @@ export function Platform() {
 
         <div className="platform-hero-content">
 
-          <span className="platform-eyebrow">
-            COINSTEP PLATFORM
-          </span>
-
           <h1>
             Your Web3 Experience.{" "}
             <span>
