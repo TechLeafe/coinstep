@@ -11,6 +11,7 @@
    - Values cards aligned evenly
 ============================================================ */
 
+
 /* ============================================================
    PAGE + LOCAL THEME TOKENS
 ============================================================ */
@@ -65,9 +66,15 @@
   );
 }
 
+
+/* ============================================================
+   ABOUT SHELL
+============================================================ */
+
 .about-shell {
   width: min(100%, var(--content-max));
   margin-inline: auto;
+
   padding:
     clamp(1rem, 2vw, 2rem)
     clamp(0.85rem, 2.3vw, 1.6rem)
@@ -77,6 +84,7 @@
   gap: clamp(1rem, 2.2vw, 1.8rem);
 }
 
+
 /* ============================================================
    HERO
 ============================================================ */
@@ -84,8 +92,10 @@
 .about-intro {
   position: relative;
   isolation: isolate;
+
   width: 100%;
   min-height: clamp(34rem, 68vh, 46rem);
+
   overflow: hidden;
 
   padding:
@@ -94,32 +104,49 @@
     clamp(2.75rem, 6vw, 5.5rem);
 }
 
-/* Soft animated Web3 orbit in the empty left area. */
+
+/* ============================================================
+   HERO ORBIT
+============================================================ */
+
 .about-intro::before,
 .about-intro::after {
   content: "";
+
   position: absolute;
   z-index: -2;
+
   left: clamp(0.5rem, 7vw, 7rem);
   top: clamp(15rem, 29vw, 21rem);
+
   pointer-events: none;
+
   border-radius: 50%;
 }
 
 .about-intro::before {
   width: clamp(10rem, 24vw, 19rem);
+
   aspect-ratio: 1.8 / 1;
+
   border: 1px solid var(--about-accent-25);
+
   transform: rotate(-18deg);
+
   animation: aboutHeroOrbitOne 24s linear infinite;
 }
 
 .about-intro::after {
   width: clamp(8rem, 19vw, 15rem);
+
   aspect-ratio: 1.8 / 1;
+
   border: 1px dashed var(--about-accent-32);
+
   transform: rotate(32deg);
+
   opacity: 0.65;
+
   animation: aboutHeroOrbitTwo 30s linear infinite reverse;
 }
 
@@ -135,6 +162,7 @@
   }
 }
 
+
 /* ============================================================
    HERO BRAND
 ============================================================ */
@@ -142,105 +170,192 @@
 .about-intro__brand {
   position: relative;
   z-index: 2;
+
   width: 100%;
 }
 
 .about-intro__wordmark {
   position: relative;
   isolation: isolate;
+
   width: 100%;
+
   margin: 0;
   padding: 0;
 
   color: var(--color-accent);
+
   font-family: var(--font-body);
   font-size: clamp(3rem, 12.5vw, 12.5rem);
   font-weight: var(--weight-bold);
+
   line-height: 0.84;
+
   letter-spacing: -0.065em;
+
   text-align: center;
   text-transform: uppercase;
+
   white-space: nowrap;
 }
 
 .about-intro__wordmark::before,
 .about-intro__wordmark::after {
   content: attr(data-text);
+
   position: absolute;
   inset: 0;
+
   width: 100%;
 
   color: transparent;
+
   font: inherit;
   line-height: inherit;
   letter-spacing: inherit;
+
   text-align: inherit;
   text-transform: inherit;
+
   white-space: inherit;
 
   background-repeat: no-repeat;
+
   -webkit-background-clip: text;
   background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
   pointer-events: none;
 }
 
 .about-intro__wordmark::before {
   z-index: 1;
+
   background:
     linear-gradient(
       90deg,
       transparent 0%,
       transparent 10%,
-      color-mix(in srgb, var(--color-accent) 96%, transparent) 28%,
-      color-mix(in srgb, var(--color-accent) 70%, var(--color-bg) 30%) 42%,
-      color-mix(in srgb, var(--color-accent) 40%, var(--color-bg) 60%) 50%,
-      color-mix(in srgb, var(--color-accent) 70%, var(--color-bg) 30%) 58%,
-      color-mix(in srgb, var(--color-accent) 96%, transparent) 72%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 96%,
+        transparent
+      ) 28%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 70%,
+        var(--color-bg) 30%
+      ) 42%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 40%,
+        var(--color-bg) 60%
+      ) 50%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 70%,
+        var(--color-bg) 30%
+      ) 58%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 96%,
+        transparent
+      ) 72%,
       transparent 90%,
       transparent 100%
     );
+
   background-size: 220% 100%;
   background-position: 150% 50%;
+
   animation: aboutTitleSoftSweep 5.6s ease-in-out infinite;
 }
 
 .about-intro__wordmark::after {
   z-index: 2;
+
   background:
     linear-gradient(
       90deg,
       transparent 0%,
       transparent 16%,
-      color-mix(in srgb, var(--color-accent) 88%, var(--color-bg) 12%) 30%,
-      color-mix(in srgb, var(--color-accent) 48%, var(--color-bg) 52%) 46%,
-      color-mix(in srgb, var(--color-accent) 18%, var(--color-bg) 82%) 50%,
-      color-mix(in srgb, var(--color-accent) 48%, var(--color-bg) 52%) 54%,
-      color-mix(in srgb, var(--color-accent) 88%, var(--color-bg) 12%) 70%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 88%,
+        var(--color-bg) 12%
+      ) 30%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 48%,
+        var(--color-bg) 52%
+      ) 46%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 18%,
+        var(--color-bg) 82%
+      ) 50%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 48%,
+        var(--color-bg) 52%
+      ) 54%,
+      color-mix(
+        in srgb,
+        var(--color-accent) 88%,
+        var(--color-bg) 12%
+      ) 70%,
       transparent 84%,
       transparent 100%
     );
+
   background-size: 205% 100%;
   background-position: 145% 50%;
+
   animation: aboutTitleSweep 5.6s ease-in-out infinite;
 }
 
 @keyframes aboutTitleSweep {
-  0%, 8% { background-position: 145% 50%; }
-  50% { background-position: 50% 50%; }
-  92%, 100% { background-position: -45% 50%; }
+  0%,
+  8% {
+    background-position: 145% 50%;
+  }
+
+  50% {
+    background-position: 50% 50%;
+  }
+
+  92%,
+  100% {
+    background-position: -45% 50%;
+  }
 }
 
 @keyframes aboutTitleSoftSweep {
-  0%, 8% { background-position: 150% 50%; }
-  50% { background-position: 50% 50%; }
-  92%, 100% { background-position: -50% 50%; }
+  0%,
+  8% {
+    background-position: 150% 50%;
+  }
+
+  50% {
+    background-position: 50% 50%;
+  }
+
+  92%,
+  100% {
+    background-position: -50% 50%;
+  }
 }
 
-/* The old small orbit badge is intentionally hidden. */
+
+/* ============================================================
+   HERO BADGE
+============================================================ */
+
 .about-intro__orbit-badge {
   display: none;
 }
+
 
 /* ============================================================
    HERO CONTENT
@@ -251,34 +366,48 @@
   z-index: 3;
 
   width: min(100%, 43rem);
+
   margin-left: auto;
+
   margin-top: clamp(2rem, 4vw, 3.5rem);
 
   display: grid;
+
   justify-items: start;
+
   gap: clamp(0.9rem, 1.5vw, 1.25rem);
 }
 
 .about-intro__content h2 {
   width: min(100%, 19ch);
+
   margin: 0;
 
   color: var(--color-ink);
+
   font-size: clamp(2rem, 4vw, 3.5rem);
+
   font-weight: var(--weight-bold);
+
   line-height: 1.02;
+
   letter-spacing: -0.045em;
+
   text-wrap: balance;
 }
 
 .about-intro__content p {
   width: min(100%, 58ch);
+
   margin: 0;
 
   color: var(--color-ink-soft);
+
   font-size: clamp(0.95rem, 1.15vw, 1.13rem);
+
   line-height: 1.65;
 }
+
 
 /* ============================================================
    COMPACT ABOUT BUTTONS
@@ -295,6 +424,7 @@
   min-height: 2.35rem;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -313,7 +443,9 @@
     var(--weight-semibold);
 
   line-height: 1;
+
   text-decoration: none;
+
   white-space: nowrap;
 }
 
@@ -327,8 +459,11 @@
 
 .about-intro__arrow {
   display: inline-block;
+
   font-size: 0.9em;
+
   line-height: 1;
+
   transition: transform 180ms ease;
 }
 
@@ -337,6 +472,7 @@
   transform: translateX(4px);
 }
 
+
 /* ============================================================
    CURSOR FOLLOW
 ============================================================ */
@@ -344,34 +480,46 @@
 .cursor-animation {
   --art-x: 0px;
   --art-y: 0px;
+
   --art-rotate-x: 0deg;
   --art-rotate-y: 0deg;
 
   position: relative;
+
   perspective: 900px;
+
   pointer-events: auto;
 }
 
 .cursor-animation__object {
   width: 100%;
   height: 100%;
+
   display: grid;
   place-items: center;
 
   transform:
-    translate3d(var(--art-x), var(--art-y), 0)
+    translate3d(
+      var(--art-x),
+      var(--art-y),
+      0
+    )
     rotateX(var(--art-rotate-x))
     rotateY(var(--art-rotate-y));
 
   transform-style: preserve-3d;
+
   transition: transform 130ms ease-out;
+
   will-change: transform;
+
   pointer-events: none;
 }
 
 .cursor-animation__object svg {
   pointer-events: none;
 }
+
 
 /* ============================================================
    PURPOSE / VISION / MISSION PANELS
@@ -380,16 +528,22 @@
 .about-panel {
   position: relative;
   isolation: isolate;
+
   overflow: hidden;
+
   width: 100%;
+
   min-height: clamp(20rem, 28vw, 27rem);
 
   padding: clamp(1.25rem, 2.6vw, 2.2rem);
 
   border: 1px solid var(--color-border);
-  border-radius: clamp(1.15rem, 1.8vw, 1.75rem);
+
+  border-radius:
+    clamp(1.15rem, 1.8vw, 1.75rem);
 
   background: var(--color-surface);
+
   box-shadow: var(--shadow-sm);
 
   transition:
@@ -400,21 +554,33 @@
 
 .about-panel:not(.about-panel--final):hover {
   transform: translateY(-4px);
+
   border-color: var(--color-accent);
+
   box-shadow: var(--shadow-md);
 }
 
 .about-panel::before {
   content: "";
+
   position: absolute;
+
   z-index: -2;
+
   width: clamp(13rem, 28vw, 25rem);
+
   aspect-ratio: 1;
+
   right: clamp(-9rem, -8vw, -4rem);
+
   bottom: clamp(-10rem, -8vw, -4rem);
+
   border-radius: 50%;
+
   background: var(--about-accent-8);
+
   filter: blur(18px);
+
   pointer-events: none;
 }
 
@@ -423,8 +589,13 @@
     linear-gradient(
       135deg,
       var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-surface) 88%, var(--color-accent) 12%) 100%
+      color-mix(
+        in srgb,
+        var(--color-surface) 88%,
+        var(--color-accent) 12%
+      ) 100%
     );
+
   color: var(--color-ink);
 }
 
@@ -433,8 +604,13 @@
     linear-gradient(
       135deg,
       var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-surface) 90%, var(--color-accent) 10%) 100%
+      color-mix(
+        in srgb,
+        var(--color-surface) 90%,
+        var(--color-accent) 10%
+      ) 100%
     );
+
   color: var(--color-ink);
 }
 
@@ -443,37 +619,56 @@
     linear-gradient(
       135deg,
       var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-surface) 90%, var(--color-signal) 10%) 100%
+      color-mix(
+        in srgb,
+        var(--color-surface) 90%,
+        var(--color-signal) 10%
+      ) 100%
     );
+
   color: var(--color-ink);
 }
 
 .about-label {
   position: relative;
   z-index: 5;
+
   display: inline-block;
+
   margin: 0;
 
   color: var(--color-accent);
+
   font-family: var(--font-mono);
-  font-size: clamp(0.68rem, 0.82vw, 0.8rem);
+
+  font-size:
+    clamp(0.68rem, 0.82vw, 0.8rem);
+
   font-weight: 500;
+
   letter-spacing: 0.14em;
+
   text-transform: uppercase;
 }
 
 .about-panel__content {
   width: 100%;
+
   min-height: clamp(16rem, 22vw, 21rem);
 
   display: grid;
+
   grid-template-columns:
     repeat(
       auto-fit,
-      minmax(min(100%, 21rem), 1fr)
+      minmax(
+        min(100%, 21rem),
+        1fr
+      )
     );
 
   align-items: center;
+
   gap: clamp(1.25rem, 4vw, 4rem);
 
   padding:
@@ -485,42 +680,64 @@
 .about-panel__copy {
   position: relative;
   z-index: 4;
+
   width: 100%;
 
   display: grid;
+
   align-content: center;
-  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+
+  gap:
+    clamp(0.85rem, 1.4vw, 1.15rem);
 }
 
 .about-panel__copy h1,
 .about-panel__copy h2 {
   margin: 0;
+
   color: var(--color-ink);
+
   font-family: var(--font-body);
+
   font-weight: var(--weight-semibold);
+
   letter-spacing: -0.045em;
+
   text-wrap: balance;
+
   overflow-wrap: normal;
+
   word-break: normal;
 }
 
 .about-panel__copy h1 {
   max-width: 11ch;
-  font-size: clamp(2.3rem, 4.5vw, 4.45rem);
+
+  font-size:
+    clamp(2.3rem, 4.5vw, 4.45rem);
+
   line-height: 0.98;
 }
 
 .about-panel__copy h2 {
   max-width: 15ch;
-  font-size: clamp(2rem, 3.7vw, 3.55rem);
+
+  font-size:
+    clamp(2rem, 3.7vw, 3.55rem);
+
   line-height: 1.02;
 }
 
 .about-panel__copy p {
   width: min(100%, 52ch);
+
   margin: 0;
+
   color: var(--color-ink-soft);
-  font-size: clamp(0.9rem, 1vw, 1.04rem);
+
+  font-size:
+    clamp(0.9rem, 1vw, 1.04rem);
+
   line-height: 1.65;
 }
 
@@ -531,22 +748,35 @@
 .about-panel__art {
   position: relative;
   z-index: 3;
+
   width: 100%;
-  min-height: clamp(12rem, 19vw, 18rem);
+
+  min-height:
+    clamp(12rem, 19vw, 18rem);
+
   display: grid;
+
   place-items: center;
 }
 
 .about-panel__art::before {
   content: "";
+
   position: absolute;
+
   width: min(70%, 18rem);
+
   aspect-ratio: 1;
+
   border-radius: 50%;
+
   background: var(--about-accent-8);
+
   filter: blur(24px);
+
   z-index: -1;
 }
+
 
 /* ============================================================
    SVG ART
@@ -558,14 +788,21 @@
 .journey-illustration,
 .team-art {
   display: block;
+
   height: auto;
+
   overflow: visible;
+
   filter:
     drop-shadow(
       0
       14px
       24px
-      color-mix(in srgb, var(--color-accent) 12%, transparent)
+      color-mix(
+        in srgb,
+        var(--color-accent) 12%,
+        transparent
+      )
     );
 }
 
@@ -582,35 +819,50 @@
   width: min(70%, 16rem);
 }
 
+
 /* ============================================================
    EMPOWERING / JOURNEY
 ============================================================ */
 
 .journey-card {
   position: relative;
+
   width: 100%;
+
   overflow: hidden;
 
-  padding: clamp(1.35rem, 4vw, 4rem);
+  padding:
+    clamp(1.35rem, 4vw, 4rem);
 
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1.15rem, 1.8vw, 1.75rem);
+  border:
+    1px solid var(--color-border);
 
-  background: var(--color-surface-sunken);
+  border-radius:
+    clamp(1.15rem, 1.8vw, 1.75rem);
+
+  background:
+    var(--color-surface-sunken);
 }
 
 .journey-card > h2 {
   width: min(100%, 19ch);
+
   margin:
     0
     auto
     clamp(2rem, 5vw, 4rem);
 
   color: var(--color-ink);
+
   text-align: center;
-  font-size: clamp(2rem, 4vw, 3.35rem);
+
+  font-size:
+    clamp(2rem, 4vw, 3.35rem);
+
   line-height: 1.04;
+
   letter-spacing: -0.045em;
+
   text-wrap: balance;
 }
 
@@ -618,22 +870,35 @@
   width: 100%;
 
   display: grid;
+
   grid-template-columns:
     repeat(
       auto-fit,
-      minmax(min(100%, 20rem), 1fr)
+      minmax(
+        min(100%, 20rem),
+        1fr
+      )
     );
 
   align-items: center;
-  gap: clamp(1.5rem, 5vw, 5rem);
 
-  margin-block: clamp(0.65rem, 1.6vw, 1.2rem);
-  padding: clamp(1.1rem, 2.5vw, 2rem);
+  gap:
+    clamp(1.5rem, 5vw, 5rem);
 
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1rem, 1.5vw, 1.4rem);
+  margin-block:
+    clamp(0.65rem, 1.6vw, 1.2rem);
 
-  background: var(--color-surface);
+  padding:
+    clamp(1.1rem, 2.5vw, 2rem);
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    clamp(1rem, 1.5vw, 1.4rem);
+
+  background:
+    var(--color-surface);
 
   transition:
     transform 0.35s ease,
@@ -643,32 +908,48 @@
 
 .journey-row:hover {
   transform: translateY(-4px);
+
   border-color: var(--color-accent);
+
   box-shadow: var(--shadow-sm);
 }
 
 .journey-copy {
   width: 100%;
+
   display: grid;
-  gap: clamp(0.75rem, 1.1vw, 1rem);
+
+  gap:
+    clamp(0.75rem, 1.1vw, 1rem);
 }
 
 .journey-copy h3 {
   width: min(100%, 18ch);
+
   margin: 0;
 
   color: var(--color-accent);
-  font-size: clamp(1.4rem, 2.3vw, 2.15rem);
+
+  font-size:
+    clamp(1.4rem, 2.3vw, 2.15rem);
+
   line-height: 1.08;
+
   letter-spacing: -0.03em;
+
   text-wrap: balance;
 }
 
 .journey-copy p {
   width: min(100%, 52ch);
+
   margin: 0;
+
   color: var(--color-ink-soft);
-  font-size: clamp(0.88rem, 0.95vw, 1rem);
+
+  font-size:
+    clamp(0.88rem, 0.95vw, 1rem);
+
   line-height: 1.65;
 }
 
@@ -678,20 +959,32 @@
 
 .journey-art-wrap {
   position: relative;
+
   width: 100%;
-  min-height: clamp(10.5rem, 20vw, 17rem);
+
+  min-height:
+    clamp(10.5rem, 20vw, 17rem);
+
   display: grid;
+
   place-items: center;
 }
 
 .journey-art-wrap::before {
   content: "";
+
   position: absolute;
+
   width: min(72%, 15rem);
+
   aspect-ratio: 1;
+
   border-radius: 50%;
+
   background: var(--about-accent-8);
+
   filter: blur(22px);
+
   z-index: -1;
 }
 
@@ -699,13 +992,16 @@
   width: min(78%, 18rem);
 }
 
+
 /* ============================================================
    VALUES
 ============================================================ */
 
 .values-section {
   width: 100%;
-  padding-block: clamp(2.75rem, 6vw, 5.5rem);
+
+  padding-block:
+    clamp(2.75rem, 6vw, 5.5rem);
 }
 
 .values-section > h2 {
@@ -715,8 +1011,12 @@
     clamp(1.7rem, 3.2vw, 2.8rem);
 
   color: var(--color-ink);
-  font-size: clamp(2.1rem, 4vw, 3.5rem);
+
+  font-size:
+    clamp(2.1rem, 4vw, 3.5rem);
+
   line-height: 1;
+
   letter-spacing: -0.045em;
 }
 
@@ -724,36 +1024,70 @@
   width: 100%;
 
   display: grid;
+
   grid-template-columns:
     repeat(
       auto-fit,
-      minmax(min(100%, 18rem), 1fr)
+      minmax(
+        min(100%, 18rem),
+        1fr
+      )
     );
 
-  gap: clamp(0.95rem, 2vw, 1.4rem);
+  gap:
+    clamp(0.95rem, 2vw, 1.4rem);
+
   align-items: stretch;
 }
 
+
+/* ============================================================
+   VALUE CARDS
+   SUPPORT.CSS STYLE HOVER
+============================================================ */
+
 .value-card {
+  --value-accent: var(--color-accent);
+
   position: relative;
+
   min-width: 0;
-  min-height: clamp(11rem, 16vw, 13rem);
+
+  min-height:
+    clamp(11rem, 16vw, 13rem);
+
   overflow: hidden;
 
-  padding: clamp(1.15rem, 1.8vw, 1.55rem);
+  padding:
+    clamp(1.15rem, 1.8vw, 1.55rem);
 
   display: grid;
+
   grid-template-rows:
-    minmax(clamp(2.7rem, 3.7vw, 3.3rem), auto)
+    minmax(
+      clamp(2.7rem, 3.7vw, 3.3rem),
+      auto
+    )
     auto;
+
   align-content: start;
-  gap: clamp(0.8rem, 1.2vw, 1.05rem);
 
-  border: 1px solid var(--color-border);
-  border-radius: clamp(1rem, 1.5vw, 1.4rem);
+  gap:
+    clamp(0.8rem, 1.2vw, 1.05rem);
 
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    clamp(1rem, 1.5vw, 1.4rem);
+
+  background:
+    var(--color-surface);
+
+  box-shadow:
+    var(--shadow-sm);
+
+  cursor: pointer;
 
   transition:
     transform 0.35s ease,
@@ -761,63 +1095,142 @@
     box-shadow 0.35s ease;
 }
 
+
+/* LEFT ACCENT LINE */
+
 .value-card::before {
   content: "";
+
   position: absolute;
-  inset: 0 auto 0 0;
+
+  inset:
+    0
+    auto
+    0
+    0;
+
   width: 3px;
-  background: var(--color-accent);
-}
 
-.value-card:nth-child(2)::before {
-  background: var(--color-signal);
-}
+  background:
+    var(--value-accent);
 
-.value-card:nth-child(3)::before {
-  background: color-mix(in srgb, var(--color-accent) 62%, var(--color-ink) 38%);
-}
-
-.value-card::after {
-  content: "";
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  right: -4rem;
-  bottom: -4rem;
-  border-radius: 50%;
-  background: var(--about-accent-8);
   pointer-events: none;
 }
 
-.value-card:nth-child(2)::after {
-  background: var(--about-signal-10);
+
+/* DIFFERENT ACCENT FOR EACH CARD */
+
+.value-card:nth-child(1) {
+  --value-accent: var(--color-accent);
 }
+
+.value-card:nth-child(2) {
+  --value-accent: var(--color-signal);
+}
+
+.value-card:nth-child(3) {
+  --value-accent:
+    color-mix(
+      in srgb,
+      var(--color-accent) 62%,
+      var(--color-ink) 38%
+    );
+}
+
+
+/* BOTTOM-RIGHT ACCENT CIRCLE */
+
+.value-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 8rem;
+
+  height: 8rem;
+
+  right: -4rem;
+
+  bottom: -4rem;
+
+  border-radius: 50%;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--value-accent) 8%,
+      transparent
+    );
+
+  pointer-events: none;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* ============================================================
+   VALUE CARD HOVER
+============================================================ */
 
 .value-card:hover {
   transform: translateY(-5px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--value-accent) 35%,
+      var(--color-border)
+    );
+
+  box-shadow:
+    var(--shadow-md);
 }
+
+.value-card:hover::after {
+  transform: scale(1.12);
+}
+
+
+/* ============================================================
+   VALUE CARD CONTENT
+============================================================ */
 
 .value-card h3 {
   width: min(100%, 18ch);
+
   margin: 0;
 
   color: var(--color-ink);
-  font-size: clamp(1.08rem, 1.35vw, 1.38rem);
-  font-weight: var(--weight-semibold);
+
+  font-size:
+    clamp(1.08rem, 1.35vw, 1.38rem);
+
+  font-weight:
+    var(--weight-semibold);
+
   line-height: 1.15;
+
   letter-spacing: -0.02em;
 }
 
 .value-card p {
   width: min(100%, 40ch);
+
   margin: 0;
 
   color: var(--color-ink-soft);
-  font-size: clamp(0.84rem, 0.9vw, 0.95rem);
+
+  font-size:
+    clamp(0.84rem, 0.9vw, 0.95rem);
+
   line-height: 1.58;
 }
+
+
+/* ============================================================
+   VALUE CARD REVEAL ANIMATION
+============================================================ */
 
 .values-section.is-visible .value-card {
   animation:
@@ -844,11 +1257,13 @@
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 
 /* ============================================================
    TEAM
@@ -857,64 +1272,103 @@
 .team-section {
   width: 100%;
 
-  padding-block: clamp(3rem, 6vw, 6rem);
-  border-top: 1px solid var(--color-border);
+  padding-block:
+    clamp(3rem, 6vw, 6rem);
+
+  border-top:
+    1px solid var(--color-border);
 
   display: grid;
+
   grid-template-columns:
     repeat(
       auto-fit,
-      minmax(min(100%, 22rem), 1fr)
+      minmax(
+        min(100%, 22rem),
+        1fr
+      )
     );
 
   align-items: center;
-  gap: clamp(2rem, 5vw, 5rem);
+
+  gap:
+    clamp(2rem, 5vw, 5rem);
 }
 
 .team-copy {
   width: 100%;
+
   display: grid;
+
   justify-items: start;
-  gap: clamp(0.9rem, 1.4vw, 1.2rem);
+
+  gap:
+    clamp(0.9rem, 1.4vw, 1.2rem);
 }
 
 .team-copy h2 {
   width: min(100%, 15ch);
+
   margin: 0;
 
   color: var(--color-ink);
-  font-size: clamp(2.2rem, 4.5vw, 4.25rem);
+
+  font-size:
+    clamp(2.2rem, 4.5vw, 4.25rem);
+
   line-height: 1;
+
   letter-spacing: -0.05em;
+
   text-wrap: balance;
 }
 
 .team-copy p {
   width: min(100%, 52ch);
+
   margin: 0;
+
   color: var(--color-ink-soft);
-  font-size: clamp(0.9rem, 1vw, 1.02rem);
+
+  font-size:
+    clamp(0.9rem, 1vw, 1.02rem);
+
   line-height: 1.65;
 }
 
 .team-art-wrap {
   position: relative;
+
   width: min(100%, 38rem);
-  min-height: clamp(15rem, 30vw, 28rem);
+
+  min-height:
+    clamp(15rem, 30vw, 28rem);
+
   margin-inline: auto;
+
   display: grid;
+
   place-items: center;
+
   isolation: isolate;
 }
 
 .team-art-wrap::before {
   content: "";
+
   position: absolute;
+
   width: min(70%, 24rem);
+
   aspect-ratio: 1;
+
   border-radius: 50%;
-  background: var(--about-accent-8);
+
+  background:
+    var(--about-accent-8);
+
   filter: blur(32px);
+
   z-index: -2;
 }
 
@@ -922,17 +1376,20 @@
   width: min(88%, 33rem);
 }
 
+
 /* ============================================================
    FINAL CTA
 ============================================================ */
 
 .about-panel--final {
   min-height: auto;
+
   padding:
     clamp(2.5rem, 6vw, 5rem)
     clamp(1.25rem, 6vw, 6rem);
 
-  border-color: var(--about-accent-25);
+  border-color:
+    var(--about-accent-25);
 
   background:
     radial-gradient(
@@ -942,42 +1399,65 @@
     ),
     var(--color-surface);
 
-  box-shadow: var(--shadow-sm);
+  box-shadow:
+    var(--shadow-sm);
 }
 
 .about-panel--final::before {
-  width: clamp(15rem, 35vw, 30rem);
+  width:
+    clamp(15rem, 35vw, 30rem);
+
   right: 50%;
+
   bottom: -70%;
+
   transform: translateX(50%);
-  background: var(--about-accent-12);
+
+  background:
+    var(--about-accent-12);
 }
 
 .about-panel--final .about-panel__content {
   min-height: auto;
-  grid-template-columns: minmax(0, 1fr);
+
+  grid-template-columns:
+    minmax(0, 1fr);
+
   padding: 0;
 }
 
 .about-panel--final .about-panel__copy {
   width: min(100%, 52rem);
+
   margin-inline: auto;
+
   justify-items: center;
+
   text-align: center;
-  gap: clamp(0.9rem, 1.5vw, 1.2rem);
+
+  gap:
+    clamp(0.9rem, 1.5vw, 1.2rem);
 }
 
 .about-panel--final .about-panel__copy h2 {
   max-width: 17ch;
+
   color: var(--color-ink);
-  font-size: clamp(2rem, 4vw, 3.8rem);
+
+  font-size:
+    clamp(2rem, 4vw, 3.8rem);
+
   line-height: 1.02;
 }
 
 .about-panel--final .about-panel__copy p {
   width: min(100%, 58ch);
+
   color: var(--color-ink-soft);
-  font-size: clamp(0.92rem, 1vw, 1.04rem);
+
+  font-size:
+    clamp(0.92rem, 1vw, 1.04rem);
+
   line-height: 1.65;
 }
 
@@ -985,12 +1465,14 @@
   margin-top: 0.3rem;
 }
 
+
 /* ============================================================
    SCROLL REVEAL
 ============================================================ */
 
 .about-reveal {
   opacity: 0;
+
   transform: translateY(22px);
 
   transition:
@@ -1000,12 +1482,13 @@
 
 .about-reveal.is-visible {
   opacity: 1;
+
   transform: translateY(0);
 }
 
+
 /* ============================================================
    FINAL FLUID SAFETY OVERRIDES
-   No media queries
 ============================================================ */
 
 .about-page,
@@ -1042,14 +1525,19 @@
 .team-copy h2,
 .about-panel--final .about-panel__copy h2 {
   overflow-wrap: normal;
+
   word-break: normal;
+
   hyphens: none;
 }
+
+
 /* ============================================================
    ABOUT HERO — CRYPTO ANIMATION
    LEFT animation + RIGHT content
    NO MEDIA QUERY
 ============================================================ */
+
 
 /* Remove old orbit rings */
 
@@ -1065,6 +1553,7 @@
 
 .about-intro__hero-grid {
   position: relative;
+
   z-index: 3;
 
   width: 100%;
@@ -1106,6 +1595,7 @@
   position: relative;
 
   width: 100%;
+
   min-width: 0;
 
   min-height:
@@ -1137,5 +1627,6 @@
   margin: 0;
 
   justify-self: end;
+
   align-self: center;
 }
