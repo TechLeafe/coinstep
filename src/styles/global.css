@@ -1,13 +1,13 @@
 /* ============================================================
    GLOBAL.CSS
-   Shared layout utilities. Responsiveness comes from
-   fluid units (clamp/min/max), flex-wrap and CSS Grid
-   auto-fit/auto-fill — never from @media breakpoints.
-   ============================================================ */
+============================================================ */
 
 .container {
-  width: min(100% - (var(--content-pad) * 2), var(--content-max));
+  width: 94vw;
+  max-width: none;
   margin-inline: auto;
+  padding-inline: 0;
+  box-sizing: border-box;
 }
 
 .page {
@@ -17,6 +17,24 @@
 
 .section {
   padding-block: var(--space-xl);
+}
+@media (max-width: 1400px) {
+  .container {
+    width: 92vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding-inline: 16px;
+  }
 }
 
 /* Flex row that wraps naturally — no breakpoint needed */

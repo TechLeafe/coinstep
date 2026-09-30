@@ -13,155 +13,173 @@
 
 
 /* ============================================================
-   PAGE + LOCAL THEME TOKENS
+   FINAL ABOUT LAYOUT
 ============================================================ */
 
 .about-page {
+  width: 100%;
+  min-width: 0;
+
+  overflow-x: clip;
+}
+
+.about-shell {
+ 
+  min-width: 0;
+
+  padding-inline: 0;
+}
+
+.about-intro {
+  width: 100%;
+  min-height: auto;
+
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.about-intro__wordmark {
+  width: 100%;
+
+  font-size: clamp(4.5rem, 6.5vw, 8rem);
+
+  justify-content: center;
+}
+
+.about-intro__hero-grid {
+  width: 100%;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(2rem, 4vw, 5rem);
+}
+
+.about-intro__animation {
+  width: 100%;
+
+  min-height: 330px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.about-intro__animation > * {
+  width: min(100%, 680px);
+
+  margin: 0;
+}
+
+.about-intro__content {
+  width: 100%;
+  max-width: 720px;
+
+  justify-self: start;
+}
+
+.about-panel,
+.journey-card,
+.values-section,
+.team-section {
+  width: 100%;
+}
+
+.about-panel__content,
+.journey-row,
+.team-section {
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+}
+
+.values-grid {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 1800px) {
+  .about-shell {
+    width: 94vw;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(6rem, 6vw, 8.5rem);
+  }
+
+  .about-intro__animation > * {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .about-shell {
+    width: 92vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-shell {
+    width: calc(100% - 40px);
+  }
+
+  .about-intro__hero-grid,
+  .about-panel__content,
+  .journey-row,
+  .team-section {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .about-intro__animation {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-shell {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================================
+   HERO
+============================================================ */
+.about-intro__hero-grid {
   position: relative;
+  z-index: 3;
 
   width: 100%;
   min-width: 0;
 
-  min-height: 100vh;
+  margin-top: clamp(1.5rem, 3vw, 3rem);
 
-  overflow-x: clip;
+  display: grid;
 
-  background:
-    var(--color-bg);
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 
-  --about-accent-8:
-    color-mix(
-      in srgb,
-      var(--color-accent) 8%,
-      transparent
-    );
+  align-items: center;
 
-  --about-accent-12:
-    color-mix(
-      in srgb,
-      var(--color-accent) 12%,
-      transparent
-    );
-
-  --about-accent-18:
-    color-mix(
-      in srgb,
-      var(--color-accent) 18%,
-      transparent
-    );
-
-  --about-accent-25:
-    color-mix(
-      in srgb,
-      var(--color-accent) 25%,
-      transparent
-    );
-
-  --about-accent-32:
-    color-mix(
-      in srgb,
-      var(--color-accent) 32%,
-      transparent
-    );
-
-  --about-signal-10:
-    color-mix(
-      in srgb,
-      var(--color-signal) 10%,
-      transparent
-    );
-
-  --about-surface-glass:
-    color-mix(
-      in srgb,
-      var(--color-surface) 90%,
-      transparent
-    );
+  gap: clamp(2rem, 4vw, 5rem);
 }
-
-
-.about-shell {
-  width:
-    min(
-      100%,
-      var(--content-max)
-    );
-
-  min-width: 0;
-
-  margin-inline:
-    auto;
-
-  padding:
-    clamp(
-      1rem,
-      2vw,
-      2rem
-    )
-    clamp(
-      0.85rem,
-      2.3vw,
-      1.6rem
-    )
-    clamp(
-      4rem,
-      7vw,
-      7rem
-    );
-
-  display:
-    grid;
-
-  gap:
-    clamp(
-      1rem,
-      2.2vw,
-      1.8rem
-    );
-}
-
-
-/* ============================================================
-   HERO
-============================================================ */
-
-.about-intro {
-  position:
-    relative;
-
-  isolation:
-    isolate;
-
-  width:
-    100%;
-
-  min-width:
-    0;
-
-  min-height:
-    clamp(
-      34rem,
-      68vh,
-      46rem
-    );
-
-  overflow:
-    hidden;
-
-  padding:
-    clamp(
-      1.25rem,
-      2.5vw,
-      2.25rem
-    )
-    0
-    clamp(
-      2.75rem,
-      6vw,
-      5.5rem
-    );
-}
-
 
 /* Old hero orbit backgrounds disabled */
 
@@ -933,29 +951,20 @@
 /* ============================================================
    LEFT CRYPTO STAIRS
 ============================================================ */
-
 .about-intro__animation {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    100%;
+  width: 100%;
+  min-width: 0;
 
-  min-width:
-    0;
+  min-height: clamp(
+    20rem,
+    32vw,
+    30rem
+  );
 
-  min-height:
-    clamp(
-      19rem,
-      31vw,
-      28rem
-    );
-
-  display:
-    grid;
-
-  place-items:
-    center;
+  display: grid;
+  place-items: center;
 }
 
 
@@ -1004,69 +1013,52 @@
 
 
 .about-intro__content h2 {
-  width:
-    min(
-      100%,
-      19ch
-    );
+  width: min(
+    100%,
+    18ch
+  );
 
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    var(--color-ink);
+  color: var(--color-ink);
 
-  font-size:
-    clamp(
-      2rem,
-      4vw,
-      3.5rem
-    );
+  font-size: clamp(
+    2.4rem,
+    3.6vw,
+    4.2rem
+  );
 
-  font-weight:
-    var(--weight-bold);
+  font-weight: var(--weight-bold);
 
-  line-height:
-    1.02;
+  line-height: 1;
 
-  letter-spacing:
-    -0.045em;
+  letter-spacing: -0.045em;
 
-  text-wrap:
-    balance;
+  text-wrap: balance;
 
-  overflow-wrap:
-    normal;
+  overflow-wrap: normal;
 
-  word-break:
-    normal;
+  word-break: normal;
 }
-
 
 .about-intro__content p {
-  width:
-    min(
-      100%,
-      58ch
-    );
+  width: min(
+    100%,
+    58ch
+  );
 
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    var(--color-ink-soft);
+  color: var(--color-ink-soft);
 
-  font-size:
-    clamp(
-      0.95rem,
-      1.15vw,
-      1.13rem
-    );
+  font-size: clamp(
+    1rem,
+    1.15vw,
+    1.15rem
+  );
 
-  line-height:
-    1.65;
+  line-height: 1.65;
 }
-
 
 /* ============================================================
    COMPACT ABOUT BUTTONS
@@ -2930,4 +2922,1687 @@
 
   hyphens:
     none;
+}
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1100px) {
+  .about-shell {
+    width: 94%;
+  }
+
+  .about-intro__hero-grid {
+    gap: 2rem;
+  }
+
+  .about-intro__content h2 {
+    font-size: clamp(
+      2.2rem,
+      4vw,
+      3.4rem
+    );
+  }
+}
+
+@media (max-width: 900px) {
+  .about-shell {
+    width: 94%;
+  }
+
+  .about-intro {
+    min-height: auto;
+  }
+
+  .about-intro__hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-intro__animation {
+    min-height: 320px;
+  }
+
+  .about-intro__content {
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .about-intro__content h2 {
+    width: min(100%, 20ch);
+
+    font-size: clamp(
+      2rem,
+      6vw,
+      3.2rem
+    );
+  }
+
+  .about-intro__content p {
+    max-width: 65ch;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-shell {
+    width: 100%;
+
+    padding:
+      1rem
+      16px
+      4rem;
+  }
+
+  .about-intro {
+    padding:
+      1rem
+      0
+      2.5rem;
+  }
+
+  .about-intro__hero-grid {
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .about-intro__animation {
+    min-height: 260px;
+  }
+
+  .about-intro__content {
+    gap: 0.8rem;
+  }
+
+  .about-intro__content h2 {
+    font-size: clamp(
+      1.9rem,
+      8vw,
+      2.6rem
+    );
+
+    line-height: 1.05;
+  }
+
+  .about-intro__content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .about-panel__content,
+  .journey-row,
+  .team-section {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================================
+   FINAL ABOUT ALIGNMENT FIX
+   KEEP THIS AT THE VERY BOTTOM OF About.css
+============================================================ */
+
+/* PAGE */
+.about-page {
+  width: 100%;
+  min-width: 0;
+
+  overflow-x: clip;
+}
+
+
+/* MAIN WIDTH - SAME AS NAVBAR / PLATFORM / BUILD */
+.about-shell {
+  width: 94vw;
+  max-width: none;
+  min-width: 0;
+
+  margin-inline: auto;
+
+  padding:
+    clamp(32px, 4vh, 64px)
+    0
+    clamp(56px, 6vh, 96px);
+
+  display: grid;
+
+  gap: clamp(
+    2rem,
+    4vh,
+    4rem
+  );
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.about-intro {
+  width: 100%;
+
+  min-height: 0;
+  height: auto;
+
+  padding:
+    clamp(32px, 4vh, 56px)
+    0
+    clamp(48px, 5vh, 80px);
+}
+
+
+/* IMPORTANT:
+   override the later auto-fit hero rule
+*/
+.about-intro__hero-grid {
+  width: 100%;
+  min-width: 0;
+
+  margin-top: clamp(
+    1.5rem,
+    3vh,
+    3rem
+  );
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
+  align-items: center;
+
+  gap: clamp(
+    3rem,
+    5vw,
+    8rem
+  );
+}
+
+
+/* LEFT CRYPTO STAIRS */
+.about-intro__animation {
+  width: 100%;
+  min-width: 0;
+
+  min-height: clamp(
+    420px,
+    30vw,
+    650px
+  );
+
+  display: grid;
+
+  place-items: center;
+}
+
+
+/* RIGHT CONTENT */
+.about-intro__content {
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
+
+  justify-self: start;
+  align-self: center;
+}
+
+
+/* HERO TITLE */
+.about-intro__content h2 {
+  width: min(
+    100%,
+    18ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    2.8rem,
+    3.4vw,
+    5.2rem
+  );
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
+}
+
+
+/* HERO PARAGRAPH */
+.about-intro__content p {
+  width: min(
+    100%,
+    65ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    1rem,
+    1vw,
+    1.25rem
+  );
+
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   VISION + MISSION PANELS
+============================================================ */
+
+.about-panel {
+  width: 100%;
+
+  min-height: clamp(
+    360px,
+    24vw,
+    520px
+  );
+
+  padding: clamp(
+    1.5rem,
+    2.5vw,
+    3rem
+  );
+}
+
+
+.about-panel__content {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    2.5rem,
+    5vw,
+    7rem
+  );
+}
+
+
+.about-panel__copy {
+  width: 100%;
+  max-width: 760px;
+}
+
+
+.about-panel__copy h1,
+.about-panel__copy h2 {
+  font-size: clamp(
+    2.3rem,
+    3vw,
+    4.3rem
+  );
+
+  line-height: 1.04;
+
+  text-wrap: balance;
+}
+
+
+.about-panel__copy p {
+  width: min(
+    100%,
+    65ch
+  );
+
+  font-size: clamp(
+    0.95rem,
+    0.9vw,
+    1.15rem
+  );
+
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   JOURNEY
+============================================================ */
+
+.journey-card {
+  width: 100%;
+
+  padding: clamp(
+    1.5rem,
+    2.5vw,
+    3rem
+  );
+}
+
+
+.journey-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    2.5rem,
+    5vw,
+    7rem
+  );
+}
+
+
+.journey-copy {
+  width: 100%;
+
+  max-width: 760px;
+}
+
+
+/* ============================================================
+   VALUES
+============================================================ */
+
+.values-section {
+  width: 100%;
+
+  padding-top: clamp(
+    56px,
+    6vh,
+    96px
+  );
+
+  padding-bottom: clamp(
+    56px,
+    6vh,
+    96px
+  );
+}
+
+
+.values-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: clamp(
+    1.25rem,
+    1.5vw,
+    2.25rem
+  );
+}
+
+
+.value-card {
+  width: 100%;
+  min-width: 0;
+
+  min-height: clamp(
+    260px,
+    17vw,
+    360px
+  );
+}
+
+
+/* ============================================================
+   TEAM
+============================================================ */
+
+.team-section {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    2.5rem,
+    5vw,
+    7rem
+  );
+
+  padding-top: clamp(
+    56px,
+    6vh,
+    96px
+  );
+
+  padding-bottom: clamp(
+    56px,
+    6vh,
+    96px
+  );
+}
+
+
+.team-copy {
+  width: 100%;
+
+  max-width: 760px;
+}
+
+
+/* ============================================================
+   ULTRA-WIDE / 2K / 4K
+============================================================ */
+
+@media (min-width: 1800px) {
+
+  .about-shell {
+    width: 94vw;
+  }
+
+
+  .about-intro__hero-grid {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+  }
+
+
+  .about-intro__animation {
+    min-height: 620px;
+  }
+
+
+  .about-intro__content h2 {
+    font-size: clamp(
+      4rem,
+      3.4vw,
+      5.5rem
+    );
+  }
+
+
+  .about-panel,
+  .journey-card {
+    min-height: 460px;
+  }
+
+
+  .value-card {
+    min-height: 320px;
+  }
+}
+
+
+/* ============================================================
+   NORMAL DESKTOP
+============================================================ */
+
+@media (max-width: 1400px) {
+
+  .about-shell {
+    width: 92vw;
+  }
+
+
+  .about-intro__hero-grid,
+  .about-panel__content,
+  .journey-row,
+  .team-section {
+    gap: 3rem;
+  }
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .about-shell {
+    width: calc(
+      100% - 40px
+    );
+  }
+
+
+  .about-intro__hero-grid,
+  .about-panel__content,
+  .journey-row,
+  .team-section {
+    grid-template-columns: 1fr;
+  }
+
+
+  .about-intro__animation {
+    min-height: 360px;
+  }
+
+
+  .about-intro__content,
+  .about-panel__copy,
+  .journey-copy,
+  .team-copy {
+    max-width: 100%;
+  }
+
+
+  .values-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+  .about-shell {
+    width: 100%;
+
+    padding:
+      24px
+      16px
+      56px;
+  }
+
+
+  .about-intro {
+    padding:
+      24px
+      0
+      40px;
+  }
+
+
+  .about-intro__hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+
+  .about-intro__animation {
+    min-height: 280px;
+  }
+
+
+  .about-intro__content h2 {
+    width: 100%;
+
+    font-size: clamp(
+      2.1rem,
+      9vw,
+      3rem
+    );
+  }
+
+
+  .about-intro__content p {
+    font-size: 0.95rem;
+  }
+
+
+  .about-panel,
+  .journey-card {
+    padding: 1.25rem;
+  }
+
+
+  .about-panel__content,
+  .journey-row,
+  .team-section {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .value-card {
+    min-height: 240px;
+  }
+}
+/* ============================================================
+   FINAL ABOUT HERO SIZE + SPACING FIX
+   KEEP THIS AS THE LAST CODE IN About.css
+============================================================ */
+
+/* MAIN PAGE WIDTH */
+.about-shell {
+  width: 94vw;
+  max-width: none;
+
+  margin-inline: auto;
+
+  padding-top: 24px;
+  padding-inline: 0;
+  padding-bottom: 72px;
+
+  gap: 2rem;
+}
+
+
+/* ============================================================
+   TOP ABOUT HERO
+============================================================ */
+
+.about-intro {
+  width: 100%;
+
+  min-height: auto;
+
+  padding:
+    28px
+    0
+    50px;
+}
+
+
+/* ============================================================
+   COINSTEP WORDMARK
+   It was too large at 12vw
+============================================================ */
+
+.about-intro__wordmark {
+  width: 100%;
+
+  font-size: clamp(
+    4.5rem,
+    8vw,
+    8.5rem
+  );
+
+  line-height: 0.88;
+
+  justify-content: center;
+
+  margin: 0;
+}
+
+
+/* ============================================================
+   HERO CONTENT GRID
+============================================================ */
+
+.about-intro__hero-grid {
+  width: 100%;
+
+  margin-top: clamp(
+    2rem,
+    3vh,
+    2.75rem
+  );
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    3rem,
+    5vw,
+    6rem
+  );
+}
+
+
+/* ============================================================
+   LEFT CRYPTO STAIRS
+============================================================ */
+
+.about-intro__animation {
+  width: 100%;
+
+  min-height: 360px;
+
+  display: grid;
+
+  place-items: center;
+
+  align-self: center;
+}
+
+
+/* make CryptoStairs stay controlled */
+.about-intro__animation > * {
+  width: min(
+    100%,
+    620px
+  );
+
+  margin-inline: auto;
+}
+
+
+/* ============================================================
+   RIGHT HERO TEXT
+============================================================ */
+
+.about-intro__content {
+  width: 100%;
+  max-width: 720px;
+
+  justify-self: start;
+  align-self: center;
+
+  gap: 1rem;
+}
+
+
+.about-intro__content h2 {
+  width: min(
+    100%,
+    16ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    2.8rem,
+    3.3vw,
+    4.4rem
+  );
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+
+.about-intro__content p {
+  width: min(
+    100%,
+    62ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    1rem,
+    0.95vw,
+    1.15rem
+  );
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   VISION / MISSION PANELS
+============================================================ */
+
+.about-panel {
+  min-height: 390px;
+
+  padding: clamp(
+    1.5rem,
+    2vw,
+    2.5rem
+  );
+}
+
+
+.about-panel__content {
+  min-height: 0;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    3rem,
+    5vw,
+    6rem
+  );
+
+  padding:
+    1rem
+    clamp(1rem, 2vw, 2rem)
+    0;
+}
+
+
+.about-panel__art {
+  min-height: 280px;
+}
+
+
+/* ============================================================
+   LARGE / 2K / 4K SCREEN
+============================================================ */
+
+@media (min-width: 1800px) {
+
+  .about-shell {
+    width: 94vw;
+  }
+
+  .about-intro {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      7rem,
+      7vw,
+      10rem
+    );
+  }
+
+  .about-intro__hero-grid {
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(0, 1.05fr);
+  }
+
+  .about-intro__animation {
+    min-height: 430px;
+  }
+
+  .about-intro__content h2 {
+    font-size: clamp(
+      4rem,
+      3.2vw,
+      5.2rem
+    );
+  }
+
+  .about-panel {
+    min-height: 440px;
+  }
+}
+
+
+/* ============================================================
+   NORMAL DESKTOP
+============================================================ */
+
+@media (max-width: 1400px) {
+
+  .about-shell {
+    width: 92vw;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      4rem,
+      8vw,
+      7rem
+    );
+  }
+
+  .about-intro__animation {
+    min-height: 340px;
+  }
+
+  .about-intro__content h2 {
+    font-size: clamp(
+      2.7rem,
+      4vw,
+      4rem
+    );
+  }
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .about-shell {
+    width: calc(
+      100% - 40px
+    );
+  }
+
+  .about-intro {
+    padding-bottom: 40px;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      3.5rem,
+      11vw,
+      6rem
+    );
+  }
+
+  .about-intro__hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .about-intro__animation {
+    min-height: 300px;
+  }
+
+  .about-intro__content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-panel__content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-panel__art {
+    min-height: 240px;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+  .about-shell {
+    width: 100%;
+
+    padding:
+      20px
+      16px
+      50px;
+  }
+
+  .about-intro {
+    padding:
+      18px
+      0
+      32px;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      4.5rem
+    );
+  }
+
+  .about-intro__hero-grid {
+    margin-top: 1.5rem;
+
+    gap: 1rem;
+  }
+
+  .about-intro__animation {
+    min-height: 240px;
+  }
+
+  .about-intro__content h2 {
+    width: 100%;
+
+    font-size: clamp(
+      2rem,
+      9vw,
+      2.8rem
+    );
+  }
+
+  .about-intro__content p {
+    font-size: 0.95rem;
+  }
+
+  .about-panel {
+    min-height: auto;
+
+    padding: 1.25rem;
+  }
+
+  .about-panel__art {
+    min-height: 210px;
+  }
+}
+/* ============================================================
+   FINAL ABOUT HERO ALIGNMENT FIX
+   KEEP THIS LAST
+============================================================ */
+
+.about-shell {
+  width: 94vw;
+  max-width: none;
+
+  margin-inline: auto;
+
+  padding-top: 18px;
+  padding-inline: 0;
+  padding-bottom: 64px;
+
+  gap: 1.5rem;
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.about-intro {
+  width: 100%;
+
+  min-height: auto;
+
+  padding:
+    18px
+    0
+    38px;
+}
+
+
+/* ============================================================
+   COINSTEP WORDMARK
+============================================================ */
+
+.about-intro__brand {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.about-intro__wordmark {
+  width: 100%;
+
+  margin: 0;
+
+  font-size: clamp(
+    4.5rem,
+    7vw,
+    8rem
+  );
+
+  line-height: 0.9;
+
+  justify-content: center;
+}
+
+
+/* ============================================================
+   HERO CONTENT ROW
+============================================================ */
+
+.about-intro__hero-grid {
+  width: 100%;
+
+  margin-top: 1.25rem;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    2.5rem,
+    4vw,
+    5rem
+  );
+}
+
+
+/* ============================================================
+   LEFT STAIRS
+============================================================ */
+
+.about-intro__animation {
+  width: 100%;
+
+  min-height: 300px;
+
+  display: grid;
+
+  place-items: center;
+
+  justify-self: stretch;
+}
+
+
+.about-intro__animation > * {
+  width: min(
+    100%,
+    520px
+  );
+
+  margin-inline: auto;
+}
+
+
+/* ============================================================
+   RIGHT TEXT
+============================================================ */
+
+.about-intro__content {
+  width: 100%;
+
+  max-width: 650px;
+
+  justify-self: start;
+
+  align-self: center;
+
+  gap: 0.9rem;
+}
+
+
+.about-intro__content h2 {
+  width: min(
+    100%,
+    14ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    2.8rem,
+    3.2vw,
+    4.2rem
+  );
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+
+.about-intro__content p {
+  width: min(
+    100%,
+    58ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    0.95rem,
+    0.9vw,
+    1.1rem
+  );
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   LARGE SCREEN
+============================================================ */
+
+@media (min-width: 1800px) {
+
+  .about-shell {
+    width: 94vw;
+  }
+
+  .about-intro {
+    padding-top: 24px;
+    padding-bottom: 44px;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      6.5rem,
+      6.5vw,
+      8.5rem
+    );
+  }
+
+  .about-intro__hero-grid {
+    gap: 5rem;
+  }
+
+  .about-intro__animation {
+    min-height: 340px;
+  }
+
+  .about-intro__content h2 {
+    font-size: clamp(
+      3.8rem,
+      3vw,
+      4.8rem
+    );
+  }
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .about-shell {
+    width: calc(
+      100% - 40px
+    );
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      3.4rem,
+      10vw,
+      5.5rem
+    );
+  }
+
+  .about-intro__hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .about-intro__animation {
+    min-height: 260px;
+  }
+
+  .about-intro__content {
+    max-width: 100%;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+  .about-shell {
+    width: 100%;
+
+    padding:
+      16px
+      16px
+      48px;
+  }
+
+  .about-intro {
+    padding:
+      14px
+      0
+      28px;
+  }
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      4rem
+    );
+  }
+
+  .about-intro__hero-grid {
+    margin-top: 1rem;
+
+    gap: 1rem;
+  }
+
+  .about-intro__animation {
+    min-height: 220px;
+  }
+
+  .about-intro__content h2 {
+    width: 100%;
+
+    font-size: clamp(
+      2rem,
+      9vw,
+      2.8rem
+    );
+  }
+
+  .about-intro__content p {
+    font-size: 0.95rem;
+  }
+}
+/* ============================================================
+   ABOUT HERO - FINAL POSITION FIX
+============================================================ */
+
+.about-shell {
+  width: 94vw;
+  max-width: none;
+  margin-inline: auto;
+}
+
+
+/* ------------------------------------------------------------
+   HERO
+------------------------------------------------------------ */
+
+.about-intro {
+  width: 100%;
+  min-height: auto;
+
+  padding:
+    24px
+    0
+    48px;
+}
+
+
+/* ------------------------------------------------------------
+   COINSTEP WORD
+------------------------------------------------------------ */
+
+.about-intro__wordmark {
+  width: 100%;
+
+  font-size: clamp(
+    4.5rem,
+    6.5vw,
+    8rem
+  );
+
+  line-height: 0.9;
+
+  margin: 0;
+
+  justify-content: center;
+}
+
+
+/* ------------------------------------------------------------
+   STAIRS + CONTENT ROW
+------------------------------------------------------------ */
+
+.about-intro__hero-grid {
+  width: 100%;
+
+  margin-top: 1.5rem;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    2rem,
+    4vw,
+    5rem
+  );
+}
+
+
+/* ------------------------------------------------------------
+   LEFT STAIRS
+------------------------------------------------------------ */
+
+.about-intro__animation {
+  width: 100%;
+
+  min-height: 330px;
+
+  display: flex;
+
+  align-items: center;
+
+  /* THIS IS IMPORTANT */
+  justify-content: flex-start;
+
+  padding-left: clamp(
+    0px,
+    2vw,
+    36px
+  );
+}
+
+
+/* CryptoStairs component */
+.about-intro__animation > * {
+  width: min(
+    100%,
+    680px
+  );
+
+  max-width: 680px;
+
+  margin: 0;
+}
+
+
+/* ------------------------------------------------------------
+   RIGHT CONTENT
+------------------------------------------------------------ */
+
+.about-intro__content {
+  width: 100%;
+
+  max-width: 720px;
+
+  margin: 0;
+
+  justify-self: start;
+
+  align-self: center;
+
+  display: grid;
+
+  justify-items: start;
+
+  gap: 1rem;
+}
+
+
+.about-intro__content h2 {
+  width: min(
+    100%,
+    14ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    2.8rem,
+    3.15vw,
+    4.2rem
+  );
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+
+.about-intro__content p {
+  width: min(
+    100%,
+    60ch
+  );
+
+  margin: 0;
+
+  font-size: clamp(
+    0.95rem,
+    0.9vw,
+    1.1rem
+  );
+
+  line-height: 1.6;
+}
+
+
+/* ------------------------------------------------------------
+   LARGE SCREEN / 2K / 4K
+------------------------------------------------------------ */
+
+@media (min-width: 1800px) {
+
+  .about-shell {
+    width: 94vw;
+  }
+
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      6rem,
+      6vw,
+      8.5rem
+    );
+  }
+
+
+  .about-intro__hero-grid {
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(0, 1.05fr);
+
+    gap: 5rem;
+  }
+
+
+  .about-intro__animation {
+    min-height: 360px;
+
+    padding-left: 0;
+  }
+
+
+  .about-intro__animation > * {
+    max-width: 720px;
+  }
+
+
+  .about-intro__content {
+    max-width: 760px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   TABLET
+------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+
+  .about-shell {
+    width: calc(100% - 40px);
+  }
+
+
+  .about-intro__hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+
+  .about-intro__animation {
+    min-height: 280px;
+
+    padding-left: 0;
+
+    justify-content: center;
+  }
+
+
+  .about-intro__animation > * {
+    margin-inline: auto;
+  }
+
+
+  .about-intro__content {
+    max-width: 100%;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+
+  .about-shell {
+    width: 100%;
+
+    padding-inline: 16px;
+  }
+
+
+  .about-intro {
+    padding:
+      16px
+      0
+      30px;
+  }
+
+
+  .about-intro__wordmark {
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      4rem
+    );
+  }
+
+
+  .about-intro__hero-grid {
+    margin-top: 1rem;
+
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+
+  .about-intro__animation {
+    min-height: 220px;
+  }
+
+
+  .about-intro__content h2 {
+    width: 100%;
+
+    font-size: clamp(
+      2rem,
+      9vw,
+      2.8rem
+    );
+  }
+
+
+  .about-intro__content p {
+    font-size: 0.95rem;
+  }
 }

@@ -2851,3 +2851,674 @@
   }
 
 }
+/* ============================================================
+   FINAL BUILD ALIGNMENT FIX
+   KEEP THIS AT THE VERY BOTTOM OF Build.css
+============================================================ */
+
+/* PAGE SHOULD ALIGN WITH NAVBAR WIDTH */
+.build-page {
+  width: 94vw;
+  max-width: none;
+  min-width: 0;
+
+  margin-inline: auto;
+
+  overflow-x: clip;
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.build-hero {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(
+    3rem,
+    5vw,
+    7rem
+  );
+
+  padding-top: clamp(
+    48px,
+    5vh,
+    80px
+  );
+
+  padding-bottom: clamp(
+    48px,
+    5vh,
+    80px
+  );
+}
+
+
+/* LEFT HERO */
+
+.build-hero-content {
+  width: 100%;
+  min-width: 0;
+
+  justify-self: start;
+}
+
+
+/* HEADING */
+
+.build-hero h1 {
+  width: min(
+    100%,
+    13ch
+  );
+
+  max-width: none;
+
+  margin:
+    0
+    0
+    1.25rem;
+
+  font-size: clamp(
+    3rem,
+    4vw,
+    6rem
+  );
+
+  line-height: 0.97;
+
+  letter-spacing: -0.055em;
+
+  text-wrap: balance;
+}
+
+
+/* DESCRIPTION */
+
+.build-description {
+  width: min(
+    100%,
+    680px
+  );
+
+  max-width: none;
+
+  margin:
+    0
+    0
+    2rem;
+
+  font-size: clamp(
+    1rem,
+    1vw,
+    1.25rem
+  );
+
+  line-height: 1.6;
+}
+
+
+/* TRUST ITEMS */
+
+.trust-row {
+  width: min(
+    100%,
+    700px
+  );
+
+  max-width: none;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    1rem
+    clamp(1.5rem, 2vw, 2.5rem);
+}
+
+
+/* ============================================================
+   HERO VISUAL
+============================================================ */
+
+.build-visual {
+  width: 100%;
+
+  max-width: none;
+
+  min-height: clamp(
+    500px,
+    30vw,
+    650px
+  );
+
+  height: auto;
+
+  justify-self: stretch;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: none;
+}
+
+
+/* PHONE SIZE */
+
+.phone-wrapper {
+  width: clamp(
+    210px,
+    12vw,
+    290px
+  );
+
+  height: clamp(
+    420px,
+    24vw,
+    580px
+  );
+}
+
+.phone {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ============================================================
+   DEVELOPER SECTION
+============================================================ */
+
+.developer-section {
+  width: 100%;
+
+  padding-top: clamp(
+    52px,
+    5vh,
+    80px
+  );
+
+  padding-bottom: clamp(
+    60px,
+    6vh,
+    90px
+  );
+}
+
+
+/* HEADING SHOULD STAY CENTERED BUT NOT TOO NARROW */
+
+.developer-heading {
+  width: min(
+    100%,
+    900px
+  );
+
+  max-width: none;
+
+  margin:
+    0
+    auto
+    clamp(2rem, 3vh, 3rem);
+
+  text-align: center;
+}
+
+
+.developer-heading h2 {
+  font-size: clamp(
+    2.3rem,
+    3vw,
+    4.2rem
+  );
+
+  line-height: 1.05;
+
+  text-wrap: balance;
+}
+
+
+.developer-heading p {
+  width: min(
+    100%,
+    720px
+  );
+
+  max-width: none;
+
+  margin-inline: auto;
+
+  font-size: clamp(
+    0.95rem,
+    0.9vw,
+    1.1rem
+  );
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   FEATURE GRID
+============================================================ */
+
+.build-feature-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: clamp(
+    1.25rem,
+    1.5vw,
+    2rem
+  );
+}
+
+
+/* FEATURE CARDS */
+
+.build-feature-card {
+  width: 100%;
+  min-width: 0;
+
+  min-height: clamp(
+    360px,
+    21vw,
+    480px
+  );
+}
+
+
+/* VISUAL AREA */
+
+.feature-visual {
+  width: 100%;
+
+  height: clamp(
+    210px,
+    13vw,
+    280px
+  );
+}
+
+
+/* ============================================================
+   LARGE SCREEN
+============================================================ */
+
+@media (min-width: 1800px) {
+
+  .build-page {
+    width: 94vw;
+    max-width: none;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .build-hero,
+  .developer-section {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .build-hero {
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(0, 1.05fr);
+
+    gap: clamp(
+      4rem,
+      6vw,
+      9rem
+    );
+  }
+
+  .build-hero h1 {
+    font-size: clamp(
+      5rem,
+      3.7vw,
+      6.25rem
+    );
+  }
+
+  .build-description {
+    width: min(
+      100%,
+      760px
+    );
+
+    font-size: 1.2rem;
+  }
+
+  .build-visual {
+    min-height: 620px;
+  }
+
+  .developer-heading {
+    width: min(
+      100%,
+      1000px
+    );
+  }
+
+  .build-feature-card {
+    min-height: 460px;
+  }
+
+  .feature-visual {
+    height: 280px;
+  }
+}
+
+/* ============================================================
+   NORMAL DESKTOP
+============================================================ */
+
+@media (max-width: 1400px) {
+
+  .build-page {
+    width: 92vw;
+  }
+
+  .build-hero {
+    gap: 3rem;
+  }
+
+  .build-hero h1 {
+    font-size: clamp(
+      3rem,
+      5vw,
+      4.8rem
+    );
+  }
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .build-page {
+    width: calc(
+      100% - 40px
+    );
+  }
+
+  .build-hero {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .build-hero h1 {
+    width: min(
+      100%,
+      14ch
+    );
+
+    font-size: clamp(
+      2.7rem,
+      8vw,
+      4rem
+    );
+  }
+
+  .build-description {
+    width: min(
+      100%,
+      650px
+    );
+  }
+
+  .build-visual {
+    width: min(
+      100%,
+      650px
+    );
+
+    margin-inline: auto;
+
+    min-height: 500px;
+  }
+
+  .build-feature-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+  .build-page {
+    width: 100%;
+
+    padding-inline: 16px;
+  }
+
+  .build-hero {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+
+    padding-top: 32px;
+    padding-bottom: 40px;
+  }
+
+  .build-hero h1 {
+    width: 100%;
+
+    font-size: clamp(
+      2.35rem,
+      11vw,
+      3.3rem
+    );
+
+    line-height: 1;
+  }
+
+  .build-description {
+    font-size: 0.95rem;
+  }
+
+  .trust-row {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .build-visual {
+    width: 100%;
+
+    min-height: 430px;
+  }
+
+  .developer-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .developer-heading h2 {
+    font-size: clamp(
+      2rem,
+      9vw,
+      2.8rem
+    );
+  }
+
+  .build-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .build-feature-card {
+    min-height: 350px;
+  }
+
+  .feature-visual {
+    height: 205px;
+  }
+}
+/* ============================================================
+   FINAL BUILD LAYOUT
+============================================================ */
+
+.build-page {
+  width: 94vw;
+  max-width: none;
+  min-width: 0;
+
+  margin-inline: auto;
+
+  padding-inline: 0;
+
+  overflow-x: clip;
+}
+
+.build-hero,
+.developer-section {
+  width: 100%;
+  max-width: none;
+
+  margin-inline: 0;
+
+  box-sizing: border-box;
+}
+
+.build-hero {
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 5vw, 7rem);
+
+  padding-top: clamp(48px, 5vh, 80px);
+  padding-bottom: clamp(48px, 5vh, 80px);
+}
+
+.build-hero-content {
+  width: 100%;
+  min-width: 0;
+
+  justify-self: start;
+}
+
+.build-hero h1 {
+  width: min(100%, 13ch);
+  max-width: none;
+
+  font-size: clamp(3rem, 4vw, 6rem);
+}
+
+.build-description {
+  width: min(100%, 680px);
+  max-width: none;
+}
+
+.build-visual {
+  width: 100%;
+  max-width: none;
+
+  justify-self: stretch;
+
+  min-height: clamp(500px, 30vw, 650px);
+}
+
+.developer-heading {
+  width: min(100%, 900px);
+  max-width: none;
+
+  margin-inline: auto;
+}
+
+.build-feature-grid {
+  width: 100%;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 1800px) {
+  .build-page {
+    width: 94vw;
+  }
+
+  .build-hero {
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(0, 1.05fr);
+
+    gap: clamp(4rem, 6vw, 9rem);
+  }
+
+  .build-hero h1 {
+    font-size: clamp(5rem, 3.7vw, 6.25rem);
+  }
+}
+
+@media (max-width: 1400px) {
+  .build-page {
+    width: 92vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .build-page {
+    width: calc(100% - 40px);
+  }
+
+  .build-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .build-feature-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .build-page {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .build-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

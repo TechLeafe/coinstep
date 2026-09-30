@@ -50,7 +50,7 @@ export function Navbar() {
 
   return (
     <header className="nav">
-      <div className="container nav-inner">
+      <div className="nav-inner">
 
         {/* LOGO */}
         <NavLink

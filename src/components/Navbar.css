@@ -1,36 +1,72 @@
-.nav {
+/* ============================================================
+   NAVBAR
+============================================================ */
 
+.nav {
   position: sticky;
 
   top: 0;
 
   z-index: 40;
 
-  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  width: 100%;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--color-bg) 88%,
+      transparent
+    );
 
   backdrop-filter: blur(10px);
 
-  border-bottom: var(--border-width) solid var(--color-border);
-
+  border-bottom:
+    var(--border-width)
+    solid
+    var(--color-border);
 }
 
+
+/* ============================================================
+   NAVBAR INNER
+   LARGE SCREEN / 2K / 4K FIX
+============================================================ */
 .nav-inner {
+  width: 94vw;
+  max-width: none;
+  min-width: 0;
 
-  display: flex;
+  margin-inline: auto;
 
-  flex-wrap: wrap;
+  padding-inline: 0;
+  padding-block: clamp(
+    0.75rem,
+    1.5vh,
+    1rem
+  );
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
 
   align-items: center;
 
-  justify-content: space-between;
+  gap: clamp(
+    1.5rem,
+    3vw,
+    4rem
+  );
 
-  gap: var(--space-sm);
-
-  padding-block: var(--space-sm);
-
+  box-sizing: border-box;
 }
-
+/* ============================================================
+   BRAND
+============================================================ */
 .nav-brand {
+  justify-self: start;
 
   display: inline-flex;
 
@@ -42,105 +78,157 @@
 
   font-weight: var(--weight-semibold);
 
-  font-size: var(--text-md);
+  font-size: clamp(
+    1rem,
+    0.9vw,
+    1.3rem
+  );
 
   color: var(--color-ink);
 
   text-decoration: none;
-
 }
-
 /* ============================================================
    COINSTEP LOGO IMAGE
-   ============================================================ */
+============================================================ */
 
 .nav-logo-image {
+  width: clamp(
+    36px,
+    2.2vw,
+    48px
+  );
 
-  width: 38px;
-
-  height: 38px;
+  height: clamp(
+    36px,
+    2.2vw,
+    48px
+  );
 
   object-fit: contain;
 
   display: block;
 
+  flex-shrink: 0;
 }
+
 
 /* ============================================================
    NAVIGATION LINKS
-   ============================================================ */
+============================================================ */
 
 .nav-links {
-
   display: flex;
 
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 
-  gap: var(--space-md);
+  align-items: center;
 
+  justify-content: center;
+
+  gap: clamp(
+    1.2rem,
+    2vw,
+    2.8rem
+  );
+
+  min-width: 0;
+
+  margin-inline: auto;
 }
 
+
 .nav-link {
+  position: relative;
 
-  font-size: var(--text-sm);
+  flex-shrink: 0;
 
-  font-weight: var(--weight-medium);
+  padding-block: 0.5rem;
 
   color: var(--color-ink-soft);
 
-  padding-block: var(--space-3xs);
+  font-size: clamp(
+    0.85rem,
+    0.75vw,
+    1rem
+  );
 
-  border-bottom: 2px solid transparent;
+  font-weight: var(--weight-medium);
 
+  text-decoration: none;
+
+  border-bottom:
+    2px
+    solid
+    transparent;
+
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
 }
+
 
 .nav-link:hover {
-
   color: var(--color-ink);
-
 }
 
-.nav-link-active {
 
+.nav-link-active {
   color: var(--color-ink);
 
   border-color: var(--color-accent);
-
 }
+
 
 /* ============================================================
    NAVBAR ACTIONS
-   ============================================================ */
+============================================================ */
 
 .nav-actions {
+  justify-self: end;
 
   display: flex;
 
   align-items: center;
 
-  gap: var(--space-sm);
-
+  gap: clamp(
+    0.65rem,
+    1vw,
+    1rem
+  );
 }
 
 /* ============================================================
    THEME TOGGLE
-   ============================================================ */
+============================================================ */
 
 .theme-toggle {
-
   display: inline-flex;
 
   align-items: center;
 
   justify-content: center;
 
-  width: 2.25rem;
+  width: clamp(
+    2.25rem,
+    2vw,
+    2.65rem
+  );
 
-  height: 2.25rem;
+  height: clamp(
+    2.25rem,
+    2vw,
+    2.65rem
+  );
+
+  flex-shrink: 0;
 
   border-radius: var(--radius-pill);
 
-  border: var(--border-width) solid var(--color-border-strong);
+  border:
+    var(--border-width)
+    solid
+    var(--color-border-strong);
 
   background: var(--color-surface);
 
@@ -153,23 +241,24 @@
   transition:
     border-color var(--transition-fast),
     transform var(--transition-fast);
-
 }
 
-.theme-toggle:hover {
 
+.theme-toggle:hover {
   border-color: var(--color-accent);
 
   transform: rotate(-8deg);
-
 }
+
+
 /* ============================================================
-   MOBILE NAVBAR
-   ============================================================ */
+   MOBILE DEFAULTS
+============================================================ */
 
 .mobile-actions {
   display: none;
 }
+
 
 .mobile-nav {
   display: none;
@@ -177,34 +266,146 @@
 
 
 /* ============================================================
+   ULTRA-WIDE / 2K / 4K
+============================================================ */
+
+@media (min-width: 1800px) {
+
+  .nav-inner {
+    width: 94vw;
+
+    gap: 3rem;
+  }
+
+
+  .nav-brand {
+    font-size: 1.3rem;
+  }
+
+
+  .nav-logo-image {
+    width: 48px;
+    height: 48px;
+  }
+
+
+  .nav-links {
+    gap: clamp(
+      2rem,
+      2vw,
+      3.5rem
+    );
+  }
+
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+
+  .theme-toggle {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+}
+
+
+/* ============================================================
+   NORMAL DESKTOP
+============================================================ */
+
+@media (max-width: 1400px) {
+
+  .nav-inner {
+    width: 92vw;
+
+    gap: 1.5rem;
+  }
+
+
+  .nav-links {
+    gap: clamp(
+      1rem,
+      1.6vw,
+      2rem
+    );
+  }
+}
+
+
+/* ============================================================
+   SMALL LAPTOP
+============================================================ */
+
+@media (max-width: 1000px) {
+
+  .nav-inner {
+    width:
+      calc(
+        100% - 40px
+      );
+  }
+
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+
+  .nav-link {
+    font-size: 0.82rem;
+  }
+
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+}
+
+
+/* ============================================================
    MOBILE RESPONSIVE
-   ============================================================ */
+============================================================ */
 
 @media (max-width: 768px) {
 
   .nav-inner {
+    width:
+      calc(
+        100% - 32px
+      );
+
+    margin-inline: auto;
+
     flex-wrap: nowrap;
+
+    gap: var(--space-sm);
+
     padding-block: var(--space-sm);
   }
 
+
   /* ----------------------------------------------------------
      LOGO
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .nav-brand {
     gap: var(--space-2xs);
+
     font-size: var(--text-md);
   }
 
+
   .nav-logo-image {
     width: 34px;
+
     height: 34px;
   }
 
 
   /* ----------------------------------------------------------
      HIDE DESKTOP NAVIGATION
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .nav-links {
     display: none;
@@ -213,7 +414,7 @@
 
   /* ----------------------------------------------------------
      HIDE DESKTOP ACTIONS
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .nav-actions {
     display: none;
@@ -222,86 +423,116 @@
 
   /* ----------------------------------------------------------
      MOBILE ACTIONS
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-actions {
     display: flex;
+
     align-items: center;
+
     gap: var(--space-xs);
+
     margin-left: auto;
   }
 
 
   /* ----------------------------------------------------------
      MOBILE THEME BUTTON
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-theme-toggle {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     width: 2.25rem;
+
     height: 2.25rem;
 
-    border-radius: var(--radius-pill);
+    border-radius:
+      var(--radius-pill);
 
-    border: var(--border-width) solid
+    border:
+      var(--border-width)
+      solid
       var(--color-border-strong);
 
-    background: var(--color-surface);
+    background:
+      var(--color-surface);
 
-    color: var(--color-ink);
+    color:
+      var(--color-ink);
 
-    font-size: var(--text-md);
+    font-size:
+      var(--text-md);
 
     cursor: pointer;
 
     transition:
-      border-color var(--transition-fast),
-      transform var(--transition-fast);
+      border-color
+      var(--transition-fast),
+      transform
+      var(--transition-fast);
   }
 
+
   .mobile-theme-toggle:hover {
-    border-color: var(--color-accent);
-    transform: rotate(-8deg);
+    border-color:
+      var(--color-accent);
+
+    transform:
+      rotate(-8deg);
   }
 
 
   /* ----------------------------------------------------------
      MOBILE MENU BUTTON
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-menu-toggle {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     width: 2.25rem;
+
     height: 2.25rem;
 
-    border: var(--border-width) solid
+    border:
+      var(--border-width)
+      solid
       var(--color-border-strong);
 
-    border-radius: var(--radius-pill);
+    border-radius:
+      var(--radius-pill);
 
-    background: var(--color-surface);
+    background:
+      var(--color-surface);
 
-    color: var(--color-ink);
+    color:
+      var(--color-ink);
 
-    font-size: 1.25rem;
+    font-size:
+      1.25rem;
 
-    cursor: pointer;
+    cursor:
+      pointer;
   }
 
+
   .mobile-menu-toggle:hover {
-    border-color: var(--color-accent);
+    border-color:
+      var(--color-accent);
   }
 
 
   /* ----------------------------------------------------------
      MOBILE NAVIGATION
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-nav {
     display: none;
@@ -310,13 +541,19 @@
 
     width: 100%;
 
-    padding: var(--space-sm);
+    padding:
+      var(--space-sm)
+      16px;
 
-    background: var(--color-bg);
+    background:
+      var(--color-bg);
 
-    border-top: var(--border-width)
-      solid var(--color-border);
+    border-top:
+      var(--border-width)
+      solid
+      var(--color-border);
   }
+
 
   .mobile-nav-open {
     display: flex;
@@ -325,7 +562,7 @@
 
   /* ----------------------------------------------------------
      MOBILE NAVIGATION LINKS
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-nav-link {
     display: flex;
@@ -336,106 +573,142 @@
 
     width: 100%;
 
-    padding: var(--space-sm)
+    padding:
+      var(--space-sm)
       var(--space-xs);
 
-    color: var(--color-ink-soft);
+    color:
+      var(--color-ink-soft);
 
-    font-size: var(--text-sm);
+    font-size:
+      var(--text-sm);
 
-    font-weight: var(--weight-medium);
+    font-weight:
+      var(--weight-medium);
 
-    text-decoration: none;
+    text-decoration:
+      none;
 
-    border-bottom: var(--border-width)
-      solid var(--color-border);
+    border-bottom:
+      var(--border-width)
+      solid
+      var(--color-border);
   }
+
 
   .mobile-nav-link:hover {
-    color: var(--color-ink);
+    color:
+      var(--color-ink);
   }
 
-  .mobile-nav-link-active {
-    color: var(--color-ink);
 
-    border-color: var(--color-accent);
+  .mobile-nav-link-active {
+    color:
+      var(--color-ink);
+
+    border-color:
+      var(--color-accent);
   }
 
 
   /* ----------------------------------------------------------
      MOBILE ARROW
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-nav-arrow {
-    font-size: 1.25rem;
+    font-size:
+      1.25rem;
 
-    color: var(--color-ink-soft);
+    color:
+      var(--color-ink-soft);
   }
 
 
   /* ----------------------------------------------------------
      MOBILE LANGUAGE
-     ---------------------------------------------------------- */
+  ---------------------------------------------------------- */
 
   .mobile-language-button {
     display: flex;
 
     align-items: center;
 
-    gap: var(--space-xs);
+    gap:
+      var(--space-xs);
 
     width: 100%;
 
-    padding: var(--space-sm)
+    padding:
+      var(--space-sm)
       var(--space-xs);
 
-    margin-top: var(--space-xs);
+    margin-top:
+      var(--space-xs);
 
-    border: none;
+    border:
+      none;
 
-    background: transparent;
+    background:
+      transparent;
 
-    color: var(--color-ink-soft);
+    color:
+      var(--color-ink-soft);
 
-    font-family: inherit;
+    font-family:
+      inherit;
 
-    font-size: var(--text-sm);
+    font-size:
+      var(--text-sm);
 
-    font-weight: var(--weight-medium);
+    font-weight:
+      var(--weight-medium);
 
-    cursor: pointer;
+    cursor:
+      pointer;
 
-    text-align: left;
+    text-align:
+      left;
   }
 
+
   .mobile-language-button:hover {
-    color: var(--color-ink);
+    color:
+      var(--color-ink);
   }
 }
 
 
 /* ============================================================
    SMALL MOBILE DEVICES
-   ============================================================ */
+============================================================ */
 
 @media (max-width: 480px) {
 
   .nav-inner {
-    padding-inline: var(--space-xs);
+    width: 100%;
+
+    padding-inline:
+      16px;
   }
 
+
   .nav-brand span {
-    font-size: var(--text-sm);
+    font-size:
+      var(--text-sm);
   }
+
 
   .nav-logo-image {
     width: 32px;
+
     height: 32px;
   }
+
 
   .mobile-theme-toggle,
   .mobile-menu-toggle {
     width: 2.1rem;
+
     height: 2.1rem;
   }
 }

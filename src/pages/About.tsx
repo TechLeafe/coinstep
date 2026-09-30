@@ -1149,7 +1149,7 @@ export function About() {
 
       <main className="about-page">
 
-        <div className="about-shell">
+        <div className="container about-shell">
 
 
           {/* =====================================================

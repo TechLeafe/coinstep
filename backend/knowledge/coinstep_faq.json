@@ -1,0 +1,636 @@
+[
+  {
+    "id": "greeting_001",
+    "category": "greeting",
+    "intent": "greeting",
+    "questions": [
+      "hi",
+      "hello",
+      "hey",
+      "good morning",
+      "good afternoon",
+      "good evening"
+    ],
+    "answer": "Hi 👋 I'm Coinstep Assistant. I can help you understand Coinstep, getting started, wallets, security, privacy, Web3 and support."
+  },
+  {
+    "id": "about_001",
+    "category": "about",
+    "intent": "what_is_coinstep",
+    "questions": [
+      "what is coinstep",
+      "tell me about coinstep",
+      "what does coinstep do",
+      "what is the purpose of coinstep",
+      "why was coinstep created"
+    ],
+    "answer": "Coinstep is a Web3 platform designed to make blockchain experiences simpler and more accessible."
+  },
+  {
+    "id": "about_002",
+    "category": "about",
+    "intent": "who_is_coinstep_for",
+    "questions": [
+      "who is coinstep for",
+      "who can use coinstep",
+      "is coinstep for beginners"
+    ],
+    "answer": "Coinstep is designed to help users explore Web3 and blockchain experiences in a simpler way, including users who are new to Web3."
+  },
+  {
+    "id": "origin_001",
+    "category": "origin",
+    "intent": "coinstep_origin",
+    "questions": [
+      "who created coinstep",
+      "who founded coinstep",
+      "when was coinstep started",
+      "where is coinstep based",
+      "who owns coinstep",
+      "what is the history of coinstep"
+    ],
+    "answer": "I don't have confirmed information about Coinstep's origin or founders in my current knowledge. Please check the official Coinstep About page or contact Coinstep Support."
+  },
+  {
+    "id": "security_001",
+    "category": "security",
+    "intent": "is_coinstep_safe",
+    "questions": [
+      "is coinstep safe",
+      "is coinstep secure",
+      "can i trust coinstep",
+      "is coinstep trustworthy",
+      "is coinstep legit"
+    ],
+    "answer": "Coinstep is designed for Web3 interactions, but you should always follow standard Web3 safety practices. Never share your private key, seed phrase or wallet password with anyone."
+  },
+  {
+    "id": "security_002",
+    "category": "security",
+    "intent": "security_measures",
+    "questions": [
+      "how does coinstep protect users",
+      "what security does coinstep use",
+      "has coinstep been audited",
+      "does coinstep use encryption"
+    ],
+    "answer": "I don't have confirmed technical security or audit information about Coinstep in my current knowledge. Please check Coinstep's official security information or contact support."
+  },
+  {
+    "id": "privacy_001",
+    "category": "privacy",
+    "intent": "privacy",
+    "questions": [
+      "is coinstep private",
+      "what information does coinstep collect",
+      "does coinstep collect my data",
+      "does coinstep track users",
+      "does coinstep share my information",
+      "where is the privacy policy"
+    ],
+    "answer": "For confirmed information about what data Coinstep collects, stores or processes, please refer to Coinstep's official privacy policy."
+  },
+  {
+    "id": "wallet_security_001",
+    "category": "wallet_security",
+    "intent": "private_key",
+    "questions": [
+      "does coinstep have my private key",
+      "does coinstep store my private key",
+      "can coinstep access my private key",
+      "should i share my private key",
+      "can support ask for my private key"
+    ],
+    "answer": "Never share your private key with anyone. Coinstep Assistant will never ask you to provide your private key."
+  },
+  {
+    "id": "wallet_security_002",
+    "category": "wallet_security",
+    "intent": "seed_phrase",
+    "questions": [
+      "does coinstep store my seed phrase",
+      "should i give coinstep my seed phrase",
+      "can support ask for my seed phrase",
+      "can coinstep recover my seed phrase",
+      "what happens if i lose my seed phrase"
+    ],
+    "answer": "Never share your seed phrase with anyone. Coinstep Assistant will never ask for it. If you lose a seed phrase, recovery depends on the wallet provider and recovery options available to you."
+  },
+  {
+    "id": "access_001",
+    "category": "access",
+    "intent": "access_coinstep",
+    "questions": [
+      "how can i access coinstep",
+      "where can i use coinstep",
+      "is coinstep a website",
+      "can i use coinstep in browser"
+    ],
+    "answer": "Coinstep can be accessed through its official platform. Please use only official Coinstep links provided by the company."
+  },
+  {
+    "id": "download_001",
+    "category": "download",
+    "intent": "download_coinstep",
+    "questions": [
+      "where can i download coinstep",
+      "can i download coinstep",
+      "does coinstep have an app",
+      "is coinstep available on android",
+      "is coinstep available on iphone",
+      "is coinstep available on ios",
+      "is coinstep available on desktop"
+    ],
+    "answer": "I don't have confirmed information about Coinstep app downloads in my current knowledge. Please use Coinstep's official website or support channels to verify available platforms."
+  },
+  {
+    "id": "getting_started_001",
+    "category": "getting_started",
+    "intent": "getting_started",
+    "questions": [
+      "how do i start using coinstep",
+      "i am new what should i do first",
+      "how do i get started",
+      "how can i start",
+      "what do i need to use coinstep"
+    ],
+    "answer": "If you're new to Coinstep, start by learning what the platform offers, checking the official access method, understanding wallet safety and then following the platform's getting-started steps."
+  },
+  {
+    "id": "account_001",
+    "category": "account",
+    "intent": "account_creation",
+    "questions": [
+      "how do i create an account",
+      "how do i sign up",
+      "do i need an account",
+      "how do i register",
+      "how do i login"
+    ],
+    "answer": "I don't have confirmed account or registration requirements in my current knowledge. Please follow the official Coinstep login or registration flow."
+  },
+  {
+    "id": "wallet_001",
+    "category": "wallet",
+    "intent": "what_is_wallet",
+    "questions": [
+      "what is a wallet",
+      "what is a crypto wallet"
+    ],
+    "answer": "A crypto wallet helps users manage blockchain accounts, digital assets and interactions with decentralized applications."
+  },
+  {
+    "id": "wallet_002",
+    "category": "wallet",
+    "intent": "wallet_required",
+    "questions": [
+      "do i need a wallet for coinstep",
+      "do i need a crypto wallet",
+      "which wallet should i use"
+    ],
+    "answer": "Whether you need a wallet depends on the Coinstep feature you are using. Please follow Coinstep's official instructions for supported wallet options."
+  },
+  {
+    "id": "wallet_003",
+    "category": "wallet",
+    "intent": "connect_wallet",
+    "questions": [
+      "how do i connect my wallet",
+      "how to connect wallet",
+      "can i connect metamask",
+      "can i connect trust wallet",
+      "which wallets does coinstep support",
+      "can i connect multiple wallets"
+    ],
+    "answer": "I don't have a confirmed list of supported wallets in my current knowledge. Please use the wallet connection options shown on the official Coinstep platform."
+  },
+  {
+    "id": "wallet_004",
+    "category": "wallet",
+    "intent": "wallet_access",
+    "questions": [
+      "can coinstep control my wallet",
+      "can coinstep access my wallet",
+      "can coinstep move my funds",
+      "does connecting a wallet give coinstep access to my funds"
+    ],
+    "answer": "Connecting a wallet should never require you to share your private key or seed phrase. Always review wallet permission requests carefully before approving them."
+  },
+  {
+    "id": "blockchain_001",
+    "category": "education",
+    "intent": "what_is_blockchain",
+    "questions": [
+      "what is blockchain"
+    ],
+    "answer": "Blockchain is a decentralized digital system that securely records and verifies transactions."
+  },
+  {
+    "id": "web3_001",
+    "category": "education",
+    "intent": "what_is_web3",
+    "questions": [
+      "what is web3"
+    ],
+    "answer": "Web3 refers to internet applications and services that use blockchain and decentralized technologies."
+  },
+  {
+    "id": "ethereum_001",
+    "category": "education",
+    "intent": "what_is_ethereum",
+    "questions": [
+      "what is ethereum",
+      "what is eth"
+    ],
+    "answer": "Ethereum is a blockchain network that supports smart contracts and decentralized applications."
+  },
+  {
+    "id": "smart_contract_001",
+    "category": "education",
+    "intent": "smart_contract",
+    "questions": [
+      "what is a smart contract",
+      "what are smart contracts"
+    ],
+    "answer": "A smart contract is a program stored on a blockchain that automatically executes predefined rules."
+  },
+  {
+    "id": "gas_001",
+    "category": "education",
+    "intent": "gas_fee",
+    "questions": [
+      "what is gas",
+      "what are gas fees",
+      "what is gas fee"
+    ],
+    "answer": "Gas fees are blockchain network fees paid to process transactions and smart contract actions."
+  },
+  {
+    "id": "transaction_001",
+    "category": "transaction",
+    "intent": "transaction_help",
+    "questions": [
+      "how do transactions work",
+      "what is a transaction",
+      "why is my transaction pending",
+      "why did my transaction fail",
+      "can i cancel a transaction",
+      "can coinstep reverse a transaction",
+      "what is a transaction hash"
+    ],
+    "answer": "Blockchain transactions are processed by the network. Pending or failed transactions can depend on network conditions, gas fees and wallet settings. For Coinstep-specific transaction issues, contact Coinstep Support."
+  },
+  {
+    "id": "fees_001",
+    "category": "fees",
+    "intent": "coinstep_fees",
+    "questions": [
+      "is coinstep free",
+      "does coinstep charge fees",
+      "what are coinstep fees",
+      "are there transaction fees"
+    ],
+    "answer": "I don't have confirmed Coinstep pricing or fee information in my current knowledge. Please check official Coinstep pricing or support information."
+  },
+  {
+    "id": "network_001",
+    "category": "network",
+    "intent": "supported_networks",
+    "questions": [
+      "which blockchain does coinstep use",
+      "which networks does coinstep support",
+      "does coinstep support ethereum",
+      "does coinstep support polygon",
+      "does coinstep support bnb chain"
+    ],
+    "answer": "I don't have a confirmed list of Coinstep-supported blockchain networks in my current knowledge. Please check the official Coinstep platform or documentation."
+  },
+  {
+    "id": "troubleshooting_001",
+    "category": "troubleshooting",
+    "intent": "wallet_connection_issue",
+    "questions": [
+      "my wallet is not connecting",
+      "wallet not connecting",
+      "why cant i connect my wallet",
+      "why is my wallet not working"
+    ],
+    "answer": "Check that your wallet is unlocked, connected to the correct network and supported by the platform. Never share your seed phrase or private key while troubleshooting."
+  },
+  {
+    "id": "troubleshooting_002",
+    "category": "troubleshooting",
+    "intent": "general_error",
+    "questions": [
+      "coinstep is not opening",
+      "the page is not working",
+      "i am getting an error",
+      "page is loading slowly"
+    ],
+    "answer": "Try refreshing the page, checking your internet connection and reopening the official Coinstep platform. If the issue continues, contact Coinstep Support and share only the error message, not private wallet credentials."
+  },
+  {
+    "id": "support_001",
+    "category": "support",
+    "intent": "contact_support",
+    "questions": [
+      "i need help",
+      "how do i contact coinstep",
+      "where is coinstep support",
+      "can i speak to support",
+      "can i speak to a person",
+      "how do i report an issue",
+      "how do i report a security problem",
+      "how do i report a scam"
+    ],
+    "answer": "Please use the official Coinstep Support section for account-specific, technical or security-related help."
+  },
+  {
+    "id": "thanks_001",
+    "category": "conversation",
+    "intent": "thanks",
+    "questions": [
+      "thanks",
+      "thank you",
+      "thank you so much",
+      "thanks for helping"
+    ],
+    "answer": "You're welcome 😊 Happy to help. If you have another Coinstep or Web3 question, just ask."
+  },
+  {
+    "id": "goodbye_001",
+    "category": "conversation",
+    "intent": "goodbye",
+    "questions": [
+      "bye",
+      "goodbye",
+      "see you",
+      "talk to you later",
+      "thats all",
+      "that's all"
+    ],
+    "answer": "Bye 👋 Thanks for using Coinstep. If you need help with Coinstep or Web3 later, I'll be here."
+  },
+{
+  "id": "coin_listing_001",
+  "category": "coin_updates",
+  "intent": "latest_listed_coins",
+  "questions": [
+    "how can i check the latest listed coins",
+    "where can i see newly listed coins",
+    "how do i know which coins are newly listed",
+    "where can i get coin listing updates",
+    "how can i know about new coins in coinstep"
+  ],
+  "answer": "Information about the latest listed coins will be provided through Coinstep's official Twitter page. If you follow the page, you can stay updated with new listings and announcements. The official link will be added here soon."
+},
+{
+  "id": "announcement_001",
+  "category": "updates",
+  "intent": "coinstep_updates",
+  "questions": [
+    "where can i get coinstep updates",
+    "how can i know about coinstep updates",
+    "where does coinstep announce updates",
+    "how can i follow coinstep news",
+    "where can i see coinstep announcements"
+  ],
+  "answer": "Coinstep updates and announcements will be shared through official Coinstep channels such as the official Twitter page. Official links will be added here soon."
+},
+{
+  "id": "advantages_001",
+  "category": "about",
+  "intent": "coinstep_advantages",
+  "questions": [
+    "what are the advantages of coinstep",
+    "what is the advantage of coinstep",
+    "why should i use coinstep",
+    "why should i choose coinstep",
+    "what makes coinstep useful"
+  ],
+  "answer": "Coinstep is designed to provide a simple Web3 experience with a focus on wallet control, security awareness and easy access to blockchain features. More company-approved feature details will be added as they are confirmed."
+},
+{
+  "id": "comparison_001",
+  "category": "comparison",
+  "intent": "compare_other_wallets",
+  "questions": [
+    "how is coinstep different from other wallets",
+    "how is coinstep different from trust wallet",
+    "how is coinstep different from bitget wallet",
+    "coinstep vs trust wallet",
+    "coinstep vs bitget",
+    "why use coinstep instead of another wallet"
+  ],
+  "answer": "Coinstep focuses on providing its own Web3 wallet experience and wallet-control features. For a detailed comparison with Trust Wallet, Bitget Wallet or other products, please compare the officially documented features of each platform."
+},
+{
+  "id": "workflow_001",
+  "category": "getting_started",
+  "intent": "coinstep_workflow",
+  "questions": [
+    "how can i use coinstep",
+    "how does coinstep work step by step",
+    "what is the workflow of coinstep",
+    "how do i use the coinstep app",
+    "show me how to start using coinstep"
+  ],
+  "answer": "To get started with Coinstep, first use the official Coinstep platform, follow the setup instructions, create or connect your wallet as supported, securely protect your wallet credentials, and then use the available Coinstep features. Exact steps may depend on the version of the platform."
+},
+{
+  "id": "download_steps_001",
+  "category": "getting_started",
+  "intent": "download_steps",
+  "questions": [
+    "how do i download coinstep step by step",
+    "how can i install coinstep",
+    "where do i install the coinstep app",
+    "how do i download and start coinstep",
+    "what are the steps to install coinstep"
+  ],
+  "answer": "Use only an official Coinstep download or access link. Confirmed Android, iOS or desktop download links are not yet included in my knowledge. Official download details will be added when they are available."
+},
+{
+  "id": "private_key_protection_001",
+  "category": "wallet_security",
+  "intent": "private_key_protection",
+  "questions": [
+    "what is private key protection",
+    "how does private key protection work",
+    "what does private key protection mean",
+    "how is my private key protected",
+    "what protects my private key"
+  ],
+  "answer": "Private key protection means keeping the secret key that controls your wallet protected from unauthorized access. Anyone who gets your private key may be able to control the wallet, so it should never be shared."
+},
+{
+  "id": "private_key_importance_001",
+  "category": "wallet_security",
+  "intent": "why_private_key_protection",
+  "questions": [
+    "why do i need private key protection",
+    "why should i protect my private key",
+    "why is private key security important",
+    "what happens if someone gets my private key",
+    "why is the private key important"
+  ],
+  "answer": "Your private key is important because it can provide control over your blockchain wallet. Protecting it helps prevent unauthorized access to your wallet and digital assets."
+},
+{
+  "id": "coin_control_001",
+  "category": "wallet_features",
+  "intent": "advanced_coin_control",
+  "questions": [
+    "what is advanced coin control",
+    "what is coinstep advanced coin control",
+    "does coinstep have advanced coin control",
+    "what does coin control mean",
+    "what is coin control in coinstep"
+  ],
+  "answer": "Coinstep is being designed with advanced coin-control capabilities. Detailed technical information about exactly how Coinstep's coin-control feature works will be added once the company-approved specification is available."
+},
+{
+  "id": "coin_control_002",
+  "category": "wallet_features",
+  "intent": "coin_control_benefits",
+  "questions": [
+    "why should i use advanced coin control",
+    "what are the benefits of coin control",
+    "why is coin control useful",
+    "what can i do with coin control",
+    "why does coinstep use coin control"
+  ],
+  "answer": "Advanced coin control is intended to give wallet users greater control over how their available coins are managed during transactions. Exact Coinstep-specific behavior will be added when the approved technical details are available."
+},
+{
+  "id": "secure_wallet_001",
+  "category": "wallet_security",
+  "intent": "secure_my_wallet",
+  "questions": [
+    "how can i secure my wallet",
+    "how do i keep my wallet safe",
+    "how can i protect my wallet",
+    "what should i do to secure my wallet",
+    "how do i improve wallet security"
+  ],
+  "answer": "Keep your private key and seed phrase secret, use strong device security, verify addresses before transactions, avoid suspicious links, use only official Coinstep channels and carefully review permissions before approving wallet actions."
+},
+{
+  "id": "wallet_backup_001",
+  "category": "wallet_security",
+  "intent": "wallet_backup",
+  "questions": [
+    "how do i backup my wallet",
+    "should i backup my wallet",
+    "how can i backup my wallet safely",
+    "where should i keep my recovery phrase",
+    "how do i protect my wallet backup"
+  ],
+  "answer": "Follow the wallet's official backup process and keep recovery information in a secure private location. Never store or share your seed phrase in places where unauthorized people can access it."
+},
+{
+  "id": "wallet_ownership_001",
+  "category": "wallet_security",
+  "intent": "wallet_ownership",
+  "questions": [
+    "who controls my wallet",
+    "do i control my wallet",
+    "does coinstep own my wallet",
+    "does coinstep own my funds",
+    "who owns the assets in my wallet"
+  ],
+  "answer": "Wallet control depends on how the Coinstep wallet is implemented. Your private key or wallet credentials should never be shared. More specific Coinstep custody and ownership information should come from official Coinstep documentation."
+},
+{
+  "id": "phishing_001",
+  "category": "security",
+  "intent": "phishing_protection",
+  "questions": [
+    "how can i avoid scams",
+    "how do i avoid phishing",
+    "how can i identify a fake coinstep website",
+    "how do i know if a coinstep link is real",
+    "what should i do if someone asks for my seed phrase"
+  ],
+  "answer": "Use only official Coinstep links, verify website addresses carefully, avoid unknown links and never share your private key, seed phrase or wallet password. Coinstep Assistant will never ask for those secrets."
+},
+{
+  "id": "app_updates_001",
+  "category": "updates",
+  "intent": "app_updates",
+  "questions": [
+    "how do i update coinstep",
+    "where can i get the latest coinstep version",
+    "how do i know when coinstep is updated",
+    "does coinstep provide app updates",
+    "where can i check coinstep version updates"
+  ],
+  "answer": "Coinstep version and product updates should be obtained only through official Coinstep channels. Confirmed update links will be provided when available."
+},
+{
+  "id": "supported_assets_001",
+  "category": "assets",
+  "intent": "supported_assets",
+  "questions": [
+    "which coins does coinstep support",
+    "what cryptocurrencies are supported",
+    "which tokens can i use in coinstep",
+    "what assets does coinstep support",
+    "does coinstep support all coins"
+  ],
+  "answer": "I don't currently have a confirmed complete list of Coinstep-supported coins and tokens. Please follow official Coinstep updates for confirmed asset support."
+},
+{
+  "id": "custom_token_001",
+  "category": "assets",
+  "intent": "custom_token",
+  "questions": [
+    "can i add a custom token",
+    "how do i add a token to coinstep",
+    "can i manually add a coin",
+    "does coinstep support custom tokens",
+    "how can i add a new token"
+  ],
+  "answer": "I don't currently have confirmed information about custom-token support in Coinstep. Please refer to the official Coinstep product instructions when this feature information is available."
+},
+{
+  "id": "send_receive_001",
+  "category": "transaction",
+  "intent": "send_receive_crypto",
+  "questions": [
+    "how do i send crypto",
+    "how do i receive crypto",
+    "how can i send coins",
+    "how can i receive coins",
+    "how do i transfer crypto with coinstep"
+  ],
+  "answer": "Sending and receiving crypto normally involves selecting the asset, entering or scanning the destination wallet address, verifying the network and transaction details, and confirming the transaction. Follow Coinstep's official transaction flow when using the platform."
+},
+{
+  "id": "lost_access_001",
+  "category": "wallet_security",
+  "intent": "lost_wallet_access",
+  "questions": [
+    "what if i lose access to my wallet",
+    "what if i lose my phone",
+    "how can i recover my wallet",
+    "what happens if my device is lost",
+    "can i recover my wallet on another device"
+  ],
+  "answer": "Wallet recovery depends on the recovery options provided by the wallet. Keep any approved recovery information secure. Never send your private key or seed phrase to another person or support agent."
+},
+{
+  "id": "suspicious_activity_001",
+  "category": "security",
+  "intent": "suspicious_activity",
+  "questions": [
+    "what should i do if i see suspicious activity",
+    "someone accessed my wallet what should i do",
+    "my wallet may be compromised",
+    "what should i do if my wallet is hacked",
+    "how do i report suspicious wallet activity"
+  ],
+  "answer": "If you believe your wallet may be compromised, stop approving new transactions, avoid suspicious links and contact official Coinstep Support. Never send your private key or seed phrase to anyone while requesting help."
+}
+]
+

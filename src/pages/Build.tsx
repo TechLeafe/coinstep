@@ -819,13 +819,13 @@ function BlockchainVisual() {
 
 export function Build() {
   return (
-    <div className="build-page">
+    <div className="page container build-page">
 
       {/* =========================
           HERO
       ========================== */}
 
-      <section className="build-hero container">
+      <section className="build-hero">
 
         <div className="build-hero-content">
 
@@ -886,7 +886,7 @@ export function Build() {
       ========================== */}
 
       <section
-        className="developer-section container"
+        className="developer-section"
         id="developer-tools"
       >
 
