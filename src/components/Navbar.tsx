@@ -14,7 +14,7 @@ const LINKS = [
   { to: '/platform', label: 'Platform' },
   { to: '/features', label: 'Features' },
   { to: '/build', label: 'Build' },
-  { to: '/support', label: 'Support' },
+  { to: '/developer', label: 'Developer' },
   // { to: '/faq', label: 'FAQ' },
   { to: '/about', label: 'About' },
 ]
@@ -68,7 +68,7 @@ export function Navbar() {
           <span>Coinstep</span>
         </NavLink>
 
-        {/* NAVIGATION */}
+        {/* DESKTOP NAVIGATION */}
         <nav
           className="nav-links"
           aria-label="Primary"
@@ -87,7 +87,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* ACTIONS */}
+        {/* DESKTOP ACTIONS */}
         <div className="nav-actions">
 
           {/* THEME BUTTON */}
@@ -115,9 +115,7 @@ export function Navbar() {
 
         </div>
 
-        {/* ============================================================
-            MOBILE ACTIONS
-            ============================================================ */}
+        {/* MOBILE ACTIONS */}
         <div className="mobile-actions">
 
           {/* MOBILE THEME BUTTON */}
@@ -149,9 +147,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* ============================================================
-          MOBILE NAVIGATION
-          ============================================================ */}
+      {/* MOBILE NAVIGATION */}
       <nav
         className={`mobile-nav ${
           menuOpen ? 'mobile-nav-open' : ''

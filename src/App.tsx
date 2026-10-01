@@ -17,7 +17,8 @@ import Chatbot from "./components/chatbot/chatbot";
 
 import { Features } from "./pages/Features";
 import { Build } from "./pages/Build";
-import { Support } from "./pages/Support";
+// import { Support } from "./pages/Support";
+import Developer from "./pages/Developer";
 import { About } from "./pages/About";
 import { Faq } from "./pages/Faq";
 import { Platform } from "./pages/Platform";
@@ -72,10 +73,18 @@ export default function App() {
             element={<Build />}
           />
 
-          {/* SUPPORT */}
+          {/* SUPPORT REMOVED */}
+          {/*
           <Route
             path="/support"
             element={<Support />}
+          />
+          */}
+
+          {/* DEVELOPER */}
+          <Route
+            path="/developer"
+            element={<Developer />}
           />
 
           {/* FAQ */}

@@ -1,7583 +1,3251 @@
 /* ============================================================
-   FINAL PLATFORM LAYOUT
+   PLATFORM PAGE
 ============================================================ */
 
 .platform-page {
-  width: 100%;
-  min-width: 0;
+  position: relative;
 
-  overflow-x: clip;
-}
-
-.platform-page .container {
-  width: 94vw;
-  max-width: none;
-
-  margin-inline: auto;
-
-  padding-inline: 0;
-
-  box-sizing: border-box;
-}
-
-.platform-hero {
   width: 100%;
 
-  min-height: auto;
+  overflow: hidden;
 
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
-  align-items: center;
-
-  gap: clamp(3rem, 5vw, 7rem);
-
-  padding-top: clamp(48px, 5vh, 80px);
-  padding-bottom: clamp(48px, 5vh, 80px);
-}
-
-.platform-hero-content {
-  width: 100%;
-  min-width: 0;
-
-  justify-self: start;
-}
-
-.platform-hero h1 {
-  width: min(100%, 13ch);
-  max-width: none;
-
-  font-size: clamp(3rem, 4vw, 6rem);
-}
-
-.platform-description {
-  width: min(100%, 680px);
-  max-width: none;
-}
-
-.platform-hero-visual {
-  width: 100%;
-  max-width: none;
-
-  min-height: clamp(500px, 30vw, 650px);
-}
-
-.platform-capabilities,
-.platform-journey-section,
-.platform-security-section,
-.platform-connected-section {
-  width: 100%;
-  max-width: none;
-}
-
-.platform-feature-grid {
-  width: 100%;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-}
-
-@media (min-width: 1800px) {
-  .platform-page .container {
-    width: 94vw;
-  }
-
-  .platform-hero {
-    grid-template-columns:
-      minmax(0, 0.95fr)
-      minmax(0, 1.05fr);
-  }
-
-  .platform-hero h1 {
-    font-size: clamp(5rem, 3.7vw, 6.25rem);
-  }
-}
-
-@media (max-width: 1400px) {
-  .platform-page .container {
-    width: 92vw;
-  }
-}
-
-@media (max-width: 900px) {
-  .platform-page .container {
-    width: calc(100% - 40px);
-  }
-
-  .platform-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .platform-feature-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .platform-page .container {
-    width: 100%;
-    padding-inline: 16px;
-  }
-
-  .platform-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================
-
-   HERO
-
-============================================================ */
-
-
-
-.platform-hero {
-
-  min-height:
-
-    clamp(
-
-      500px,
-
-      62vh,
-
-      620px
-
+  --platform-accent-8:
+    color-mix(
+      in srgb,
+      var(--color-accent) 8%,
+      transparent
     );
 
+  --platform-accent-12:
+    color-mix(
+      in srgb,
+      var(--color-accent) 12%,
+      transparent
+    );
 
+  --platform-accent-15:
+    color-mix(
+      in srgb,
+      var(--color-accent) 15%,
+      transparent
+    );
+
+  --platform-accent-18:
+    color-mix(
+      in srgb,
+      var(--color-accent) 18%,
+      transparent
+    );
+
+  --platform-accent-25:
+    color-mix(
+      in srgb,
+      var(--color-accent) 25%,
+      transparent
+    );
+
+  --platform-accent-32:
+    color-mix(
+      in srgb,
+      var(--color-accent) 32%,
+      transparent
+    );
+
+  --platform-accent-50:
+    color-mix(
+      in srgb,
+      var(--color-accent) 50%,
+      transparent
+    );
+
+  --platform-surface-glass:
+    color-mix(
+      in srgb,
+      var(--color-surface) 90%,
+      transparent
+    );
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.platform-hero {
+  min-height:
+    clamp(
+      500px,
+      62vh,
+      620px
+    );
 
   display: grid;
 
-
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(
-
         min(100%, 31rem),
-
         1fr
-
       )
-
     );
-
-
 
   align-items: center;
 
-
-
   gap:
-
     clamp(
-
       1.5rem,
-
       4vw,
-
       4rem
-
     );
-
-
 
   padding-block:
-
     clamp(
-
       2rem,
-
       4vw,
-
       3.5rem
-
     );
-
 }
 
 
-
-
-
 .platform-hero-content {
-
   position: relative;
-
-
 
   z-index: 20;
 
-
-
   min-width: 0;
-
 }
 
 
-
-
-
 /* ============================================================
-
    EYEBROW
-
 ============================================================ */
 
-
-
 .platform-eyebrow {
-
   display: inline-block;
-
-
 
   margin-bottom: 0.9rem;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   font-family:
-
     var(--font-mono);
 
-
-
   font-size:
-
     clamp(
-
       0.64rem,
-
       0.8vw,
-
       var(--text-xs)
-
     );
-
-
 
   font-weight: 500;
 
-
-
   letter-spacing:
-
     0.18em;
-
 }
 
 
-
-
-
 /* ============================================================
-
    HERO HEADING
-
 ============================================================ */
 
-
-
 .platform-hero h1 {
-
   max-width: 680px;
 
-
-
   margin:
-
     0
-
     0
-
     1.25rem;
 
-
-
   color:
-
     var(--color-ink);
 
-
-
   font-size:
-
     clamp(
-
       2.75rem,
-
       5vw,
-
       4.6rem
-
     );
-
-
 
   line-height: 0.99;
 
-
-
   letter-spacing: -0.05em;
-
 }
-
-
-
 
 
 .platform-hero h1 span {
-
   color:
-
     var(--color-accent);
-
 }
 
 
-
-
-
 /* ============================================================
-
    HERO DESCRIPTION
-
 ============================================================ */
 
-
-
 .platform-description {
-
   max-width: 600px;
-
-
 
   margin: 0;
 
-
-
   color:
-
     var(--color-ink-soft);
 
-
-
   font-size:
-
     clamp(
-
       1rem,
-
       1.3vw,
-
       1.22rem
-
     );
 
-
-
   line-height: 1.55;
-
 }
-
-
-
 
 
 /* ============================================================
-
    HERO VISUAL
-
 ============================================================ */
 
-
-
 .platform-hero-visual {
-
   position: relative;
-
   width: 100%;
-
   height: clamp(420px, 38vw, 520px);
 
-
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
-
-
   isolation: isolate;
-
   perspective: 1200px;
-
   background: transparent;
-
 }
-
-
-
 
 
 .platform-hero-visual::before {
-
   content: "";
 
-
-
   position: absolute;
-
   width: 72%;
-
   height: 72%;
-
   left: 50%;
-
   top: 50%;
-
-
 
   transform: translate(-50%, -50%);
 
-
-
   border-radius: 50%;
-
   background: var(--platform-accent-8);
-
   filter: blur(34px);
 
-
-
   opacity: 1;
-
   pointer-events: none;
-
   z-index: -3;
-
 }
-
-
-
 
 
 /* ============================================================
-
    HERO ORBITS
-
 ============================================================ */
 
-
-
 .platform-hero-orbit {
-
   position: absolute;
-
   left: 50%;
 
-
-
   border: 1px solid var(--platform-accent-25);
-
   border-radius: 50%;
 
-
-
   pointer-events: none;
-
   z-index: -1;
-
 }
-
-
-
 
 
 .platform-hero-orbit-one {
-
   width: min(470px, 82%);
-
   height: 230px;
-
   top: 155px;
-
-
 
   transform: translateX(-50%) rotate(-18deg);
 
-
-
   animation:
-
     platformOrbitOne
-
     22s
-
     linear
-
     infinite;
-
 }
-
-
-
 
 
 .platform-hero-orbit-two {
-
   width: min(380px, 68%);
-
   height: 185px;
-
   top: 180px;
-
-
 
   transform: translateX(-50%) rotate(30deg);
 
-
-
   animation:
-
     platformOrbitTwo
-
     26s
-
     linear
-
     infinite
-
     reverse;
-
 }
-
-
-
 
 
 .platform-hero-orbit-three {
-
   width: min(530px, 92%);
-
   height: 260px;
-
   top: 140px;
 
-
-
   border-style: dashed;
-
   opacity: 0.45;
-
-
 
   transform: translateX(-50%);
 
-
-
   animation:
-
     platformOrbitThree
-
     32s
-
     linear
-
     infinite;
-
 }
-
-
-
 
 
 @keyframes platformOrbitOne {
-
   to {
-
     transform: translateX(-50%) rotate(342deg);
-
   }
-
 }
-
-
-
 
 
 @keyframes platformOrbitTwo {
-
   to {
-
     transform: translateX(-50%) rotate(390deg);
-
   }
-
 }
-
-
-
 
 
 @keyframes platformOrbitThree {
-
   to {
-
     transform: translateX(-50%) rotate(360deg);
-
   }
-
 }
-
-
-
 
 
 /* ============================================================
-
    HERO DEVICE
-
 ============================================================ */
 
-
-
 .platform-device {
-
   position: relative;
-
   width: min(100%, 430px);
 
-
-
   z-index: 6;
-
   background: transparent;
 
-
-
   animation:
-
     platformDeviceFloat
-
     6s
-
     ease-in-out
-
     infinite;
-
 }
-
-
-
 
 
 .platform-device::before,
-
 .platform-device::after {
-
   display: none;
-
 }
-
-
-
 
 
 .platform-theme-crop {
-
   position: relative;
-
   width: 100%;
-
   aspect-ratio: 1;
 
-
-
   overflow: hidden;
-
   background: transparent;
-
 }
 
 
-
-
-
 .platform-theme-img {
-
   display: block;
 
-
-
   width: 200%;
-
   height: 100%;
-
   max-width: none;
 
-
-
   object-fit: fill;
-
   background: transparent;
-
-
 
   mix-blend-mode: multiply;
 
-
-
   filter:
-
     drop-shadow(
-
       0
-
       18px
-
       24px
-
       color-mix(
-
         in srgb,
-
         var(--color-accent) 14%,
-
         transparent
-
       )
-
     );
-
 }
-
-
-
 
 
 [data-theme="dark"]
-
 .platform-theme-img {
-
   transform: translateX(-50%);
-
   mix-blend-mode: normal;
-
 }
-
-
-
 
 
 @keyframes platformDeviceFloat {
-
   50% {
-
     transform: translateY(-7px);
-
   }
-
 }
 
 
-
-
-
 /* ============================================================
-
    FLOATING HERO CARDS
-
 ============================================================ */
 
-
-
 .platform-connected-card,
-
 .platform-network-card,
-
 .platform-approved-card {
-
   position: absolute;
-
-
 
   z-index: 10;
 
-
-
   display: flex;
 
-
-
   align-items: center;
-
-
 
   gap: 0.65rem;
 
-
-
   padding:
-
     0.85rem
-
     1rem;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
-
-
 
   border-radius: 14px;
 
-
-
   background:
-
     var(--platform-surface-glass);
 
-
-
   backdrop-filter:
-
     blur(16px);
 
-
-
   box-shadow:
-
     var(--shadow-md);
 
-
-
   animation:
-
     platformFloatingCard
-
     5s
-
     ease-in-out
-
     infinite;
-
 }
-
-
-
 
 
 .platform-connected-card {
-
   left: 1%;
-
   top: 22%;
-
 }
-
-
-
 
 
 .platform-network-card {
-
   right: 1%;
-
   top: 28%;
 
-
-
   animation-delay: 0.8s;
-
 }
-
-
-
 
 
 .platform-approved-card {
-
   left: 6%;
-
   bottom: 17%;
 
-
-
   animation-delay: 1.5s;
-
 }
-
-
-
 
 
 .platform-connected-card > span {
-
   width: 10px;
-
   height: 10px;
-
-
 
   border-radius: 50%;
 
-
-
   background:
-
     var(--color-signal);
-
-
 
   box-shadow:
-
     0
-
     0
-
     12px
-
     var(--color-signal);
-
 }
-
-
-
 
 
 .platform-network-card > svg,
-
 .platform-approved-card > svg {
-
   width: 22px;
-
   height: 22px;
 
-
-
   color:
-
     var(--color-accent);
-
 }
 
 
-
-
-
 .platform-connected-card strong,
-
 .platform-connected-card small,
-
 .platform-network-card strong,
-
 .platform-network-card small,
-
 .platform-approved-card strong,
-
 .platform-approved-card small {
-
   display: block;
-
 }
 
 
-
-
-
 .platform-connected-card strong,
-
 .platform-network-card strong,
-
 .platform-approved-card strong {
-
   color:
-
     var(--color-ink);
 
-
-
   font-size: 0.68rem;
-
 }
-
-
-
 
 
 .platform-connected-card small,
-
 .platform-network-card small,
-
 .platform-approved-card small {
-
   margin-top: 2px;
 
-
-
   color:
-
     var(--color-ink-faint);
 
-
-
   font-size: 0.52rem;
-
 }
-
-
-
 
 
 @keyframes platformFloatingCard {
-
   50% {
-
     transform:
-
       translateY(-8px);
-
   }
-
 }
-
-
-
 
 
 /* ============================================================
-
    SECTION HEADING
-
 ============================================================ */
 
-
-
 .platform-capabilities {
-
   padding-block:
-
     clamp(
-
       3.5rem,
-
       5vw,
-
       5rem
-
     );
-
 }
-
-
-
 
 
 .platform-section-heading {
-
   max-width: 760px;
 
-
-
   margin:
-
     0
-
     auto
-
     clamp(
-
       2rem,
-
       3vw,
-
       2.7rem
-
     );
 
-
-
   text-align: center;
-
 }
-
-
-
 
 
 .platform-section-heading h2 {
-
   margin:
-
     0
-
     0
-
     0.85rem;
 
-
-
   color:
-
     var(--color-ink);
 
-
-
   font-size:
-
     clamp(
-
       2rem,
-
       4vw,
-
       3.2rem
-
     );
-
-
 
   line-height: 1.08;
 
-
-
   letter-spacing: -0.04em;
-
 }
-
-
-
 
 
 .platform-section-heading h2 span {
-
   color:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-section-heading p {
-
   max-width: 650px;
-
-
 
   margin: auto;
 
-
-
   color:
-
     var(--color-ink-soft);
 
-
-
   line-height: 1.65;
-
 }
 
 
-
-
-
 /* ============================================================
-
    FEATURE GRID
-
 ============================================================ */
-
-
 
 .platform-feature-grid {
-
   display: grid;
 
-
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(
-
         min(100%, 280px),
-
         1fr
-
       )
-
     );
-
-
 
   gap:
-
     clamp(
-
       1rem,
-
       2vw,
-
       1.4rem
-
     );
-
 }
 
 
-
-
-
 /* ============================================================
-
    FEATURE CARD
-
 ============================================================ */
 
-
-
 .platform-feature-card {
-
   position: relative;
-
-
 
   min-height: 420px;
 
-
-
   display: flex;
-
-
 
   flex-direction: column;
 
-
-
   overflow: hidden;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
 
-
-
   border-radius:
-
     clamp(
-
       20px,
-
       2vw,
-
       28px
-
     );
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     var(--shadow-sm);
 
-
-
   transition:
-
     transform 0.35s ease,
-
     border-color 0.35s ease,
-
     box-shadow 0.35s ease;
-
 }
-
-
-
 
 
 .platform-feature-card:hover {
-
   transform:
-
     translateY(-6px);
 
-
-
   border-color:
-
     var(--color-accent);
 
-
-
   box-shadow:
-
     var(--shadow-md);
-
 }
 
 
-
-
-
 /* ============================================================
-
    FEATURE VISUAL
-
 ============================================================ */
 
-
-
 .platform-feature-visual {
-
   position: relative;
-
-
 
   height: 235px;
 
-
-
   display: grid;
-
-
 
   place-items: center;
 
-
-
   overflow: hidden;
 
-
-
   border-bottom:
-
     1px
-
     solid
-
     var(--color-border);
-
 }
-
-
-
 
 
 .platform-feature-visual::before {
-
   content: "";
-
-
 
   position: absolute;
 
-
-
   width: 180px;
-
   height: 180px;
-
-
 
   border-radius: 50%;
 
-
-
   background:
-
     var(--platform-accent-8);
 
-
-
   filter:
-
     blur(18px);
-
 }
-
-
-
 
 
 .platform-feature-visual::after {
-
   content: "";
-
-
 
   position: absolute;
 
-
-
   width: 170px;
-
   height: 170px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--platform-accent-15);
-
-
 
   border-radius: 50%;
 
-
-
   animation:
-
     platformRingPulse
-
     7s
-
     ease-in-out
-
     infinite;
-
 }
-
-
-
 
 
 @keyframes platformRingPulse {
-
   50% {
-
     transform:
-
       scale(1.05);
 
-
-
     opacity: 0.65;
-
   }
-
 }
-
-
-
 
 
 .platform-feature-ring {
-
   position: absolute;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--platform-accent-18);
-
-
 
   border-radius: 50%;
 
-
-
   animation:
-
     platformFeatureRing
-
     var(--platform-spin)
-
     linear
-
     infinite;
 
-
-
   will-change: transform;
-
 }
-
-
-
 
 
 .platform-feature-ring-one {
-
   width: 230px;
-
   height: 100px;
 
-
-
   --platform-tilt: -20deg;
-
   --platform-spin: 28s;
-
 }
-
 .platform-feature-ring-two {
-
   width: 170px;
-
-
 
   height: 75px;
 
-
-
   --platform-tilt: 30deg;
-
-
 
   --platform-spin: 22s;
 
-
-
   animation-direction: reverse;
-
 }
-
-
-
 
 
 @keyframes platformFeatureRing {
-
   from {
-
     transform:
-
       rotate(
-
         var(--platform-tilt)
-
       );
-
   }
-
-
 
   to {
-
     transform:
-
       rotate(
-
         calc(
-
           var(--platform-tilt)
-
           +
-
           360deg
-
         )
-
       );
-
   }
-
 }
-
-
-
 
 
 .platform-feature-card:hover
-
 .platform-feature-ring {
-
   animation-duration: 13s;
-
 }
 
 
-
-
-
 /* ============================================================
-
    WALLET VISUAL
-
 ============================================================ */
 
-
-
 .platform-wallet-illustration {
-
   position: relative;
-
-
 
   width: 165px;
 
-
-
   height: 120px;
-
-
 
   z-index: 3;
 
-
-
   transform:
-
     rotate(-6deg);
-
 }
-
-
-
 
 
 .platform-wallet-back,
-
 .platform-wallet-front {
-
   position: absolute;
 
-
-
   width: 145px;
-
-
 
   height: 90px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 18px;
 
-
-
   box-shadow:
-
     0
-
     15px
-
     35px
-
     var(--platform-accent-18);
-
 }
-
-
-
 
 
 .platform-wallet-back {
-
   left: 12px;
-
-
 
   top: 2px;
 
-
-
   transform:
-
     rotate(9deg);
 
-
-
   background:
-
     var(--platform-accent-8);
-
 }
-
-
-
 
 
 .platform-wallet-front {
-
   left: 0;
-
-
 
   top: 22px;
 
-
-
   padding: 15px;
 
-
-
   background:
-
     var(--color-surface);
-
 }
-
-
-
 
 
 .platform-wallet-brand {
-
   display: flex;
-
-
 
   align-items: center;
 
-
-
   gap: 6px;
-
 }
-
-
-
 
 
 .platform-wallet-brand span {
-
   width: 22px;
-
-
 
   height: 22px;
 
-
-
   display: grid;
-
-
 
   place-items: center;
 
-
-
   border-radius: 50%;
 
-
-
   color:
-
     var(--color-accent-ink);
 
-
-
   background:
-
     var(--color-accent);
-
-
 
   font-size: 0.55rem;
 
-
-
   font-weight: 700;
-
 }
-
-
-
 
 
 .platform-wallet-brand b {
-
   font-size: 0.52rem;
 
-
-
   letter-spacing: 0.1em;
-
 }
-
-
-
 
 
 .platform-wallet-front strong {
-
   display: block;
-
-
 
   margin-top: 12px;
 
-
-
   color:
-
     var(--color-ink);
 
-
-
   font-size: 0.95rem;
-
 }
-
-
-
 
 
 .platform-wallet-dot {
-
   position: absolute;
-
-
 
   width: 7px;
 
-
-
   height: 7px;
-
-
 
   border-radius: 50%;
 
-
-
   background:
-
     var(--color-accent);
-
-
 
   box-shadow:
-
     0
-
     0
-
     9px
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-wallet-dot-one {
-
   right: 0;
 
-
-
   top: 5px;
-
 }
-
-
-
 
 
 .platform-wallet-dot-two {
-
   left: 8px;
 
-
-
   bottom: 0;
-
 }
 
 
-
-
-
 /* ============================================================
-
    BUY VISUAL
-
 ============================================================ */
 
-
-
 .platform-buy-illustration {
-
   position: relative;
-
-
 
   width: 200px;
 
-
-
   height: 135px;
 
-
-
   z-index: 3;
-
 }
-
-
-
 
 
 .platform-payment-card {
-
   position: absolute;
 
-
-
   left: 5px;
-
-
 
   top: 24px;
 
-
-
   width: 125px;
-
-
 
   height: 82px;
 
-
-
   padding: 14px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
-
-
 
   border-radius: 16px;
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     var(--shadow-md);
 
-
-
   transform:
-
     rotate(-7deg);
-
 }
-
-
-
 
 
 .platform-payment-chip {
-
   width: 25px;
-
-
 
   height: 17px;
 
-
-
   margin-bottom: 10px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
 
-
-
   border-radius: 5px;
-
 }
-
-
-
 
 
 .platform-payment-card small,
-
 .platform-payment-card strong {
-
   display: block;
-
 }
-
-
-
 
 
 .platform-payment-card small {
-
   color:
-
     var(--color-ink-faint);
 
-
-
   font-size: 0.48rem;
-
 }
-
-
-
 
 
 .platform-payment-card strong {
-
   margin-top: 3px;
 
-
-
   font-size: 0.78rem;
-
 }
-
-
-
 
 
 .platform-buy-arrow {
-
   position: absolute;
-
-
 
   left: 122px;
 
-
-
   top: 56px;
 
-
-
   color:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-buy-arrow svg {
-
   width: 25px;
 
-
-
   height: 25px;
-
 }
-
-
-
 
 
 .platform-buy-token {
-
   position: absolute;
 
-
-
   right: 0;
-
-
 
   top: 43px;
 
-
-
   width: 48px;
-
-
 
   height: 48px;
 
-
-
   display: grid;
-
-
 
   place-items: center;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 50%;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     0
-
     10px
-
     25px
-
     var(--platform-accent-18);
-
 }
 
 
-
-
-
 /* ============================================================
-
    SWAP VISUAL
-
 ============================================================ */
 
-
-
 .platform-swap-illustration {
-
   position: relative;
-
-
 
   width: 210px;
 
-
-
   height: 135px;
 
-
-
   z-index: 3;
-
 }
-
-
-
 
 
 .platform-swap-token {
-
   position: absolute;
-
-
 
   width: 70px;
 
-
-
   height: 70px;
-
-
 
   display: grid;
 
-
-
   place-items: center;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 50%;
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     var(--shadow-sm);
-
 }
-
-
-
 
 
 .platform-swap-token span {
-
   color:
-
     var(--color-accent);
-
-
 
   font-size: 1.15rem;
 
-
-
   font-weight: 700;
-
 }
-
-
-
 
 
 .platform-swap-token small {
-
   color:
-
     var(--color-ink-faint);
 
-
-
   font-size: 0.4rem;
-
 }
-
-
-
 
 
 .platform-swap-token-one {
-
   left: 5px;
 
-
-
   top: 32px;
-
 }
-
-
-
 
 
 .platform-swap-token-two {
-
   right: 5px;
 
-
-
   top: 32px;
-
 }
-
-
-
 
 
 .platform-swap-center {
-
   position: absolute;
-
-
 
   left: 50%;
 
-
-
   top: 50%;
-
-
 
   width: 42px;
 
-
-
   height: 42px;
-
-
 
   display: grid;
 
-
-
   place-items: center;
 
-
-
   transform:
-
     translate(-50%, -50%);
-
-
 
   border-radius: 12px;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-accent-soft);
 
-
-
   z-index: 3;
-
 }
-
-
-
 
 
 .platform-swap-center svg {
-
   width: 22px;
 
-
-
   height: 22px;
-
 }
-
-
-
 
 
 .platform-swap-line {
-
   position: absolute;
-
-
 
   left: 65px;
 
-
-
   width: 82px;
-
-
 
   height: 1px;
 
-
-
   background:
-
     linear-gradient(
-
       90deg,
-
       transparent,
-
       var(--color-accent),
-
       transparent
-
     );
-
 }
-
-
-
 
 
 .platform-swap-line-one {
-
   top: 47px;
-
 }
-
-
-
 
 
 .platform-swap-line-two {
-
   top: 87px;
-
 }
 
 
-
-
-
 /* ============================================================
-
    STAKING VISUAL
-
 ============================================================ */
 
-
-
 .platform-staking-illustration {
-
   position: relative;
-
-
 
   width: 175px;
 
-
-
   height: 155px;
-
-
 
   display: grid;
 
-
-
   place-items: center;
 
-
-
   z-index: 3;
-
 }
-
-
-
 
 
 .platform-staking-orbit {
-
   position: absolute;
-
-
 
   width: 150px;
 
-
-
   height: 78px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--platform-accent-32);
-
-
 
   border-radius: 50%;
 
-
-
   transform:
-
     rotate(-22deg);
-
 }
-
-
-
 
 
 .platform-staking-core {
-
   width: 88px;
-
-
 
   height: 88px;
 
-
-
   display: flex;
-
-
 
   flex-direction: column;
 
-
-
   align-items: center;
-
-
 
   justify-content: center;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 50%;
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     0
-
     15px
-
     35px
-
     var(--platform-accent-18);
 
-
-
   z-index: 3;
-
 }
-
-
-
 
 
 .platform-staking-core svg {
-
   width: 24px;
-
-
 
   height: 24px;
 
-
-
   margin-bottom: 4px;
 
-
-
   color:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-staking-core strong {
-
   font-size: 0.58rem;
-
 }
-
-
-
 
 
 .platform-staking-core small {
-
   color:
-
     var(--color-ink-faint);
 
-
-
   font-size: 0.42rem;
-
 }
-
-
-
 
 
 .platform-staking-coin {
-
   position: absolute;
-
-
 
   width: 30px;
 
-
-
   height: 30px;
-
-
 
   display: grid;
 
-
-
   place-items: center;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 50%;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   font-size: 0.55rem;
-
 }
-
-
-
 
 
 .platform-staking-coin-one {
-
   left: 0;
 
-
-
   top: 62px;
-
 }
-
-
-
 
 
 .platform-staking-coin-two {
-
   right: 2px;
 
-
-
   top: 22px;
-
 }
-
-
-
 
 
 .platform-staking-coin-three {
-
   right: 15px;
 
-
-
   bottom: 5px;
-
 }
 
 
-
-
-
 /* ============================================================
-
    DAPP VISUAL
-
 ============================================================ */
 
-
-
 .platform-dapp-illustration {
-
   position: relative;
-
-
 
   width: 190px;
 
-
-
   height: 145px;
 
-
-
   z-index: 3;
-
 }
-
-
-
 
 
 .platform-dapp-window {
-
   position: absolute;
-
-
 
   left: 15px;
 
-
-
   top: 13px;
-
-
 
   width: 160px;
 
-
-
   height: 118px;
-
-
 
   padding: 12px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
-
-
 
   border-radius: 15px;
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     var(--shadow-md);
-
 }
-
-
-
 
 
 .platform-dapp-window-top {
-
   display: flex;
-
-
 
   gap: 4px;
 
-
-
   margin-bottom: 9px;
-
 }
-
-
-
 
 
 .platform-dapp-window-top i {
-
   width: 5px;
-
-
 
   height: 5px;
 
-
-
   border-radius: 50%;
 
-
-
   background:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-dapp-address {
-
   padding:
-
     5px
-
     8px;
-
-
 
   border-radius: 7px;
 
-
-
   color:
-
     var(--color-ink-faint);
 
-
-
   background:
-
     var(--color-surface-sunken);
 
-
-
   font-family:
-
     var(--font-mono);
 
-
-
   font-size: 0.45rem;
-
 }
-
-
-
 
 
 .platform-dapp-connect {
-
   display: flex;
-
-
 
   align-items: center;
 
-
-
   gap: 7px;
-
-
 
   margin-top: 15px;
 
-
-
   padding:
-
     9px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
 
-
-
   border-radius: 9px;
-
 }
-
-
-
 
 
 .platform-dapp-connect svg {
-
   width: 18px;
-
-
 
   height: 18px;
 
-
-
   color:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-dapp-connect span {
-
   font-size: 0.52rem;
 
-
-
   font-weight: 600;
-
 }
-
-
-
 
 
 .platform-dapp-connect small {
-
   margin-left: auto;
 
-
-
   color:
-
     var(--color-signal);
 
-
-
   font-size: 0.4rem;
-
 }
-
-
-
 
 
 .platform-dapp-node {
-
   position: absolute;
-
-
 
   width: 28px;
 
-
-
   height: 28px;
-
-
 
   display: grid;
 
-
-
   place-items: center;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 50%;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   font-size: 0.45rem;
-
 }
-
-
-
 
 
 .platform-dapp-node-one {
-
   left: 0;
 
-
-
   top: 58px;
-
 }
-
-
-
 
 
 .platform-dapp-node-two {
-
   right: 0;
 
-
-
   top: 30px;
-
 }
 
 
-
-
-
 /* ============================================================
-
    PORTFOLIO VISUAL
-
 ============================================================ */
 
-
-
 .platform-portfolio-illustration {
-
   position: relative;
-
-
 
   width: 185px;
 
-
-
   height: 135px;
 
-
-
   z-index: 3;
-
 }
-
 .platform-portfolio-card {
-
   width: 100%;
 
-
-
   height: 100%;
-
-
 
   padding: 15px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
-
-
 
   border-radius: 17px;
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     var(--shadow-md);
 
-
-
   transform:
-
     rotate(-3deg);
-
 }
-
-
-
 
 
 .platform-portfolio-top {
-
   display: flex;
-
-
 
   justify-content: space-between;
 
-
-
   align-items: flex-start;
-
 }
-
-
-
 
 
 .platform-portfolio-top small,
-
 .platform-portfolio-top strong {
-
   display: block;
-
 }
-
-
-
 
 
 .platform-portfolio-top small {
-
   color:
-
     var(--color-ink-faint);
 
-
-
   font-size: 0.45rem;
-
 }
-
-
-
 
 
 .platform-portfolio-top strong {
-
   margin-top: 3px;
 
-
-
   font-size: 0.85rem;
-
 }
-
-
-
 
 
 .platform-portfolio-top > span {
-
   color:
-
     var(--color-signal);
 
-
-
   font-size: 0.46rem;
-
 }
-
-
-
 
 
 .platform-portfolio-bars {
-
   height: 63px;
 
-
-
   display: flex;
-
-
 
   align-items: flex-end;
 
-
-
   gap: 7px;
 
-
-
   margin-top: 14px;
-
 }
-
-
-
 
 
 .platform-portfolio-bars i {
-
   flex: 1;
-
-
 
   min-height: 8px;
 
-
-
   border-radius:
-
     4px
-
     4px
-
     0
-
     0;
 
-
-
   background:
-
     var(--color-accent);
 
-
-
   animation:
-
     platformBarPulse
-
     3s
-
     ease-in-out
-
     infinite
-
     alternate;
-
 }
-
-
-
 
 
 .platform-portfolio-bars i:nth-child(2) {
-
   animation-delay: 0.2s;
-
 }
-
-
-
 
 
 .platform-portfolio-bars i:nth-child(3) {
-
   animation-delay: 0.4s;
-
 }
-
-
-
 
 
 .platform-portfolio-bars i:nth-child(4) {
-
   animation-delay: 0.6s;
-
 }
-
-
-
 
 
 .platform-portfolio-bars i:nth-child(5) {
-
   animation-delay: 0.8s;
-
 }
-
-
-
 
 
 .platform-portfolio-bars i:nth-child(6) {
-
   animation-delay: 1s;
-
 }
-
-
-
 
 
 @keyframes platformBarPulse {
-
   to {
-
     opacity: 0.62;
 
-
-
     transform:
-
       scaleY(0.82);
 
-
-
     transform-origin: bottom;
-
   }
-
 }
-
-
-
 
 
 /* ============================================================
-
    FEATURE CONTENT
-
 ============================================================ */
 
-
-
 .platform-feature-content {
-
   flex: 1;
-
-
 
   display: flex;
 
-
-
   flex-direction: column;
 
-
-
   padding:
-
     1.35rem
-
     1.4rem
-
     1.55rem;
-
 }
-
-
-
 
 
 .platform-feature-heading {
-
   display: flex;
-
-
 
   align-items: center;
 
-
-
   gap: 0.75rem;
-
 }
-
-
-
 
 
 .platform-feature-icon {
-
   width: 36px;
-
   height: 36px;
 
-
-
   display: grid;
-
   place-items: center;
-
-
 
   flex-shrink: 0;
 
-
-
   border-radius: 10px;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-accent-soft);
-
 }
-
-
-
 
 
 .platform-feature-icon svg {
-
   width: 18px;
 
-
-
   height: 18px;
-
 }
-
-
-
 
 
 .platform-feature-card h3 {
-
   margin: 0;
 
-
-
   color:
-
     var(--color-ink);
 
-
-
   font-size: 1rem;
-
-
 
   line-height: 1.25;
 
-
-
   letter-spacing: -0.02em;
-
 }
-
-
-
 
 
 .platform-feature-card p {
-
   margin:
-
     0.85rem
-
     0
-
     0;
 
-
-
   color:
-
     var(--color-ink-soft);
-
-
 
   font-size: 0.8rem;
 
-
-
   line-height: 1.7;
-
 }
-
-
-
 
 
 /* ============================================================
-
    JOURNEY SECTION
-
 ============================================================ */
 
-
-
 .platform-journey-section {
-
   padding-block:
-
     clamp(
-
       3.5rem,
-
       5vw,
-
       5rem
-
     );
 
-
-
   border-block:
-
     1px
-
     solid
-
     var(--color-border);
 
-
-
   background:
-
     var(--color-surface-sunken);
-
 }
-
-
-
 
 
 .platform-journey-grid {
-
   display: grid;
 
-
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(
-
         min(100%, 185px),
-
         1fr
-
       )
-
     );
-
-
 
   gap:
-
     clamp(
-
       1rem,
-
       2vw,
-
       1.4rem
-
     );
-
 }
-
-
-
 
 
 .platform-journey-card {
-
   position: relative;
-
-
 
   min-height: 245px;
 
-
-
   padding:
-
     1.4rem;
-
-
 
   overflow: hidden;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
 
-
-
   border-radius:
-
     clamp(
-
       18px,
-
       2vw,
-
       24px
-
     );
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   transition:
-
     transform 0.35s ease,
-
     border-color 0.35s ease;
-
 }
-
-
-
 
 
 .platform-journey-card:hover {
-
   transform:
-
     translateY(-5px);
 
-
-
   border-color:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-step-number {
-
   display: block;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   font-family:
-
     var(--font-mono);
-
-
 
   font-size: 0.68rem;
 
-
-
   letter-spacing: 0.1em;
-
 }
-
-
-
 
 
 .platform-step-line {
-
   position: relative;
-
-
 
   width: 100%;
 
-
-
   height: 1px;
 
-
-
   margin:
-
     1.3rem
-
     0
-
     1.6rem;
-
-
 
   overflow: hidden;
 
-
-
   background:
-
     var(--color-border);
-
 }
-
-
-
 
 
 .platform-step-line i {
-
   position: absolute;
-
-
 
   width: 35%;
 
-
-
   height: 100%;
-
-
 
   left: -35%;
 
-
-
   opacity: 0;
 
-
-
   background:
-
     linear-gradient(
-
       90deg,
-
       transparent 0%,
-
       var(--color-accent) 35%,
-
       var(--color-accent) 65%,
-
       transparent 100%
-
     );
 
-
-
   animation:
-
     platformStepFlowSequence
-
     10s
-
     linear
-
     infinite;
 
-
-
   will-change: left, opacity;
-
 }
-
-
-
 
 
 /* ============================================================
-
    JOURNEY LINE SEQUENCE
-
    01 → 02 → 03 → 04 → 05 → repeat
-
 ============================================================ */
 
-
-
 .platform-journey-card:nth-child(1) .platform-step-line i {
-
   animation-delay: 0s;
-
 }
-
-
 
 .platform-journey-card:nth-child(2) .platform-step-line i {
-
   animation-delay: 2s;
-
 }
-
-
 
 .platform-journey-card:nth-child(3) .platform-step-line i {
-
   animation-delay: 4s;
-
 }
-
-
 
 .platform-journey-card:nth-child(4) .platform-step-line i {
-
   animation-delay: 6s;
-
 }
-
-
 
 .platform-journey-card:nth-child(5) .platform-step-line i {
-
   animation-delay: 8s;
-
 }
-
-
-
 
 
 @keyframes platformStepFlowSequence {
-
   0% {
-
     left: -35%;
-
     opacity: 0;
-
   }
-
-
 
   1% {
-
     left: -35%;
-
     opacity: 1;
-
   }
-
-
 
   18% {
-
     left: 100%;
-
     opacity: 1;
-
   }
-
-
 
   19% {
-
     left: 100%;
-
     opacity: 0;
-
   }
-
-
 
   100% {
-
     left: 100%;
-
     opacity: 0;
-
   }
-
 }
-
-
-
 
 
 .platform-journey-card h3 {
-
   margin:
-
     0
-
     0
-
     0.7rem;
 
-
-
   color:
-
     var(--color-ink);
 
-
-
   font-size: 1rem;
-
 }
-
-
-
 
 
 .platform-journey-card p {
-
   margin: 0;
 
-
-
   color:
-
     var(--color-ink-soft);
-
-
 
   font-size: 0.78rem;
 
-
-
   line-height: 1.65;
-
 }
-
-
-
 
 
 /* ============================================================
-
    SECURITY SECTION
-
 ============================================================ */
 
-
-
 .platform-security-section {
-
   padding-block:
-
     clamp(
-
       3.5rem,
-
       5vw,
-
       5rem
-
     );
-
 }
-
-
-
 
 
 .platform-security-inner {
-
   display: grid;
 
-
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(
-
         min(100%, 29rem),
-
         1fr
-
       )
-
     );
-
-
 
   align-items: center;
 
-
-
   gap:
-
     clamp(
-
       2rem,
-
       4vw,
-
       4rem
-
     );
-
 }
-
-
-
 
 
 /* ============================================================
-
    SECURITY VISUAL
-
 ============================================================ */
 
-
-
 .platform-security-visual {
-
   position: relative;
 
-
-
   min-height:
-
     clamp(
-
       340px,
-
       36vw,
-
       460px
-
     );
 
-
-
   display: grid;
-
   place-items: center;
 
-
-
   isolation: isolate;
-
   background: transparent;
-
 }
-
-
-
 
 
 .platform-security-visual::before {
-
   content: "";
 
-
-
   position: absolute;
-
   width: 70%;
-
   height: 70%;
-
   left: 50%;
-
   top: 50%;
-
-
 
   transform: translate(-50%, -50%);
 
-
-
   border-radius: 50%;
-
   background: var(--platform-accent-8);
-
   filter: blur(34px);
 
-
-
   opacity: 1;
-
   pointer-events: none;
-
   z-index: -3;
-
 }
-
-
-
 
 
 /* ============================================================
-
    SECURITY ORBITS
-
 ============================================================ */
 
-
-
 .platform-security-orbit {
-
   position: absolute;
 
-
-
   border: 1px solid var(--platform-accent-25);
-
   border-radius: 50%;
 
-
-
   pointer-events: none;
-
   z-index: -1;
 
-
-
   animation: none;
-
 }
-
-
-
 
 
 .platform-security-orbit-one {
-
   width: min(390px, 80%);
-
   height: 205px;
 
-
-
   transform: rotate(-25deg);
-
 }
-
-
-
 
 
 .platform-security-orbit-two {
-
   width: min(310px, 64%);
-
   height: 165px;
 
-
-
   transform: rotate(28deg);
-
 }
 
 
-
-
-
 /* ============================================================
-
    SECURITY IMAGE
-
 ============================================================ */
 
-
-
 .platform-security-image-wrapper {
-
   position: relative;
 
-
-
   width: min(100%, 300px);
-
   aspect-ratio: 1;
-
-
 
   overflow: hidden;
 
-
-
   z-index: 3;
-
   background: transparent;
 
-
-
   animation: none;
-
 }
 
 
-
-
-
 .platform-security-image {
-
   display: block;
 
-
-
   width: 200%;
-
   height: 100%;
-
   max-width: none;
 
-
-
   object-fit: fill;
-
   background: transparent;
-
-
 
   mix-blend-mode: multiply;
 
-
-
   filter:
-
     drop-shadow(
-
       0
-
       18px
-
       24px
-
       color-mix(
-
         in srgb,
-
         var(--color-accent) 14%,
-
         transparent
-
       )
-
     );
 
-
-
   animation: none;
-
 }
-
-
-
 
 
 [data-theme="dark"]
-
 .platform-security-image {
-
   transform: translateX(-50%);
-
   mix-blend-mode: normal;
-
 }
 
 
-
-
-
 /* ============================================================
-
    WALLET CONTROL CARD
-
 ============================================================ */
 
-
-
 .platform-security-card {
-
   position: absolute;
 
-
-
   right: 4%;
-
   bottom: 17%;
-
-
 
   z-index: 6;
 
-
-
   display: flex;
-
   align-items: center;
-
-
 
   gap: 0.7rem;
 
-
-
   padding:
-
     0.85rem
-
     1rem;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
-
-
 
   border-radius: 14px;
 
-
-
   background:
-
     var(--platform-surface-glass);
-
-
 
   backdrop-filter: blur(16px);
 
-
-
   box-shadow:
-
     var(--shadow-md);
 
-
-
   animation: none;
-
 }
-
-
-
 
 
 .platform-security-card-icon {
-
   width: 36px;
-
   height: 36px;
 
-
-
   display: grid;
-
   place-items: center;
-
-
 
   border-radius: 10px;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-accent-soft);
-
 }
-
-
-
 
 
 .platform-security-card-icon svg {
-
   width: 18px;
-
   height: 18px;
-
 }
-
-
-
 
 
 .platform-security-card strong,
-
 .platform-security-card small {
-
   display: block;
-
 }
-
-
-
 
 
 .platform-security-card strong {
-
   color:
-
     var(--color-ink);
 
-
-
   font-size: 0.68rem;
-
 }
-
-
-
 
 
 .platform-security-card small {
-
   margin-top: 2px;
 
-
-
   color:
-
     var(--color-ink-faint);
 
-
-
   font-size: 0.52rem;
-
 }
 
 
-
-
-
 /* ============================================================
-
    SECURITY COPY
-
 ============================================================ */
 
-
-
 .platform-security-copy h2,
-
 .platform-connected-copy h2 {
-
   max-width: 650px;
 
-
-
   margin:
-
     0
-
     0
-
     1rem;
 
-
-
   color:
-
     var(--color-ink);
 
-
-
   font-size:
-
     clamp(
-
       2.1rem,
-
       4vw,
-
       3.4rem
-
     );
-
-
 
   line-height: 1.05;
 
-
-
   letter-spacing: -0.04em;
-
 }
-
-
-
 
 
 .platform-security-copy h2 span,
-
 .platform-connected-copy h2 span {
-
   color:
-
     var(--color-accent);
-
 }
-
-
-
 
 
 .platform-security-description {
-
   max-width: 580px;
 
-
-
   margin:
-
     0
-
     0
-
     1.8rem;
 
-
-
   color:
-
     var(--color-ink-soft);
 
-
-
   line-height: 1.7;
-
 }
-
-
-
 
 
 .platform-security-list {
-
   display: grid;
 
-
-
   gap: 0.75rem;
-
 }
-
-
-
 
 
 .platform-security-item {
-
   display: flex;
-
-
 
   align-items: center;
 
-
-
   gap: 0.75rem;
-
 }
-
-
-
 
 
 .platform-security-item > span {
-
   width: 30px;
-
-
 
   height: 30px;
 
-
-
   display: grid;
 
-
-
   place-items: center;
-
-
 
   flex-shrink: 0;
 
-
-
   border-radius: 9px;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-accent-soft);
-
 }
-
-
-
 
 
 .platform-security-item svg {
-
   width: 16px;
 
-
-
   height: 16px;
-
 }
-
-
-
 
 
 .platform-security-item strong {
-
   color:
-
     var(--color-ink);
-
-
 
   font-size: 0.84rem;
 
-
-
   font-weight: 550;
-
 }
-
 /* ============================================================
-
    CONNECTED WEB3 SECTION
-
 ============================================================ */
 
-
-
 .platform-connected-section {
-
   display: grid;
 
-
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(
-
         min(100%, 29rem),
-
         1fr
-
       )
-
     );
-
-
 
   align-items: center;
 
-
-
   gap:
-
     clamp(
-
       2rem,
-
       4vw,
-
       4.5rem
-
     );
-
-
 
   padding-block:
-
     clamp(
-
       3.5rem,
-
       5vw,
-
       5rem
-
     );
 
-
-
   border-top:
-
     1px
-
     solid
-
     var(--color-border);
-
 }
-
-
-
 
 
 .platform-connected-copy > p {
-
   max-width: 590px;
 
-
-
   color:
-
     var(--color-ink-soft);
 
-
-
   line-height: 1.7;
-
 }
-
-
-
 
 
 .platform-connected-points {
-
   display: grid;
-
-
 
   gap: 0.8rem;
 
-
-
   margin-top: 1.8rem;
-
 }
-
-
-
 
 
 .platform-connected-points > div {
-
   display: flex;
 
-
-
   align-items: center;
-
-
 
   gap: 0.8rem;
 
-
-
   color:
-
     var(--color-ink-soft);
 
-
-
   font-size: 0.84rem;
-
 }
-
-
-
 
 
 .platform-connected-points svg {
-
   width: 19px;
-
-
 
   height: 19px;
 
-
-
   color:
-
     var(--color-accent);
-
 }
 
 
-
-
-
 /* ============================================================
-
    NETWORK VISUAL
-
 ============================================================ */
 
-
-
 .platform-network-visual {
-
   position: relative;
 
-
-
   width:
-
     min(
-
       100%,
-
       490px
-
     );
-
-
 
   aspect-ratio: 1;
 
-
-
   margin-inline: auto;
-
-
 
   display: grid;
 
-
-
   place-items: center;
 
-
-
   isolation: isolate;
-
 }
-
-
-
 
 
 .platform-network-visual::before {
-
   content: "";
 
-
-
   position: absolute;
-
-
 
   width: 68%;
 
-
-
   height: 68%;
-
-
 
   border-radius: 50%;
 
-
-
   background:
-
     var(--platform-accent-8);
 
-
-
   filter:
-
     blur(25px);
 
-
-
   z-index: -2;
-
 }
-
-
-
 
 
 .platform-network-ring {
-
   position: absolute;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--platform-accent-25);
-
-
 
   border-radius: 50%;
 
-
-
   animation:
-
     platformNetworkSpin
-
     26s
-
     linear
-
     infinite;
-
 }
-
-
-
 
 
 .platform-network-ring-one {
-
   width: 78%;
-
-
 
   height: 43%;
 
-
-
   transform:
-
     rotate(-18deg);
-
 }
-
-
-
 
 
 .platform-network-ring-two {
-
   width: 62%;
-
-
 
   height: 34%;
 
-
-
   transform:
-
     rotate(38deg);
-
-
 
   animation-direction: reverse;
 
-
-
   animation-duration: 21s;
-
 }
-
-
-
 
 
 @keyframes platformNetworkSpin {
-
   to {
-
     transform:
-
       rotate(342deg);
-
   }
-
 }
-
-
-
 
 
 .platform-network-core {
-
   position: relative;
-
-
 
   z-index: 5;
 
-
-
   width: 115px;
-
-
 
   height: 115px;
 
-
-
   display: flex;
-
-
 
   flex-direction: column;
 
-
-
   align-items: center;
-
-
 
   justify-content: center;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-accent);
-
-
 
   border-radius: 28px;
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     0
-
     20px
-
     45px
-
     var(--platform-accent-25);
-
 }
-
-
-
 
 
 .platform-network-core > span {
-
   width: 38px;
-
-
 
   height: 38px;
 
-
-
   display: grid;
-
-
 
   place-items: center;
 
-
-
   margin-bottom: 8px;
-
-
 
   border-radius: 50%;
 
-
-
   color:
-
     var(--color-accent-ink);
 
-
-
   background:
-
     var(--color-accent);
 
-
-
   font-weight: 700;
-
 }
-
-
-
 
 
 .platform-network-core strong {
-
   font-size: 0.8rem;
-
 }
-
-
-
 
 
 .platform-network-node {
-
   position: absolute;
-
-
 
   z-index: 6;
 
-
-
   width: 80px;
-
-
 
   height: 80px;
 
-
-
   display: flex;
-
-
 
   flex-direction: column;
 
-
-
   align-items: center;
-
-
 
   justify-content: center;
 
-
-
   gap: 5px;
 
-
-
   border:
-
     1px
-
     solid
-
     var(--color-border);
-
-
 
   border-radius: 22px;
 
-
-
   color:
-
     var(--color-accent);
 
-
-
   background:
-
     var(--color-surface);
 
-
-
   box-shadow:
-
     var(--shadow-md);
 
-
-
   animation:
-
     platformNodeFloat
-
     5s
-
     ease-in-out
-
     infinite;
-
 }
-
-
-
 
 
 .platform-network-node svg {
-
   width: 21px;
 
-
-
   height: 21px;
-
 }
-
-
-
 
 
 .platform-network-node small {
-
   color:
-
     var(--color-ink-soft);
 
-
-
   font-size: 0.48rem;
-
 }
-
-
-
 
 
 .platform-node-wallet {
-
   left: 5%;
 
-
-
   top: 40%;
-
 }
-
-
-
 
 
 .platform-node-assets {
-
   left: 42%;
-
-
 
   top: 3%;
 
-
-
   animation-delay: 0.8s;
-
 }
-
-
-
 
 
 .platform-node-dapps {
-
   right: 4%;
-
-
 
   top: 42%;
 
-
-
   animation-delay: 1.6s;
-
 }
-
-
-
 
 
 .platform-node-chains {
-
   left: 42%;
-
-
 
   bottom: 3%;
 
-
-
   animation-delay: 2.3s;
-
 }
-
-
-
 
 
 @keyframes platformNodeFloat {
-
   50% {
-
     transform:
-
       translateY(-8px);
-
   }
-
 }
-
-
-
 
 
 .platform-network-line {
-
   position: absolute;
-
-
 
   width: 145px;
 
-
-
   height: 1px;
-
-
 
   left: 50%;
 
-
-
   top: 50%;
-
-
 
   margin-left: -72px;
 
-
-
   background:
-
     linear-gradient(
-
       90deg,
-
       transparent,
-
       var(--color-accent),
-
       transparent
-
     );
-
-
 
   opacity: 0.4;
 
-
-
   transform-origin: center;
-
 }
-
-
-
 
 
 .platform-network-line-one {
-
   transform:
-
     rotate(0deg);
-
 }
-
-
-
 
 
 .platform-network-line-two {
-
   transform:
-
     rotate(90deg);
-
 }
-
-
-
 
 
 .platform-network-line-three {
-
   transform:
-
     rotate(45deg);
-
 }
-
-
-
 
 
 .platform-network-line-four {
-
   transform:
-
     rotate(-45deg);
-
 }
-
-
-
 
 
 /* ============================================================
-
    FLUID RESPONSIVE OVERRIDES
-
    NO MEDIA QUERIES
-
 ============================================================ */
 
-
-
 .platform-page {
-
   overflow-x: clip;
-
 }
-
-
-
 
 
 /* Hero automatically becomes 2 columns or 1 column */
 
-
-
 .platform-hero {
-
   min-height: clamp(34rem, 72vh, 46rem);
 
-
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(min(100%, 28rem), 1fr)
-
     );
-
-
 
   gap: clamp(1.5rem, 5vw, 5rem);
 
-
-
   padding-block:
-
     clamp(2.25rem, 6vw, 5rem);
-
 }
 
 
-
-
-
 .platform-hero h1 {
-
   width: min(100%, 13ch);
-
-
 
   max-width: none;
 
-
-
   font-size:
-
     clamp(2.35rem, 6vw, 4.65rem);
-
-
 
   line-height: 0.99;
 
-
-
   text-wrap: balance;
-
 }
-
-
-
 
 
 .platform-description {
-
   width: min(100%, 38rem);
-
-
 
   max-width: none;
 
-
-
   font-size:
-
     clamp(0.95rem, 1.35vw, 1.2rem);
 
-
-
   line-height: 1.6;
-
 }
-
-
-
 
 
 .platform-hero-visual {
-
   width: min(100%, 39rem);
 
-
-
   height:
-
     clamp(20rem, 42vw, 33rem);
 
-
-
   margin-inline: auto;
-
 }
-
-
-
 
 
 .platform-hero-visual::before {
-
   width: min(76%, 28rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1;
 
-
-
   filter:
-
     blur(clamp(1.4rem, 3vw, 2.3rem));
-
 }
-
-
-
 
 
 .platform-hero-orbit {
-
   top: 50%;
-
 }
-
-
-
 
 
 .platform-hero-orbit-one {
-
   width: min(82%, 29rem);
 
-
-
   height:
-
     clamp(9rem, 20vw, 14.5rem);
-
-
 
   top: 50%;
 
-
-
   transform:
-
     translate(-50%, -50%)
-
     rotate(-18deg);
-
 }
-
-
-
 
 
 .platform-hero-orbit-two {
-
   width: min(68%, 24rem);
 
-
-
   height:
-
     clamp(7.5rem, 16vw, 11.5rem);
-
-
 
   top: 50%;
 
-
-
   transform:
-
     translate(-50%, -50%)
-
     rotate(30deg);
-
 }
-
-
-
 
 
 .platform-hero-orbit-three {
-
   width: min(94%, 33rem);
 
-
-
   height:
-
     clamp(10rem, 23vw, 16rem);
-
-
 
   top: 50%;
 
-
-
   transform:
-
     translate(-50%, -50%);
-
 }
-
-
-
 
 
 @keyframes platformOrbitOne {
-
   to {
-
     transform:
-
       translate(-50%, -50%)
-
       rotate(342deg);
-
   }
-
 }
-
-
-
 
 
 @keyframes platformOrbitTwo {
-
   to {
-
     transform:
-
       translate(-50%, -50%)
-
       rotate(390deg);
-
   }
-
 }
-
-
-
 
 
 @keyframes platformOrbitThree {
-
   to {
-
     transform:
-
       translate(-50%, -50%)
-
       rotate(360deg);
-
   }
-
 }
-
-
-
 
 
 .platform-device {
-
   width: min(82vw, 27rem, 88%);
-
 }
-
-
-
 
 
 .platform-connected-card,
-
 .platform-network-card,
-
 .platform-approved-card {
-
   display: none !important;
-
 }
-
-
-
 
 
 .platform-capabilities,
-
 .platform-journey-section,
-
 .platform-security-section,
-
 .platform-connected-section {
-
   padding-block:
-
     clamp(3.25rem, 7vw, 6rem);
-
 }
-
-
-
 
 
 .platform-section-heading {
-
   width: min(100%, 47.5rem);
 
-
-
   margin-bottom:
-
     clamp(1.8rem, 4vw, 2.8rem);
-
 }
-
-
-
 
 
 .platform-section-heading h2,
-
 .platform-security-copy h2,
-
 .platform-connected-copy h2 {
-
   font-size:
-
     clamp(1.85rem, 4.5vw, 3.4rem);
-
 }
-
-
-
 
 
 /* ============================================================
-
    FEATURE GRID — 3 + 3 CARDS
-
 ============================================================ */
 
-
-
 .platform-feature-grid {
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(min(100%, 21rem), 1fr)
-
     );
 
-
-
   gap:
-
     clamp(0.9rem, 2.2vw, 1.4rem);
-
 }
-
-
-
 
 
 .platform-feature-card {
-
   min-width: 0;
 
-
-
   min-height:
-
     clamp(23rem, 31vw, 26.5rem);
-
 }
-
-
-
 
 
 .platform-feature-visual {
-
   height:
-
     clamp(12.5rem, 22vw, 14.75rem);
-
 }
-
-
-
 
 
 .platform-feature-content {
-
   padding:
-
     clamp(1rem, 2vw, 1.45rem);
-
 }
-
-
-
 
 
 .platform-journey-grid {
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(min(100%, 10.5rem), 1fr)
-
     );
 
-
-
   gap:
-
     clamp(0.85rem, 2vw, 1.4rem);
-
 }
-
-
-
 
 
 .platform-journey-card {
-
   min-width: 0;
 
-
-
   min-height:
-
     clamp(12rem, 20vw, 15rem);
 
-
-
   padding:
-
     clamp(1rem, 2.4vw, 1.4rem);
-
 }
-
-
-
 
 
 .platform-security-inner,
-
 .platform-connected-section {
-
   grid-template-columns:
-
     repeat(
-
       auto-fit,
-
       minmax(min(100%, 27rem), 1fr)
-
     );
 
-
-
   gap:
-
     clamp(2rem, 6vw, 6rem);
-
 }
-
-
-
 
 
 .platform-security-visual {
-
   width: min(100%, 35rem);
 
-
-
   min-height:
-
     clamp(20rem, 42vw, 31rem);
 
-
-
   margin-inline: auto;
-
 }
-
-
-
 
 
 .platform-security-visual::before {
-
   width: min(72%, 24rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1;
 
-
-
   filter:
-
     blur(clamp(1.5rem, 3vw, 2.2rem));
-
 }
-
-
-
 
 
 .platform-security-orbit {
-
   left: 50%;
-
   top: 50%;
-
 }
-
-
-
 
 
 .platform-security-orbit-one {
-
   width: min(80%, 24.5rem);
 
-
-
   height:
-
     clamp(9rem, 19vw, 12.8rem);
 
-
-
   transform:
-
     translate(-50%, -50%)
-
     rotate(-25deg);
-
 }
-
-
-
 
 
 .platform-security-orbit-two {
-
   width: min(64%, 19.5rem);
 
-
-
   height:
-
     clamp(7rem, 15vw, 10.3rem);
 
-
-
   transform:
-
     translate(-50%, -50%)
-
     rotate(28deg);
-
 }
-
-
-
 
 
 .platform-security-image-wrapper {
-
   width:
-
     min(68vw, 18.75rem, 62%);
-
 }
-
-
-
 
 
 .platform-security-card {
-
   right:
-
     clamp(0rem, 2vw, 1.5rem);
 
-
-
   bottom:
-
     clamp(0.5rem, 5vw, 3.2rem);
 
-
-
   max-width:
-
     min(48%, 12rem);
 
-
-
   padding:
-
     clamp(0.65rem, 1.4vw, 0.9rem)
-
     clamp(0.75rem, 1.7vw, 1rem);
-
 }
-
-
-
 
 
 .platform-security-card strong {
-
   font-size:
-
     clamp(0.58rem, 1.25vw, 0.72rem);
-
 }
-
-
-
 
 
 .platform-security-card small {
-
   font-size:
-
     clamp(0.46rem, 1vw, 0.56rem);
-
 }
-
-
-
 
 
 .platform-security-item strong,
-
 .platform-connected-points > div {
-
   font-size:
-
     clamp(0.78rem, 1.25vw, 0.88rem);
-
 }
-
-
-
 
 
 .platform-network-visual {
-
   width:
-
     min(86vw, 31rem, 100%);
-
 }
-
-
-
 
 
 .platform-network-core {
-
   width:
-
     clamp(5.7rem, 20vw, 7.2rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1;
-
 }
-
-
-
 
 
 .platform-network-node {
-
   width:
-
     clamp(3.7rem, 14vw, 5rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1;
-
 }
-
-
-
 
 
 .platform-network-node svg {
-
   width:
-
     clamp(1.05rem, 4vw, 1.35rem);
 
-
-
   height: auto;
-
 }
-
-
-
 
 
 .platform-network-line {
-
   width: 30%;
-
-
 
   left: 35%;
 
-
-
   margin-left: 0;
-
 }
-
-
-
 
 
 /* ============================================================
-
    CAPABILITY ILLUSTRATIONS
-
 ============================================================ */
 
-
-
 .platform-wallet-illustration {
-
   width: min(52%, 10.3rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1.38;
-
 }
-
-
-
 
 
 .platform-buy-illustration {
-
   width: min(64%, 12.5rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1.48;
-
 }
-
-
-
 
 
 .platform-swap-illustration {
-
   width: min(68%, 13.2rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1.55;
-
 }
-
-
-
 
 
 .platform-staking-illustration {
-
   width: min(58%, 11rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1.13;
-
 }
-
-
-
 
 
 .platform-dapp-illustration {
-
   width: min(64%, 12rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1.31;
-
 }
-
-
-
 
 
 .platform-portfolio-illustration {
-
   width: min(62%, 11.6rem);
-
-
 
   height: auto;
 
-
-
   aspect-ratio: 1.37;
-
 }
 
 
-
-
-
 /* ============================================================
-
    PLATFORM PAGE
-
    REDUCE EMPTY SPACE BETWEEN HERO AND NEXT SECTION
-
 ============================================================ */
 
-
-
 .platform-hero {
-
   align-items: start;
 
-
-
   padding-top: 1.5rem;
-
-
 
   min-height: auto;
 
-
-
   padding-bottom: 1.5rem;
-
 }
 
 
-
-
-
 .platform-capabilities {
-
   padding-top: 1.5rem;
-
-}
-
-/* ============================================================
-   FULL-WIDTH PLATFORM LAYOUT OVERRIDES
-   Keeps the existing visuals/animations, but lets the page use
-   the available desktop width and adds predictable breakpoints.
-============================================================ */
-
-.platform-page .container {
-  width: 94w;
-  max-width: none;
-  margin-inline: auto;
-  padding-inline: 0;
-}
-
-.platform-hero {
-  width: 100%;
-  min-height: calc(100vh - 80px);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(2rem, 5vw, 7rem);
-  padding-top: clamp(3rem, 6vw, 6rem);
-  padding-bottom: clamp(3rem, 6vw, 6rem);
-}
-
-.platform-hero-content {
-  width: 100%;
-  justify-self:start;
-}
-
-.platform-hero h1 {
-  width: 100%;
-  max-width: 780px;
-  margin: 0 0 1.5rem;
-  color: var(--color-ink);
-  font-size: clamp(3rem, 5.5vw, 5.5rem);
-  line-height: 0.96;
-  letter-spacing: -0.05em;
-}
-
-.platform-description {
-  width: 100%;
-  max-width: 650px;
-  margin: 0;
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
-  line-height: 1.6;
-}
-
-.platform-hero-visual {
-  position: relative;
-  width: 100%;
-  max-width: none;
-  min-height: clamp(500px, 46vw, 680px);
-  height: auto;
-  margin-inline: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-  perspective: 1200px;
-  background: transparent;
-}
-
-.platform-device {
-  position: relative;
-  width: min(100%, 560px);
-  z-index: 6;
-  background: transparent;
-  animation: platformDeviceFloat 6s ease-in-out infinite;
-}
-
-.platform-capabilities {
-  width: 100%;
-  padding-top: clamp(3rem, 5vw, 5rem);
-  padding-bottom: clamp(3rem, 5vw, 5rem);
-}
-
-.platform-feature-grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.25rem, 2vw, 2rem);
-}
-
-/* ============================================================
-   PLATFORM RESPONSIVE
-============================================================ */
-
-@media (max-width: 1100px) {
-  .platform-page .container {
-    padding-inline: 32px;
-  }
-
-  .platform-hero {
-    min-height: auto;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 2rem;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .platform-hero h1 {
-    font-size: clamp(2.6rem, 5vw, 4.2rem);
-  }
-
-  .platform-hero-visual {
-    min-height: 440px;
-  }
-
-  .platform-device {
-    width: min(100%, 480px);
-  }
-
-  .platform-feature-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .platform-page .container {
-    padding-inline: 20px;
-  }
-
-  .platform-hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    gap: 1.5rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  .platform-hero-content {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .platform-hero h1 {
-    width: 100%;
-    max-width: 100%;
-    font-size: clamp(2.7rem, 10vw, 4rem);
-  }
-
-  .platform-description {
-    max-width: 100%;
-  }
-
-  .platform-hero-visual {
-    width: 100%;
-    min-height: 420px;
-  }
-
-  .platform-device {
-    width: min(90%, 470px);
-  }
-
-  .platform-feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .platform-security-inner,
-  .platform-connected-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .platform-page .container {
-    padding-inline: 16px;
-  }
-
-  .platform-hero {
-    padding-top: 2rem;
-    padding-bottom: 2.5rem;
-  }
-
-  .platform-hero h1 {
-    font-size: clamp(2.4rem, 11vw, 3.3rem);
-  }
-
-  .platform-hero-visual {
-    min-height: 330px;
-  }
-
-  .platform-device {
-    width: min(100%, 390px);
-  }
-}
-/* ============================================================
-   FINAL PLATFORM RESPONSIVE LAYOUT
-   KEEP THIS AS THE LAST CODE IN Platform.css
-============================================================ */
-
-
-/* ============================================================
-   PAGE
-============================================================ */
-
-.platform-page {
-  width: 100%;
-  min-width: 0;
-
-  overflow-x: clip;
-}
-
-
-/* ============================================================
-   MAIN CONTAINER
-
-   IMPORTANT:
-   Do not restrict large monitors to 1600 / 1760px.
-============================================================ */
-
-.platform-page .container {
-  width: 94vw;
-  max-width: none;
-
-  margin-inline: auto;
-
-  padding-inline: 0;
-
-  box-sizing: border-box;
-}
-
-
-/* ============================================================
-   HERO
-============================================================ */
-
-.platform-hero {
-  width: 100%;
-
-  /* Avoid huge blank vertical area */
-  min-height: 0;
-  height: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.95fr)
-    minmax(0, 1.05fr);
-
-  align-items: center;
-
-  gap: clamp(
-    3rem,
-    5vw,
-    8rem
-  );
-
-  /*
-    IMPORTANT:
-    use vh for vertical spacing,
-    not vw.
-  */
-  padding-top: clamp(
-    48px,
-    5vh,
-    84px
-  );
-
-  padding-bottom: clamp(
-    48px,
-    5vh,
-    84px
-  );
-}
-
-
-/* ============================================================
-   HERO CONTENT
-============================================================ */
-
-.platform-hero-content {
-  position: relative;
-  z-index: 20;
-
-  width: 100%;
-  min-width: 0;
-
-  align-self: center;
-}
-
-
-/* ============================================================
-   HERO HEADING
-============================================================ */
-
-.platform-hero h1 {
-  width: min(
-    100%,
-    14ch
-  );
-
-  max-width: 900px;
-
-  margin:
-    0
-    0
-    clamp(1rem, 1.5vh, 1.5rem);
-
-  color: var(--color-ink);
-
-  font-size: clamp(
-    3rem,
-    3.9vw,
-    6.25rem
-  );
-
-  font-weight: var(--weight-bold);
-
-  line-height: 0.97;
-
-  letter-spacing: -0.05em;
-
-  text-wrap: balance;
-}
-
-
-.platform-hero h1 span {
-  color: var(--color-accent);
-}
-
-
-/* ============================================================
-   HERO DESCRIPTION
-============================================================ */
-
-.platform-description {
-  width: min(
-    100%,
-    720px
-  );
-
-  max-width: 720px;
-
-  margin: 0;
-
-  color: var(--color-ink-soft);
-
-  font-size: clamp(
-    1rem,
-    1.05vw,
-    1.35rem
-  );
-
-  line-height: 1.6;
-}
-
-
-/* ============================================================
-   HERO IMAGE AREA
-============================================================ */
-
-.platform-hero-visual {
-  position: relative;
-
-  width: min(
-    100%,
-    820px
-  );
-
-  height: auto;
-
-  min-height: clamp(
-    420px,
-    31vw,
-    650px
-  );
-
-  margin-inline: auto;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  isolation: isolate;
-
-  perspective: 1200px;
-
-  background: transparent;
-}
-
-
-/* ============================================================
-   PHONE
-============================================================ */
-
-.platform-device {
-  position: relative;
-
-  width: min(
-    90%,
-    650px
-  );
-
-  z-index: 6;
-
-  background: transparent;
-
-  animation:
-    platformDeviceFloat
-    6s
-    ease-in-out
-    infinite;
-}
-
-
-/* ============================================================
-   CAPABILITIES
-
-   Fix huge space between HERO and this section.
-============================================================ */
-
-.platform-capabilities {
-  width: 100%;
-
-  padding-top: clamp(
-    42px,
-    4vh,
-    68px
-  );
-
-  padding-bottom: clamp(
-    56px,
-    6vh,
-    96px
-  );
-}
-
-
-/* ============================================================
-   SECTION HEADING
-============================================================ */
-
-.platform-section-heading {
-  width: min(
-    100%,
-    950px
-  );
-
-  max-width: 950px;
-
-  margin:
-    0
-    auto
-    clamp(2rem, 3vh, 3rem);
-
-  text-align: center;
-}
-
-
-.platform-section-heading .platform-eyebrow {
-  margin-bottom: 0.8rem;
-}
-
-
-.platform-section-heading h2 {
-  margin:
-    0
-    0
-    0.85rem;
-
-  color: var(--color-ink);
-
-  font-size: clamp(
-    2.3rem,
-    3vw,
-    4.3rem
-  );
-
-  line-height: 1.04;
-
-  letter-spacing: -0.04em;
-
-  text-wrap: balance;
-}
-
-
-.platform-section-heading p {
-  width: min(
-    100%,
-    720px
-  );
-
-  margin-inline: auto;
-
-  color: var(--color-ink-soft);
-
-  font-size: clamp(
-    0.95rem,
-    0.9vw,
-    1.15rem
-  );
-
-  line-height: 1.6;
-}
-
-
-/* ============================================================
-   FEATURE GRID
-============================================================ */
-
-.platform-feature-grid {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
-  gap: clamp(
-    1.25rem,
-    1.5vw,
-    2.25rem
-  );
-}
-
-
-/* ============================================================
-   FEATURE CARD
-============================================================ */
-
-.platform-feature-card {
-  position: relative;
-
-  width: 100%;
-  min-width: 0;
-
-  min-height: clamp(
-    360px,
-    22vw,
-    500px
-  );
-
-  display: flex;
-
-  flex-direction: column;
-
-  overflow: hidden;
-
-  border:
-    1px
-    solid
-    var(--color-border);
-
-  border-radius: clamp(
-    18px,
-    1.3vw,
-    28px
-  );
-
-  background:
-    var(--color-surface);
-
-  box-shadow:
-    var(--shadow-sm);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-
-.platform-feature-card:hover {
-  transform:
-    translateY(-6px);
-
-  border-color:
-    var(--color-accent);
-
-  box-shadow:
-    var(--shadow-md);
-}
-
-
-/* ============================================================
-   FEATURE VISUAL
-============================================================ */
-
-.platform-feature-visual {
-  position: relative;
-
-  width: 100%;
-
-  height: clamp(
-    210px,
-    14vw,
-    300px
-  );
-
-  flex-shrink: 0;
-
-  display: grid;
-
-  place-items: center;
-
-  overflow: hidden;
-
-  border-bottom:
-    1px
-    solid
-    var(--color-border);
-}
-
-
-/* ============================================================
-   FEATURE TEXT
-============================================================ */
-
-.platform-feature-content {
-  flex: 1;
-
-  display: flex;
-
-  flex-direction: column;
-
-  padding: clamp(
-    1.2rem,
-    1.35vw,
-    1.75rem
-  );
-}
-
-
-.platform-feature-card h3 {
-  margin: 0;
-
-  color:
-    var(--color-ink);
-
-  font-size: clamp(
-    0.95rem,
-    0.85vw,
-    1.15rem
-  );
-
-  line-height: 1.3;
-}
-
-
-.platform-feature-card p {
-  margin:
-    0.8rem
-    0
-    0;
-
-  color:
-    var(--color-ink-soft);
-
-  font-size: clamp(
-    0.78rem,
-    0.72vw,
-    0.95rem
-  );
-
-  line-height: 1.65;
-}
-
-
-/* ============================================================
-   JOURNEY / SECURITY / CONNECTED
-
-   IMPORTANT:
-   No 6vw / 7vw vertical padding on huge monitors.
-============================================================ */
-
-.platform-journey-section,
-.platform-security-section,
-.platform-connected-section {
-  padding-top: clamp(
-    56px,
-    6vh,
-    96px
-  );
-
-  padding-bottom: clamp(
-    56px,
-    6vh,
-    96px
-  );
-}
-
-
-/* ============================================================
-   JOURNEY
-============================================================ */
-
-.platform-journey-grid {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      5,
-      minmax(0, 1fr)
-    );
-
-  gap: clamp(
-    1rem,
-    1.25vw,
-    1.75rem
-  );
-}
-
-
-.platform-journey-card {
-  width: 100%;
-  min-width: 0;
-
-  min-height: clamp(
-    220px,
-    14vw,
-    300px
-  );
-
-  padding: clamp(
-    1.15rem,
-    1.25vw,
-    1.6rem
-  );
-}
-
-
-/* ============================================================
-   SECURITY + CONNECTED
-============================================================ */
-
-.platform-security-inner,
-.platform-connected-section {
-  width: 100%;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
-  align-items: center;
-
-  gap: clamp(
-    3rem,
-    5vw,
-    8rem
-  );
-}
-
-
-/* ============================================================
-   ULTRA-WIDE / 2K / 4K
-============================================================ */
-
-@media (min-width: 1800px) {
-
-  .platform-page .container {
-    width: 94vw;
-  }
-
-
-  .platform-hero {
-    grid-template-columns:
-      minmax(0, 0.9fr)
-      minmax(0, 1.1fr);
-
-    padding-top: 72px;
-
-    padding-bottom: 72px;
-  }
-
-
-  .platform-hero h1 {
-    font-size: clamp(
-      5rem,
-      3.9vw,
-      6.5rem
-    );
-  }
-
-
-  .platform-description {
-    font-size: clamp(
-      1.15rem,
-      0.9vw,
-      1.4rem
-    );
-  }
-
-
-  .platform-hero-visual {
-    width: min(
-      100%,
-      850px
-    );
-
-    min-height: 620px;
-  }
-
-
-  .platform-device {
-    width: min(
-      88%,
-      680px
-    );
-  }
-
-
-  .platform-section-heading {
-    width: min(
-      100%,
-      1000px
-    );
-
-    max-width: 1000px;
-  }
-
-
-  .platform-feature-card {
-    min-height: 470px;
-  }
-
-
-  .platform-feature-visual {
-    height: 290px;
-  }
-}
-
-
-/* ============================================================
-   NORMAL DESKTOP
-============================================================ */
-
-@media (max-width: 1400px) {
-
-  .platform-page .container {
-    width: 92vw;
-  }
-
-
-  .platform-hero {
-    gap: 3rem;
-  }
-
-
-  .platform-hero h1 {
-    font-size: clamp(
-      3rem,
-      5vw,
-      4.8rem
-    );
-  }
-
-
-  .platform-device {
-    width: min(
-      88%,
-      520px
-    );
-  }
-}
-
-
-/* ============================================================
-   TABLET
-============================================================ */
-
-@media (max-width: 900px) {
-
-  .platform-page .container {
-    width: calc(
-      100% - 40px
-    );
-  }
-
-
-  .platform-hero {
-    grid-template-columns:
-      1fr;
-
-    gap: 1rem;
-
-    padding-top: 48px;
-
-    padding-bottom: 48px;
-  }
-
-
-  .platform-hero-content {
-    width: 100%;
-  }
-
-
-  .platform-hero h1 {
-    width: min(
-      100%,
-      14ch
-    );
-
-    font-size: clamp(
-      2.7rem,
-      8vw,
-      4rem
-    );
-  }
-
-
-  .platform-description {
-    width: min(
-      100%,
-      640px
-    );
-  }
-
-
-  .platform-hero-visual {
-    width: min(
-      100%,
-      580px
-    );
-
-    min-height: 390px;
-  }
-
-
-  .platform-device {
-    width: min(
-      86%,
-      470px
-    );
-  }
-
-
-  .platform-feature-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-  }
-
-
-  .platform-journey-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-  }
-
-
-  .platform-security-inner,
-  .platform-connected-section {
-    grid-template-columns:
-      1fr;
-
-    gap: 2.5rem;
-  }
-}
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 600px) {
-
-  .platform-page .container {
-    width: 100%;
-
-    padding-inline: 16px;
-  }
-
-
-  .platform-hero {
-    padding-top: 32px;
-
-    padding-bottom: 36px;
-
-    gap: 0;
-  }
-
-
-  .platform-hero h1 {
-    width: 100%;
-
-    font-size: clamp(
-      2.35rem,
-      11vw,
-      3.3rem
-    );
-
-    line-height: 1;
-  }
-
-
-  .platform-description {
-    font-size: 0.95rem;
-  }
-
-
-  .platform-hero-visual {
-    min-height: 300px;
-  }
-
-
-  .platform-device {
-    width: min(
-      96%,
-      390px
-    );
-  }
-
-
-  .platform-capabilities {
-    padding-top: 42px;
-
-    padding-bottom: 56px;
-  }
-
-
-  .platform-section-heading {
-    margin-bottom: 2rem;
-  }
-
-
-  .platform-section-heading h2 {
-    font-size: clamp(
-      2rem,
-      9vw,
-      2.8rem
-    );
-  }
-
-
-  .platform-feature-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-
-  .platform-feature-card {
-    min-height: 350px;
-  }
-
-
-  .platform-feature-visual {
-    height: 205px;
-  }
-
-
-  .platform-journey-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-
-  .platform-security-inner,
-  .platform-connected-section {
-    grid-template-columns:
-      1fr;
-  }
-
-
-  .platform-journey-section,
-  .platform-security-section,
-  .platform-connected-section {
-    padding-top: 56px;
-
-    padding-bottom: 56px;
-  }
-}
-.intro-heading,
-.platform-hero h1,
-.build-hero h1,
-.support-hero h1 {
-  width: min(100%, 13ch);
-  max-width: none;
-
-  margin: 0 0 1.25rem;
-
-  font-size: clamp(3rem, 4vw, 5.2rem);
-
-  line-height: 0.96;
-
-  letter-spacing: -0.05em;
-
-  font-weight: 800;
-
-  text-wrap: balance;
 }

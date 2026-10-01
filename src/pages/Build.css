@@ -2852,573 +2852,26 @@
 
 }
 /* ============================================================
-   FINAL BUILD ALIGNMENT FIX
-   KEEP THIS AT THE VERY BOTTOM OF Build.css
-============================================================ */
-
-/* PAGE SHOULD ALIGN WITH NAVBAR WIDTH */
-.build-page {
-  width: 94vw;
-  max-width: none;
-  min-width: 0;
-
-  margin-inline: auto;
-
-  overflow-x: clip;
-}
-
-
-/* ============================================================
-   HERO
-============================================================ */
-
-.build-hero {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
-  align-items: center;
-
-  gap: clamp(
-    3rem,
-    5vw,
-    7rem
-  );
-
-  padding-top: clamp(
-    48px,
-    5vh,
-    80px
-  );
-
-  padding-bottom: clamp(
-    48px,
-    5vh,
-    80px
-  );
-}
-
-
-/* LEFT HERO */
-
-.build-hero-content {
-  width: 100%;
-  min-width: 0;
-
-  justify-self: start;
-}
-
-
-/* HEADING */
-
-.build-hero h1 {
-  width: min(
-    100%,
-    13ch
-  );
-
-  max-width: none;
-
-  margin:
-    0
-    0
-    1.25rem;
-
-  font-size: clamp(
-    3rem,
-    4vw,
-    6rem
-  );
-
-  line-height: 0.97;
-
-  letter-spacing: -0.055em;
-
-  text-wrap: balance;
-}
-
-
-/* DESCRIPTION */
-
-.build-description {
-  width: min(
-    100%,
-    680px
-  );
-
-  max-width: none;
-
-  margin:
-    0
-    0
-    2rem;
-
-  font-size: clamp(
-    1rem,
-    1vw,
-    1.25rem
-  );
-
-  line-height: 1.6;
-}
-
-
-/* TRUST ITEMS */
-
-.trust-row {
-  width: min(
-    100%,
-    700px
-  );
-
-  max-width: none;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-  gap:
-    1rem
-    clamp(1.5rem, 2vw, 2.5rem);
-}
-
-
-/* ============================================================
-   HERO VISUAL
-============================================================ */
-
-.build-visual {
-  width: 100%;
-
-  max-width: none;
-
-  min-height: clamp(
-    500px,
-    30vw,
-    650px
-  );
-
-  height: auto;
-
-  justify-self: stretch;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  transform: none;
-}
-
-
-/* PHONE SIZE */
-
-.phone-wrapper {
-  width: clamp(
-    210px,
-    12vw,
-    290px
-  );
-
-  height: clamp(
-    420px,
-    24vw,
-    580px
-  );
-}
-
-.phone {
-  width: 100%;
-  height: 100%;
-}
-
-
-/* ============================================================
-   DEVELOPER SECTION
-============================================================ */
-
-.developer-section {
-  width: 100%;
-
-  padding-top: clamp(
-    52px,
-    5vh,
-    80px
-  );
-
-  padding-bottom: clamp(
-    60px,
-    6vh,
-    90px
-  );
-}
-
-
-/* HEADING SHOULD STAY CENTERED BUT NOT TOO NARROW */
-
-.developer-heading {
-  width: min(
-    100%,
-    900px
-  );
-
-  max-width: none;
-
-  margin:
-    0
-    auto
-    clamp(2rem, 3vh, 3rem);
-
-  text-align: center;
-}
-
-
-.developer-heading h2 {
-  font-size: clamp(
-    2.3rem,
-    3vw,
-    4.2rem
-  );
-
-  line-height: 1.05;
-
-  text-wrap: balance;
-}
-
-
-.developer-heading p {
-  width: min(
-    100%,
-    720px
-  );
-
-  max-width: none;
-
-  margin-inline: auto;
-
-  font-size: clamp(
-    0.95rem,
-    0.9vw,
-    1.1rem
-  );
-
-  line-height: 1.6;
-}
-
-
-/* ============================================================
-   FEATURE GRID
-============================================================ */
-
-.build-feature-grid {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
-  gap: clamp(
-    1.25rem,
-    1.5vw,
-    2rem
-  );
-}
-
-
-/* FEATURE CARDS */
-
-.build-feature-card {
-  width: 100%;
-  min-width: 0;
-
-  min-height: clamp(
-    360px,
-    21vw,
-    480px
-  );
-}
-
-
-/* VISUAL AREA */
-
-.feature-visual {
-  width: 100%;
-
-  height: clamp(
-    210px,
-    13vw,
-    280px
-  );
-}
-
-
-/* ============================================================
-   LARGE SCREEN
-============================================================ */
-
-@media (min-width: 1800px) {
-
-  .build-page {
-    width: 94vw;
-    max-width: none;
-    margin-inline: auto;
-    padding-inline: 0;
-  }
-
-  .build-hero,
-  .developer-section {
-    width: 100%;
-    max-width: none;
-    margin-inline: 0;
-    padding-inline: 0;
-  }
-
-  .build-hero {
-    grid-template-columns:
-      minmax(0, 0.95fr)
-      minmax(0, 1.05fr);
-
-    gap: clamp(
-      4rem,
-      6vw,
-      9rem
-    );
-  }
-
-  .build-hero h1 {
-    font-size: clamp(
-      5rem,
-      3.7vw,
-      6.25rem
-    );
-  }
-
-  .build-description {
-    width: min(
-      100%,
-      760px
-    );
-
-    font-size: 1.2rem;
-  }
-
-  .build-visual {
-    min-height: 620px;
-  }
-
-  .developer-heading {
-    width: min(
-      100%,
-      1000px
-    );
-  }
-
-  .build-feature-card {
-    min-height: 460px;
-  }
-
-  .feature-visual {
-    height: 280px;
-  }
-}
-
-/* ============================================================
-   NORMAL DESKTOP
-============================================================ */
-
-@media (max-width: 1400px) {
-
-  .build-page {
-    width: 92vw;
-  }
-
-  .build-hero {
-    gap: 3rem;
-  }
-
-  .build-hero h1 {
-    font-size: clamp(
-      3rem,
-      5vw,
-      4.8rem
-    );
-  }
-}
-
-
-/* ============================================================
-   TABLET
-============================================================ */
-
-@media (max-width: 900px) {
-
-  .build-page {
-    width: calc(
-      100% - 40px
-    );
-  }
-
-  .build-hero {
-    grid-template-columns: 1fr;
-
-    gap: 2rem;
-
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  .build-hero h1 {
-    width: min(
-      100%,
-      14ch
-    );
-
-    font-size: clamp(
-      2.7rem,
-      8vw,
-      4rem
-    );
-  }
-
-  .build-description {
-    width: min(
-      100%,
-      650px
-    );
-  }
-
-  .build-visual {
-    width: min(
-      100%,
-      650px
-    );
-
-    margin-inline: auto;
-
-    min-height: 500px;
-  }
-
-  .build-feature-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-  }
-}
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 600px) {
-
-  .build-page {
-    width: 100%;
-
-    padding-inline: 16px;
-  }
-
-  .build-hero {
-    grid-template-columns: 1fr;
-
-    gap: 1rem;
-
-    padding-top: 32px;
-    padding-bottom: 40px;
-  }
-
-  .build-hero h1 {
-    width: 100%;
-
-    font-size: clamp(
-      2.35rem,
-      11vw,
-      3.3rem
-    );
-
-    line-height: 1;
-  }
-
-  .build-description {
-    font-size: 0.95rem;
-  }
-
-  .trust-row {
-    width: 100%;
-
-    grid-template-columns: 1fr;
-  }
-
-  .build-visual {
-    width: 100%;
-
-    min-height: 430px;
-  }
-
-  .developer-section {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-
-  .developer-heading h2 {
-    font-size: clamp(
-      2rem,
-      9vw,
-      2.8rem
-    );
-  }
-
-  .build-feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .build-feature-card {
-    min-height: 350px;
-  }
-
-  .feature-visual {
-    height: 205px;
-  }
-}
-/* ============================================================
-   FINAL BUILD LAYOUT
+   FINAL BUILD RESPONSIVE LAYOUT
+   KEEP THIS AT THE ABSOLUTE BOTTOM OF Build.css
 ============================================================ */
 
 .build-page {
-  width: 94vw;
-  max-width: none;
+  width: 100%;
   min-width: 0;
-
-  margin-inline: auto;
-
-  padding-inline: 0;
-
   overflow-x: clip;
 }
 
-.build-hero,
-.developer-section {
-  width: 100%;
+/* ============================================================
+   DESKTOP
+============================================================ */
+
+.build-page .build-hero.container {
+  width: 94vw;
   max-width: none;
+  margin-inline: auto;
 
-  margin-inline: 0;
-
-  box-sizing: border-box;
-}
-
-.build-hero {
+  display: grid;
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 1fr);
@@ -3427,83 +2880,172 @@
 
   gap: clamp(3rem, 5vw, 7rem);
 
-  padding-top: clamp(48px, 5vh, 80px);
-  padding-bottom: clamp(48px, 5vh, 80px);
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  box-sizing: border-box;
 }
 
 .build-hero-content {
   width: 100%;
   min-width: 0;
 
-  justify-self: start;
+  margin: 0;
+  padding: 0;
 }
 
 .build-hero h1 {
   width: min(100%, 13ch);
   max-width: none;
 
-  font-size: clamp(3rem, 4vw, 6rem);
+  margin: 0 0 1.25rem;
+
+  font-size: clamp(3rem, 4vw, 5.2rem);
+  line-height: 0.97;
+  letter-spacing: -0.05em;
 }
 
 .build-description {
-  width: min(100%, 680px);
-  max-width: none;
+  width: min(100%, 650px);
+
+  margin-bottom: 2rem;
+
+  font-size: clamp(1rem, 1.05vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.trust-row {
+  width: min(100%, 650px);
+
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem 2rem;
+}
+
+.trust-item {
+  min-width: 0;
 }
 
 .build-visual {
+  position: relative;
+
   width: 100%;
-  max-width: none;
+  max-width: 620px;
 
-  justify-self: stretch;
+  height: 440px;
 
-  min-height: clamp(500px, 30vw, 650px);
+  margin-inline: auto;
+
+  justify-self: center;
+  align-self: center;
+
+  transform: none;
+  overflow: visible;
 }
 
-.developer-heading {
-  width: min(100%, 900px);
+.developer-section {
+  width: 94vw;
   max-width: none;
 
   margin-inline: auto;
+
+  padding-top: 32px;
+  padding-bottom: 72px;
+
+  box-sizing: border-box;
 }
 
-.build-feature-grid {
-  width: 100%;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-}
+/* ============================================================
+   LARGE DESKTOP
+============================================================ */
 
 @media (min-width: 1800px) {
-  .build-page {
+  .build-page .build-hero.container,
+  .developer-section {
     width: 94vw;
   }
 
-  .build-hero {
-    grid-template-columns:
-      minmax(0, 0.95fr)
-      minmax(0, 1.05fr);
+  .build-visual {
+    max-width: 680px;
+    height: 480px;
+  }
+}
 
-    gap: clamp(4rem, 6vw, 9rem);
+/* ============================================================
+   LAPTOP
+============================================================ */
+
+@media (max-width: 1400px) {
+  .build-page .build-hero.container,
+  .developer-section {
+    width: 92vw;
+  }
+
+  .build-page .build-hero.container {
+    gap: 3rem;
   }
 
   .build-hero h1 {
-    font-size: clamp(5rem, 3.7vw, 6.25rem);
+    font-size: clamp(3rem, 5vw, 4.6rem);
+  }
+
+  .build-visual {
+    max-width: 560px;
+    height: 420px;
   }
 }
 
-@media (max-width: 1400px) {
-  .build-page {
-    width: 92vw;
-  }
-}
+/* ============================================================
+   TABLET
+============================================================ */
 
 @media (max-width: 900px) {
-  .build-page {
+  .build-page .build-hero.container,
+  .developer-section {
     width: calc(100% - 40px);
   }
 
-  .build-hero {
+  .build-page .build-hero.container {
     grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .build-hero h1 {
+    width: min(100%, 14ch);
+
+    font-size: clamp(2.7rem, 8vw, 4rem);
+  }
+
+  .build-description {
+    max-width: 650px;
+  }
+
+  .trust-row {
+    max-width: 600px;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .build-visual {
+    width: min(100%, 560px);
+    max-width: 560px;
+
+    height: 470px;
+
+    margin-inline: auto;
+
+    transform: none;
+  }
+
+  .developer-section {
+    padding-top: 32px;
   }
 
   .build-feature-grid {
@@ -3512,13 +3054,515 @@
   }
 }
 
+/* ============================================================
+   MOBILE
+============================================================ */
+
 @media (max-width: 600px) {
-  .build-page {
+  .build-page .build-hero.container,
+  .developer-section {
     width: 100%;
-    padding-inline: 16px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+    box-sizing: border-box;
+  }
+
+  .build-page .build-hero.container {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .build-hero-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .build-hero h1 {
+    width: 100%;
+
+    font-size: clamp(2.15rem, 10vw, 3rem);
+    line-height: 1;
+  }
+
+  .build-description {
+    width: 100%;
+    max-width: none;
+
+    margin-bottom: 1.4rem;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .trust-row {
+    width: 100%;
+    max-width: none;
+
+    grid-template-columns: 1fr;
+
+    gap: 0.9rem;
+  }
+
+  .trust-item {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* MOBILE VISUAL */
+  .build-visual {
+    width: 100%;
+    max-width: 340px;
+
+    height: 350px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    transform: none;
+  }
+
+  .phone-wrapper {
+    width: 138px;
+    height: 276px;
+
+    left: 50%;
+    top: 49%;
+  }
+
+  .phone {
+    width: 138px;
+    height: 276px;
+
+    padding: 5px;
+
+    border-radius: 22px;
+  }
+
+  .phone-notch {
+    width: 50px;
+    height: 12px;
+  }
+
+  .phone-header {
+    margin: 18px 4px 10px;
+  }
+
+  .phone-chart svg {
+    height: 50px;
+  }
+
+  .floating-card {
+    padding: 0.6rem;
+  }
+
+  .code-card {
+    width: 72px;
+
+    left: 1%;
+    top: 105px;
+  }
+
+  .sdk-card {
+    width: 84px;
+
+    right: 1%;
+    top: 88px;
+  }
+
+  .transaction-card {
+    left: 1%;
+    bottom: 24px;
+
+    gap: 5px;
+
+    padding: 0.55rem;
+  }
+
+  .visual-caption {
+    right: 2px;
+    bottom: 2px;
+  }
+
+  .block {
+    width: 30px;
+    height: 30px;
+  }
+
+  .orbit-one {
+    width: 72%;
+    height: 115px;
+
+    top: 105px;
+  }
+
+  .orbit-two {
+    width: 58%;
+    height: 95px;
+
+    top: 120px;
+  }
+
+  .orbit-three {
+    width: 84%;
+    height: 150px;
+
+    top: 92px;
+  }
+
+  .connection {
+    width: 100px;
+    margin-left: -50px;
+  }
+
+  .connection-one {
+    top: 95px;
+  }
+
+  .connection-two {
+    top: 150px;
+  }
+
+  .connection-three {
+    top: 215px;
+  }
+
+  .connection-four {
+    top: 190px;
+  }
+
+  .developer-section {
+    padding-top: 18px;
+    padding-bottom: 48px;
+  }
+
+  .developer-heading {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .developer-heading h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .developer-heading p {
+    font-size: 0.95rem;
   }
 
   .build-feature-grid {
     grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .build-feature-card {
+    min-height: auto;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 430px) {
+  .build-page .build-hero.container,
+  .developer-section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .build-page .build-hero.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .build-hero h1 {
+    font-size: clamp(2rem, 9.5vw, 2.6rem);
+  }
+
+  .build-description {
+    font-size: 0.9rem;
+  }
+
+  .trust-row {
+    gap: 0.8rem;
+  }
+
+  .build-visual {
+    max-width: 315px;
+    height: 325px;
+  }
+
+  .phone-wrapper {
+    width: 126px;
+    height: 252px;
+  }
+
+  .phone {
+    width: 126px;
+    height: 252px;
+
+    border-radius: 20px;
+  }
+
+  .code-card {
+    width: 66px;
+    top: 98px;
+  }
+
+  .sdk-card {
+    width: 78px;
+    top: 82px;
+  }
+
+  .transaction-card {
+    bottom: 20px;
+  }
+
+  .block {
+    width: 28px;
+    height: 28px;
+  }
+
+  .developer-section {
+    padding-top: 14px;
+  }
+}
+
+/* ============================================================
+   EXTRA SMALL MOBILE
+============================================================ */
+
+@media (max-width: 360px) {
+  .build-page .build-hero.container,
+  .developer-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .build-hero h1 {
+    font-size: clamp(1.9rem, 9vw, 2.35rem);
+  }
+
+  .build-visual {
+    max-width: 290px;
+    height: 300px;
+  }
+
+  .phone-wrapper {
+    width: 116px;
+    height: 232px;
+  }
+
+  .phone {
+    width: 116px;
+    height: 232px;
+
+    border-radius: 18px;
+  }
+
+  .code-card {
+    width: 60px;
+  }
+
+  .sdk-card {
+    width: 70px;
+  }
+
+  .developer-heading h2 {
+    font-size: clamp(1.8rem, 8.5vw, 2.3rem);
+  }
+}
+/* ============================================================
+   BUILD VISUAL - TRUE RESPONSIVE MOBILE
+   MAKE THE WHOLE COMPOSITION SCALE TOGETHER
+============================================================ */
+
+@media (max-width: 600px) {
+  .build-visual {
+    position: relative;
+
+    width: min(100%, 360px);
+
+    aspect-ratio: 620 / 440;
+    height: auto;
+
+    margin-inline: auto;
+
+    overflow: hidden;
+
+    transform: none;
+  }
+
+  /* PHONE */
+
+  .phone-wrapper {
+    width: 34%;
+    height: 95%;
+
+    left: 50%;
+    top: 50%;
+  }
+
+  .phone {
+    width: 100%;
+    height: 100%;
+
+    padding: 5px;
+
+    border-radius: clamp(18px, 6vw, 28px);
+  }
+
+  .phone-notch {
+    width: 36%;
+    height: 4%;
+  }
+
+  .phone-header {
+    margin:
+      7%
+      3%
+      5%;
+  }
+
+  .phone-chart svg {
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  /* LEFT BUILD CARD */
+
+  .code-card {
+    width: 23%;
+
+    left: 0;
+    top: 30%;
+
+    padding: 0.55rem;
+  }
+
+  /* RIGHT SDK CARD */
+
+  .sdk-card {
+    width: 27%;
+
+    right: 0;
+    top: 24%;
+
+    padding: 0.55rem;
+  }
+
+  /* TRANSACTION */
+
+  .transaction-card {
+    left: 1%;
+    bottom: 10%;
+
+    max-width: 45%;
+
+    padding: 0.5rem;
+  }
+
+  /* CAPTION */
+
+  .visual-caption {
+    right: 1%;
+    bottom: 1%;
+  }
+
+  /* ORBITS */
+
+  .orbit-one {
+    width: 75%;
+    height: 33%;
+
+    top: 31%;
+  }
+
+  .orbit-two {
+    width: 60%;
+    height: 26%;
+
+    top: 36%;
+  }
+
+  .orbit-three {
+    width: 88%;
+    height: 42%;
+
+    top: 25%;
+  }
+
+  /* CONNECTIONS */
+
+  .connection {
+    width: 30%;
+    margin-left: -15%;
+  }
+
+  .connection-one {
+    top: 28%;
+  }
+
+  .connection-two {
+    top: 44%;
+  }
+
+  .connection-three {
+    top: 65%;
+  }
+
+  .connection-four {
+    top: 57%;
+  }
+
+  /* DECORATIVE BLOCKS */
+
+  .block {
+    width: clamp(24px, 8vw, 34px);
+    height: clamp(24px, 8vw, 34px);
+  }
+
+  /* NEXT SECTION */
+
+  .developer-section {
+    padding-top: 24px;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 430px) {
+  .build-visual {
+    width: min(100%, 330px);
+  }
+
+  .developer-section {
+    padding-top: 20px;
+  }
+}
+
+
+/* ============================================================
+   EXTRA SMALL MOBILE
+============================================================ */
+
+@media (max-width: 360px) {
+  .build-visual {
+    width: min(100%, 295px);
+  }
+
+  .developer-section {
+    padding-top: 18px;
   }
 }

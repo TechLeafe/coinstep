@@ -1,0 +1,847 @@
+.developer-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+
+  color: var(--color-ink);
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.developer-hero {
+  width: 94vw;
+  max-width: none;
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 5vw, 8rem);
+
+  padding-top: clamp(48px, 5vh, 84px);
+  padding-bottom: clamp(56px, 6vh, 96px);
+}
+
+
+.developer-hero-content {
+  width: 100%;
+  min-width: 0;
+  max-width: 900px;
+}
+
+
+.developer-eyebrow {
+  margin: 0 0 1rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+
+.developer-hero h1 {
+  width: min(100%, 13ch);
+
+  margin: 0 0 1.25rem;
+
+  font-size: clamp(3rem, 4vw, 5.2rem);
+  font-weight: 800;
+
+  line-height: 0.96;
+
+  letter-spacing: -0.05em;
+
+  text-wrap: balance;
+}
+
+
+.developer-hero h1 span,
+.developer-example-copy h2 span,
+.developer-section-heading h2 span {
+  color: var(--color-accent);
+}
+
+
+.developer-description {
+  width: min(100%, 720px);
+
+  margin: 0;
+
+  color: var(--color-ink-soft);
+
+  font-size: clamp(1rem, 1.05vw, 1.3rem);
+
+  line-height: 1.65;
+}
+
+
+.developer-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+
+.developer-primary-btn,
+.developer-secondary-btn {
+  min-height: 48px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 1.5rem;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+
+.developer-primary-btn {
+  color: white;
+  background: var(--color-accent);
+}
+
+
+.developer-secondary-btn {
+  color: var(--color-ink);
+
+  border: 1px solid var(--color-border);
+
+  background: var(--color-surface);
+}
+
+
+/* ============================================================
+   CODE CARD
+============================================================ */
+
+.developer-code-card,
+.developer-example-code {
+  width: min(100%, 650px);
+
+  margin-inline: auto;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 24px;
+
+  background: var(--color-surface);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.developer-code-top {
+  min-height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding-inline: 1.25rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+.developer-code-top span {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--color-border);
+}
+
+
+.developer-code-card pre,
+.developer-example-code pre {
+  margin: 0;
+
+  padding: clamp(1.25rem, 3vw, 2rem);
+
+  overflow-x: auto;
+
+  color: var(--color-ink);
+
+  font-family: var(--font-mono);
+
+  font-size: clamp(0.8rem, 1vw, 1rem);
+
+  line-height: 1.8;
+}
+
+
+/* ============================================================
+   API SECTION
+============================================================ */
+
+.developer-api-section {
+  width: 94vw;
+
+  margin-inline: auto;
+
+  padding-top: clamp(56px, 6vh, 96px);
+  padding-bottom: clamp(56px, 6vh, 96px);
+}
+
+
+.developer-section-heading {
+  max-width: 850px;
+
+  margin: 0 auto clamp(2.5rem, 4vw, 4rem);
+
+  text-align: center;
+}
+
+
+.developer-section-heading > p:first-child {
+  margin: 0 0 0.8rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.18em;
+}
+
+
+.developer-section-heading h2,
+.developer-example-copy h2 {
+  margin: 0 0 1rem;
+
+  font-size: clamp(2.3rem, 4vw, 4rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+
+.developer-section-heading > p:last-child,
+.developer-example-copy > p:last-child {
+  max-width: 680px;
+
+  margin-inline: auto;
+
+  color: var(--color-ink-soft);
+
+  line-height: 1.7;
+}
+
+
+.developer-api-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+
+.developer-api-card {
+  min-height: 310px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 1.5rem;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 22px;
+
+  background: var(--color-surface);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.developer-api-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--color-accent);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.developer-api-icon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 1.5rem;
+
+  border-radius: 12px;
+
+  color: var(--color-accent);
+
+  background: var(--color-accent-soft);
+
+  font-family: var(--font-mono);
+
+  font-weight: 700;
+}
+
+
+.developer-api-card h3 {
+  margin: 0 0 0.8rem;
+
+  font-size: 1.2rem;
+}
+
+
+.developer-api-card p {
+  margin: 0;
+
+  color: var(--color-ink-soft);
+
+  line-height: 1.7;
+}
+
+
+.developer-api-card button {
+  margin-top: auto;
+  padding-top: 1.5rem;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  border: 0;
+
+  color: var(--color-accent);
+
+  background: transparent;
+
+  font: inherit;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   EXAMPLE SECTION
+============================================================ */
+
+.developer-example-section {
+  width: 94vw;
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 5vw, 8rem);
+
+  padding-top: clamp(56px, 6vh, 96px);
+  padding-bottom: clamp(56px, 6vh, 96px);
+}
+
+
+.developer-example-copy {
+  max-width: 750px;
+}
+
+
+.developer-example-copy > p:last-child {
+  margin-inline: 0;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1400px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: 92vw;
+  }
+
+  .developer-api-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 900px) {
+  .developer-hero,
+  .developer-example-section {
+    grid-template-columns: 1fr;
+  }
+
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: calc(100% - 40px);
+  }
+
+  .developer-hero h1 {
+    width: min(100%, 14ch);
+
+    font-size: clamp(2.7rem, 8vw, 4rem);
+  }
+
+  .developer-code-card,
+  .developer-example-code {
+    width: min(100%, 620px);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .developer-hero {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .developer-hero h1 {
+    width: 100%;
+
+    font-size: clamp(2.35rem, 11vw, 3.3rem);
+
+    line-height: 1;
+  }
+
+  .developer-api-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .developer-actions {
+    flex-direction: column;
+  }
+
+  .developer-primary-btn,
+  .developer-secondary-btn {
+    width: 100%;
+  }
+}
+/* ============================================================
+   FINAL DEVELOPER RESPONSIVE LAYOUT
+   KEEP THIS AT THE VERY BOTTOM
+============================================================ */
+
+.developer-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+/* ============================================================
+   DESKTOP
+============================================================ */
+
+.developer-hero,
+.developer-api-section,
+.developer-example-section {
+  width: 94vw;
+  max-width: none;
+
+  margin-inline: auto;
+
+  box-sizing: border-box;
+}
+
+.developer-hero {
+  min-height: 0;
+  height: auto;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
+  align-items: start;
+
+  gap: clamp(3rem, 5vw, 8rem);
+
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.developer-hero-content {
+  width: 100%;
+  min-width: 0;
+  max-width: 900px;
+
+  align-self: start;
+
+  margin: 0;
+  padding: 0;
+}
+
+.developer-code-card {
+  width: min(100%, 650px);
+
+  justify-self: center;
+  align-self: start;
+
+  margin: 0 auto;
+}
+
+.developer-hero h1 {
+  width: min(100%, 13ch);
+  max-width: none;
+
+  margin: 0 0 1.25rem;
+
+  font-size: clamp(3rem, 4vw, 5.2rem);
+  line-height: 0.96;
+
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.developer-description {
+  width: min(100%, 720px);
+  max-width: 720px;
+
+  font-size: clamp(1rem, 1.05vw, 1.3rem);
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   API SECTION
+============================================================ */
+
+.developer-api-section {
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+.developer-api-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.developer-api-card {
+  min-width: 0;
+  min-height: 310px;
+}
+
+
+/* ============================================================
+   EXAMPLE SECTION
+============================================================ */
+
+.developer-example-section {
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: clamp(3rem, 5vw, 8rem);
+
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.developer-example-copy,
+.developer-example-code {
+  min-width: 0;
+}
+
+
+/* ============================================================
+   LARGE DESKTOP
+============================================================ */
+
+@media (min-width: 1800px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: 94vw;
+  }
+
+  .developer-hero {
+    padding-top: 24px;
+    padding-bottom: 56px;
+  }
+
+  .developer-hero h1 {
+    font-size: clamp(5rem, 3.9vw, 6.5rem);
+  }
+
+  .developer-code-card {
+    width: min(100%, 720px);
+  }
+}
+
+
+/* ============================================================
+   LAPTOP / SMALL DESKTOP
+============================================================ */
+
+@media (max-width: 1400px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: 92vw;
+  }
+
+  .developer-hero {
+    gap: 3rem;
+  }
+
+  .developer-hero h1 {
+    font-size: clamp(3rem, 5vw, 4.8rem);
+  }
+
+  .developer-api-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: calc(100% - 40px);
+  }
+
+  .developer-hero {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .developer-hero h1 {
+    width: min(100%, 14ch);
+
+    font-size: clamp(2.7rem, 8vw, 4rem);
+  }
+
+  .developer-description {
+    max-width: 640px;
+  }
+
+  .developer-code-card {
+    width: min(100%, 620px);
+  }
+
+  .developer-api-section {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .developer-example-section {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .developer-example-code {
+    width: min(100%, 620px);
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .developer-hero {
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  .developer-hero h1 {
+    width: 100%;
+
+    font-size: clamp(2.35rem, 11vw, 3.3rem);
+    line-height: 1;
+  }
+
+  .developer-description {
+    width: 100%;
+
+    font-size: 0.95rem;
+  }
+
+  .developer-actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 0.75rem;
+
+    margin-top: 1.5rem;
+  }
+
+  .developer-primary-btn,
+  .developer-secondary-btn {
+    width: 100%;
+  }
+
+  .developer-code-card,
+  .developer-example-code {
+    width: 100%;
+
+    border-radius: 18px;
+  }
+
+  .developer-code-card pre,
+  .developer-example-code pre {
+    padding: 1rem;
+
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  .developer-api-section {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .developer-section-heading {
+    margin-bottom: 2rem;
+  }
+
+  .developer-section-heading h2,
+  .developer-example-copy h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .developer-api-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .developer-api-card {
+    min-height: 270px;
+
+    padding: 1.25rem;
+  }
+
+  .developer-example-section {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+============================================================ */
+
+@media (max-width: 430px) {
+  .developer-hero,
+  .developer-api-section,
+  .developer-example-section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .developer-hero {
+    padding-top: 20px;
+  }
+
+  .developer-hero h1 {
+    font-size: clamp(2.15rem, 10.5vw, 2.8rem);
+  }
+
+  .developer-eyebrow {
+    font-size: 0.65rem;
+  }
+
+  .developer-code-card pre,
+  .developer-example-code pre {
+    font-size: 0.72rem;
+  }
+}

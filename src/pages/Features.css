@@ -1841,3 +1841,298 @@
 
   text-wrap: balance;
 }
+/* ============================================================
+   FINAL FEATURES SPACING — MATCH PLATFORM
+   KEEP THIS AS THE LAST CSS
+============================================================ */
+
+.page:has(.intro-hero) {
+  padding-top: 0;
+}
+
+.features-page .intro-hero {
+  min-height: 0;
+  height: auto;
+
+  align-items: start;
+
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.features-page .intro-parallax-copy,
+.features-page .intro-parallax-image {
+  align-self: start;
+}
+
+.features-page .intro-copy {
+  margin: 0;
+  padding: 0;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .features-page .intro-hero {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .features-page .intro-hero {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+}
+/* ============================================================
+   FINAL FEATURES MOBILE LAYOUT
+   MATCH REFERENCE SCREENSHOTS
+============================================================ */
+
+@media (max-width: 600px) {
+
+  /* HERO */
+  .features-page .intro-hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+
+    padding-top: 22px;
+    padding-bottom: 28px;
+  }
+
+  /* TITLE */
+  .features-page .intro-heading {
+    width: 100%;
+
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
+    line-height: 1;
+
+    margin-bottom: 1rem;
+  }
+
+  /* DESCRIPTION */
+  .features-page .intro-sub {
+    width: 100%;
+    max-width: none;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     FEATURE HIGHLIGHTS - KEEP ONE COLUMN
+  ============================================================ */
+
+  .features-page .highlight-row {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.1rem;
+
+    margin-top: 1.4rem;
+  }
+
+  .features-page .highlight-item {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.9rem;
+
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .features-page .highlight-item-icon {
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+  }
+
+  .features-page .highlight-item-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ============================================================
+     PEOPLE IMAGE
+  ============================================================ */
+
+  .features-page .intro-parallax-image {
+    width: 100%;
+
+    margin-top: 0.5rem;
+  }
+
+  .features-page .intro-trio {
+    width: min(100%, 360px);
+
+    margin-inline: auto;
+  }
+
+  .features-page .intro-trio-image {
+    width: 100%;
+    height: auto;
+
+    display: block;
+  }
+
+  .features-page .intro-float-coins {
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  /* ============================================================
+     FEATURE SECTIONS
+  ============================================================ */
+
+  .features-page .feature-block,
+  .features-page .feature-block.reverse {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .features-page .feature-copy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .features-page .feature-copy h1,
+  .features-page .feature-copy h2 {
+    width: 100%;
+
+    font-size: clamp(2.2rem, 9vw, 2.9rem);
+    line-height: 1.02;
+  }
+
+  .features-page .feature-copy > p {
+    width: 100%;
+    max-width: none;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     SEND PHONE
+  ============================================================ */
+
+  .features-page .send-phone-wrap {
+    width: 100%;
+    max-width: 360px;
+
+    margin-inline: auto;
+  }
+
+  .features-page .send-phone-image {
+    width: 100%;
+    max-width: 340px;
+
+    margin-inline: auto;
+
+    display: block;
+  }
+
+  .features-page .send-phone-coins {
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 430px) {
+
+  .features-page .intro-hero {
+    gap: 1rem;
+
+    padding-top: 18px;
+    padding-bottom: 24px;
+  }
+
+  .features-page .intro-heading {
+    font-size: clamp(2rem, 9.5vw, 2.55rem);
+  }
+
+  .features-page .intro-sub {
+    font-size: 0.9rem;
+  }
+
+  .features-page .highlight-row {
+    gap: 0.95rem;
+  }
+
+  .features-page .highlight-item {
+    font-size: 0.9rem;
+  }
+
+  .features-page .highlight-item-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+  }
+
+  .features-page .intro-trio {
+    width: min(100%, 320px);
+  }
+
+  .features-page .intro-float-coins {
+    transform: scale(0.76);
+  }
+
+  .features-page .send-phone-wrap {
+    max-width: 330px;
+  }
+
+  .features-page .send-phone-image {
+    max-width: 315px;
+  }
+
+  .features-page .send-phone-coins {
+    transform: scale(0.76);
+  }
+}
+
+
+/* ============================================================
+   EXTRA SMALL MOBILE
+============================================================ */
+
+@media (max-width: 360px) {
+
+  .features-page .highlight-item {
+    font-size: 0.84rem;
+  }
+
+  .features-page .highlight-item-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+  }
+
+  .features-page .intro-trio {
+    width: min(100%, 285px);
+  }
+
+  .features-page .send-phone-wrap {
+    max-width: 295px;
+  }
+
+  .features-page .send-phone-image {
+    max-width: 280px;
+  }
+}
