@@ -94,15 +94,15 @@
 
 .nav-logo-image {
   width: clamp(
-    36px,
-    2.2vw,
-    48px
+    52px,
+    3vw,
+    64px
   );
 
   height: clamp(
-    36px,
-    2.2vw,
-    48px
+    52px,
+    3vw,
+    64px
   );
 
   object-fit: contain;
@@ -383,16 +383,16 @@
   ---------------------------------------------------------- */
 
   .nav-brand {
-    gap: var(--space-2xs);
+    gap: 10px;
 
     font-size: var(--text-md);
   }
 
 
   .nav-logo-image {
-    width: 34px;
+    width: 40px;
 
-    height: 34px;
+    height: 40px;
   }
 
 
@@ -692,9 +692,9 @@
 
 
   .nav-logo-image {
-    width: 32px;
+    width: 36px;
 
-    height: 32px;
+    height: 36px;
   }
 
 
