@@ -24,6 +24,10 @@ const COLUMNS = [
     title: "Resources",
     links: [
       {
+        label: "Developer",
+        path: "/developer",
+      },
+      {
         label: "Support",
         path: "/support",
       },
@@ -48,7 +52,6 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="footer">
-
       <div className="container footer-container">
 
         {/* =========================
@@ -58,7 +61,6 @@ export function Footer() {
         <div className="footer-grid">
 
           {/* BRAND */}
-
           <div className="footer-brand-section">
 
             <Link
@@ -69,26 +71,24 @@ export function Footer() {
             </Link>
 
             <p className="footer-description">
-              A simple Web3 wallet for managing digital assets, exploring blockchain applications, and staying in control of your crypto experience.
+              A simple Web3 wallet for managing digital assets,
+              exploring blockchain applications, and staying in control
+              of your crypto experience.
             </p>
 
           </div>
 
-
           {/* COLUMNS */}
-
           {COLUMNS.map((column) => (
             <div
               className="footer-column"
               key={column.title}
             >
-
               <span className="footer-column-title">
                 {column.title}
               </span>
 
               <div className="footer-links">
-
                 {column.links.map((link) => (
                   <Link
                     key={link.label}
@@ -98,19 +98,14 @@ export function Footer() {
                     {link.label}
                   </Link>
                 ))}
-
               </div>
-
             </div>
           ))}
 
         </div>
 
-
         {/* DIVIDER */}
-
         <div className="footer-divider" />
-
 
         {/* =========================
             BOTTOM FOOTER
@@ -126,7 +121,6 @@ export function Footer() {
         </div>
 
       </div>
-
     </footer>
   );
 }

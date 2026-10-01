@@ -1959,33 +1959,7 @@
     height: 20px;
   }
 
-  /* ============================================================
-     PEOPLE IMAGE
-  ============================================================ */
-
-  .features-page .intro-parallax-image {
-    width: 100%;
-
-    margin-top: 0.5rem;
-  }
-
-  .features-page .intro-trio {
-    width: min(100%, 360px);
-
-    margin-inline: auto;
-  }
-
-  .features-page .intro-trio-image {
-    width: 100%;
-    height: auto;
-
-    display: block;
-  }
-
-  .features-page .intro-float-coins {
-    transform: scale(0.82);
-    transform-origin: center;
-  }
+  
 
   /* ============================================================
      FEATURE SECTIONS
@@ -2085,14 +2059,6 @@
     flex: 0 0 42px;
   }
 
-  .features-page .intro-trio {
-    width: min(100%, 320px);
-  }
-
-  .features-page .intro-float-coins {
-    transform: scale(0.76);
-  }
-
   .features-page .send-phone-wrap {
     max-width: 330px;
   }
@@ -2124,9 +2090,6 @@
     flex: 0 0 38px;
   }
 
-  .features-page .intro-trio {
-    width: min(100%, 285px);
-  }
 
   .features-page .send-phone-wrap {
     max-width: 295px;
@@ -2134,5 +2097,65 @@
 
   .features-page .send-phone-image {
     max-width: 280px;
+  }
+}
+/* ============================================================
+   FINAL FEATURES HERO IMAGE RESPONSIVE FIX
+============================================================ */
+
+@media (max-width: 600px) {
+  .features-page .intro-parallax-image {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .features-page .intro-trio {
+    position: relative;
+
+    width: clamp(280px, 88vw, 360px);
+    max-width: 100%;
+
+    margin: 0 auto;
+  }
+
+  .features-page .intro-trio-image {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+  .features-page .intro-float-coins {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform: none;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 430px) {
+  .features-page .intro-trio {
+    width: clamp(270px, 90vw, 330px);
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+@media (max-width: 360px) {
+  .features-page .intro-trio {
+    width: min(92vw, 300px);
   }
 }
