@@ -163,7 +163,7 @@ function ClockMiniIcon() {
 const INTRO_HIGHLIGHTS = [
   { label: 'Security & User Control', icon: <ShieldMiniIcon /> },
   { label: 'Multi-Chain Support', icon: <ZapMiniIcon /> },
-  { label: 'dApps & DeFi', icon: <ChainMiniIcon /> },
+  { label: 'DApps & DeFi', icon: <ChainMiniIcon /> },
   { label: 'Mobile & Web', icon: <PhoneMiniIcon /> },
 ]
 
@@ -184,7 +184,7 @@ function IntroHero() {
           </h1>
 
           <p className="intro-sub">
-            Manage your crypto, connect to dApps, send and receive assets, and stay in control of your wallet — all from one connected experience.
+            Manage your crypto, connect to DApps, send and receive assets, and stay in control of your wallet — all from one connected experience.
           </p>
 
           <ul className="highlight-row">

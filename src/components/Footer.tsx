@@ -27,10 +27,10 @@ const COLUMNS = [
         label: "Developer",
         path: "/developer",
       },
-      {
-        label: "Support",
-        path: "/support",
-      },
+      // {
+      //   label: "Support",
+      //   path: "/support",
+      // },
       {
         label: "FAQ",
         path: "/faq",

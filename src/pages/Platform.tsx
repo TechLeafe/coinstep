@@ -80,7 +80,7 @@ const PLATFORM_FEATURES: PlatformFeature[] = [
   {
     icon: <LanguageOutlinedIcon />,
     visual: "dapp",
-    title: "Web3 & dApps",
+    title: "Web3 & DApps",
     description:
       "Connect your wallet to decentralized applications and explore Web3 experiences.",
   },
@@ -573,7 +573,7 @@ function ConnectedWeb3Visual() {
         <LanguageOutlinedIcon />
 
         <small>
-          dApps
+          DApps
         </small>
 
       </div>

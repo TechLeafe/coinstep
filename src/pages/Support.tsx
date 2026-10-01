@@ -46,7 +46,7 @@ const topics = [
       "Learn about available options for acquiring and managing supported digital assets and understand related requirements.",
   },
   {
-    title: "Connecting to DeFi and dApps",
+    title: "Connecting to DeFi and DApps",
     description:
       "Connect your Web3 wallet with supported decentralized applications and explore the growing Web3 ecosystem.",
   },
@@ -216,7 +216,7 @@ export function Support() {
 
             <p>
               Find guides and answers for your CoinStep Web3 wallet, digital
-              assets, crypto transactions, dApps, DeFi, and wallet security.
+              assets, crypto transactions, DApps, DeFi, and wallet security.
             </p>
           </div>
 

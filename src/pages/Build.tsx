@@ -43,7 +43,7 @@ const BUILD_FEATURES: Feature[] = [
     visual: "wallet",
     title: "Wallet Integration",
     description:
-      "Integrate Coinstep into your dApp and give users seamless access to  their digital assets.",
+      "Integrate Coinstep into your DApp and give users seamless access to  their digital assets.",
   },
 
   {

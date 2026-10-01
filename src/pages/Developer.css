@@ -55,13 +55,14 @@
 
 .developer-hero h1 {
   width: min(100%, 13ch);
+  max-width:none;
 
   margin: 0 0 1.25rem;
 
   font-size: clamp(3rem, 4vw, 5.2rem);
-  font-weight: 800;
+  /* font-weight: 800; */
 
-  line-height: 0.96;
+  /* line-height: ; */
 
   letter-spacing: -0.05em;
 
@@ -222,11 +223,16 @@
 
 
 .developer-section-heading > p:first-child {
-  margin: 0 0 0.8rem;
+  width: 100%;
+  text-align: center;
+
+
+  margin: 0 auto 0.8rem;
 
   color: var(--color-accent);
 
   font-family: var(--font-mono);
+  font-weight:600;
 
   font-size: 0.75rem;
 
@@ -844,4 +850,78 @@
   .developer-example-code pre {
     font-size: 0.72rem;
   }
+}
+/* ============================================================
+   FINAL DEVELOPER PAGE FIXES
+   KEEP THIS AT THE VERY BOTTOM OF Developer.css
+============================================================ */
+
+
+/* ============================================================
+   HERO TITLE - MORE SPACE BETWEEN LINES
+============================================================ */
+
+.developer-hero h1 {
+  line-height: 1.13 !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .developer-hero h1 {
+    line-height: 1.12 !important;
+  }
+}
+
+
+/* ============================================================
+   CENTER WEB3 DEVELOPER APIS
+============================================================ */
+
+.developer-section-heading {
+  text-align: center;
+}
+
+.developer-section-heading > p:first-child {
+  width: 100%;
+  margin: 0 auto 0.8rem;
+
+  text-align: center;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+
+/* ============================================================
+   CODE WINDOW DOT COLORS
+============================================================ */
+
+.developer-code-top span {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+}
+
+
+/* BLUE - same family as User-First */
+.developer-code-top span:nth-child(1) {
+  background: #006b8f;
+}
+
+
+/* GREEN - same family as Ownership & Accountability */
+.developer-code-top span:nth-child(2) {
+  background: #16966b;
+}
+
+
+/* DARK BLUE - same family as Open & Collaborative */
+.developer-code-top span:nth-child(3) {
+  background: #0a405b;
 }

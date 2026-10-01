@@ -36,8 +36,8 @@ const CATEGORIES: Category[] = [
   },
 
   {
-    id: "payment",
-    label: "Payment & Billing",
+    id: "Transaction",
+    label: "Transaction & Fees",
     icon: <IconCard />,
   },
 
@@ -80,7 +80,7 @@ const FAQS: FaqItem[] = [
     q: "How does the Coinstep Web3 wallet work?",
 
     a:
-      "Coinstep provides a connected Web3 wallet experience for managing supported digital assets, viewing balances, sending and receiving crypto, reviewing transaction activity, and connecting with supported decentralized applications.",
+      "Coinstep helps users manage supported digital assets, check balances, send and receive crypto, view transaction activity, and connect to supported decentralized applications from one Web3 wallet experience.",
   },
 
   {
@@ -144,10 +144,10 @@ const FAQS: FaqItem[] = [
     category: "security",
 
     q:
-      "Can Coinstep support recover my recovery phrase?",
+      "Can Coinstep support my recovery phrase?",
 
     a:
-      "No. Your recovery phrase should remain private and under your control. Never share it with anyone claiming to be Coinstep support or with websites, messages, applications, or services requesting access to it.",
+      "No. Your recovery phrase should remain private and under your control at all times. Never share it with anyone claiming to be from Coinstep Support, or with any website, message, application, or service that asks for it.",
   },
 
   {
@@ -167,7 +167,7 @@ const FAQS: FaqItem[] = [
   {
     category: "account",
 
-    q: "How do I connect Coinstep to a dApp?",
+    q: "How do I connect Coinstep to a Defi?",
 
     a:
       "Open a supported decentralized application, choose its wallet connection option, and select Coinstep when available. Always verify that you are using a trusted dApp before approving a wallet connection or blockchain transaction.",
@@ -189,7 +189,7 @@ const FAQS: FaqItem[] = [
       "Can I use my Coinstep wallet on multiple devices?",
 
     a:
-      "Access across multiple devices depends on the wallet features and recovery options supported by Coinstep. Always use trusted devices and protect your recovery information when accessing your Web3 wallet.",
+      "Open the supported DeFi application, choose the wallet connection option, and select Coinstep if it is available. Before connecting, make sure you are using the official and trusted dApp. Always review the permissions and transaction details carefully before approving anything.",
   },
 ];
 

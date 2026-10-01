@@ -119,7 +119,7 @@ export const chatbotResponses: ChatbotResponse[] = [
   },
 
   {
-    keywords: ["dapp", "dapps", "decentralized application"],
+    keywords: ["Dapp", "Dapps", "decentralized application"],
     answer:
       "A DApp is a decentralized application that runs using blockchain technology and smart contracts.",
   },
