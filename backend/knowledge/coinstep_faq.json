@@ -224,6 +224,24 @@
     "answer": "Connecting a wallet should never require you to share your private key or seed phrase. Always review wallet permission requests carefully before approving them."
   },
   {
+  "id": "transaction_confirmation_001",
+  "category": "transaction",
+  "intent": "transaction_confirmations",
+  "questions": [
+    "how many confirmations are needed for my transaction",
+    "how many confirmations does a transaction need",
+    "how many blocks are needed to confirm a transaction",
+    "how many block confirmations are required",
+    "is 12 confirmations required",
+    "what happens if my transaction has 11 confirmations",
+    "is 11 confirmations enough",
+    "when is my transaction fully confirmed",
+    "how do i know my transaction is confirmed",
+    "how many confirmations are required"
+  ],
+  "answer": "A transaction requires 12 block confirmations to be considered fully confirmed. If it has only 11 confirmations, it has not yet reached the required confirmation threshold. Once the 12th block confirmation is completed, the transaction is considered fully confirmed."
+},
+  {
     "id": "blockchain_001",
     "category": "education",
     "intent": "what_is_blockchain",
