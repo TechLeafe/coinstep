@@ -11,11 +11,15 @@ import type {
 import "./chatbot.css";
 
 import {
-  sendChatMessage,
-} from "../../services/chatbotApi";
+  getChatbotAnswer,
+} from "./chatbotMatcher";
 
 import chatbotRobot from "../../assets/Chatbot Icon.png";
 
+
+/* =========================================================
+   TYPES
+========================================================= */
 
 type Message = {
   id: number;
@@ -24,7 +28,12 @@ type Message = {
 };
 
 
+/* =========================================================
+   CHATBOT
+========================================================= */
+
 const Chatbot = () => {
+
   const [isOpen, setIsOpen] =
     useState(false);
 
@@ -41,13 +50,17 @@ const Chatbot = () => {
     useState(false);
 
 
+  /* =========================================================
+     INITIAL MESSAGE
+  ========================================================= */
+
   const [messages, setMessages] =
     useState<Message[]>([
       {
         id: 1,
         sender: "bot",
         text:
-          "Hi! 👋 I'm Coinstep Assistant. How can I help you today?",
+          "Hi! 👋 I'm CoinStep Assistant. How can I help you today?",
       },
     ]);
 
@@ -61,9 +74,11 @@ const Chatbot = () => {
   ========================================================= */
 
   useEffect(() => {
+
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
+
   }, [messages, loading]);
 
 
@@ -72,35 +87,56 @@ const Chatbot = () => {
   ========================================================= */
 
   useEffect(() => {
-    const showTimer = window.setTimeout(() => {
-      setShowNudge(true);
-    }, 1400);
 
-    const hideTimer = window.setTimeout(() => {
-      setShowNudge(false);
-    }, 6000);
+    const showTimer =
+      window.setTimeout(() => {
+        setShowNudge(true);
+      }, 1400);
+
+
+    const hideTimer =
+      window.setTimeout(() => {
+        setShowNudge(false);
+      }, 6000);
+
 
     return () => {
-      window.clearTimeout(showTimer);
-      window.clearTimeout(hideTimer);
+
+      window.clearTimeout(
+        showTimer
+      );
+
+      window.clearTimeout(
+        hideTimer
+      );
+
     };
+
   }, []);
 
 
   /* =========================================================
      SEND MESSAGE
+     FRONTEND-ONLY CHATBOT
   ========================================================= */
 
-  const sendMessage = async (
+  const sendMessage = (
     message: string
   ) => {
+
     const cleanMessage =
       message.trim();
 
-    if (!cleanMessage || loading) {
+
+    if (
+      !cleanMessage ||
+      loading
+    ) {
       return;
     }
 
+
+    /* USER MESSAGE */
 
     const userMessage: Message = {
       id: Date.now(),
@@ -114,13 +150,25 @@ const Chatbot = () => {
       userMessage,
     ]);
 
+
     setInput("");
+
     setLoading(true);
 
 
-    try {
-      const response =
-        await sendChatMessage(
+    /* =====================================================
+       FRONTEND MATCHING
+
+       No FastAPI
+       No Gemini
+       No Claude
+       No OpenAI
+    ===================================================== */
+
+    window.setTimeout(() => {
+
+      const answer =
+        getChatbotAnswer(
           cleanMessage
         );
 
@@ -128,7 +176,7 @@ const Chatbot = () => {
       const botMessage: Message = {
         id: Date.now() + 1,
         sender: "bot",
-        text: response.answer,
+        text: answer,
       };
 
 
@@ -137,29 +185,11 @@ const Chatbot = () => {
         botMessage,
       ]);
 
-    } catch (error) {
-      console.error(
-        "Chatbot error:",
-        error
-      );
 
-
-      const errorMessage: Message = {
-        id: Date.now() + 1,
-        sender: "bot",
-        text:
-          "Sorry, I couldn't connect to the Coinstep Assistant right now. Please try again.",
-      };
-
-
-      setMessages((previous) => [
-        ...previous,
-        errorMessage,
-      ]);
-
-    } finally {
       setLoading(false);
-    }
+
+    }, 400);
+
   };
 
 
@@ -170,9 +200,11 @@ const Chatbot = () => {
   const handleSubmit = (
     event: FormEvent<HTMLFormElement>
   ) => {
+
     event.preventDefault();
 
     sendMessage(input);
+
   };
 
 
@@ -183,7 +215,9 @@ const Chatbot = () => {
   const handleSuggestion = (
     question: string
   ) => {
+
     sendMessage(question);
+
   };
 
 
@@ -192,14 +226,16 @@ const Chatbot = () => {
   ========================================================= */
 
   const clearChat = () => {
+
     setMessages([
       {
         id: Date.now(),
         sender: "bot",
         text:
-          "Chat cleared. 👋 How can I help you with Coinstep?",
+          "Chat cleared. 👋 How can I help you with CoinStep?",
       },
     ]);
+
   };
 
 
@@ -208,8 +244,11 @@ const Chatbot = () => {
   ========================================================= */
 
   const openChat = () => {
+
     setShowNudge(false);
+
     setIsOpen(true);
+
   };
 
 
@@ -218,8 +257,11 @@ const Chatbot = () => {
   ========================================================= */
 
   const minimizeChat = () => {
+
     setIsOpen(false);
+
     setIsMaximized(false);
+
   };
 
 
@@ -228,8 +270,11 @@ const Chatbot = () => {
   ========================================================= */
 
   const closeChat = () => {
+
     setIsOpen(false);
+
     setIsMaximized(false);
+
   };
 
 
@@ -238,28 +283,41 @@ const Chatbot = () => {
   ========================================================= */
 
   const toggleMaximize = () => {
+
     setIsMaximized(
       (previous) => !previous
     );
+
   };
 
 
+  /* =========================================================
+     UI
+  ========================================================= */
+
   return (
+
     <>
+
       {/* =====================================================
-          PREMIUM CHATBOT LAUNCHER
+          CHATBOT LAUNCHER
       ===================================================== */}
 
       {!isOpen && (
+
         <div className="chatbot-launcher-wrapper">
+
 
           {/* ASSISTANT INTRO CARD */}
 
           <div
             className={`chatbot-nudge ${
-              showNudge ? "show" : ""
+              showNudge
+                ? "show"
+                : ""
             }`}
           >
+
             <div className="chatbot-nudge-content">
 
               <div className="chatbot-nudge-symbol">
@@ -285,7 +343,7 @@ const Chatbot = () => {
           </div>
 
 
-          {/* ROBOT */}
+          {/* ROBOT LAUNCHER */}
 
           <button
             type="button"
@@ -300,11 +358,9 @@ const Chatbot = () => {
             aria-label="Open CoinStep Assistant"
           >
 
-
-
             <img
               src={chatbotRobot}
-              alt=""
+              alt="CoinStep Assistant"
               className="chatbot-robot-image"
             />
 
@@ -315,6 +371,7 @@ const Chatbot = () => {
           </button>
 
         </div>
+
       )}
 
 
@@ -323,6 +380,7 @@ const Chatbot = () => {
       ===================================================== */}
 
       {isOpen && (
+
         <div
           className={`chatbot-container ${
             isMaximized
@@ -331,11 +389,15 @@ const Chatbot = () => {
           }`}
         >
 
-          {/* HEADER */}
+
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div className="chatbot-header">
 
             <div className="chatbot-header-left">
+
 
               <div className="chatbot-avatar">
                 C
@@ -345,11 +407,11 @@ const Chatbot = () => {
               <div className="chatbot-header-info">
 
                 <h3>
-                  Coinstep Assistant
+                  CoinStep Assistant
                 </h3>
 
                 <div className="chatbot-status">
-                  AI-powered Web3 support
+                  Web3 Support Assistant
                 </div>
 
               </div>
@@ -358,6 +420,9 @@ const Chatbot = () => {
 
 
             <div className="chatbot-header-actions">
+
+
+              {/* MINIMIZE */}
 
               <button
                 type="button"
@@ -368,6 +433,8 @@ const Chatbot = () => {
                 −
               </button>
 
+
+              {/* MAXIMIZE */}
 
               <button
                 type="button"
@@ -385,6 +452,8 @@ const Chatbot = () => {
               </button>
 
 
+              {/* CLOSE */}
+
               <button
                 type="button"
                 className="chatbot-close-button"
@@ -399,9 +468,12 @@ const Chatbot = () => {
           </div>
 
 
-          {/* MESSAGES */}
+          {/* =================================================
+              MESSAGES
+          ================================================= */}
 
           <div className="chatbot-messages">
+
 
             {messages.map(
               (message) => (
@@ -415,21 +487,32 @@ const Chatbot = () => {
                   }`}
                 >
 
-                  {message.sender === "bot" && (
+
+                  {/* BOT AVATAR */}
+
+                  {message.sender ===
+                    "bot" && (
+
                     <div className="message-avatar">
                       C
                     </div>
+
                   )}
 
 
+                  {/* MESSAGE */}
+
                   <div
                     className={`chatbot-message ${
-                      message.sender === "user"
+                      message.sender ===
+                      "user"
                         ? "user-message"
                         : "bot-message"
                     }`}
                   >
+
                     {message.text}
+
                   </div>
 
                 </div>
@@ -437,6 +520,10 @@ const Chatbot = () => {
               )
             )}
 
+
+            {/* =================================================
+                TYPING INDICATOR
+            ================================================= */}
 
             {loading && (
 
@@ -447,9 +534,11 @@ const Chatbot = () => {
                 </div>
 
                 <div className="chatbot-message bot-message typing-message">
+
                   <span>.</span>
                   <span>.</span>
                   <span>.</span>
+
                 </div>
 
               </div>
@@ -457,25 +546,30 @@ const Chatbot = () => {
             )}
 
 
-            <div ref={messagesEndRef} />
+            <div
+              ref={messagesEndRef}
+            />
 
           </div>
 
 
-          {/* QUICK QUESTIONS */}
+          {/* =================================================
+              QUICK QUESTIONS
+          ================================================= */}
 
           <div className="chatbot-suggestions">
+
 
             <button
               type="button"
               disabled={loading}
               onClick={() =>
                 handleSuggestion(
-                  "What is Coinstep?"
+                  "What is CoinStep?"
                 )
               }
             >
-              What is Coinstep?
+              What is CoinStep?
             </button>
 
 
@@ -484,7 +578,7 @@ const Chatbot = () => {
               disabled={loading}
               onClick={() =>
                 handleSuggestion(
-                  "Is Coinstep safe?"
+                  "Is CoinStep safe?"
                 )
               }
             >
@@ -497,7 +591,7 @@ const Chatbot = () => {
               disabled={loading}
               onClick={() =>
                 handleSuggestion(
-                  "How can I use Coinstep?"
+                  "How can I use CoinStep?"
                 )
               }
             >
@@ -520,7 +614,9 @@ const Chatbot = () => {
           </div>
 
 
-          {/* INPUT */}
+          {/* =================================================
+              INPUT
+          ================================================= */}
 
           <form
             className="chatbot-input-area"
@@ -532,8 +628,8 @@ const Chatbot = () => {
               value={input}
               placeholder={
                 loading
-                  ? "Searching Coinstep knowledge..."
-                  : "Ask Coinstep anything..."
+                  ? "Finding an answer..."
+                  : "Ask CoinStep anything..."
               }
               onChange={(event) =>
                 setInput(
@@ -541,6 +637,7 @@ const Chatbot = () => {
                 )
               }
               disabled={loading}
+              autoComplete="off"
             />
 
 
@@ -559,12 +656,14 @@ const Chatbot = () => {
           </form>
 
 
-          {/* FOOTER */}
+          {/* =================================================
+              FOOTER
+          ================================================= */}
 
           <div className="chatbot-footer">
 
             <span>
-              Powered by Coinstep
+              Powered by CoinStep
             </span>
 
 
@@ -579,9 +678,13 @@ const Chatbot = () => {
           </div>
 
         </div>
+
       )}
+
     </>
+
   );
+
 };
 
 

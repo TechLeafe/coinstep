@@ -80,7 +80,7 @@ const PLATFORM_FEATURES: PlatformFeature[] = [
   {
     icon: <LanguageOutlinedIcon />,
     visual: "dapp",
-    title: "Web3 & DApps",
+    title: "Web3 & dApps",
     description:
       "Connect your wallet to decentralized applications and explore Web3 experiences.",
   },
@@ -568,12 +568,12 @@ function ConnectedWeb3Visual() {
       </div>
 
 
-      <div className="platform-network-node platform-node-dapps">
+      <div className="platform-network-node platform-node-dApps">
 
         <LanguageOutlinedIcon />
 
         <small>
-          DApps
+          dApps
         </small>
 
       </div>
@@ -728,7 +728,7 @@ export function Platform() {
           <div className="platform-section-heading">
 
             <span className="platform-eyebrow">
-              HOW CoinStep WORKS
+              HOW COINSTEP WORKS
             </span>
 
             <h2>

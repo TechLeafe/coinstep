@@ -1187,7 +1187,7 @@ export function About() {
                 <p>
                   CoinStep is a modern Web3 wallet designed to make
                   managing digital assets, exploring decentralized
-                  applications (DApps), and navigating multi-chain
+                  applications (dApps), and navigating multi-chain
                   experiences simpler, clearer, and more accessible.
                 </p>
 
@@ -1318,7 +1318,7 @@ export function About() {
 
                 <p>
                   From managing digital assets and sending transactions to connecting with
-                  DApps and exploring multi-chain ecosystems, CoinStep is designed to help
+                  dApps and exploring multi-chain ecosystems, CoinStep is designed to help
                   users navigate Web3 with confidence.
                 </p>
 
