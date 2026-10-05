@@ -36,7 +36,7 @@ const CATEGORIES: Category[] = [
   },
 
   {
-    id: "Transaction",
+    id: "payment",
     label: "Transaction & Fees",
     icon: <IconCard />,
   },
@@ -94,7 +94,7 @@ const FAQS: FaqItem[] = [
 
 
   /* ==========================================================
-     PAYMENT & BILLING
+     TRANSACTION & FEES
   ========================================================== */
 
   {

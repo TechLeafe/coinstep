@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 FAQ_PATH = (
     BASE_DIR
     / "knowledge"
-    / "coinstep_faq.json"
+    / ""
 )
 
 

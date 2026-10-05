@@ -19,6 +19,24 @@
       ],
     "answer": "Good morning 👋 I'm CoinStep Assistant. How can I help you with CoinStep today?"
   },
+    {
+    "id": "greeting_afternoon_001",
+    "category": "greeting",
+     "intent": "good_afternoon",
+     "questions": [
+      "good afternoon"
+      ],
+    "answer": "Good afternoon 👋 I'm CoinStep Assistant. How can I help you with CoinStep today?"
+  },
+    {
+    "id": "greeting_evening_001",
+    "category": "greeting",
+     "intent": "good_evening",
+     "questions": [
+      "good evening"
+      ],
+    "answer": "Good evening 👋 I'm CoinStep Assistant. How can I help you with CoinStep today?"
+  },
 
   {
     "id": "about_001",
