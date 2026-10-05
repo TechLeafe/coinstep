@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
-import Chatbot from "./components/chatbot/chatbot";
+// import Chatbot from "./components/chatbot/chatbot";
 
 // Home page disabled
 // import { Home } from "./pages/Home";
@@ -105,7 +105,7 @@ export default function App() {
       {!isAboutPage && <Footer />}
 
 {/* Coinstep Chatbot */}
-      <Chatbot /> 
+      {/* <Chatbot />  */}
     </>
   );
 }
