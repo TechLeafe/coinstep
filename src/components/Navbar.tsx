@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { useTheme } from '../context/ThemeContext'
-
 import { LinkButton } from './Button'
 
-import walletLogo from '../assets/wallet-logo.png'
-import walletLogoWhite from '../assets/coinstep white logo.png'
+import coinstepLogo from '../assets/CoinStep.png'
 
 import './Navbar.css'
 
@@ -21,7 +19,6 @@ const LINKS = [
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
-
   const [menuOpen, setMenuOpen] = useState(false)
 
   // Close mobile menu when screen becomes desktop size
@@ -60,12 +57,10 @@ export function Navbar() {
           onClick={() => setMenuOpen(false)}
         >
           <img
-            src={theme === 'dark' ? walletLogoWhite : walletLogo}
+            src={coinstepLogo}
             alt="Coinstep"
             className="nav-logo-image"
           />
-
-          <span>Coinstep</span>
         </NavLink>
 
         {/* DESKTOP NAVIGATION */}
@@ -154,7 +149,6 @@ export function Navbar() {
         }`}
         aria-label="Mobile navigation"
       >
-
         {LINKS.map((link) => (
           <NavLink
             key={link.to}
@@ -167,7 +161,6 @@ export function Navbar() {
           >
             <span>{link.label}</span>
 
-            {/* CHEVRON RIGHT */}
             <svg
               className="mobile-nav-arrow"
               viewBox="0 0 24 24"
@@ -180,7 +173,6 @@ export function Navbar() {
             </svg>
           </NavLink>
         ))}
-
       </nav>
     </header>
   )

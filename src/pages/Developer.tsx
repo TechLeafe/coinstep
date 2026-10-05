@@ -1,12 +1,10 @@
-import { useEffect } from "react";
-
 import "./Developer.css";
 
 const apiFeatures = [
   {
     title: "Wallet API",
     description:
-      "Create wallet experiences, retrieve balances, and manage wallet-related data using Coinstep APIs.",
+      "Create wallet experiences, retrieve balances, and manage wallet-related data using CoinStep APIs.",
   },
   {
     title: "Transaction API",
@@ -26,44 +24,6 @@ const apiFeatures = [
 ];
 
 const Developer = () => {
-  useEffect(() => {
-    document.title =
-      "Coinstep Developer APIs | Build Web3 & Blockchain Applications";
-
-    const description =
-      "Build Web3 applications with Coinstep developer APIs. Integrate wallet functionality, blockchain transactions, digital assets, and Web3 connectivity into web and mobile applications.";
-
-    let metaDescription = document.querySelector(
-      'meta[name="description"]'
-    );
-
-    if (!metaDescription) {
-      metaDescription = document.createElement("meta");
-      metaDescription.setAttribute("name", "description");
-      document.head.appendChild(metaDescription);
-    }
-
-    metaDescription.setAttribute(
-      "content",
-      description
-    );
-
-    let canonical = document.querySelector(
-      'link[rel="canonical"]'
-    );
-
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-
-    canonical.setAttribute(
-      "href",
-      "https://coinstep.in/developer"
-    );
-  }, []);
-
   return (
     <main className="developer-page">
       {/* HERO */}
@@ -75,13 +35,13 @@ const Developer = () => {
 
           <h1>
             Build Web3 Applications
-            <span> with Coinstep APIs.</span>
+            <span> with CoinStep APIs.</span>
           </h1>
 
           <p className="developer-description">
             Integrate wallet functionality, blockchain transactions,
             digital assets, and Web3 connectivity into your web and
-            mobile applications using Coinstep developer APIs.
+            mobile applications using CoinStep developer APIs.
           </p>
 
           <div className="developer-actions">
@@ -110,7 +70,7 @@ const Developer = () => {
 
           <pre>
             <code>{`const response = await fetch(
-  "https://api.coinstep.in/v1/wallet/balance",
+  "https://api.CoinStep.in/v1/wallet/balance",
   {
     headers: {
       Authorization: "Bearer YOUR_API_KEY"
@@ -139,7 +99,7 @@ console.log(data);`}</code>
           </h2>
 
           <p>
-            Use Coinstep APIs to integrate wallet services,
+            Use CoinStep APIs to integrate wallet services,
             blockchain transactions, digital assets, and Web3
             functionality into modern applications.
           </p>
@@ -179,12 +139,12 @@ console.log(data);`}</code>
           </p>
 
           <h2>
-            Integrate Coinstep
+            Integrate CoinStep
             <span> Into Your Application.</span>
           </h2>
 
           <p>
-            Connect your web or mobile application to Coinstep
+            Connect your web or mobile application to CoinStep
             using simple developer-friendly APIs designed for
             modern Web3 products.
           </p>

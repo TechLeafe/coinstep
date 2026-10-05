@@ -104,7 +104,7 @@ const PLATFORM_JOURNEY = [
     number: "01",
     title: "Create or Import",
     text:
-      "Start with a new wallet or bring an existing wallet into Coinstep.",
+      "Start with a new wallet or bring an existing wallet into CoinStep.",
   },
 
   {
@@ -175,7 +175,7 @@ const PLATFORM_VISUALS: Record<
           </span>
 
           <b>
-            COINSTEP
+            CoinStep
           </b>
 
         </div>
@@ -451,7 +451,7 @@ function PlatformHeroVisual() {
         <div className="platform-theme-crop">
           <img
             src={walletPhones}
-            alt="Coinstep wallet interface"
+            alt="CoinStep wallet interface"
             className="platform-theme-img"
           />
         </div>
@@ -540,7 +540,7 @@ function ConnectedWeb3Visual() {
         </span>
 
         <strong>
-          Coinstep
+          CoinStep
         </strong>
 
       </div>
@@ -728,7 +728,7 @@ export function Platform() {
           <div className="platform-section-heading">
 
             <span className="platform-eyebrow">
-              HOW COINSTEP WORKS
+              HOW CoinStep WORKS
             </span>
 
             <h2>
@@ -810,7 +810,7 @@ export function Platform() {
             </h2>
 
             <p className="platform-security-description">
-              Coinstep is designed to make important
+              CoinStep is designed to make important
               wallet actions easier to understand.
               Clear confirmations and security-focused
               flows help you stay aware of what you

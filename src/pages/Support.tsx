@@ -33,7 +33,7 @@ const topics = [
   {
     title: "Getting Started with CoinStep",
     description:
-      "Learn how to set up your Web3 wallet, understand your wallet address, and get started with Coinstep.",
+      "Learn how to set up your Web3 wallet, understand your wallet address, and get started with CoinStep.",
   },
   {
     title: "Managing Crypto Transactions",
@@ -66,7 +66,7 @@ const topics = [
   {
     title: "How-To Guides",
     description:
-      "Follow simple step-by-step guides for common Coinstep wallet, transaction, Web3, and security tasks.",
+      "Follow simple step-by-step guides for common CoinStep wallet, transaction, Web3, and security tasks.",
   },
 ];
 
@@ -136,7 +136,7 @@ export function Support() {
         ==================================================== */}
         <section className="support-hero">
           <div className="support-hero-content">
-            <span className="support-eyebrow">COINSTEP SUPPORT</span>
+            <span className="support-eyebrow">CoinStep SUPPORT</span>
 
             <h1>Web3 Wallet Support, When You Need It</h1>
 

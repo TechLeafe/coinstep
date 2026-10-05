@@ -402,8 +402,8 @@ function TeamArt() {
 }
 
 /* ============================================================
-   ANIMATED COINSTEP BRAND
-   Only replaces the top COINSTEP wordmark.
+   ANIMATED CoinStep BRAND
+   Only replaces the top CoinStep wordmark.
 ============================================================ */
 
 const BRAND_CRYPTO_SYMBOLS = [
@@ -554,7 +554,7 @@ function BrandCryptoIcon({
 
 
 /* ============================================================
-   FINAL COINSTEP LOGO
+   FINAL CoinStep LOGO
    Exact thin logo from the supplied reference screenshot.
    Color: #025B82
 
@@ -563,15 +563,15 @@ function BrandCryptoIcon({
    Existing rotation / drop / float timing stays unchanged.
 ============================================================ */
 
-const COINSTEP_END_LOGO =
+const CoinStep_END_LOGO =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABOCAYAAABR5FoCAAAFk0lEQVR4nO2cX4hVRRzHP9e8W1vXB3dXW+0fRVtGtRVEVOJDVEJF/4wisH/Wgy9SIphUUChRWfaHIsKXrIwwon9I9lL2ELUGhbWr6G5BkKWl5RJrmd5qe/id5c49e/7MOZ6ZOSfmA8udM2fuzPjdOTO/P2etTVm4Ck+xTHE9gf8jXlQDeFEN4EU1gBfVAF5UA3hRDeBFNYAX1QBeVAN4UQ3gRTWAF9UAXlQDeFEN4EU1gBfVAFUXdTrQCMqN4No5VRZ1DbAfGAPqwed+4DqXk4JqizpDKU9Vyl22JxKmyqKWliqLepRSPlYpd9qeSJip6U1KRR3oBi4AFir1u5Tyo8ApwAjwJTAMHLI1QaiOqA1gJbAs5r66OruAFRFtuoDRgucVSdkf/0uBfcjJHieoLnOPfDp6lHWldgO/FtyntQVUtpVaB+4mWdAzgJrGz7lGZ5pAmVZqHTgcc+9lYAlwMEN/2454Rjkpi6jTEW8ozC3AWwWNYc3UKsPj3020oHPJLmg/sB0YD35UNgBXIb/ATuTgW5qxfy1cr9ROovfPWsZ++oFvNNptCj4/BeYF5bVk21ZScb1Sn4yoyyroOqIFfQGxTWvALOAV5d48pax6ZoXgUtTLkcNHJaugtwN3RdSfD9xLy9j/GVgEdGTsPxcuRf0odN2fo4/XYupHYuqbwJwc42TClajnhK6vBoYy9lHPOfZwzu9p40LUBi0BJ1zHTTFt0/qJ486U725Qys0cYyfiQtSLlPJnQF9QDptAaRxIuPcScELC/YkD8l8MRLBciLo6dP0tLZdynHbRk0hbYT8C9xO9TWxFDsXCT36wL2oDuDCifgg4G7gS+AL9BN6bKfdXAz9k6K8QbIt6dMK97che+AziYa3T6G+RRpveoL9xJh+QRrAtalpS7jbE9uxD7M+lKe0PIranrkc0hLinRleubVF1/jEzkH32WuBZ0g+wJpKjWqM5h6eRlXuxZvvM2Bb1xAxtN9Ja2TqWwXLk8LlCs/8BDAlrW9QsZtOtwDU5xvgY+WV8r9F2AANbgW1Rk2xLlVnAYmA9cBPxMYFeouOko8BpQA9iTagspj1fdbPmnLSxLeqelPtPIKtzD3AZIso7MW2fD9r9mdDfb8gj/p5StxZJJt6jXBeKbVH3JdzrRdzHD5CIfw0RJY5pGca9EXhAuR5BnoIJ8sYRIrEtalwOqg8Jz30N3IBexF8NsHdrtF8fuh5GUuCbKdj/tx35D++p1wN/ICbUbuB08kXhB0n29WHyNnEq8DlwfI7xErG9UptI8BjE338fiasuQUTJm9aYDZyZ0mZmTH3WQE4qLgIqrwefavz0xQL63UmyG7wzou4xkvf5XLgQdZT2fBEUZyv+hWwxdyAmVT/wHNGr8XHgoYLGbcNVNnUZ7bmlbaTviWF+Dz4fAY6hdbofB7ya8L1hxLoYzDieNq7SKaO056hmI2/1ZWE5csisAh6klTV9KqLtVmA+EiOYg0FBAWoO/wulBvI2n8o09L2u0uIym3qAyY/8GOJJVRrXL1PsBhaE6jaTnNQrPa5FBXgXuCRUNwa87WAuhVAGUQG2ILl/lQWIKWT85YeiKYuoAB8ip3eYHYi4K8n+OmShgRJdyiQqSFClB8nbh3kY8d/HgfuQfTcsWh1xR98I2h1GAjRWcWlSpTET+KWgvnYBJxfUVyplW6kqe5FM6XlMDttl5SQs5v7LLCpIVGsQ8eW7kLhrluDLIcSy6MHS31BB+UVVGQW+Q8KEHbSnWeYr5RWIZ9aBxAS2kJxBKBzXr6fnpUl70HlAKe/FsatbpZWaxD+uJ6BSZVHV9/z/Vso/2Z5ImKo+/iCv+XyCiNgEzkJCeztcTgqqLSrAV0o5Kl3ihCo//qXFi2oAL6oBvKgG8KIawItqAC+qAf4DDKHZsn1qUakAAAAASUVORK5CYII=";
 
 
-function CoinstepEndLogo() {
+function CoinStepEndLogo() {
   return (
     <img
       className="about-intro__end-logo-svg"
-      src={COINSTEP_END_LOGO}
+      src={CoinStep_END_LOGO}
       alt=""
       aria-hidden="true"
       draggable={false}
@@ -585,10 +585,10 @@ function CoinstepEndLogo() {
 
 
 /* ============================================================
-   COINSTEP BRAND ANIMATION
+   CoinStep BRAND ANIMATION
 ============================================================ */
 
-function CoinstepAnimatedBrand() {
+function CoinStepAnimatedBrand() {
 
   const coinRef =
     useRef<HTMLSpanElement>(null);
@@ -766,7 +766,7 @@ function CoinstepAnimatedBrand() {
 
       <h1
         className="about-intro__wordmark"
-        aria-label="Coinstep"
+        aria-label="CoinStep"
       >
 
         <span
@@ -901,7 +901,7 @@ function CoinstepAnimatedBrand() {
 
             <span className="about-intro__end-logo-spin">
 
-              <CoinstepEndLogo />
+              <CoinStepEndLogo />
 
             </span>
 
@@ -1158,7 +1158,7 @@ export function About() {
 
           <section className="about-intro">
 
-            <CoinstepAnimatedBrand />
+            <CoinStepAnimatedBrand />
 
 
             <div className="about-intro__hero-grid">
@@ -1318,7 +1318,7 @@ export function About() {
 
                 <p>
                   From managing digital assets and sending transactions to connecting with
-                  DApps and exploring multi-chain ecosystems, Coinstep is designed to help
+                  DApps and exploring multi-chain ecosystems, CoinStep is designed to help
                   users navigate Web3 with confidence.
                 </p>
 
@@ -1361,7 +1361,7 @@ export function About() {
                 </h3>
 
                 <p>
-                  Coinstep was created with one goal: to make crypto and Web3 interactions
+                  CoinStep was created with one goal: to make crypto and Web3 interactions
                   easier to understand, easier to use, with clearer and more security-conscious interactions for everyday users.
                 </p>
 
@@ -1435,7 +1435,7 @@ export function About() {
                 </h3>
 
                 <p>
-                  Security and transparency are at the heart of the Coinstep experience.
+                  Security and transparency are at the heart of the CoinStep experience.
                 </p>
 
                 <p>
@@ -1469,7 +1469,7 @@ export function About() {
                 </p>
 
                 <p>
-                  Coinstep is building a flexible wallet experience across blockchain
+                  CoinStep is building a flexible wallet experience across blockchain
                   networks, digital assets, decentralized applications, mobile, and web.
                   We are focused on creating a flexible foundation that can grow with the
                   Web3 ecosystem and its users.
@@ -1584,7 +1584,7 @@ export function About() {
               </p>
 
               <p>
-                Together, we are building Coinstep to help more people confidently discover,
+                Together, we are building CoinStep to help more people confidently discover,
                 understand, and participate in the decentralized web.
               </p>
 
@@ -1638,7 +1638,7 @@ export function About() {
                 </h2>
 
                 <p>
-                  Coinstep is focused on making digital asset ownership more accessible
+                  CoinStep is focused on making digital asset ownership more accessible
                   through an intuitive, security-focused, and user-friendly Web3 wallet.
                 </p>
 
@@ -1653,7 +1653,7 @@ export function About() {
                 >
 
                   <span>
-                    Explore Coinstep
+                    Explore CoinStep
                   </span>
 
                   <span

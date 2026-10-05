@@ -25,7 +25,7 @@ export function Home() {
             before it becomes a problem.
           </h1>
           <p style={{ fontSize: 'var(--text-md)' }}>
-            Coinstep turns scattered project activity into one clear picture, so you catch
+            CoinStep turns scattered project activity into one clear picture, so you catch
             slowdowns while there's still time to do something about them.
           </p>
           <div className="row">
@@ -85,7 +85,7 @@ export function Home() {
             <p className="muted">No credit card. Cancel any time.</p>
           </div>
           <Button size="lg" id="download">
-            Get Coinstep
+            Get CoinStep
           </Button>
         </div>
       </section> */}

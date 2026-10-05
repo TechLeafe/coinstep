@@ -4,9 +4,7 @@
 
 .nav {
   position: sticky;
-
   top: 0;
-
   z-index: 40;
 
   width: 100%;
@@ -31,6 +29,7 @@
    NAVBAR INNER
    LARGE SCREEN / 2K / 4K FIX
 ============================================================ */
+
 .nav-inner {
   width: 94vw;
   max-width: none;
@@ -39,6 +38,7 @@
   margin-inline: auto;
 
   padding-inline: 0;
+
   padding-block: clamp(
     0.75rem,
     1.5vh,
@@ -62,48 +62,36 @@
 
   box-sizing: border-box;
 }
+
+
 /* ============================================================
    BRAND
 ============================================================ */
+
 .nav-brand {
   justify-self: start;
 
   display: inline-flex;
-
   align-items: center;
 
-  gap: var(--space-2xs);
-
-  font-family: var(--font-display);
-
-  font-weight: var(--weight-semibold);
-
-  font-size: clamp(
-    1rem,
-    0.9vw,
-    1.3rem
-  );
-
-  color: var(--color-ink);
-
   text-decoration: none;
+
+  flex-shrink: 0;
 }
+
+
 /* ============================================================
    COINSTEP LOGO IMAGE
 ============================================================ */
 
 .nav-logo-image {
   width: clamp(
-    52px,
-    3vw,
-    64px
+    130px,
+    8vw,
+    165px
   );
 
-  height: clamp(
-    52px,
-    3vw,
-    64px
-  );
+  height: auto;
 
   object-fit: contain;
 
@@ -198,6 +186,7 @@
   );
 }
 
+
 /* ============================================================
    THEME TOGGLE
 ============================================================ */
@@ -266,44 +255,6 @@
 
 
 /* ============================================================
-   ULTRA-WIDE / 2K / 4K
-============================================================ */
-
-@media (max-width: 768px) {
-  .nav-inner {
-    width: calc(100% - 32px);
-    margin-inline: auto;
-
-    display: flex;
-    align-items: center;
-
-    gap: var(--space-sm);
-
-    padding-block: var(--space-sm);
-  }
-
-  .nav-brand {
-    margin-right: auto;
-  }
-
-  .mobile-actions {
-    display: flex;
-    align-items: center;
-
-    gap: var(--space-xs);
-
-    margin-left: auto;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-actions {
-    display: none;
-  }
-}
-/* ============================================================
    NORMAL DESKTOP
 ============================================================ */
 
@@ -322,6 +273,11 @@
       1.6vw,
       2rem
     );
+  }
+
+
+  .nav-logo-image {
+    width: 145px;
   }
 }
 
@@ -353,6 +309,11 @@
   .nav-actions {
     gap: 0.5rem;
   }
+
+
+  .nav-logo-image {
+    width: 130px;
+  }
 }
 
 
@@ -370,6 +331,10 @@
 
     margin-inline: auto;
 
+    display: flex;
+
+    align-items: center;
+
     flex-wrap: nowrap;
 
     gap: var(--space-sm);
@@ -383,16 +348,18 @@
   ---------------------------------------------------------- */
 
   .nav-brand {
-    gap: 10px;
+    margin-right: auto;
 
-    font-size: var(--text-md);
+    flex-shrink: 0;
   }
 
 
   .nav-logo-image {
-    width: 40px;
+    width: 120px;
 
-    height: 40px;
+    height: auto;
+
+    object-fit: contain;
   }
 
 
@@ -685,16 +652,10 @@
   }
 
 
-  .nav-brand span {
-    font-size:
-      var(--text-sm);
-  }
-
-
   .nav-logo-image {
-    width: 36px;
+    width: 105px;
 
-    height: 36px;
+    height: auto;
   }
 
 

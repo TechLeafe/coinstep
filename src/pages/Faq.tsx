@@ -71,25 +71,25 @@ const FAQS: FaqItem[] = [
     q: "What is a Web3 wallet?",
 
     a:
-      "A Web3 wallet is a digital wallet that helps you manage supported crypto assets, interact with blockchain networks, and connect to decentralized applications (dApps). Coinstep brings these Web3 wallet tools together in one simple experience.",
+      "A Web3 wallet is a digital wallet that helps you manage supported crypto assets, interact with blockchain networks, and connect to decentralized applications (dApps). CoinStep brings these Web3 wallet tools together in one simple experience.",
   },
 
   {
     category: "general",
 
-    q: "How does the Coinstep Web3 wallet work?",
+    q: "How does the CoinStep Web3 wallet work?",
 
     a:
-      "Coinstep helps users manage supported digital assets, check balances, send and receive crypto, view transaction activity, and connect to supported decentralized applications from one Web3 wallet experience.",
+      "CoinStep helps users manage supported digital assets, check balances, send and receive crypto, view transaction activity, and connect to supported decentralized applications from one Web3 wallet experience.",
   },
 
   {
     category: "general",
 
-    q: "Which blockchain networks does Coinstep support?",
+    q: "Which blockchain networks does CoinStep support?",
 
     a:
-      "Coinstep is designed to support multi-chain Web3 experiences. Available blockchain networks and digital assets depend on the networks currently supported by the Coinstep wallet.",
+      "CoinStep is designed to support multi-chain Web3 experiences. Available blockchain networks and digital assets depend on the networks currently supported by the CoinStep wallet.",
   },
 
 
@@ -110,7 +110,7 @@ const FAQS: FaqItem[] = [
     category: "payment",
 
     q:
-      "What network fees apply when sending crypto with Coinstep?",
+      "What network fees apply when sending crypto with CoinStep?",
 
     a:
       "Crypto transactions may require blockchain network fees, sometimes called gas fees. These fees are determined by the blockchain network and can change depending on network activity, transaction type, and current network conditions.",
@@ -144,10 +144,10 @@ const FAQS: FaqItem[] = [
     category: "security",
 
     q:
-      "Can Coinstep support my recovery phrase?",
+      "Can CoinStep support my recovery phrase?",
 
     a:
-      "No. Your recovery phrase should remain private and under your control at all times. Never share it with anyone claiming to be from Coinstep Support, or with any website, message, application, or service that asks for it.",
+      "No. Your recovery phrase should remain private and under your control at all times. Never share it with anyone claiming to be from CoinStep Support, or with any website, message, application, or service that asks for it.",
   },
 
   {
@@ -167,29 +167,29 @@ const FAQS: FaqItem[] = [
   {
     category: "account",
 
-    q: "How do I connect Coinstep to a Defi?",
+    q: "How do I connect CoinStep to a Defi?",
 
     a:
-      "Open a supported decentralized application, choose its wallet connection option, and select Coinstep when available. Always verify that you are using a trusted dApp before approving a wallet connection or blockchain transaction.",
+      "Open a supported decentralized application, choose its wallet connection option, and select CoinStep when available. Always verify that you are using a trusted dApp before approving a wallet connection or blockchain transaction.",
   },
 
   {
     category: "account",
 
-    q: "How do I safely update my Coinstep wallet?",
+    q: "How do I safely update my CoinStep wallet?",
 
     a:
-      "Use only official Coinstep sources when installing wallet updates. Never enter or share your recovery phrase because of an update request, unexpected message, website, link, or pop-up.",
+      "Use only official CoinStep sources when installing wallet updates. Never enter or share your recovery phrase because of an update request, unexpected message, website, link, or pop-up.",
   },
 
   {
     category: "account",
 
     q:
-      "Can I use my Coinstep wallet on multiple devices?",
+      "Can I use my CoinStep wallet on multiple devices?",
 
     a:
-      "Open the supported DeFi application, choose the wallet connection option, and select Coinstep if it is available. Before connecting, make sure you are using the official and trusted dApp. Always review the permissions and transaction details carefully before approving anything.",
+      "Open the supported DeFi application, choose the wallet connection option, and select CoinStep if it is available. Before connecting, make sure you are using the official and trusted dApp. Always review the permissions and transaction details carefully before approving anything.",
   },
 ];
 

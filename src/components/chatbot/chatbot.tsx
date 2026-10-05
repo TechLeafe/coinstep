@@ -14,6 +14,8 @@ import {
   sendChatMessage,
 } from "../../services/chatbotApi";
 
+import chatbotRobot from "../../assets/Chatbot Icon.png";
+
 
 type Message = {
   id: number;
@@ -35,6 +37,10 @@ const Chatbot = () => {
   const [loading, setLoading] =
     useState(false);
 
+  const [showNudge, setShowNudge] =
+    useState(false);
+
+
   const [messages, setMessages] =
     useState<Message[]>([
       {
@@ -47,14 +53,12 @@ const Chatbot = () => {
 
 
   const messagesEndRef =
-    useRef<HTMLDivElement | null>(
-      null
-    );
+    useRef<HTMLDivElement | null>(null);
 
 
-  // ==========================================
-  // AUTO SCROLL
-  // ==========================================
+  /* =========================================================
+     AUTO SCROLL
+  ========================================================= */
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
@@ -63,9 +67,29 @@ const Chatbot = () => {
   }, [messages, loading]);
 
 
-  // ==========================================
-  // SEND MESSAGE
-  // ==========================================
+  /* =========================================================
+     AUTOMATIC ASSISTANT INTRO
+  ========================================================= */
+
+  useEffect(() => {
+    const showTimer = window.setTimeout(() => {
+      setShowNudge(true);
+    }, 1400);
+
+    const hideTimer = window.setTimeout(() => {
+      setShowNudge(false);
+    }, 6000);
+
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+    };
+  }, []);
+
+
+  /* =========================================================
+     SEND MESSAGE
+  ========================================================= */
 
   const sendMessage = async (
     message: string
@@ -73,10 +97,7 @@ const Chatbot = () => {
     const cleanMessage =
       message.trim();
 
-    if (
-      !cleanMessage ||
-      loading
-    ) {
+    if (!cleanMessage || loading) {
       return;
     }
 
@@ -93,9 +114,7 @@ const Chatbot = () => {
       userMessage,
     ]);
 
-
     setInput("");
-
     setLoading(true);
 
 
@@ -117,6 +136,7 @@ const Chatbot = () => {
         ...previous,
         botMessage,
       ]);
+
     } catch (error) {
       console.error(
         "Chatbot error:",
@@ -136,15 +156,16 @@ const Chatbot = () => {
         ...previous,
         errorMessage,
       ]);
+
     } finally {
       setLoading(false);
     }
   };
 
 
-  // ==========================================
-  // FORM SUBMIT
-  // ==========================================
+  /* =========================================================
+     FORM SUBMIT
+  ========================================================= */
 
   const handleSubmit = (
     event: FormEvent<HTMLFormElement>
@@ -155,9 +176,9 @@ const Chatbot = () => {
   };
 
 
-  // ==========================================
-  // QUICK SUGGESTION
-  // ==========================================
+  /* =========================================================
+     QUICK QUESTION
+  ========================================================= */
 
   const handleSuggestion = (
     question: string
@@ -166,9 +187,9 @@ const Chatbot = () => {
   };
 
 
-  // ==========================================
-  // CLEAR CHAT
-  // ==========================================
+  /* =========================================================
+     CLEAR CHAT
+  ========================================================= */
 
   const clearChat = () => {
     setMessages([
@@ -182,18 +203,19 @@ const Chatbot = () => {
   };
 
 
-  // ==========================================
-  // OPEN CHAT
-  // ==========================================
+  /* =========================================================
+     OPEN
+  ========================================================= */
 
   const openChat = () => {
+    setShowNudge(false);
     setIsOpen(true);
   };
 
 
-  // ==========================================
-  // MINIMIZE CHAT
-  // ==========================================
+  /* =========================================================
+     MINIMIZE
+  ========================================================= */
 
   const minimizeChat = () => {
     setIsOpen(false);
@@ -201,9 +223,9 @@ const Chatbot = () => {
   };
 
 
-  // ==========================================
-  // CLOSE CHAT
-  // ==========================================
+  /* =========================================================
+     CLOSE
+  ========================================================= */
 
   const closeChat = () => {
     setIsOpen(false);
@@ -211,9 +233,9 @@ const Chatbot = () => {
   };
 
 
-  // ==========================================
-  // MAXIMIZE / RESTORE
-  // ==========================================
+  /* =========================================================
+     MAXIMIZE
+  ========================================================= */
 
   const toggleMaximize = () => {
     setIsMaximized(
@@ -224,20 +246,82 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* FLOATING BUTTON */}
+      {/* =====================================================
+          PREMIUM CHATBOT LAUNCHER
+      ===================================================== */}
+
       {!isOpen && (
-        <button
-          type="button"
-          className="chatbot-floating-button"
-          onClick={openChat}
-          aria-label="Open Coinstep chatbot"
-        >
-          💬
-        </button>
+        <div className="chatbot-launcher-wrapper">
+
+          {/* ASSISTANT INTRO CARD */}
+
+          <div
+            className={`chatbot-nudge ${
+              showNudge ? "show" : ""
+            }`}
+          >
+            <div className="chatbot-nudge-content">
+
+              <div className="chatbot-nudge-symbol">
+                ✦
+              </div>
+
+              <div className="chatbot-nudge-copy">
+
+                <span className="chatbot-nudge-title">
+                  Ask CoinStep
+                </span>
+
+                <span className="chatbot-nudge-subtitle">
+                  Your Web3 assistant
+                </span>
+
+              </div>
+
+            </div>
+
+            <span className="chatbot-nudge-arrow" />
+
+          </div>
+
+
+          {/* ROBOT */}
+
+          <button
+            type="button"
+            className="chatbot-launcher"
+            onClick={openChat}
+            onMouseEnter={() =>
+              setShowNudge(true)
+            }
+            onMouseLeave={() =>
+              setShowNudge(false)
+            }
+            aria-label="Open CoinStep Assistant"
+          >
+
+
+
+            <img
+              src={chatbotRobot}
+              alt=""
+              className="chatbot-robot-image"
+            />
+
+            <span className="chatbot-ai-spark">
+              ✦
+            </span>
+
+          </button>
+
+        </div>
       )}
 
 
-      {/* CHAT WINDOW */}
+      {/* =====================================================
+          CHAT WINDOW
+      ===================================================== */}
+
       {isOpen && (
         <div
           className={`chatbot-container ${
@@ -248,6 +332,7 @@ const Chatbot = () => {
         >
 
           {/* HEADER */}
+
           <div className="chatbot-header">
 
             <div className="chatbot-header-left">
@@ -256,37 +341,34 @@ const Chatbot = () => {
                 C
               </div>
 
-              <div>
+
+              <div className="chatbot-header-info">
+
                 <h3>
                   Coinstep Assistant
                 </h3>
 
                 <div className="chatbot-status">
-                  <span className="status-dot" />
-
-                  Online
+                  AI-powered Web3 support
                 </div>
+
               </div>
 
             </div>
 
 
-            {/* HEADER ACTION BUTTONS */}
             <div className="chatbot-header-actions">
 
-              {/* MINIMIZE */}
               <button
                 type="button"
                 className="chatbot-header-button"
                 onClick={minimizeChat}
                 aria-label="Minimize chatbot"
-                title="Minimize"
               >
                 −
               </button>
 
 
-              {/* MAXIMIZE / RESTORE */}
               <button
                 type="button"
                 className="chatbot-header-button"
@@ -296,11 +378,6 @@ const Chatbot = () => {
                     ? "Restore chatbot"
                     : "Maximize chatbot"
                 }
-                title={
-                  isMaximized
-                    ? "Restore"
-                    : "Maximize"
-                }
               >
                 {isMaximized
                   ? "❐"
@@ -308,13 +385,11 @@ const Chatbot = () => {
               </button>
 
 
-              {/* CLOSE */}
               <button
                 type="button"
                 className="chatbot-close-button"
                 onClick={closeChat}
                 aria-label="Close chatbot"
-                title="Close"
               >
                 ×
               </button>
@@ -325,10 +400,12 @@ const Chatbot = () => {
 
 
           {/* MESSAGES */}
+
           <div className="chatbot-messages">
 
             {messages.map(
               (message) => (
+
                 <div
                   key={message.id}
                   className={`chatbot-message-row ${
@@ -338,8 +415,7 @@ const Chatbot = () => {
                   }`}
                 >
 
-                  {message.sender ===
-                    "bot" && (
+                  {message.sender === "bot" && (
                     <div className="message-avatar">
                       C
                     </div>
@@ -357,12 +433,13 @@ const Chatbot = () => {
                   </div>
 
                 </div>
+
               )
             )}
 
 
-            {/* TYPING INDICATOR */}
             {loading && (
+
               <div className="chatbot-message-row bot-row">
 
                 <div className="message-avatar">
@@ -376,17 +453,17 @@ const Chatbot = () => {
                 </div>
 
               </div>
+
             )}
 
 
-            <div
-              ref={messagesEndRef}
-            />
+            <div ref={messagesEndRef} />
 
           </div>
 
 
           {/* QUICK QUESTIONS */}
+
           <div className="chatbot-suggestions">
 
             <button
@@ -444,6 +521,7 @@ const Chatbot = () => {
 
 
           {/* INPUT */}
+
           <form
             className="chatbot-input-area"
             onSubmit={handleSubmit}
@@ -482,11 +560,13 @@ const Chatbot = () => {
 
 
           {/* FOOTER */}
+
           <div className="chatbot-footer">
 
             <span>
               Powered by Coinstep
             </span>
+
 
             <button
               type="button"

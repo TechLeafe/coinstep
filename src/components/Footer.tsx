@@ -67,7 +67,7 @@ export function Footer() {
               to="/"
               className="footer-brand"
             >
-              Coinstep
+              CoinStep
             </Link>
 
             <p className="footer-description">
@@ -114,7 +114,7 @@ export function Footer() {
         <div className="footer-bottom">
 
           <span className="footer-copyright">
-            © {new Date().getFullYear()} Coinstep.
+            © {new Date().getFullYear()} CoinStep.
             All rights reserved.
           </span>
 

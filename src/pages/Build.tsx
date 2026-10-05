@@ -43,7 +43,7 @@ const BUILD_FEATURES: Feature[] = [
     visual: "wallet",
     title: "Wallet Integration",
     description:
-      "Integrate Coinstep into your DApp and give users seamless access to  their digital assets.",
+      "Integrate CoinStep into your DApp and give users seamless access to  their digital assets.",
   },
 
   {
@@ -82,7 +82,7 @@ const BUILD_FEATURES: Feature[] = [
     visual: "dapp",
     title: "dApp Integration",
     description:
-      "Connect Coinstep with decentralized applications and Web3 services through flexible integration tools.",
+      "Connect CoinStep with decentralized applications and Web3 services through flexible integration tools.",
   },
 ];
 
@@ -202,7 +202,7 @@ const VISUALS: Record<VisualType, ReactNode> = {
 
       <div className="wallet-front">
         <span>◆</span>
-        <b>COINSTEP</b>
+        <b>CoinStep</b>
       </div>
 
       <div className="wallet-chip" />
@@ -322,7 +322,7 @@ const VISUALS: Record<VisualType, ReactNode> = {
           <CodeOutlinedIcon />
 
           <strong>
-            Coinstep Web3
+            CoinStep Web3
           </strong>
 
           <small>
@@ -550,7 +550,7 @@ function BlockchainVisual() {
 
             <b>
               <span>C</span>
-              Coinstep
+              CoinStep
             </b>
 
             <small>
@@ -803,7 +803,7 @@ function BlockchainVisual() {
         </span>
 
         <strong>
-          COINSTEP WEB3
+          CoinStep WEB3
         </strong>
 
       </div>
@@ -832,13 +832,13 @@ export function Build() {
           <h1>
             Build Web3 Experiences{" "}
             <span>
-              with Coinstep
+              with CoinStep
             </span>
           </h1>
 
 
           <p className="build-description">
-            Build connected Web3 experiences with Coinstep’s wallet integration, developer tools, and multi-chain capabilities.
+            Build connected Web3 experiences with CoinStep’s wallet integration, developer tools, and multi-chain capabilities.
           </p>
 
 

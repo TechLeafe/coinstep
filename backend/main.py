@@ -161,12 +161,12 @@ def chat(
 
 
     fallback_answer = (
-        "I don't have confirmed information "
-        "about that in my current Coinstep "
-        "knowledge. You can ask me about "
-        "Coinstep, getting started, wallets, "
-        "security, privacy, transactions, "
-        "fees, troubleshooting or support."
+        "I'm designed to help only with Coinstep "
+        "and related Web3 topics. "
+        "I can't answer unrelated questions. "
+        "You can ask me about Coinstep, wallets, security, "
+        "transactions, fees, Web3, troubleshooting or support. "
+        
     )
 
 

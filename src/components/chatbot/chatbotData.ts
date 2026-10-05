@@ -7,13 +7,13 @@ export const chatbotResponses: ChatbotResponse[] = [
   {
     keywords: ["hi", "hello", "hey"],
     answer:
-      "Hello! 👋 Welcome to Coinstep. How can I help you today?",
+      "Hello! 👋 Welcome to CoinStep. How can I help you today?",
   },
 
   {
-    keywords: ["what is coinstep", "coinstep"],
+    keywords: ["what is CoinStep", "CoinStep"],
     answer:
-      "Coinstep is a Web3 platform designed to make blockchain experiences easier, simpler, and more accessible.",
+      "CoinStep is a Web3 platform designed to make blockchain experiences easier, simpler, and more accessible.",
   },
 
   {
@@ -59,15 +59,15 @@ export const chatbotResponses: ChatbotResponse[] = [
   },
 
   {
-    keywords: ["platform", "coinstep platform"],
+    keywords: ["platform", "CoinStep platform"],
     answer:
-      "The Coinstep platform is designed to help users access Web3 and blockchain-related experiences in one place.",
+      "The CoinStep platform is designed to help users access Web3 and blockchain-related experiences in one place.",
   },
 
   {
-    keywords: ["features", "coinstep features"],
+    keywords: ["features", "CoinStep features"],
     answer:
-      "Coinstep focuses on providing simple and accessible Web3 features for users exploring blockchain technology.",
+      "CoinStep focuses on providing simple and accessible Web3 features for users exploring blockchain technology.",
   },
 
   {
@@ -79,19 +79,19 @@ export const chatbotResponses: ChatbotResponse[] = [
   {
     keywords: ["support", "help"],
     answer:
-      "For support, you can visit the Coinstep Support section where users can find help and guidance.",
+      "For support, you can visit the CoinStep Support section where users can find help and guidance.",
   },
 
   {
     keywords: ["faq", "frequently asked questions"],
     answer:
-      "The FAQ section contains common questions and answers about Coinstep and its Web3 platform.",
+      "The FAQ section contains common questions and answers about CoinStep and its Web3 platform.",
   },
 
   {
-    keywords: ["about", "about coinstep"],
+    keywords: ["about", "about CoinStep"],
     answer:
-      "The About section provides information about Coinstep, its purpose, and its focus on Web3 technology.",
+      "The About section provides information about CoinStep, its purpose, and its focus on Web3 technology.",
   },
 
   {
@@ -127,6 +127,6 @@ export const chatbotResponses: ChatbotResponse[] = [
   {
     keywords: ["bye", "goodbye", "thank you", "thanks"],
     answer:
-      "You're welcome! 👋 Thanks for using Coinstep Assistant.",
+      "You're welcome! 👋 Thanks for using CoinStep Assistant.",
   },
 ];

@@ -104,8 +104,8 @@ export default function App() {
       {/* Footer shows on all pages except About */}
       {!isAboutPage && <Footer />}
 
-      Coinstep Chatbot
-      <Chatbot />
+      /* Coinstep Chatbot */
+      <Chatbot /> 
     </>
   );
 }
