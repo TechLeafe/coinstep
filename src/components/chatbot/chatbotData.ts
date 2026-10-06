@@ -1,4 +1,6 @@
 export interface ChatbotResponse {
+  id: number;
+  question: string;
   keywords: string[];
   answer: string;
 }
@@ -9,43 +11,68 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 1,
+    question: "Hi / Hello",
     keywords: ["hi", "hello", "hey", "hii", "hai"],
     answer:
       "Hello! 👋 Welcome to CoinStep. How can I assist you today?",
   },
 
   {
+    id: 2,
+    question: "Good morning",
     keywords: ["good morning", "morning", "good mrng", "gm"],
     answer:
       "Good morning! 👋 Welcome to CoinStep. How can I assist you today?",
   },
 
   {
+    id: 3,
+    question: "Good afternoon",
     keywords: ["good afternoon", "afternoon", "good afternon"],
     answer:
       "Good afternoon! 👋 Welcome to CoinStep. How can I assist you today?",
   },
 
   {
+    id: 4,
+    question: "Good evening",
     keywords: ["good evening", "evening", "good eve"],
     answer:
       "Good evening! 👋 Welcome to CoinStep. How can I assist you today?",
   },
 
   {
+    id: 5,
+    question: "Good night",
     keywords: ["good night", "night"],
     answer:
       "Good night! 👋 Thank you for visiting CoinStep. Feel free to return whenever you need assistance.",
   },
 
   {
-    keywords: ["thanks", "thank you", "thank you so much", "thanks for helping"],
+    id: 6,
+    question: "Thank you",
+    keywords: [
+      "thanks",
+      "thank you",
+      "thank you so much",
+      "thanks for helping",
+    ],
     answer:
       "You're welcome! I'm glad I could help. Feel free to ask if you have any other CoinStep questions.",
   },
 
   {
-    keywords: ["bye", "goodbye", "see you", "see you later", "talk to you later"],
+    id: 7,
+    question: "Goodbye",
+    keywords: [
+      "bye",
+      "goodbye",
+      "see you",
+      "see you later",
+      "talk to you later",
+    ],
     answer:
       "Goodbye! 👋 Thank you for visiting CoinStep. We're here whenever you need assistance.",
   },
@@ -55,50 +82,70 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 8,
+    question: "What is CoinStep?",
     keywords: [
-      "what is CoinStep",
-      "tell me about CoinStep",
-      "what does CoinStep do",
-      "what is CoinStep used for",
-      "explain CoinStep",
+      "what is coinstep",
+      "tell me about coinstep",
+      "what does coinstep do",
+      "what is coinstep used for",
+      "explain coinstep",
     ],
     answer:
-      "CoinStep is designed to provide a simpler way to explore Web3, manage blockchain interactions and access wallet-related features from one platform.",
+      "CoinStep is built with an advanced coin control wallet to help users manage their digital assets with better control and security.",
   },
 
   {
+    id: 9,
+    question: "Who can use CoinStep?",
     keywords: [
-      "who can use CoinStep",
-      "who is CoinStep for",
-      "is CoinStep for beginners",
-      "can beginners use CoinStep",
-      "is CoinStep easy for beginners",
+      "who can use coinstep",
+      "who is coinstep for",
     ],
     answer:
-      "CoinStep is designed for people exploring Web3, including beginners who want a simpler way to understand and use blockchain-related features.",
+      "CoinStep is designed for cryptocurrency users who want to manage their digital assets safely and securely.",
   },
 
   {
+    id: 10,
+    question: "Why should I use CoinStep?",
     keywords: [
-      "why should i use CoinStep",
-      "why choose CoinStep",
-      "what are the advantages of CoinStep",
-      "what are the benefits of CoinStep",
-      "what makes CoinStep useful",
+      "why should i use coinstep",
+      "why choose coinstep",
+      "what are the advantages of coinstep",
+      "what are the benefits of coinstep",
+      "what makes coinstep useful",
     ],
     answer:
-      " CoinStep is an advanced coin control wallet designed to give users greater control over their digital assets while providing a simple, secure and user-friendly Web3 experience.",
+      "CoinStep is an advanced coin control wallet designed to give users greater control over their digital assets while providing a simple, secure and user-friendly Web3 experience.",
   },
 
   {
+    id: 11,
+    question: "What can I do with CoinStep?",
     keywords: [
-      "what can i do with CoinStep",
-      "what can CoinStep do",
+      "what can i do with coinstep",
+      "what can coinstep do",
       "what features can i use",
-      "what can users do in CoinStep",
+      "what can users do in coinstep",
     ],
     answer:
-      "CoinStep is intended to help users access wallet-related features, manage digital assets, interact with blockchain services and explore Web3 experiences through a simpler interface.",
+      "CoinStep helps users manage digital assets, send and receive crypto, view transaction details, connect with blockchain networks and access supported Web3 features.",
+  },
+
+  {
+    id: 12,
+    question: "What is an advanced coin control wallet?",
+    keywords: [
+      "what is advanced coin control wallet",
+      "what does advanced coin control mean",
+      "explain advanced coin control",
+      "what is coin control",
+      "advanced wallet meaning",
+      "what is advanced wallet",
+    ],
+    answer:
+      "An advanced coin control wallet gives users more control over how their crypto funds are managed, including transaction selection, fees, network settings and supported wallet operations.",
   },
 
   /* =========================================================
@@ -106,38 +153,47 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 13,
+    question: "How do I start using CoinStep?",
     keywords: [
-      "how do i start using CoinStep",
-      "how can i get started with CoinStep",
-      "i am new to CoinStep",
+      "how do i start using coinstep",
+      "how can i get started with coinstep",
+      "i am new to coinstep",
       "what should i do first",
       "how do i begin",
     ],
     answer:
-      "Start by accessing the official CoinStep platform, review the available features, understand basic wallet safety and then follow the supported setup or wallet connection process.",
+      "Start by accessing the official CoinStep platform, set up or connect your supported wallet and follow the available wallet options.",
   },
 
   {
+    id: 14,
+    question: "How can I use CoinStep?",
     keywords: [
-      "how can i use CoinStep",
-      "how does CoinStep work",
-      "how do i use CoinStep",
-      "show me how to use CoinStep",
-      "CoinStep workflow",
+      "how can i use coinstep",
+      "how does coinstep work",
+      "how do i use coinstep",
+      "show me how to use coinstep",
+      "coinstep workflow",
     ],
     answer:
-      "Using CoinStep generally involves accessing the platform, setting up or connecting a supported wallet, choosing the feature you need and carefully reviewing transaction details before confirming any blockchain action.",
+      "Open CoinStep, set up or connect your wallet, choose the feature you need and review the transaction details before confirming any blockchain action.",
   },
 
   {
+    id: 15,
+    question: "Can I use CoinStep as a desktop extension?",
     keywords: [
-      "where can i access CoinStep",
-      "where can i use CoinStep",
-      "can i use CoinStep in browser",
-      "is CoinStep a website",
+      "can i use coinstep desktop extension",
+      "is coinstep available as extension",
+      "can i use coinstep browser extension",
+      "does coinstep have desktop extension",
+      "can i install coinstep extension",
+      "can i use coinstep in desktop",
+      "is coinstep available on desktop",
     ],
     answer:
-      "Use only the official CoinStep website or officially provided access links. Avoid unknown links or unofficial copies of the platform.",
+      "CoinStep can be accessed through supported desktop extension options based on the current CoinStep product version. Use only the official CoinStep extension or official access links.",
   },
 
   /* =========================================================
@@ -145,18 +201,22 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 16,
+    question: "Is CoinStep secure?",
     keywords: [
-      "is CoinStep safe",
-      "is CoinStep secure",
-      "can i trust CoinStep",
-      "is CoinStep trustworthy",
-      "how safe is CoinStep",
+      "is coinstep safe",
+      "is coinstep secure",
+      "can i trust coinstep",
+      "is coinstep trustworthy",
+      "how safe is coinstep",
     ],
     answer:
-      "CoinStep is designed for Web3 interactions, but users should always follow standard wallet security practices. Never share your private key, seed phrase or wallet password with anyone.",
+      "CoinStep is designed with wallet security in mind. Never share your private key, seed phrase or wallet password with anyone.",
   },
 
   {
+    id: 17,
+    question: "How can I secure my wallet?",
     keywords: [
       "how can i secure my wallet",
       "how do i keep my wallet safe",
@@ -165,43 +225,49 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how do i improve wallet security",
     ],
     answer:
-      "Keep your private key and seed phrase secret, use strong device security, verify addresses before transactions, avoid suspicious links, use only official CoinStep channels and carefully review permissions before approving wallet actions.",
+      "Keep your private key and seed phrase secret, verify wallet addresses before transactions, avoid suspicious links and use only official CoinStep channels.",
   },
 
   {
+    id: 18,
+    question: "Should I share my private key?",
     keywords: [
       "should i share my private key",
       "can support ask for my private key",
-      "does CoinStep need my private key",
-      "does CoinStep store my private key",
-      "can CoinStep access my private key",
+      "does coinstep need my private key",
+      "does coinstep store my private key",
+      "can coinstep access my private key",
     ],
     answer:
-      "Never share your private key with anyone. CoinStep Assistant or support should never ask you to send your private key.",
+      "No. Never share your private key with anyone. CoinStep support will not ask you to send your private key.",
   },
 
   {
+    id: 19,
+    question: "Should I share my seed phrase?",
     keywords: [
       "should i share my seed phrase",
-      "does CoinStep need my seed phrase",
-      "does CoinStep store my seed phrase",
+      "does coinstep need my seed phrase",
+      "does coinstep store my seed phrase",
       "can support ask for my seed phrase",
       "what if someone asks for my seed phrase",
     ],
     answer:
-      "Never share your seed phrase with anyone. Anyone who obtains it may be able to access your wallet and digital assets.",
+      "No. Never share your seed phrase with anyone. Anyone who gets your seed phrase may be able to access your wallet.",
   },
 
   {
+    id: 20,
+    question: "How can I avoid scams and phishing?",
     keywords: [
       "how can i avoid scams",
       "how do i avoid phishing",
-      "how can i identify a fake CoinStep website",
-      "how do i know if a CoinStep link is real",
+      "how can i identify a fake coinstep website",
+      "how do i know if a coinstep link is real",
       "how do i stay safe from fake links",
     ],
     answer:
-      "Use only official CoinStep links, verify website addresses carefully, avoid unknown links and never share your private key, seed phrase or wallet password.",
+      "Use only official CoinStep links, check website addresses carefully and never share your private key, seed phrase or wallet password.",
   },
 
   /* =========================================================
@@ -209,49 +275,71 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 21,
+    question: "What wallet do I need?",
     keywords: [
       "what wallet do i need",
-      "do i need a wallet for CoinStep",
+      "do i need a wallet for coinstep",
       "do i need a crypto wallet",
       "which wallet should i use",
     ],
     answer:
-      "The wallet you need depends on the CoinStep feature you are using. Always follow the supported wallet options shown on the official platform.",
+      "The wallet you need depends on the CoinStep feature you are using. Use the supported wallet options available in CoinStep.",
   },
 
   {
+    id: 22,
+    question: "How do I connect my wallet with DeFi?",
     keywords: [
-      "how do i connect my wallet",
-      "how to connect wallet",
-      "connect wallet to CoinStep",
-      "can i connect metamask",
-      "can i connect trust wallet",
+      "how to connect my wallet with defi",
+      "how do i connect wallet to defi",
+      "connect wallet with defi",
+      "how to connect defi wallet",
     ],
     answer:
-      "Use the wallet connection option provided on the official CoinStep platform. Choose a supported wallet, review the connection request carefully and approve it only from your wallet application.",
+      "Use the wallet connection option in CoinStep, select the supported wallet and approve the connection request from your wallet.",
   },
 
   {
+    id: 23,
+    question: "Who controls my wallet?",
     keywords: [
       "who controls my wallet",
       "do i control my wallet",
-      "does CoinStep own my wallet",
-      "does CoinStep own my funds",
+      "does coinstep own my wallet",
+      "does coinstep own my funds",
       "who owns the assets in my wallet",
     ],
     answer:
-      "Wallet control depends on the wallet setup being used. Your private key and recovery credentials should remain private and should never be shared with anyone.",
+      "You control your wallet through your wallet credentials. Your private key and recovery details should always remain private.",
   },
 
   {
+    id: 24,
+    question: "Can CoinStep access my wallet funds?",
     keywords: [
       "does connecting wallet give access to funds",
-      "can CoinStep move my funds",
-      "can CoinStep control my wallet",
-      "can CoinStep access my wallet",
+      "can coinstep move my funds",
+      "can coinstep control my wallet",
+      "can coinstep access my wallet",
     ],
     answer:
-      "Connecting a wallet should not require sharing your private key or seed phrase. Always review wallet permissions carefully before approving any request.",
+      "Connecting your wallet does not require you to share your private key or seed phrase. Always review wallet permissions before approving a request.",
+  },
+
+  {
+    id: 25,
+    question: "Is my private key visible in the CoinStep wallet?",
+    keywords: [
+      "is private key visible",
+      "can i see my private key",
+      "where is my private key",
+      "can i view private key in coinstep",
+      "does coinstep show private key",
+      "how to see private key",
+    ],
+    answer:
+      "Yes. In our CoinStep wallet, users can view their private key through the supported wallet security settings. Never share your private key with anyone.",
   },
 
   /* =========================================================
@@ -259,6 +347,8 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 26,
+    question: "How do I back up my wallet?",
     keywords: [
       "how do i backup my wallet",
       "should i backup my wallet",
@@ -267,10 +357,12 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how do i protect my wallet backup",
     ],
     answer:
-      "Follow the wallet's official backup process and keep recovery information in a secure private location. Never share your recovery phrase or store it somewhere others can easily access.",
+      "Use the wallet backup option and keep your recovery information in a secure private location. Never share your recovery phrase with anyone.",
   },
 
   {
+    id: 27,
+    question: "What if I lose my phone or wallet access?",
     keywords: [
       "what if i lose access to my wallet",
       "what if i lose my phone",
@@ -279,7 +371,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "can i recover my wallet on another device",
     ],
     answer:
-      "Wallet recovery depends on the recovery method supported by your wallet. Use only the wallet's official recovery process and never send your recovery phrase to another person or support agent.",
+      "Use the supported wallet recovery process with your recovery details. Never send your recovery phrase to another person or support agent.",
   },
 
   /* =========================================================
@@ -287,17 +379,21 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 28,
+    question: "How do I send crypto?",
     keywords: [
       "how do i send crypto",
       "how can i send coins",
       "how do i transfer crypto",
-      "how do i send crypto using CoinStep",
+      "how do i send crypto using coinstep",
     ],
     answer:
-      "To send crypto, select the asset, enter or scan the recipient's wallet address, confirm the correct blockchain network, review the amount and fees, then approve the transaction.",
+      "Select the asset, enter or scan the receiver's wallet address, choose the correct network, enter the amount and confirm the transaction.",
   },
 
   {
+    id: 29,
+    question: "How do I receive crypto?",
     keywords: [
       "how do i receive crypto",
       "how can i receive coins",
@@ -305,10 +401,12 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how can someone send crypto to me",
     ],
     answer:
-      "To receive crypto, use your wallet's receive option, select the correct asset and network, then share your public wallet address or QR code with the sender.",
+      "Select the receive option, choose the asset and network, then share your public wallet address or QR code with the sender.",
   },
 
   {
+    id: 30,
+    question: "What should I check before sending crypto?",
     keywords: [
       "what should i check before sending crypto",
       "how do i avoid sending crypto wrong",
@@ -316,7 +414,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how to send crypto safely",
     ],
     answer:
-      "Before sending crypto, verify the recipient address, blockchain network, token type, amount and network fee. Blockchain transactions may not be reversible once confirmed.",
+      "Check the receiver address, blockchain network, token, amount and network fee before confirming the transaction.",
   },
 
   /* =========================================================
@@ -324,6 +422,8 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 31,
+    question: "Why is my transaction pending?",
     keywords: [
       "why is my transaction pending",
       "transaction is pending",
@@ -331,21 +431,12 @@ export const chatbotResponses: ChatbotResponse[] = [
       "why is transfer taking long",
     ],
     answer:
-      "A transaction may remain pending because of network congestion, low network fees or wallet/network conditions. Check the transaction hash using the appropriate blockchain explorer.",
+      "A transaction may stay pending because of network congestion, network fees or blockchain conditions. You can check the transaction using its transaction hash.",
   },
 
   {
-    keywords: [
-      "why did my transaction fail",
-      "transaction failed",
-      "why was my transfer rejected",
-      "my crypto transaction failed",
-    ],
-    answer:
-      "Transactions can fail because of insufficient network fees, insufficient balance, network issues or smart contract errors. Review the transaction details before trying again.",
-  },
-
-  {
+    id: 32,
+    question: "What is a transaction hash?",
     keywords: [
       "what is transaction hash",
       "where is my transaction hash",
@@ -354,21 +445,25 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how do i verify transaction",
     ],
     answer:
-      "A transaction hash is the unique identifier for a blockchain transaction. You can use it on the appropriate blockchain explorer to check the transaction status and confirmation details.",
+      "A transaction hash is a unique ID for a blockchain transaction. You can use it to check the transaction status on a blockchain explorer.",
   },
 
   {
+    id: 33,
+    question: "Can I cancel or reverse a transaction?",
     keywords: [
       "can i cancel transaction",
       "can i reverse transaction",
-      "can CoinStep reverse transaction",
+      "can coinstep reverse transaction",
       "can crypto transfer be reversed",
     ],
     answer:
-      "Confirmed blockchain transactions are generally irreversible. Some pending transactions may have limited options depending on the wallet and network, so always verify the details before confirming.",
+      "Confirmed blockchain transactions are generally irreversible. Always check the transaction details before confirming.",
   },
 
   {
+    id: 34,
+    question: "How many confirmations are needed?",
     keywords: [
       "how many confirmations are needed",
       "how many confirmations does a transaction need",
@@ -377,7 +472,25 @@ export const chatbotResponses: ChatbotResponse[] = [
       "is 11 confirmations enough",
     ],
     answer:
-      "For the CoinStep flow currently documented, 12 block confirmations are required before a transaction is treated as fully confirmed. At 11 confirmations, it has received confirmations but has not yet reached that threshold.",
+      "CoinStep requires 12 block confirmations before the transaction is treated as fully confirmed. At 11 confirmations, the transaction is still not fully confirmed.",
+  },
+
+  /* =========================================================
+     BLOCKCHAIN EXPLORER
+  ========================================================= */
+
+  {
+    id: 35,
+    question: "What is a blockchain explorer?",
+    keywords: [
+      "what is blockchain explorer",
+      "what is a block explorer",
+      "how can i check blockchain transaction",
+      "where can i check my transaction",
+      "how to use blockchain explorer",
+    ],
+    answer:
+      "A blockchain explorer allows you to check transaction details, wallet addresses, block confirmations and transaction status using blockchain data.",
   },
 
   /* =========================================================
@@ -385,6 +498,8 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 36,
+    question: "What is a gas fee?",
     keywords: [
       "why do i pay gas fee",
       "what is gas fee",
@@ -392,10 +507,12 @@ export const chatbotResponses: ChatbotResponse[] = [
       "why do transactions have network fees",
     ],
     answer:
-      "Gas or network fees are paid to the blockchain network for processing and validating transactions. These fees are generally determined by the network rather than by the wallet interface.",
+      "Gas or network fees are paid to the blockchain network for processing and validating transactions.",
   },
 
   {
+    id: 37,
+    question: "Why is the gas fee high?",
     keywords: [
       "why is gas fee high",
       "why are network fees high",
@@ -403,7 +520,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "why did fee increase",
     ],
     answer:
-      "Network fees can increase when blockchain activity is high or when a transaction requires more computation. Fees can vary depending on the network and current demand.",
+      "Network fees can increase when blockchain activity is high. Fees may change depending on the network and current demand.",
   },
 
   /* =========================================================
@@ -411,37 +528,129 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 38,
+    question: "Which coins does CoinStep support?",
     keywords: [
-      "which coins does CoinStep support",
+      "which coins does coinstep support",
       "what cryptocurrencies are supported",
-      "which tokens can i use in CoinStep",
-      "what assets does CoinStep support",
-      "does CoinStep support all coins",
+      "which tokens can i use in coinstep",
+      "what assets does coinstep support",
+      "does coinstep support all coins",
     ],
     answer:
-      "A complete confirmed list of supported coins and tokens should be checked through official CoinStep product information and updates.",
+      "Check the CoinStep platform for the current list of supported coins and tokens.",
   },
 
   {
+    id: 39,
+    question: "Is CoinStep a multichain wallet?",
     keywords: [
-      "which networks does CoinStep support",
-      "which blockchain does CoinStep use",
-      "does CoinStep support ethereum",
+      "is coinstep a multichain wallet",
+      "does coinstep support multiple chains",
+      "does coinstep support multiple blockchains",
+      "is coinstep multichain",
+      "which chain does coinstep prefer",
+    ],
+    answer:
+      "Yes. CoinStep is designed as a multichain wallet, with Bitcoin as the first preference while supporting additional blockchain networks.",
+  },
+
+  {
+    id: 40,
+    question: "Which blockchain is the first preference in CoinStep?",
+    keywords: [
+      "which blockchain is first preference",
+      "what is coinstep first preference",
+      "is bitcoin first preference",
+      "does coinstep prefer bitcoin",
+      "which coin is primary in coinstep",
+    ],
+    answer:
+      "Bitcoin is the first preference in CoinStep, while other supported blockchain networks are also available based on CoinStep wallet support.",
+  },
+
+  {
+    id: 41,
+    question: "Which networks does CoinStep support?",
+    keywords: [
+      "which networks does coinstep support",
+      "which blockchain does coinstep use",
+      "does coinstep support ethereum",
       "what blockchain networks are available",
     ],
     answer:
-      "Supported blockchain networks depend on the current CoinStep product version. Use the network options displayed on the official platform and confirm the network before making a transaction.",
+      "CoinStep supports multiple blockchain networks based on the current wallet version. Check the available network options inside CoinStep.",
   },
 
   {
+    id: 42,
+    question: "Can I add a custom token?",
     keywords: [
       "can i add a custom token",
-      "how do i add a token to CoinStep",
+      "how do i add a token to coinstep",
       "can i manually add a coin",
-      "does CoinStep support custom tokens",
+      "does coinstep support custom tokens",
     ],
     answer:
-      "Custom-token support depends on the current CoinStep product features. Use only verified token contract information and follow the official CoinStep instructions if the feature is available.",
+      "Custom tokens can be added if the feature is supported. Always use the correct and verified token contract address.",
+  },
+
+  /* =========================================================
+     SWAP
+  ========================================================= */
+
+  {
+    id: 43,
+    question: "Can I swap cryptocurrencies in CoinStep?",
+    keywords: [
+      "can i swap",
+      "can i swap crypto",
+      "does coinstep support swap",
+      "can i swap coins in coinstep",
+      "can i exchange tokens",
+      "can i swap one coin to another",
+    ],
+    answer:
+      "If the swap feature is available in CoinStep, you can select the assets you want to swap, review the transaction details and confirm the swap.",
+  },
+
+  /* =========================================================
+     ICO
+  ========================================================= */
+
+  {
+    id: 44,
+    question: "Does CoinStep offer ICO services?",
+    keywords: [
+      "does coinstep offer ico",
+      "does coinstep support ico",
+      "is ico available in coinstep",
+      "can i buy ico in coinstep",
+      "initial coin offering",
+      "does coinstep provide initial coin offering",
+    ],
+    answer:
+      "CoinStep does not currently provide ICO services unless an Initial Coin Offering is officially announced by CoinStep  Telegram channel.",
+  },
+
+  /* =========================================================
+     NODE / SERVER SETTINGS
+  ========================================================= */
+
+  {
+    id: 45,
+    question: "Can I change the node or server settings?",
+    keywords: [
+      "can i change server settings",
+      "can i change node settings",
+      "can i connect node 1 to node 2",
+      "can i switch node",
+      "can i change rpc",
+      "can i change rpc server",
+      "can i connect another node",
+    ],
+    answer:
+      "Yes. CoinStep allows you to change the node or RPC server settings and connect to another supported blockchain node.",
   },
 
   /* =========================================================
@@ -449,6 +658,8 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 46,
+    question: "Why is my wallet not connecting?",
     keywords: [
       "my wallet is not connecting",
       "wallet not connecting",
@@ -456,35 +667,41 @@ export const chatbotResponses: ChatbotResponse[] = [
       "wallet connection failed",
     ],
     answer:
-      "Make sure your wallet is unlocked, connected to the correct network and supported by the platform. Refresh the page and reconnect if necessary. Never share your seed phrase while troubleshooting.",
+      "Make sure your wallet is unlocked, connected to the correct network and supported by CoinStep. Refresh and try connecting again.",
   },
 
   {
+    id: 47,
+    question: "Why is CoinStep not working?",
     keywords: [
-      "CoinStep is not opening",
-      "CoinStep not working",
+      "coinstep is not opening",
+      "coinstep not working",
       "page is not working",
       "page is loading slowly",
       "i am getting an error",
     ],
     answer:
-      "Check your internet connection, refresh the page and reopen the official CoinStep website. If the issue continues, contact CoinStep Support and share the error details without sharing private wallet credentials.",
+      "Check your internet connection, refresh CoinStep and try again. If the problem continues, contact CoinStep Support.",
   },
 
   {
+    id: 48,
+    question: "How do I contact CoinStep Support?",
     keywords: [
       "how do i contact support",
-      "how do i contact CoinStep",
-      "where is CoinStep support",
+      "how do i contact coinstep",
+      "where is coinstep support",
       "i need help",
       "can i speak to support",
       "how do i report an issue",
     ],
     answer:
-      "For account-specific, technical or security-related assistance, please use the official CoinStep Support section or official company support channels.",
+      "Use the official CoinStep Support section or official CoinStep support channels for technical or account-related assistance.",
   },
 
   {
+    id: 49,
+    question: "What should I do if my wallet is hacked?",
     keywords: [
       "what should i do if wallet is hacked",
       "my wallet may be compromised",
@@ -493,7 +710,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how do i report suspicious activity",
     ],
     answer:
-      "If you suspect unauthorized wallet activity, stop approving new transactions, avoid suspicious links and contact official support. Never share your private key or seed phrase while requesting help.",
+      "Stop approving transactions, avoid suspicious links and contact CoinStep Support. Never share your private key or seed phrase.",
   },
 
   /* =========================================================
@@ -501,24 +718,28 @@ export const chatbotResponses: ChatbotResponse[] = [
   ========================================================= */
 
   {
+    id: 50,
+    question: "Where can I get CoinStep updates?",
     keywords: [
-      "where can i get CoinStep updates",
-      "how can i know about CoinStep updates",
-      "where can i see CoinStep announcements",
+      "where can i get coinstep updates",
+      "how can i know about coinstep updates",
+      "where can i see coinstep announcements",
       "how do i know about new features",
     ],
     answer:
-      "CoinStep product updates, announcements and new feature information should be followed through official CoinStep communication channels.",
+      "Follow official CoinStep communication channels for product updates, announcements and new features.",
   },
 
   {
+    id: 51,
+    question: "How do I update CoinStep?",
     keywords: [
-      "how do i update CoinStep",
-      "where can i get latest CoinStep version",
-      "how do i know CoinStep is updated",
-      "where can i check CoinStep version",
+      "how do i update coinstep",
+      "where can i get latest coinstep version",
+      "how do i know coinstep is updated",
+      "where can i check coinstep version",
     ],
     answer:
-      "Use only official CoinStep sources for product updates or new versions. Avoid downloading wallet-related software from unknown links.",
+      "Use only official CoinStep sources or supported extension update options to get the latest CoinStep version.",
   },
 ];
