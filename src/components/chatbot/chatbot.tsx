@@ -33,7 +33,6 @@ type Message = {
 ========================================================= */
 
 const Chatbot = () => {
-
   const [isOpen, setIsOpen] =
     useState(false);
 
@@ -48,6 +47,7 @@ const Chatbot = () => {
 
   const [showNudge, setShowNudge] =
     useState(false);
+  
 
 
   /* =========================================================
@@ -74,11 +74,9 @@ const Chatbot = () => {
   ========================================================= */
 
   useEffect(() => {
-
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
-
   }, [messages, loading]);
 
 
@@ -87,46 +85,32 @@ const Chatbot = () => {
   ========================================================= */
 
   useEffect(() => {
-
     const showTimer =
       window.setTimeout(() => {
         setShowNudge(true);
       }, 1400);
-
 
     const hideTimer =
       window.setTimeout(() => {
         setShowNudge(false);
       }, 6000);
 
-
     return () => {
-
-      window.clearTimeout(
-        showTimer
-      );
-
-      window.clearTimeout(
-        hideTimer
-      );
-
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
     };
-
   }, []);
 
 
   /* =========================================================
      SEND MESSAGE
-     FRONTEND-ONLY CHATBOT
   ========================================================= */
 
   const sendMessage = (
     message: string
   ) => {
-
     const cleanMessage =
       message.trim();
-
 
     if (
       !cleanMessage ||
@@ -135,8 +119,6 @@ const Chatbot = () => {
       return;
     }
 
-
-    /* USER MESSAGE */
 
     const userMessage: Message = {
       id: Date.now(),
@@ -152,21 +134,10 @@ const Chatbot = () => {
 
 
     setInput("");
-
     setLoading(true);
 
 
-    /* =====================================================
-       FRONTEND MATCHING
-
-       No FastAPI
-       No Gemini
-       No Claude
-       No OpenAI
-    ===================================================== */
-
     window.setTimeout(() => {
-
       const answer =
         getChatbotAnswer(
           cleanMessage
@@ -187,9 +158,7 @@ const Chatbot = () => {
 
 
       setLoading(false);
-
     }, 400);
-
   };
 
 
@@ -200,11 +169,9 @@ const Chatbot = () => {
   const handleSubmit = (
     event: FormEvent<HTMLFormElement>
   ) => {
-
     event.preventDefault();
 
     sendMessage(input);
-
   };
 
 
@@ -215,9 +182,7 @@ const Chatbot = () => {
   const handleSuggestion = (
     question: string
   ) => {
-
     sendMessage(question);
-
   };
 
 
@@ -226,7 +191,6 @@ const Chatbot = () => {
   ========================================================= */
 
   const clearChat = () => {
-
     setMessages([
       {
         id: Date.now(),
@@ -235,7 +199,6 @@ const Chatbot = () => {
           "Chat cleared. 👋 How can I help you with CoinStep?",
       },
     ]);
-
   };
 
 
@@ -244,11 +207,9 @@ const Chatbot = () => {
   ========================================================= */
 
   const openChat = () => {
-
     setShowNudge(false);
 
     setIsOpen(true);
-
   };
 
 
@@ -257,11 +218,9 @@ const Chatbot = () => {
   ========================================================= */
 
   const minimizeChat = () => {
-
     setIsOpen(false);
 
     setIsMaximized(false);
-
   };
 
 
@@ -270,24 +229,20 @@ const Chatbot = () => {
   ========================================================= */
 
   const closeChat = () => {
-
     setIsOpen(false);
 
     setIsMaximized(false);
-
   };
 
 
   /* =========================================================
-     MAXIMIZE
+     MAXIMIZE / RESTORE
   ========================================================= */
 
   const toggleMaximize = () => {
-
     setIsMaximized(
       (previous) => !previous
     );
-
   };
 
 
@@ -296,19 +251,15 @@ const Chatbot = () => {
   ========================================================= */
 
   return (
-
     <>
-
       {/* =====================================================
           CHATBOT LAUNCHER
       ===================================================== */}
 
       {!isOpen && (
-
         <div className="chatbot-launcher-wrapper">
 
-
-          {/* ASSISTANT INTRO CARD */}
+          {/* INTRO CARD */}
 
           <div
             className={`chatbot-nudge ${
@@ -317,7 +268,6 @@ const Chatbot = () => {
                 : ""
             }`}
           >
-
             <div className="chatbot-nudge-content">
 
               <div className="chatbot-nudge-symbol">
@@ -357,6 +307,7 @@ const Chatbot = () => {
             }
             aria-label="Open CoinStep Assistant"
           >
+            
 
             <img
               src={chatbotRobot}
@@ -367,11 +318,9 @@ const Chatbot = () => {
             <span className="chatbot-ai-spark">
               ✦
             </span>
-
           </button>
 
         </div>
-
       )}
 
 
@@ -380,7 +329,6 @@ const Chatbot = () => {
       ===================================================== */}
 
       {isOpen && (
-
         <div
           className={`chatbot-container ${
             isMaximized
@@ -389,7 +337,6 @@ const Chatbot = () => {
           }`}
         >
 
-
           {/* =================================================
               HEADER
           ================================================= */}
@@ -397,7 +344,6 @@ const Chatbot = () => {
           <div className="chatbot-header">
 
             <div className="chatbot-header-left">
-
 
               <div className="chatbot-avatar">
                 C
@@ -419,36 +365,68 @@ const Chatbot = () => {
             </div>
 
 
-            <div className="chatbot-header-actions">
+            {/* HEADER ACTIONS */}
 
+            <div className="chatbot-header-actions">
 
               {/* MINIMIZE */}
 
               <button
                 type="button"
-                className="chatbot-header-button"
+                className="chatbot-window-button"
                 onClick={minimizeChat}
                 aria-label="Minimize chatbot"
+                title="Minimize"
               >
-                −
+                <span className="chatbot-minimize-icon" />
               </button>
 
 
-              {/* MAXIMIZE */}
+              {/* FULLSCREEN / EXIT FULLSCREEN */}
 
               <button
                 type="button"
-                className="chatbot-header-button"
+                className="chatbot-window-button"
                 onClick={toggleMaximize}
                 aria-label={
                   isMaximized
                     ? "Restore chatbot"
                     : "Maximize chatbot"
                 }
+                title={
+                  isMaximized
+                    ? "Restore"
+                    : "Maximize"
+                }
               >
-                {isMaximized
-                  ? "❐"
-                  : "□"}
+                {isMaximized ? (
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    className="chatbot-control-svg"
+                    aria-hidden="true"
+                  >
+                    <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z" />
+                  </svg>
+
+                ) : (
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    className="chatbot-control-svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"
+                    />
+                  </svg>
+
+                )}
               </button>
 
 
@@ -456,11 +434,12 @@ const Chatbot = () => {
 
               <button
                 type="button"
-                className="chatbot-close-button"
+                className="chatbot-window-button chatbot-close-window-button"
                 onClick={closeChat}
                 aria-label="Close chatbot"
+                title="Close"
               >
-                ×
+                <span className="chatbot-close-icon" />
               </button>
 
             </div>
@@ -474,7 +453,6 @@ const Chatbot = () => {
 
           <div className="chatbot-messages">
 
-
             {messages.map(
               (message) => (
 
@@ -487,9 +465,6 @@ const Chatbot = () => {
                   }`}
                 >
 
-
-                  {/* BOT AVATAR */}
-
                   {message.sender ===
                     "bot" && (
 
@@ -500,8 +475,6 @@ const Chatbot = () => {
                   )}
 
 
-                  {/* MESSAGE */}
-
                   <div
                     className={`chatbot-message ${
                       message.sender ===
@@ -510,9 +483,7 @@ const Chatbot = () => {
                         : "bot-message"
                     }`}
                   >
-
                     {message.text}
-
                   </div>
 
                 </div>
@@ -521,9 +492,7 @@ const Chatbot = () => {
             )}
 
 
-            {/* =================================================
-                TYPING INDICATOR
-            ================================================= */}
+            {/* TYPING INDICATOR */}
 
             {loading && (
 
@@ -558,7 +527,6 @@ const Chatbot = () => {
           ================================================= */}
 
           <div className="chatbot-suggestions">
-
 
             <button
               type="button"
@@ -678,13 +646,10 @@ const Chatbot = () => {
           </div>
 
         </div>
-
       )}
 
     </>
-
   );
-
 };
 
 
