@@ -64,18 +64,24 @@ export const chatbotResponses: ChatbotResponse[] = [
   },
 
   {
-    id: 7,
-    question: "Goodbye",
-    keywords: [
-      "bye",
-      "goodbye",
-      "see you",
-      "see you later",
-      "talk to you later",
-    ],
-    answer:
-      "Goodbye! 👋 Thank you for visiting CoinStep. We're here whenever you need assistance.",
-  },
+  id: 7,
+  question: "Goodbye",
+  keywords: [
+    "bye",
+    "byee",
+    "byeee",
+    "goodbye",
+    "good bye",
+    "good byee",
+    "good byeee",
+    "bye bye",
+    "see you",
+    "see you later",
+    "talk to you later",
+  ],
+  answer:
+    "Goodbye! 👋 Thank you for visiting CoinStep. We're here whenever you need assistance.",
+},
 
   /* =========================================================
      ABOUT COINSTEP
@@ -92,7 +98,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "explain coinstep",
     ],
     answer:
-      "CoinStep is built with an advanced coin control wallet to help users manage their digital assets with better control and security.",
+      "CoinStep is an advanced coin control wallet designed to help users manage their digital assets with greater control and security .",
   },
 
   {
@@ -115,9 +121,13 @@ export const chatbotResponses: ChatbotResponse[] = [
       "what are the advantages of coinstep",
       "what are the benefits of coinstep",
       "what makes coinstep useful",
+      "coinstep vs other wallets",
+      "how is coinstep different from other wallets",
+      "why is coinstep better than a normal wallet",
+
     ],
     answer:
-      "CoinStep is an advanced coin control wallet designed to give users greater control over their digital assets while providing a simple, secure and user-friendly Web3 experience.",
+       "Compared with basic cryptocurrency wallets that mainly focus on sending, receiving and storing crypto, CoinStep is designed to provide advanced coin control, greater flexibility in managing digital assets, transaction settings and supported blockchain networks.",
   },
 
   {
@@ -128,9 +138,10 @@ export const chatbotResponses: ChatbotResponse[] = [
       "what can coinstep do",
       "what features can i use",
       "what can users do in coinstep",
+      "what are coinstep features",
     ],
     answer:
-      "CoinStep helps users manage digital assets, send and receive crypto, view transaction details, connect with blockchain networks and access supported Web3 features.",
+      "CoinStep helps users manage digital assets, send and receive cryptocurrencies, view transaction details, connect to supported blockchain networks and access available Web3 features.",
   },
 
   {
@@ -152,19 +163,24 @@ export const chatbotResponses: ChatbotResponse[] = [
      GETTING STARTED
   ========================================================= */
 
-  {
-    id: 13,
-    question: "How do I start using CoinStep?",
-    keywords: [
-      "how do i start using coinstep",
-      "how can i get started with coinstep",
-      "i am new to coinstep",
-      "what should i do first",
-      "how do i begin",
-    ],
-    answer:
-      "Start by accessing the official CoinStep platform, set up or connect your supported wallet and follow the available wallet options.",
-  },
+  // {
+  //   id: 13,
+  //   question: "How do I start using CoinStep?",
+  //   keywords: [
+  //     "how do i start using coinstep",
+  //     "how can i get started with coinstep",
+  //     "i am new to coinstep",
+  //     "what should i do first",
+  //     "how do i begin",
+  //     "how to start coinstep",
+  //     "how do i install coinstep",
+
+
+
+  //   ],
+  //   answer:
+  //     "To get started with CoinStep, visit our official website: [OFFICIAL_COINSTEP_URL]. Access the supported wallet, then create a new wallet or import your existing wallet.",
+  // },
 
   {
     id: 14,
@@ -175,9 +191,12 @@ export const chatbotResponses: ChatbotResponse[] = [
       "how do i use coinstep",
       "show me how to use coinstep",
       "coinstep workflow",
+      "how does coinstep work",
+      "how to create wallet in coinstep",
+       "how to import wallet in coinstep",
     ],
     answer:
-      "Open CoinStep, set up or connect your wallet, choose the feature you need and review the transaction details before confirming any blockchain action.",
+      "Open CoinStep and create a new wallet or import your existing wallet. Once your wallet is ready, select the feature you need, review the transaction details and confirm your blockchain transactions.",
   },
 
   {
@@ -239,7 +258,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "can coinstep access my private key",
     ],
     answer:
-      "No. Never share your private key with anyone. CoinStep support will not ask you to send your private key.",
+      "No. Never share your private key with anyone. Your private key is confidential and must remain under your control. CoinStep will never ask you to share your private key.",
   },
 
   {
@@ -324,7 +343,7 @@ export const chatbotResponses: ChatbotResponse[] = [
       "can coinstep access my wallet",
     ],
     answer:
-      "Connecting your wallet does not require you to share your private key or seed phrase. Always review wallet permissions before approving a request.",
+      "Connecting a wallet does not require sharing your private key or recovery phrase. Always review transaction details and wallet permissions before approving any request.",
   },
 
   {
@@ -351,13 +370,19 @@ export const chatbotResponses: ChatbotResponse[] = [
     question: "How do I back up my wallet?",
     keywords: [
       "how do i backup my wallet",
+      "how do i back up my wallet",
+      "how to backup wallet",
+      "how to back up wallet",
       "should i backup my wallet",
       "how can i backup my wallet safely",
       "where should i keep my recovery phrase",
       "how do i protect my wallet backup",
+      "how can i save my wallet",
+      "wallet backup",
+      "backup wallet address and private key",
     ],
     answer:
-      "Use the wallet backup option and keep your recovery information in a secure private location. Never share your recovery phrase with anyone.",
+      "To back up your wallet, securely record your wallet address and the private key or recovery phrase provided by your wallet, as applicable. Store your private key or recovery phrase offline in a safe location. Never share these secrets with anyone. Your wallet address alone cannot restore access to your funds.",
   },
 
   {
@@ -681,37 +706,41 @@ export const chatbotResponses: ChatbotResponse[] = [
       "i am getting an error",
     ],
     answer:
-      "Check your internet connection, refresh CoinStep and try again. If the problem continues, contact CoinStep Support.",
+      "Check your internet connection and refresh CoinStep. If the issue continues, check the official CoinStep website for updates and available troubleshooting information.",
   },
 
   {
     id: 48,
-    question: "How do I contact CoinStep Support?",
+    question: "How can I get help with CoinStep?",
     keywords: [
-      "how do i contact support",
-      "how do i contact coinstep",
-      "where is coinstep support",
-      "i need help",
-      "can i speak to support",
-      "how do i report an issue",
+     "how do i contact support",
+     "how do i contact coinstep",
+    "how to contact coinstep support",
+    "where is coinstep support",
+    "i need help",
+    "can i speak to support",
+    "how do i report an issue",
+    "does coinstep have customer support",
+    "is customer support available",
+    "how can i get help",
     ],
     answer:
-      "Use the official CoinStep Support section or official CoinStep support channels for technical or account-related assistance.",
+      "CoinStep does not currently offer direct customer support. You can explore the CoinStep website and available guides for information about wallet features, security and transactions. Never share your private key or recovery phrase with anyone claiming to provide support.",
   },
 
-  {
-    id: 49,
-    question: "What should I do if my wallet is hacked?",
-    keywords: [
-      "what should i do if wallet is hacked",
-      "my wallet may be compromised",
-      "someone accessed my wallet",
-      "what should i do if i see suspicious activity",
-      "how do i report suspicious activity",
-    ],
-    answer:
-      "Stop approving transactions, avoid suspicious links and contact CoinStep Support. Never share your private key or seed phrase.",
-  },
+  // {
+  //   id: 49,
+  //   question: "What should I do if my wallet is hacked?",
+  //   keywords: [
+  //     "what should i do if wallet is hacked",
+  //     "my wallet may be compromised",
+  //     "someone accessed my wallet",
+  //     "what should i do if i see suspicious activity",
+  //     "how do i report suspicious activity",
+  //   ],
+  //   answer:
+  //     "Stop approving transactions, avoid suspicious links and contact CoinStep Support. Never share your private key or seed phrase.",
+  // },
 
   /* =========================================================
      UPDATES
@@ -730,16 +759,20 @@ export const chatbotResponses: ChatbotResponse[] = [
       "Follow official CoinStep communication channels for product updates, announcements and new features.",
   },
 
-  {
-    id: 51,
-    question: "How do I update CoinStep?",
-    keywords: [
-      "how do i update coinstep",
-      "where can i get latest coinstep version",
-      "how do i know coinstep is updated",
-      "where can i check coinstep version",
-    ],
-    answer:
-      "Use only official CoinStep sources or supported extension update options to get the latest CoinStep version.",
-  },
+//   {
+//   id: 51,
+//   question: "Where can I access CoinStep?",
+//   keywords: [
+//     "where can i access coinstep",
+//     "where can i find coinstep",
+//     "where can i open coinstep",
+//     "where to access coinstep",
+//     "coinstep official website",
+//     "coinstep website link",
+//     "where to get coinstep",
+//     "where can i download coinstep",
+//   ],
+//   answer:
+//     "You can access CoinStep through our official website: [OFFICIAL COINSTEP URL]. Always use verified CoinStep links to protect your wallet and digital assets.",
+// },
 ];

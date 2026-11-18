@@ -1,5 +1,5 @@
+
 import {
-  Navigate,
   Route,
   Routes,
   useLocation,
@@ -44,15 +44,10 @@ export default function App() {
 
       <main>
         <Routes>
-          {/* Open Platform when website starts at "/" */}
+          {/* PLATFORM - Opens directly at homepage */}
           <Route
             path="/"
-            element={
-              <Navigate
-                to="/platform"
-                replace
-              />
-            }
+            element={<Platform />}
           />
 
           {/* PLATFORM */}
@@ -104,8 +99,7 @@ export default function App() {
       {/* Footer shows on all pages except About */}
       {!isAboutPage && <Footer />}
 
-/* Coinstep Chatbot */
-       <Chatbot />  
+      <Chatbot />
     </>
   );
 }
